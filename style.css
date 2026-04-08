@@ -1,0 +1,206 @@
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #fffcff;
+	color: #50514f;
+}
+
+h1, h2, h3 {
+	color: #50514f;
+}
+
+h1 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+h2 {
+	background-color: #cbd4c2;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+section > h2 {
+	border-bottom: 2px solid #50514f;
+	padding-bottom: 4px;
+}
+
+section > p:first-of-type::first-letter {
+	font-size: 1.6em;
+	font-weight: bold;
+	color: #50514f;
+}
+
+p {
+	line-height: 1.6;
+	text-indent: 2em;
+}
+
+header {
+	background-color: #c8c9c7;
+	color: #fffcff;
+	text-align: center;
+	padding: 20px;
+}
+
+.logo {
+	max-width: 320px;
+	height: auto;
+}
+
+nav > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+}
+
+nav > ul > li {
+	margin: 0 12px;
+}
+
+nav ul li a {
+	display: block;
+	padding: 10px 14px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.main-nav {
+	background-color: #cbd4c2;
+	color: #50514f;
+	padding: 6px 0;
+	border-radius: 0 0 20px 20px;
+	border: 2px solid #50514f;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+}
+
+.main-nav a {
+	color: #50514f;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 10px 16px;
+	border-radius: 6px;
+	transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.main-nav a:hover {
+	background-color: #50514f;
+	transform: scale(1.05);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	color: #fffcff;
+}
+
+main {
+	max-width: 1200px;
+	margin: 20pt;
+	padding: 20px;
+}
+
+section {
+	background-color: #fffcff;
+	margin-bottom: 10px;
+	padding: 20px;
+	border-radius: 14px;
+	border-left: 6px solid #50514f;
+}
+
+figure {
+	margin: 20px auto;
+	text-align: center;
+	background-color: #cbd4c2;
+	padding: 15px;
+	border-radius: 10px;
+	border: 1px solid #50514f;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+figure img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+figcaption {
+	margin-top: 8px;
+	font-style: italic;
+	color: #50514f;
+}
+
+.images {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 20px;
+}
+
+strong {
+	color: black;
+}
+
+code {
+	background-color: #eeeeee;
+	padding: 2px 4px;
+}
+
+.subtitle {
+	text-align: center;
+	font-size: 1.2em;
+	color: #5a5a5a;
+	margin-top: -10px;
+	margin-bottom: 20px;
+}
+
+.liste-simple li {
+	margin-bottom: 8px;
+}
+
+#haut-page {
+	scroll-margin-top: 80px;
+}
+
+footer {
+	background-color: #c8c9c7;
+	text-align: center;
+	padding: 15px;
+	color: #000000;
+}
+
+.footer-info span {
+	margin: 5px 0;
+	color: #000000;
+}
+
+.footer-links a {
+	color: #2f362b;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.footer-links a:hover {
+	text-decoration: underline;
+}
+
+.link-btn {
+	display: inline-block;
+	margin: 5px 8px;
+}
+
+footer span {
+	color: #333;
+	display: block;
+	margin: 5px 0;
+}
+
+.back-top img {
+	width: 42px;
+	height: 42px;
+}
