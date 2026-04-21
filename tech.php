@@ -5,41 +5,14 @@ preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 $geoData = recuperer_geolocalisation();
 $stats = calculer_statistiques();
-?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Page tech - Plein Malin</title>
-	<meta name="description" content="Page technique conservee pour la validation de la partie 1 du projet.">
-	<link rel="stylesheet" href="style.css">
-	<link rel="icon" href="image/favicon.ico" type="image/x-icon">
-</head>
-<body class="theme-<?= texte_securise($theme) ?>">
-	<header class="site-header compact-header">
-		<div class="brand-row">
-			<a class="brand-link" href="index.php">
-				<img class="logo" src="image/<?= $theme === 'night' ? 'logoblanc.svg' : 'logonoir.svg' ?>" alt="Logo Plein Malin">
-			</a>
-			<div class="theme-switch">
-				<a href="?theme=day" class="theme-link">
-					<img src="image/theme-day.svg" alt="">
-					<span>Jour</span>
-				</a>
-				<a href="?theme=night" class="theme-link">
-					<img src="image/theme-night.svg" alt="">
-					<span>Nuit</span>
-				</a>
-			</div>
-		</div>
-		<nav class="main-nav">
-			<a href="index.php">Recherche</a>
-			<a href="stats.php">Statistiques</a>
-			<a href="tech.php">Page tech</a>
-		</nav>
-	</header>
 
+$pageTitle = "Page tech - Plein Malin";
+$pageDescription = "Page technique conservee pour la validation de la partie 1 du projet.";
+$activePage = "tech";
+$footerText = "Enzo Phung | Fatma-Zhara Baarir | Page technique conservee pour validation.";
+
+require __DIR__ . "/includes/header.php";
+?>
 	<main class="page-shell">
 		<section class="panel">
 			<p class="eyebrow">Partie 1 conservee</p>
@@ -98,12 +71,4 @@ $stats = calculer_statistiques();
 		</section>
 	</main>
 
-	<footer class="site-footer">
-		<div class="footer-links">
-			<a href="index.php">Retour a la recherche</a>
-			<a href="stats.php">Page statistiques</a>
-		</div>
-		<p>Page technique conservee pour validation.</p>
-	</footer>
-</body>
-</html>
+<?php require __DIR__ . "/includes/footer.php"; ?>

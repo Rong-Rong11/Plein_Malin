@@ -114,44 +114,14 @@ if ($currentCity !== null) {
 
 $departments = departements_par_region($region);
 $cities = villes_par_departement($department);
+
+$pageTitle = "Plein Malin";
+$pageDescription = "Recherche simple de stations-service et de prix des carburants.";
+$activePage = "index";
+$footerText = "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026";
+
+require __DIR__ . "/includes/header.php";
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Plein Malin</title>
-	<meta name="description" content="Recherche simple de stations-service et de prix des carburants.">
-	<link rel="stylesheet" href="style.css">
-	<link rel="icon" href="image/favicon.ico" type="image/x-icon">
-</head>
-<body class="theme-<?= texte_securise($theme) ?>">
-	<div id="top"></div>
-
-	<header class="site-header">
-		<div class="brand-row">
-			<a class="brand-link" href="index.php">
-				<img class="logo" src="image/<?= $theme === "night" ? "logoblanc.svg" : "logonoir.svg" ?>" alt="Logo Plein Malin">
-			</a>
-			<div class="theme-switch">
-				<a href="?theme=day" class="theme-link">
-					<img src="image/theme-day.svg" alt="">
-					<span>Jour</span>
-				</a>
-				<a href="?theme=night" class="theme-link">
-					<img src="image/theme-night.svg" alt="">
-					<span>Nuit</span>
-				</a>
-			</div>
-		</div>
-
-		<nav class="main-nav">
-			<a href="index.php">Accueil</a>
-			<a href="stats.php">Statistiques</a>
-			<a href="tech.php">Page tech</a>
-		</nav>
-	</header>
-
 	<main class="page-shell">
 		<section class="panel">
 			<p class="eyebrow">Projet web carburants</p>
@@ -170,27 +140,27 @@ $cities = villes_par_departement($department);
 
 		<section class="panel">
 			<h2>Carte des regions</h2>
-			<img src="image/france-map-diagram.svg" alt="Carte simplifiee des regions de France" usemap="#regions-map" class="map-image">
+			<img src="image/<?= $theme === "night" ? "map(dark).png" : "map(light).png" ?>" alt="Carte des regions de France" usemap="#regions-map" class="map-image">
 			<map name="regions-map">
-				<area shape="rect" coords="86,186,234,275" href="?region=53" alt="Bretagne">
-				<area shape="rect" coords="255,124,420,201" href="?region=28" alt="Normandie">
-				<area shape="rect" coords="473,78,629,154" href="?region=32" alt="Hauts-de-France">
-				<area shape="rect" coords="648,123,826,246" href="?region=44" alt="Grand Est">
-				<area shape="rect" coords="247,226,417,313" href="?region=52" alt="Pays de la Loire">
-				<area shape="rect" coords="434,220,603,312" href="?region=24" alt="Centre-Val de Loire">
-				<area shape="rect" coords="531,167,611,218" href="?region=11" alt="Ile-de-France">
-				<area shape="rect" coords="620,246,781,347" href="?region=27" alt="Bourgogne-Franche-Comte">
-				<area shape="rect" coords="210,335,442,515" href="?region=75" alt="Nouvelle-Aquitaine">
-				<area shape="rect" coords="454,428,678,548" href="?region=76" alt="Occitanie">
-				<area shape="rect" coords="653,362,827,491" href="?region=84" alt="Auvergne-Rhone-Alpes">
-				<area shape="rect" coords="783,468,899,548" href="?region=93" alt="Provence-Alpes-Cote d'Azur">
-				<area shape="rect" coords="845,579,906,667" href="?region=94" alt="Corse">
+				<area shape="rect" coords="141,273,385,404" href="?region=53#recherche" alt="Bretagne">
+				<area shape="rect" coords="420,182,691,295" href="?region=28#recherche" alt="Normandie">
+				<area shape="rect" coords="778,115,1035,226" href="?region=32#recherche" alt="Hauts-de-France">
+				<area shape="rect" coords="1066,181,1359,361" href="?region=44#recherche" alt="Grand Est">
+				<area shape="rect" coords="406,332,686,460" href="?region=52#recherche" alt="Pays de la Loire">
+				<area shape="rect" coords="714,323,992,458" href="?region=24#recherche" alt="Centre-Val de Loire">
+				<area shape="rect" coords="874,245,1005,320" href="?region=11#recherche" alt="Ile-de-France">
+				<area shape="rect" coords="1020,361,1285,510" href="?region=27#recherche" alt="Bourgogne-Franche-Comte">
+				<area shape="rect" coords="345,492,727,756" href="?region=75#recherche" alt="Nouvelle-Aquitaine">
+				<area shape="rect" coords="747,629,1115,805" href="?region=76#recherche" alt="Occitanie">
+				<area shape="rect" coords="1074,532,1361,721" href="?region=84#recherche" alt="Auvergne-Rhone-Alpes">
+				<area shape="rect" coords="1288,687,1479,805" href="?region=93#recherche" alt="Provence-Alpes-Cote d'Azur">
+				<area shape="rect" coords="1390,850,1491,980" href="?region=94#recherche" alt="Corse">
 			</map>
 		</section>
 
-		<section class="panel">
+		<section class="panel" id="recherche">
 			<h2>Recherche</h2>
-			<form method="get" class="search-form">
+			<form method="get" action="index.php#recherche" class="search-form">
 				<label>
 					Region
 					<select name="region" onchange="this.form.submit()">
@@ -336,15 +306,4 @@ $cities = villes_par_departement($department);
 		</section>
 	</main>
 
-	<footer class="site-footer">
-		<div class="footer-links">
-			<a href="stats.php">Statistiques</a>
-			<a href="tech.php">Page tech</a>
-			<a href="#top" class="back-top">
-				<img src="image/back_top.png" alt="Retour en haut">
-			</a>
-		</div>
-		<p>Enzo Phung | CY Cergy Paris Universite | Projet Web 2025-2026</p>
-	</footer>
-</body>
-</html>
+<?php require __DIR__ . "/includes/footer.php"; ?>
