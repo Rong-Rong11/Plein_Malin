@@ -1,19 +1,12 @@
-<svg width="680" height="160" viewBox="0 0 680 160" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="100" cy="80" r="62" fill="none" stroke="#1a1a1a" stroke-width="1.5" opacity="0.9"/>
-  <circle cx="100" cy="80" r="50" fill="none" stroke="#1a1a1a" stroke-width="0.8" opacity="0.4"/>
-  <circle cx="100" cy="80" r="49" fill="#1a1a1a" opacity="0.06"/>
-  <text x="100" y="91"
-        text-anchor="middle"
-        font-family="'Helvetica Neue', Arial, sans-serif"
-        font-size="30"
-        font-weight="700"
-        fill="#1a1a1a"
-        letter-spacing="2">FE</text>
-  <line x1="178" y1="28" x2="178" y2="132" stroke="#1a1a1a" stroke-width="1" opacity="0.3"/>
-  <text x="205" y="105"
-        font-family="'Helvetica Neue', Arial, sans-serif"
-        font-size="72"
-        font-weight="800"
-        fill="#1a1a1a"
-        letter-spacing="4">FENZI</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" role="img" aria-labelledby="title desc">
+  <title id="title">Logo Plein Malin clair</title>
+  <desc id="desc">Logo simple autour du carburant et de la mobilite.</desc>
+  <rect width="360" height="110" rx="24" fill="#f4e6cf"/>
+  <path d="M36 73c0-15 12-27 27-27h26v-8c0-7 6-13 13-13h12c7 0 13 6 13 13v35c0 7-6 13-13 13H63C48 86 36 88 36 73Z" fill="#18212b"/>
+  <path d="M81 25h16v17H81z" fill="#d6612b"/>
+  <circle cx="69" cy="86" r="8" fill="#d6612b"/>
+  <circle cx="112" cy="86" r="8" fill="#d6612b"/>
+  <path d="M137 45h50l17 11-17 11h-50l8-11-8-11Z" fill="#d6612b"/>
+  <text x="215" y="51" font-family="Trebuchet MS, sans-serif" font-size="30" font-weight="700" fill="#18212b">Plein</text>
+  <text x="215" y="82" font-family="Trebuchet MS, sans-serif" font-size="30" font-weight="700" fill="#18212b">Malin</text>
 </svg>

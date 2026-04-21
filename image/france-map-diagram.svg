@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 930 700">
+  <rect width="930" height="700" rx="28" fill="#f2ebdf"/>
+  <text x="40" y="52" font-family="Trebuchet MS, sans-serif" font-size="28" font-weight="700" fill="#18212b">Carte regionale simplifiee</text>
+  <g font-family="Trebuchet MS, sans-serif" font-size="18" font-weight="700" text-anchor="middle">
+    <rect x="86" y="186" width="148" height="89" rx="18" fill="#79b9a8"/><text x="160" y="235" fill="#18212b">Bretagne</text>
+    <rect x="255" y="124" width="165" height="77" rx="18" fill="#f0cc76"/><text x="337" y="169" fill="#18212b">Normandie</text>
+    <rect x="473" y="78" width="156" height="76" rx="18" fill="#ef9e62"/><text x="551" y="124" fill="#18212b">Hauts-de-</text><text x="551" y="146" fill="#18212b">France</text>
+    <rect x="648" y="123" width="178" height="123" rx="18" fill="#c79ad9"/><text x="737" y="189" fill="#18212b">Grand Est</text>
+    <rect x="247" y="226" width="170" height="87" rx="18" fill="#7bbbd2"/><text x="332" y="276" fill="#18212b">Pays de la Loire</text>
+    <rect x="434" y="220" width="169" height="92" rx="18" fill="#f5b9a1"/><text x="518" y="271" fill="#18212b">Centre-Val</text><text x="518" y="293" fill="#18212b">de Loire</text>
+    <rect x="531" y="167" width="80" height="51" rx="18" fill="#ffde8b"/><text x="571" y="197" font-size="13" fill="#18212b">IDF</text>
+    <rect x="620" y="246" width="161" height="101" rx="18" fill="#8cc18f"/><text x="700" y="300" fill="#18212b">Bourgogne-</text><text x="700" y="322" fill="#18212b">Franche-Comte</text>
+    <rect x="210" y="335" width="232" height="180" rx="22" fill="#9cc4ff"/><text x="326" y="430" fill="#18212b">Nouvelle-</text><text x="326" y="452" fill="#18212b">Aquitaine</text>
+    <rect x="454" y="428" width="224" height="120" rx="20" fill="#ffbe7b"/><text x="566" y="494" fill="#18212b">Occitanie</text>
+    <rect x="653" y="362" width="174" height="129" rx="20" fill="#b4cf7c"/><text x="740" y="431" fill="#18212b">Auvergne-</text><text x="740" y="453" fill="#18212b">Rhone-Alpes</text>
+    <rect x="783" y="468" width="116" height="80" rx="18" fill="#e78f8f"/><text x="841" y="516" fill="#18212b">PACA</text>
+    <rect x="845" y="579" width="61" height="88" rx="18" fill="#7bcbd7"/><text x="875" y="629" font-size="16" fill="#18212b">Corse</text>
+  </g>
+</svg>
