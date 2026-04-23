@@ -135,4 +135,4 @@ $geo = json_decode($jsonGeo, true);
 		</footer>
 	</body>
 
-</html>
+</html>   
