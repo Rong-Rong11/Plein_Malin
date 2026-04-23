@@ -4,305 +4,89 @@ require __DIR__ . "/includes/functions.php";
 preparer_dossiers_et_fichiers();
 
 $theme = gerer_theme();
-$regions = lire_regions();
-$fuelLabels = liste_carburants();
+$derniereVille = null;
+$codeDerniereVille = lire_derniere_ville();
+$lienDerniereRecherche = "";
 
-$region = $_GET["region"] ?? "";
-$department = $_GET["department"] ?? "";
-$city = $_GET["city"] ?? "";
-$fuel = $_GET["fuel"] ?? "Gazole";
-$view = $_GET["view"] ?? "summary";
-$sort = $_GET["sort"] ?? "price";
-$departmentMode = isset($_GET["department_mode"]);
-$useGeo = isset($_GET["use_geo"]);
+if ($codeDerniereVille !== "") {
+	$derniereVille = trouver_ville($codeDerniereVille);
 
-if ($city === "" && !isset($_GET["region"]) && !isset($_GET["department"]) && !$useGeo) {
-	$city = lire_derniere_ville();
-}
-
-$currentCity = null;
-$geo = null;
-$message = "Selectionnez une ville ou utilisez la geolocalisation.";
-$stations = [];
-
-if (!$useGeo) {
-	if ($region === "") {
-		$department = "";
-		$city = "";
-	} else {
-		$departementsRegion = departements_par_region($region);
-		$departementValide = false;
-
-		foreach ($departementsRegion as $unDepartement) {
-			if ($unDepartement["department_code"] === $department) {
-				$departementValide = true;
-			}
-		}
-
-		if (!$departementValide) {
-			$department = "";
-			$city = "";
-		}
-
-		if ($department === "") {
-			$city = "";
-		} else {
-			$villesDepartement = villes_par_departement($department);
-			$villeValide = false;
-
-			foreach ($villesDepartement as $uneVille) {
-				if ($uneVille["city_code"] === $city) {
-					$villeValide = true;
-				}
-			}
-
-			if (!$villeValide) {
-				$city = "";
-			}
-		}
+	if ($derniereVille !== null) {
+		$departementDerniereVille = trouver_departement($derniereVille["department_code"]);
+		$regionDerniereVille = $departementDerniereVille["region_code"] ?? "";
+		$lienDerniereRecherche = "resultats.php?region="
+			. rawurlencode($regionDerniereVille)
+			. "&department=" . rawurlencode($derniereVille["department_code"])
+			. "&city=" . rawurlencode($derniereVille["city_code"])
+			. "#resultats";
 	}
 }
-
-if ($useGeo) {
-	$geo = recuperer_geolocalisation();
-	$currentCity = trouver_ville_plus_proche((float) $geo["latitude"], (float) $geo["longitude"]);
-
-	if ($currentCity !== null) {
-		$city = $currentCity["city_code"];
-		$department = $currentCity["department_code"];
-		$departmentInfo = trouver_departement($department);
-		if ($departmentInfo !== null) {
-			$region = $departmentInfo["region_code"];
-		}
-		$message = "Recherche autour de votre position approximative.";
-	}
-}
-
-if (!$useGeo && $city !== "") {
-	$currentCity = trouver_ville($city);
-}
-
-if ($currentCity !== null) {
-	$department = $currentCity["department_code"];
-	$departmentInfo = trouver_departement($department);
-	if ($departmentInfo !== null) {
-		$region = $departmentInfo["region_code"];
-	}
-
-	enregistrer_derniere_ville($currentCity["city_code"]);
-	$stations = rechercher_stations($currentCity, $fuel, $sort, $departmentMode);
-
-	$regionInfo = null;
-	if ($departmentInfo !== null) {
-		$regionInfo = trouver_region($departmentInfo["region_code"]);
-	}
-
-	enregistrer_consultation([
-		"region" => $regionInfo["region_name"] ?? "",
-		"department" => $departmentInfo["department_name"] ?? "",
-		"city" => $currentCity["city_name"],
-		"mode" => $useGeo ? "geolocalisation" : ($departmentMode ? "departement" : "ville"),
-		"view" => $view,
-		"fuel" => $fuel,
-		"station_count" => count($stations),
-	]);
-
-	if (!$useGeo) {
-		$message = "Recherche dans la ville selectionnee.";
-	}
-}
-
-$departments = departements_par_region($region);
-$cities = villes_par_departement($department);
 
 $pageTitle = "Plein Malin";
-$pageDescription = "Recherche simple de stations-service et de prix des carburants.";
+$pageDescription = "Comparer les prix des carburants et trouver une station en France.";
 $activePage = "index";
 $footerText = "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026";
 
 require __DIR__ . "/includes/header.php";
 ?>
 	<main class="page-shell">
-		<section class="panel">
-			<p class="eyebrow">Projet web carburants</p>
-			<h1>Plein Malin</h1>
-			<p class="lead">
-				Choisissez une region, un departement puis une ville pour afficher les stations
-				et les prix. La ville consultee peut etre retenue dans un cookie.
-			</p>
-			<p class="small-note">
-				Theme actuel : <?= texte_securise(nom_theme($theme)) ?>
-				<?php if ($currentCity !== null): ?>
-					| derniere ville : <?= texte_securise($currentCity["city_name"]) ?>
-				<?php endif; ?>
-			</p>
-		</section>
-
-		<section class="panel">
-			<h2>Carte des regions</h2>
-			<img src="image/<?= $theme === "night" ? "map(dark).png" : "map(light).png" ?>" alt="Carte des regions de France" usemap="#regions-map" class="map-image">
-			<map name="regions-map">
-				<area shape="rect" coords="141,273,385,404" href="?region=53#recherche" alt="Bretagne">
-				<area shape="rect" coords="420,182,691,295" href="?region=28#recherche" alt="Normandie">
-				<area shape="rect" coords="778,115,1035,226" href="?region=32#recherche" alt="Hauts-de-France">
-				<area shape="rect" coords="1066,181,1359,361" href="?region=44#recherche" alt="Grand Est">
-				<area shape="rect" coords="406,332,686,460" href="?region=52#recherche" alt="Pays de la Loire">
-				<area shape="rect" coords="714,323,992,458" href="?region=24#recherche" alt="Centre-Val de Loire">
-				<area shape="rect" coords="874,245,1005,320" href="?region=11#recherche" alt="Ile-de-France">
-				<area shape="rect" coords="1020,361,1285,510" href="?region=27#recherche" alt="Bourgogne-Franche-Comte">
-				<area shape="rect" coords="345,492,727,756" href="?region=75#recherche" alt="Nouvelle-Aquitaine">
-				<area shape="rect" coords="747,629,1115,805" href="?region=76#recherche" alt="Occitanie">
-				<area shape="rect" coords="1074,532,1361,721" href="?region=84#recherche" alt="Auvergne-Rhone-Alpes">
-				<area shape="rect" coords="1288,687,1479,805" href="?region=93#recherche" alt="Provence-Alpes-Cote d'Azur">
-				<area shape="rect" coords="1390,850,1491,980" href="?region=94#recherche" alt="Corse">
-			</map>
-		</section>
-
-		<section class="panel" id="recherche">
-			<h2>Recherche</h2>
-			<form method="get" action="index.php#recherche" class="search-form">
-				<label>
-					Region
-					<select name="region" onchange="this.form.submit()">
-						<option value="">Choisir une region</option>
-						<?php foreach ($regions as $uneRegion): ?>
-							<option value="<?= texte_securise($uneRegion["region_code"]) ?>" <?= $region === $uneRegion["region_code"] ? "selected" : "" ?>>
-								<?= texte_securise($uneRegion["region_name"]) ?>
-							</option>
-						<?php endforeach; ?>
-					</select>
-				</label>
-
-				<label>
-					Departement
-					<select name="department" onchange="this.form.submit()" <?= $region === "" ? "disabled" : "" ?>>
-						<option value=""><?= $region === "" ? "Choisir d'abord une region" : "Choisir un departement" ?></option>
-						<?php foreach ($departments as $unDepartment): ?>
-							<option value="<?= texte_securise($unDepartment["department_code"]) ?>" <?= $department === $unDepartment["department_code"] ? "selected" : "" ?>>
-								<?= texte_securise($unDepartment["department_name"]) ?> (<?= texte_securise($unDepartment["department_code"]) ?>)
-							</option>
-							<?php endforeach; ?>
-						</select>
-					</label>
-
-				<label>
-					Ville
-					<select name="city" <?= $department === "" ? "disabled" : "" ?>>
-						<option value=""><?= $department === "" ? "Choisir d'abord un departement" : "Choisir une ville" ?></option>
-						<?php foreach ($cities as $uneVille): ?>
-							<option value="<?= texte_securise($uneVille["city_code"]) ?>" <?= $city === $uneVille["city_code"] ? "selected" : "" ?>>
-								<?= texte_securise($uneVille["city_name"]) ?> (<?= texte_securise($uneVille["postal_code"]) ?>)
-								</option>
-						<?php endforeach; ?>
-					</select>
-				</label>
-
-				<label>
-					Carburant
-					<select name="fuel">
-						<?php foreach ($fuelLabels as $codeCarburant => $nomCarburant): ?>
-						    <option value="<?= texte_securise($codeCarburant) ?>" <?= $fuel === $codeCarburant ? "selected" : "" ?>>
-						        <?= texte_securise($nomCarburant) ?>
-						    </option>
-						<?php endforeach; ?>
-					</select>
-				</label>
-
-				<label>
-					Vue
-					<select name="view">
-						<option value="summary" <?= $view === "summary" ? "selected" : "" ?>>Synthese</option>
-						<option value="detailed" <?= $view === "detailed" ? "selected" : "" ?>>Detaillee</option>
-					</select>
-				</label>
-
-				<label>
-					Tri
-					<select name="sort">
-						<option value="price" <?= $sort === "price" ? "selected" : "" ?>>Prix croissant</option>
-						<option value="distance" <?= $sort === "distance" ? "selected" : "" ?>>Proximite</option>
-						<option value="name" <?= $sort === "name" ? "selected" : "" ?>>Nom</option>
-					</select>
-				</label>
-
-				<label class="checkbox-row">
-					<input type="checkbox" name="department_mode" value="1" <?= $departmentMode ? "checked" : "" ?>>
-					Recherche dans tout le departement
-				</label>
-
+		<section class="hero">
+			<div class="hero-copy">
+				<p class="eyebrow">Prix des carburants</p>
+				<h1>Trouvez une station plus facilement</h1>
+				<p class="lead">
+					Plein Malin permet de choisir une region, un departement puis une ville
+					pour consulter les stations-service et comparer les prix.
+				</p>
 				<div class="form-actions">
-					<button type="submit">Rechercher</button>
-					<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
+					<a class="cta-link" href="recherche.php#recherche">Rechercher une station</a>
 				</div>
-			</form>
+			</div>
+
+			<div class="panel">
+				<h2>Ce que fait le site</h2>
+				<ul class="plain-list">
+					<li>Recherche par region, departement et ville</li>
+					<li>Affichage simple des stations et des prix</li>
+					<li>Statistiques a partir des consultations enregistrees</li>
+				</ul>
+			</div>
 		</section>
 
-		<section class="results-panel">
-			<h2>Resultats</h2>
-			<p class="small-note">
-				<?= texte_securise($message) ?>
-				<?php if ($currentCity !== null): ?>
-					<strong><?= texte_securise($currentCity["city_name"]) ?></strong>
-				<?php endif; ?>
-				<?php if ($geo !== null): ?>
-					| source geo <?= texte_securise($geo["source"]) ?>
-				<?php endif; ?>
-			</p>
-
-			<?php if ($currentCity === null): ?>
-				<p class="empty-state">Aucune recherche lancee.</p>
-			<?php elseif ($stations === []): ?>
-				<p class="empty-state">Aucune station trouvee avec ces criteres.</p>
-			<?php else: ?>
-				<p class="small-note"><?= count($stations) ?> station(s) trouvee(s).</p>
-
-				<div class="cards">
-					<?php foreach ($stations as $station): ?>
-						<article class="station-card">
-						    <div class="station-top">
-						        <div>
-						            <h3><?= texte_securise($station["name"]) ?></h3>
-						            <p><?= texte_securise($station["address"]) ?>, <?= texte_securise($station["postal_code"]) ?> <?= texte_securise($station["city_name"]) ?></p>
-						        </div>
-						        <div class="price-box">
-						            <span><?= texte_securise($fuel) ?></span>
-						            <strong><?= texte_securise(formater_prix($station["main_price"])) ?></strong>
-						        </div>
-						    </div>
-
-						    <p class="meta-line">
-						        Distance : <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
-						        | flux <?= texte_securise($station["source"]) ?>
-						    </p>
-
-						    <?php if ($view === "detailed"): ?>
-						        <div class="details-grid">
-						            <div>
-						                <h4>Carburants</h4>
-						                <ul class="plain-list">
-						                    <?php foreach ($station["prices"] as $price): ?>
-						                        <li><?= texte_securise($price["name"]) ?> : <?= texte_securise(formater_prix((float) $price["value"])) ?></li>
-						                    <?php endforeach; ?>
-						                </ul>
-						            </div>
-						            <div>
-						                <h4>Services</h4>
-						                <?php if ($station["services"] === []): ?>
-						                    <p class="small-note">Aucun service indique.</p>
-						                <?php else: ?>
-						                    <ul class="plain-list">
-						                        <?php foreach ($station["services"] as $service): ?>
-						                            <li><?= texte_securise($service) ?></li>
-						                        <?php endforeach; ?>
-						                    </ul>
-						                <?php endif; ?>
-						            </div>
-						        </div>
-						    <?php endif; ?>
-						</article>
-					<?php endforeach; ?>
+		<?php if ($derniereVille !== null): ?>
+			<section class="panel">
+				<h2>Derniere recherche</h2>
+				<p class="lead">
+					Derniere ville consultee : <strong><?= texte_securise($derniereVille["city_name"]) ?></strong>
+					(<?= texte_securise($derniereVille["postal_code"]) ?>)
+				</p>
+				<div class="form-actions">
+					<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>">Reprendre cette recherche</a>
 				</div>
-			<?php endif; ?>
+			</section>
+		<?php endif; ?>
+
+		<section class="panel-grid">
+			<article class="panel">
+				<h2>Recherche guidee</h2>
+				<p class="small-note">
+					La recherche suit l'ordre region, departement puis ville pour rester simple.
+				</p>
+			</article>
+
+			<article class="panel">
+				<h2>Resultats lisibles</h2>
+				<p class="small-note">
+					Chaque station affiche son adresse, ses prix et ses informations utiles.
+				</p>
+			</article>
+
+			<article class="panel">
+				<h2>Statistiques</h2>
+				<p class="small-note">
+					Une page dediee resume les villes les plus consultees et le nombre de visites.
+				</p>
+			</article>
 		</section>
 	</main>
 

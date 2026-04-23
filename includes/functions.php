@@ -3,7 +3,8 @@
 define("PM_CACHE_DIR", __DIR__ . "/../cache");
 define("PM_DATA_DIR", __DIR__ . "/../data");
 define("PM_STORAGE_DIR", __DIR__ . "/../storage");
-define("PM_CITIES_FILE", __DIR__ . "/../ressources/Postcodes Cours 2025-2026.csv");
+define("PM_CITIES_INDEX_FILE", __DIR__ . "/../data/villes_index.csv");
+define("PM_CITIES_BY_DEPARTMENT_DIR", __DIR__ . "/../data/villes_par_departement");
 
 function texte_securise(string $texte): string
 {
@@ -124,65 +125,35 @@ function lire_csv_assoc(string $fichier): array
 
 function lire_regions(): array
 {
-	return lire_csv_assoc(PM_DATA_DIR . "/regions.csv");
+	static $regions = null;
+
+	if ($regions === null) {
+		$regions = lire_csv_assoc(PM_DATA_DIR . "/regions.csv");
+	}
+
+	return $regions;
 }
 
 function lire_departements(): array
 {
-	return lire_csv_assoc(PM_DATA_DIR . "/departments.csv");
+	static $departements = null;
+
+	if ($departements === null) {
+		$departements = lire_csv_assoc(PM_DATA_DIR . "/departments.csv");
+	}
+
+	return $departements;
 }
 
 function lire_villes(): array
 {
-	$lignes = lire_csv_assoc(PM_CITIES_FILE);
-	$villes = [];
+	static $villes = null;
 
-	foreach ($lignes as $ligne) {
-		$codeInsee = trim($ligne["code_commune_insee"] ?? "");
-		$nomVille = trim($ligne["nom_de_la_commune"] ?? "");
-		$codePostal = trim($ligne["code_postal"] ?? "");
-
-		if ($codeInsee === "" || $nomVille === "" || $codePostal === "") {
-			continue;
-		}
-
-		if (!isset($villes[$codeInsee])) {
-			$villes[$codeInsee] = [
-				"city_code" => $codeInsee,
-				"city_name" => formater_nom_ville($nomVille),
-				"postal_code" => $codePostal,
-				"department_code" => trouver_code_departement($codeInsee),
-				"latitude" => (float) ($ligne["latitude"] ?? 0),
-				"longitude" => (float) ($ligne["longitude"] ?? 0),
-			];
-		}
+	if ($villes === null) {
+		$villes = lire_csv_assoc(PM_CITIES_INDEX_FILE);
 	}
-
-	$villes = array_values($villes);
-
-	usort($villes, static function (array $a, array $b): int {
-		return strcmp($a["city_name"], $b["city_name"]);
-	});
 
 	return $villes;
-}
-
-function formater_nom_ville(string $nomVille): string
-{
-	return ucwords(strtolower($nomVille));
-}
-
-function trouver_code_departement(string $codeInsee): string
-{
-	if (str_starts_with($codeInsee, "2A") || str_starts_with($codeInsee, "2B")) {
-		return substr($codeInsee, 0, 2);
-	}
-
-	if (str_starts_with($codeInsee, "971") || str_starts_with($codeInsee, "972") || str_starts_with($codeInsee, "973") || str_starts_with($codeInsee, "974") || str_starts_with($codeInsee, "976")) {
-		return substr($codeInsee, 0, 3);
-	}
-
-	return substr($codeInsee, 0, 2);
 }
 
 function trouver_region(string $code): ?array
@@ -209,24 +180,17 @@ function trouver_departement(string $code): ?array
 
 function trouver_ville(string $code): ?array
 {
-	foreach (lire_villes() as $city) {
-		if ($city["city_code"] === $code) {
-			return $city;
+	static $indexVilles = null;
+
+	if ($indexVilles === null) {
+		$indexVilles = [];
+
+		foreach (lire_villes() as $city) {
+			$indexVilles[$city["city_code"]] = $city;
 		}
 	}
 
-	return null;
-}
-
-function trouver_ville_par_nom(string $nomVille): ?array
-{
-	foreach (lire_villes() as $city) {
-		if (strtolower($city["city_name"]) === strtolower($nomVille)) {
-			return $city;
-		}
-	}
-
-	return null;
+	return $indexVilles[$code] ?? null;
 }
 
 function departements_par_region(string $codeRegion): array
@@ -248,15 +212,18 @@ function departements_par_region(string $codeRegion): array
 
 function villes_par_departement(string $codeDepartment): array
 {
-	$resultat = [];
+	static $cacheDepartements = [];
 
-	foreach (lire_villes() as $city) {
-		if ($codeDepartment === "" || $city["department_code"] === $codeDepartment) {
-			$resultat[] = $city;
-		}
+	if ($codeDepartment === "") {
+		return [];
 	}
 
-	return $resultat;
+	if (!isset($cacheDepartements[$codeDepartment])) {
+		$fichier = PM_CITIES_BY_DEPARTMENT_DIR . "/" . $codeDepartment . ".csv";
+		$cacheDepartements[$codeDepartment] = lire_csv_assoc($fichier);
+	}
+
+	return $cacheDepartements[$codeDepartment];
 }
 
 function liste_carburants(): array
@@ -271,19 +238,38 @@ function liste_carburants(): array
 	];
 }
 
+function lire_cache_api(string $fichierCache): ?array
+{
+	if (!file_exists($fichierCache)) {
+		return null;
+	}
+
+	$contenu = (string) file_get_contents($fichierCache);
+	if (trim($contenu) === "") {
+		return null;
+	}
+
+	$cache = json_decode($contenu, true);
+	if (!is_array($cache) || !isset($cache["time"], $cache["body"])) {
+		return null;
+	}
+
+	if (!is_string($cache["body"]) || trim($cache["body"]) === "") {
+		return null;
+	}
+
+	return $cache;
+}
+
 function lire_api_avec_cache(string $url, string $nomCache): ?string
 {
 	$fichierCache = PM_CACHE_DIR . "/" . $nomCache . ".json";
 	$duree = 21600;
 	$maintenant = time();
+	$cache = lire_cache_api($fichierCache);
 
-	if (file_exists($fichierCache)) {
-		$cache = json_decode((string) file_get_contents($fichierCache), true);
-		if (is_array($cache) && isset($cache["time"], $cache["body"])) {
-			if (($maintenant - $cache["time"]) < $duree) {
-				return (string) $cache["body"];
-			}
-		}
+	if ($cache !== null && ($maintenant - $cache["time"]) < $duree) {
+		return (string) $cache["body"];
 	}
 
 	$contexte = stream_context_create([
@@ -308,11 +294,8 @@ function lire_api_avec_cache(string $url, string $nomCache): ?string
 		return $contenu;
 	}
 
-	if (file_exists($fichierCache)) {
-		$cache = json_decode((string) file_get_contents($fichierCache), true);
-		if (is_array($cache) && isset($cache["body"])) {
-			return (string) $cache["body"];
-		}
+	if ($cache !== null) {
+		return (string) $cache["body"];
 	}
 
 	return null;
@@ -400,64 +383,102 @@ function trouver_ville_plus_proche(float $latitude, float $longitude): ?array
 	return $villeProche;
 }
 
-function lire_stations(): array
+function lire_stations_api(?array $city, bool $departmentMode = false): ?array
 {
-	$contenuXml = lire_api_avec_cache("https://donnees.roulez-eco.fr/opendata/instantane", "fuel_xml");
-
-	if ($contenuXml === null) {
-		$contenuXml = (string) file_get_contents(PM_DATA_DIR . "/sample_fuel_prices.xml");
-		$source = "xml local";
-	} else {
-		$source = "api xml";
+	if ($city === null) {
+		return [];
 	}
 
-	libxml_use_internal_errors(true);
-	$xml = simplexml_load_string($contenuXml);
+	$departement = (string) ($city["department_code"] ?? "");
+	$ville = trim((string) ($city["city_name"] ?? ""));
+	$filtres = [];
 
-	if ($xml === false) {
-		$xml = simplexml_load_file(PM_DATA_DIR . "/sample_fuel_prices.xml");
-		$source = "xml local";
+	if ($departement !== "") {
+		$filtres[] = 'code_departement="' . addslashes($departement) . '"';
+	}
+
+	if (!$departmentMode && $ville !== "") {
+		$filtres[] = 'ville="' . addslashes($ville) . '"';
+	}
+
+	if ($filtres === []) {
+		return [];
+	}
+
+	$where = implode(" AND ", $filtres);
+	$url = "https://data.economie.gouv.fr/api/explore/v2.1/catalog/datasets/"
+		. "prix-des-carburants-en-france-flux-instantane-v2/records?"
+		. "where=" . rawurlencode($where)
+		. "&limit=100"
+		. "&timezone=Europe%2FParis";
+
+	$contenu = lire_api_avec_cache($url, "fuel_search_" . md5($url));
+
+	if ($contenu === null) {
+		return null;
+	}
+
+	$donnees = json_decode($contenu, true);
+
+	if (!is_array($donnees) || !isset($donnees["results"]) || !is_array($donnees["results"])) {
+		return null;
 	}
 
 	$stations = [];
 
-	if ($xml && isset($xml->pdv)) {
-		foreach ($xml->pdv as $pdv) {
-			$services = [];
-			if (isset($pdv->services)) {
-				foreach ($pdv->services->service as $service) {
-					$services[] = trim((string) $service);
-				}
-			}
+	foreach ($donnees["results"] as $ligne) {
+		$prix = [];
+		$carburants = [
+			"SP95" => "sp95_prix",
+			"SP98" => "sp98_prix",
+			"Gazole" => "gazole_prix",
+			"E10" => "e10_prix",
+			"E85" => "e85_prix",
+			"GPLc" => "gplc_prix",
+		];
 
-			$prix = [];
-			foreach ($pdv->prix as $unPrix) {
-				$nom = (string) $unPrix["nom"];
-				$prix[$nom] = [
-					"name" => $nom,
-					"value" => (float) $unPrix["valeur"],
-					"updated_at" => (string) $unPrix["maj"],
+		foreach ($carburants as $nomCarburant => $champPrix) {
+			if (isset($ligne[$champPrix]) && $ligne[$champPrix] !== null && $ligne[$champPrix] !== "") {
+				$prix[$nomCarburant] = [
+					"name" => $nomCarburant,
+					"value" => (float) $ligne[$champPrix],
+					"updated_at" => "",
 				];
 			}
-
-			$nomVille = (string) $pdv->ville;
-			$villeLocale = trouver_ville_par_nom($nomVille);
-			$enseigne = trim((string) $pdv->enseigne);
-
-			$stations[] = [
-				"id" => (string) $pdv["id"],
-				"name" => $enseigne !== "" ? $enseigne : "Station " . (string) $pdv["id"],
-				"address" => (string) $pdv->adresse,
-				"postal_code" => (string) $pdv["cp"],
-				"city_name" => $nomVille,
-				"department_code" => $villeLocale["department_code"] ?? substr((string) $pdv["cp"], 0, 2),
-				"latitude" => ((float) $pdv["latitude"]) / 100000,
-				"longitude" => ((float) $pdv["longitude"]) / 100000,
-				"services" => $services,
-				"prices" => $prix,
-				"source" => $source,
-			];
 		}
+
+		$latitude = 0.0;
+		$longitude = 0.0;
+
+		if (isset($ligne["geom"]) && is_array($ligne["geom"]) && isset($ligne["geom"]["lat"], $ligne["geom"]["lon"])) {
+			$latitude = (float) $ligne["geom"]["lat"];
+			$longitude = (float) $ligne["geom"]["lon"];
+		} elseif (isset($ligne["latitude"], $ligne["longitude"])) {
+			$latitude = (float) $ligne["latitude"];
+			$longitude = (float) $ligne["longitude"];
+		}
+
+		$services = [];
+		foreach ($ligne as $cle => $valeur) {
+			if (str_starts_with((string) $cle, "services_") && is_string($valeur) && trim($valeur) !== "") {
+				$services[] = trim($valeur);
+			}
+		}
+
+		$stations[] = [
+			"id" => (string) ($ligne["id"] ?? ""),
+			"name" => (string) ($ligne["nom"] ?? "Station"),
+			"address" => (string) ($ligne["adresse"] ?? ""),
+			"postal_code" => (string) ($ligne["code_postal"] ?? ""),
+			"raw_city_name" => (string) ($ligne["ville"] ?? ""),
+			"city_name" => (string) ($ligne["ville"] ?? ""),
+			"department_code" => (string) ($ligne["code_departement"] ?? $departement),
+			"latitude" => $latitude,
+			"longitude" => $longitude,
+			"services" => array_values(array_unique($services)),
+			"prices" => $prix,
+			"source" => "api json",
+		];
 	}
 
 	return $stations;
@@ -470,26 +491,19 @@ function rechercher_stations(?array $city, string $fuelType, string $sortBy, boo
 	}
 
 	$resultat = [];
+	$stationsDisponibles = lire_stations_api($city, $departmentMode);
 
-	foreach (lire_stations() as $station) {
+	if ($stationsDisponibles === null) {
+		return [];
+	}
+
+	foreach ($stationsDisponibles as $station) {
 		$distance = calculer_distance_km(
 			(float) $city["latitude"],
 			(float) $city["longitude"],
 			(float) $station["latitude"],
 			(float) $station["longitude"]
 		);
-
-		$memeVille = strtolower($station["city_name"]) === strtolower($city["city_name"]);
-		$memeDepartement = $station["department_code"] === $city["department_code"];
-		$dansLesEnvirons = $memeVille || $distance <= 25;
-
-		if ($departmentMode && !$memeDepartement) {
-			continue;
-		}
-
-		if (!$departmentMode && !$dansLesEnvirons) {
-			continue;
-		}
 
 		if ($fuelType !== "" && !isset($station["prices"][$fuelType])) {
 			continue;
@@ -549,7 +563,7 @@ function enregistrer_consultation(array $infos): void
 
 	$handle = fopen($fichier, "a");
 	if ($handle !== false) {
-		fputcsv($handle, $ligne);
+		fputcsv($handle, $ligne, ",", "\"", "\\");
 		fclose($handle);
 	}
 }

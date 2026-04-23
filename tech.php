@@ -36,15 +36,15 @@ require __DIR__ . "/includes/header.php";
 			</article>
 
 			<article class="panel">
-				<h2>Flux XML cote serveur</h2>
+				<h2>Flux carburants cote serveur</h2>
 				<p>
-					Les stations-service sont parsees depuis un flux XML gouvernemental quand il
-					est disponible, sinon depuis un echantillon local de secours.
+					Les stations-service sont recherchees depuis l'API JSON officielle du
+					gouvernement avec un filtre sur le departement et la ville.
 				</p>
 				<ul class="plain-list">
-					<li>Parsing via <code>simplexml_load_string()</code></li>
-					<li>Normalisation en tableaux PHP</li>
-					<li>Reutilisation dans la page principale pour les prix et services</li>
+					<li>Requete HTTP cote serveur en PHP</li>
+					<li>Reponse JSON transformee en tableaux PHP</li>
+					<li>Reutilisation dans la page resultats pour les prix et services</li>
 				</ul>
 			</article>
 		</section>

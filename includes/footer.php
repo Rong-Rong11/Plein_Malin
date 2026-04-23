@@ -4,6 +4,8 @@ $footerText = $footerText ?? "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris U
 	<footer class="site-footer">
 		<div class="footer-links">
 			<a href="index.php">Accueil</a>
+			<a href="recherche.php#recherche">Recherche</a>
+			<a href="resultats.php">Resultats</a>
 			<a href="stats.php">Statistiques</a>
 			<a href="tech.php">Page tech</a>
 			<a href="#top" class="back-top">
