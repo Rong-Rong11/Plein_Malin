@@ -1,135 +1,74 @@
 <?php
-$titre = "Projet Web - Page technique";
-$description = "Page technique du projet web.";
+require __DIR__ . '/includes/functions.php';
 
-if (isset($_GET["style"]) && $_GET["style"] === "alternatif") { //verifie qu'il ya bien style dans url et si c bien le style alternative 
-	$style = "alternatif";
-	$feuille = "style-alt.css";
-	$logo = "image/logoblanc.svg";
-	$styleLabel = "Mode standard";
-	$styleSuivant = "standard";
-} else {
-	$style = "standard";
-	$feuille = "style.css";
-	$logo = "image/logonoir.svg";
-	$styleLabel = "Mode alternatif";
-	$styleSuivant = "alternatif";
-}
+preparer_dossiers_et_fichiers();
+$theme = gerer_theme();
+$geoData = recuperer_geolocalisation();
+$stats = calculer_statistiques();
 
-$jsonFilms = @file_get_contents("https://ghibliapi.vercel.app/films");
-$films = json_decode($jsonFilms, true);
+$pageTitle = "Page tech - Plein Malin";
+$pageDescription = "Page technique conservee pour la validation de la partie 1 du projet.";
+$activePage = "tech";
+$footerText = "Enzo Phung | Fatma-Zhara Baarir | Page technique conservee pour validation.";
 
-$film = null;
-if (is_array($films) && count($films) > 0) {
-	$indice = array_rand($films);
-	$film = $films[$indice];
-}
-
-$ip = $_SERVER["REMOTE_ADDR"] ?? "";
-if ($ip == "127.0.0.1" || $ip == "::1") {
-	$ip = "193.54.115.192";
-}
-
-$jsonGeo = @file_get_contents("https://ipinfo.io/" . $ip . "/geo");
-$geo = json_decode($jsonGeo, true);
+require __DIR__ . "/includes/header.php";
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title><?= $titre ?></title>
-	<meta name="author" content="Enzo Phung">
-	<meta name="description" content="<?= $description ?>">
-	<link rel="stylesheet" href="<?= $feuille ?>">
-	<link rel="icon" href="image/favicon.ico" type="image/x-icon">
-</head>
-<body>
-	<div id="haut-page"></div>
-
-	<header>
-		<a href="index.php">
-			<img class="logo" src="<?= $logo ?>" alt="Logo du projet" width="500" height="200">
-		</a>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="tech.php?style=<?= $styleSuivant ?>"><?= $styleLabel ?></a></li>
-            </ul>
-        </nav>
-    </header>
-
-	<main>
-		<h1>Page technique</h1>
-		<p class="subtitle">Exemples d'utilisation d'API JSON en PHP</p>
-
-		<section>
-			<h2>API Ghibli</h2>
-			<p>
-				On récupère ici une liste de films au format JSON grâce à une API,
-				puis on choisit un film aléatoire dans le tableau obtenu avec PHP.
+	<main class="page-shell">
+		<section class="panel">
+			<p class="eyebrow">Partie 1 conservee</p>
+			<h1>Page tech</h1>
+			<p class="lead">
+				Cette page reste accessible depuis le footer pour montrer l'avancement initial
+				et la logique technique reutilisee dans Plein Malin.
 			</p>
-
-			<?php if ($film != null) { ?>
-				<p><strong>Titre :</strong> <?= htmlspecialchars($film["title"]) ?></p>
-				<p><strong>Titre original :</strong> <?= htmlspecialchars($film["original_title"]) ?></p>
-				<p><strong>Année :</strong> <?= htmlspecialchars($film["release_date"]) ?></p>
-				<p><strong>Description :</strong> <?= htmlspecialchars($film["description"]) ?></p>
-
-				<div class="images">
-					<figure>
-						<img src="<?= htmlspecialchars($film["image"]) ?>" alt="Affiche du film">
-						<figcaption>Affiche du film</figcaption>
-					</figure>
-
-					<figure>
-						<img src="<?= htmlspecialchars($film["movie_banner"]) ?>" alt="Bannière du film">
-						<figcaption>Bannière du film</figcaption>
-					</figure>
-				</div>
-			<?php } else { ?>
-				<p>Impossible de récupérer les données de l'API Ghibli.</p>
-			<?php } ?>
 		</section>
 
-		<section>
-			<h2>API de géolocalisation IP</h2>
-			<p>
-				On récupère d'abord l'adresse IP du visiteur, puis on interroge une
-				seconde API JSON pour obtenir des informations de localisation.
-			</p>
+		<section class="panel-grid">
+			<article class="panel">
+				<h2>Flux JSON cote serveur</h2>
+				<p>Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.</p>
+				<ul class="plain-list">
+					<li>IP detectee: <?= texte_securise($geoData['ip']) ?></li>
+					<li>Ville retournee: <?= texte_securise($geoData['city']) ?></li>
+					<li>Region retournee: <?= texte_securise($geoData['region']) ?></li>
+					<li>Source utilisee: <?= texte_securise($geoData['source']) ?></li>
+				</ul>
+			</article>
 
-			<p><strong>Adresse IP :</strong> <?= htmlspecialchars($ip) ?></p>
+			<article class="panel">
+				<h2>Flux carburants cote serveur</h2>
+				<p>
+					Les stations-service sont recherchees depuis l'API JSON officielle du
+					gouvernement avec un filtre sur le departement et la ville.
+				</p>
+				<ul class="plain-list">
+					<li>Requete HTTP cote serveur en PHP</li>
+					<li>Reponse JSON transformee en tableaux PHP</li>
+					<li>Reutilisation dans la page resultats pour les prix et services</li>
+				</ul>
+			</article>
+		</section>
 
-			<?php if (is_array($geo)) { ?>
-				<p><strong>Ville :</strong> <?= htmlspecialchars($geo["city"] ?? "Inconnue") ?></p>
-				<p><strong>Région :</strong> <?= htmlspecialchars($geo["region"] ?? "Inconnue") ?></p>
-				<p><strong>Pays :</strong> <?= htmlspecialchars($geo["country"] ?? "Inconnu") ?></p>
-				<p><strong>Coordonnées :</strong> <?= htmlspecialchars($geo["loc"] ?? "Inconnues") ?></p>
-			<?php } else { ?>
-				<p>Impossible de récupérer les données de géolocalisation.</p>
-			<?php } ?>
+		<section class="panel-grid">
+			<article class="panel">
+				<h2>Stockages attendus</h2>
+				<ul class="plain-list">
+					<li>CSV serveur: historique des consultations</li>
+					<li>Cookie <code>last_visited_city</code>: derniere ville</li>
+					<li>Cookie <code>theme</code>: jour ou nuit</li>
+					<li>Cache JSON: reponses externes et fallback sur cache expire</li>
+				</ul>
+			</article>
+
+			<article class="panel">
+				<h2>Etat des statistiques</h2>
+				<ul class="plain-list">
+					<li>Consultations enregistrees: <?= texte_securise((string) $stats['consultation_count']) ?></li>
+					<li>Visiteurs approx.: <?= texte_securise((string) $stats['total_visitors']) ?></li>
+					<li>Nombre de villes dans le top: <?= texte_securise((string) count($stats['top_cities'])) ?></li>
+				</ul>
+			</article>
 		</section>
 	</main>
 
-	<footer>
-		<span style="text-align: right;">
-			<a href="#haut-page" class="back-top">
-				<img src="image/back_top.png" alt="Retour en haut">
-			</a>
-		</span>
-		<div class="footer-info">
-			<span><em>Enzo Phung</em></span>
-			<span><em>CY Cergy Paris Université - ©2025-2026</em></span>
-			<span><em>Projet Web - Avancement 1</em></span>
-		</div>
-		<div class="footer-links">
-			<span class="link-btn">
-				<a href="index.php?style=<?= $style ?>">Retour à l'accueil</a>
-			</span>
-			<span class="link-btn">
-				<a href="tech.php?style=<?= $style ?>">Page technique</a>
-			</span>
-		</div>
-	</footer>
-</body>
-</html>
+<?php require __DIR__ . "/includes/footer.php"; ?>
