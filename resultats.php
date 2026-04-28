@@ -25,6 +25,26 @@ $regionInfo = null;
 if ($useGeo) {
 	$geo = recuperer_geolocalisation();
 	$currentCity = trouver_ville_plus_proche((float) $geo["latitude"], (float) $geo["longitude"]);
+} elseif ($departmentMode && $department !== "") {
+	$departmentInfo = trouver_departement($department);
+
+	if ($departmentInfo !== null) {
+		$region = $departmentInfo["region_code"] ?? $region;
+		$regionInfo = trouver_region($region);
+		$currentCity = $city !== "" ? trouver_ville($city) : null;
+
+		if ($currentCity === null || $currentCity["department_code"] !== $department) {
+			$villesDepartement = villes_par_departement($department);
+			$currentCity = $villesDepartement[0] ?? [
+				"city_code" => "",
+				"city_name" => "Departement " . $department,
+				"postal_code" => "",
+				"department_code" => $department,
+				"latitude" => 0,
+				"longitude" => 0,
+			];
+		}
+	}
 } elseif ($city !== "") {
 	$currentCity = trouver_ville($city);
 }
@@ -35,13 +55,15 @@ if ($currentCity !== null) {
 	$region = $departmentInfo["region_code"] ?? $region;
 	$regionInfo = trouver_region($region);
 
-	enregistrer_derniere_ville($currentCity["city_code"]);
+	if (!$departmentMode && $currentCity["city_code"] !== "") {
+		enregistrer_derniere_ville($currentCity["city_code"]);
+	}
 	$stations = rechercher_stations($currentCity, $selectedFuels, $sort, $departmentMode, $useGeo ? $geo : null, $geoRadius);
 
 	enregistrer_consultation([
 		"region" => $regionInfo["region_name"] ?? "",
 		"department" => $departmentInfo["department_name"] ?? "",
-		"city" => $currentCity["city_name"],
+		"city" => $departmentMode ? "Departement " . ($departmentInfo["department_name"] ?? $department) : $currentCity["city_name"],
 		"mode" => mode_recherche($useGeo, $departmentMode),
 		"view" => $view,
 		"fuel" => texte_carburants_selectionnes($selectedFuels),
@@ -70,7 +92,7 @@ if ($sort === "distance") {
 
 $viewLabel = $view === "detailed" ? "Detaillee" : "Synthese";
 $selectedFuelsLabel = texte_carburants_selectionnes($selectedFuels);
-$searchLink = "recherche.php?" . http_build_query([
+$searchParameters = [
 	"region" => $region,
 	"department" => $department,
 	"city" => $city,
@@ -78,7 +100,13 @@ $searchLink = "recherche.php?" . http_build_query([
 	"view" => $view,
 	"sort" => $sort,
 	"geo_radius" => $geoRadius,
-]) . "#recherche";
+];
+
+if ($departmentMode) {
+	$searchParameters["department_mode"] = "1";
+}
+
+$searchLink = "recherche.php?" . http_build_query($searchParameters) . "#recherche";
 
 $pageTitle = "Resultats - Plein Malin";
 $pageDescription = "Resultats des stations-service et des prix.";

@@ -460,7 +460,16 @@ function recuperer_geolocalisation(): array
 	$ip = recuperer_ip_visiteur();
 
 	if ($ip === "127.0.0.1" || $ip === "::1") {
-		$ip = "8.8.8.8";
+		$local = json_decode((string) file_get_contents(PM_DATA_DIR . "/sample_ip_geo.json"), true);
+
+		return [
+			"source" => "echantillon local",
+			"ip" => $ip,
+			"city" => (string) ($local["city"] ?? "Paris"),
+			"region" => (string) ($local["region"] ?? "Ile-de-France"),
+			"latitude" => (float) ($local["latitude"] ?? 48.8566),
+			"longitude" => (float) ($local["longitude"] ?? 2.3522),
+		];
 	}
 
 	$contenu = lire_api_avec_cache("https://ipapi.co/" . rawurlencode($ip) . "/json/", "geo_" . md5($ip));

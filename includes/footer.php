@@ -5,14 +5,14 @@ $footerText = $footerText ?? "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris U
 		<div class="footer-links">
 			<a href="index.php">Accueil</a>
 			<a href="recherche.php#recherche">Recherche</a>
-			<a href="resultats.php">Resultats</a>
-			<a href="stats.php">Statistiques</a>
-			<a href="tech.php">Page tech</a>
-			<a href="#top" class="back-top">
-				<img src="image/back_top.png" alt="Retour en haut">
-			</a>
-		</div>
-		<p><?= texte_securise($footerText) ?></p>
-	</footer>
-</body>
-</html>
+				<a href="resultats.php">Resultats</a>
+				<a href="stats.php">Statistiques</a>
+				<a href="tech.php">Page tech</a>
+			</div>
+			<p><?= texte_securise($footerText) ?></p>
+		</footer>
+		<a href="#top" class="back-top">
+			<img src="image/back_top.png" alt="Retour en haut">
+		</a>
+	</body>
+	</html>

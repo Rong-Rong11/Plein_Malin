@@ -242,10 +242,20 @@ button:hover {
 	font-size: 0.95rem;
 }
 
-.map-image {
+.map-scroll {
+	width: 100%;
+	max-width: 100%;
+	overflow: auto hidden;
+	padding-bottom: 8px;
+	box-sizing: border-box;
 	border-radius: 18px;
 	border: 1px solid var(--line);
 	background: color-mix(in srgb, var(--panel-alt) 55%, white 45%);
+}
+
+.map-image {
+	max-width: none;
+	height: auto;
 }
 
 .panel-grid {
@@ -608,9 +618,25 @@ button {
 	font-weight: 700;
 }
 
+.back-top {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 30;
+	display: grid;
+	place-items: center;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: var(--accent);
+	border: 1px solid var(--accent);
+	box-shadow: var(--shadow);
+	text-decoration: none;
+}
+
 .back-top img {
-	width: 34px;
-	height: 34px;
+	width: 32px;
+	height: 32px;
 }
 
 @media (max-width: 900px) {
