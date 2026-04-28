@@ -12,23 +12,7 @@ if ($codeDerniereVille !== "") {
 	$derniereVille = trouver_ville($codeDerniereVille);
 
 	if ($derniereVille !== null) {
-		$departementDerniereVille = trouver_departement($derniereVille["department_code"]);
-		if ($departementDerniereVille !== null) {
-
-			$regionDerniereVille = $departementDerniereVille["region_code"];
-			$lienDerniereRecherche = "resultats.php?region="
-				. rawurlencode($regionDerniereVille)
-				. "&department=" . rawurlencode($derniereVille["department_code"])
-				. "&city=" . rawurlencode($derniereVille["city_code"])
-				. "#resultats";
-
-		}
-		$regionDerniereVille = $departementDerniereVille["region_code"] ?? "";
-		$lienDerniereRecherche = "resultats.php?region="
-			. rawurlencode($regionDerniereVille)
-			. "&department=" . rawurlencode($derniereVille["department_code"])
-			. "&city=" . rawurlencode($derniereVille["city_code"])
-			. "#resultats";
+		$lienDerniereRecherche = lien_resultats_ville($derniereVille);
 	}
 }
 

@@ -51,13 +51,15 @@ require __DIR__ . "/includes/header.php";
 		<article class="panel">
 			<h2>Flux JSON cote serveur</h2>
 			<p>Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.</p>
-			<ul class="plain-list">
-				<li>IP detectee: <?= texte_securise($geoData['ip']) ?></li>
-				<li>Ville retournee: <?= texte_securise($geoData['city']) ?></li>
-				<li>Region retournee: <?= texte_securise($geoData['region']) ?></li>
-				<li>Source utilisee: <?= texte_securise($geoData['source']) ?></li>
-			</ul>
-		</article>
+				<ul class="plain-list">
+					<li>IP detectee: <?= texte_securise($geoData['ip']) ?></li>
+					<li>Ville retournee: <?= texte_securise($geoData['city']) ?></li>
+					<li>Region retournee: <?= texte_securise($geoData['region']) ?></li>
+					<li>Latitude: <?= texte_securise((string) $geoData['latitude']) ?></li>
+					<li>Longitude: <?= texte_securise((string) $geoData['longitude']) ?></li>
+					<li>Source utilisee: <?= texte_securise($geoData['source']) ?></li>
+				</ul>
+			</article>
 
 		<article class="panel">
 			<h2>Flux carburants cote serveur</h2>
