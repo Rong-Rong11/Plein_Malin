@@ -12,13 +12,7 @@ if ($codeDerniereVille !== "") {
 	$derniereVille = trouver_ville($codeDerniereVille);
 
 	if ($derniereVille !== null) {
-		$departementDerniereVille = trouver_departement($derniereVille["department_code"]);
-		$regionDerniereVille = $departementDerniereVille["region_code"] ?? "";
-		$lienDerniereRecherche = "resultats.php?region="
-			. rawurlencode($regionDerniereVille)
-			. "&department=" . rawurlencode($derniereVille["department_code"])
-			. "&city=" . rawurlencode($derniereVille["city_code"])
-			. "#resultats";
+		$lienDerniereRecherche = lien_resultats_ville($derniereVille);
 	}
 }
 
