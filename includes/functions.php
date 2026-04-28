@@ -737,20 +737,21 @@ function lire_stations_api(?array $city, bool $departmentMode = false, ?array $o
 	foreach ($donnees["results"] as $ligne) {
 		$prix = [];
 		$carburants = [
-			"SP95" => "sp95_prix",
-			"SP98" => "sp98_prix",
-			"Gazole" => "gazole_prix",
-			"E10" => "e10_prix",
-			"E85" => "e85_prix",
-			"GPLc" => "gplc_prix",
+			"SP95" => ["price" => "sp95_prix", "updated_at" => "sp95_maj"],
+			"SP98" => ["price" => "sp98_prix", "updated_at" => "sp98_maj"],
+			"Gazole" => ["price" => "gazole_prix", "updated_at" => "gazole_maj"],
+			"E10" => ["price" => "e10_prix", "updated_at" => "e10_maj"],
+			"E85" => ["price" => "e85_prix", "updated_at" => "e85_maj"],
+			"GPLc" => ["price" => "gplc_prix", "updated_at" => "gplc_maj"],
 		];
 
-		foreach ($carburants as $nomCarburant => $champPrix) {
+		foreach ($carburants as $nomCarburant => $champsCarburant) {
+			$champPrix = $champsCarburant["price"];
 			if (isset($ligne[$champPrix]) && $ligne[$champPrix] !== null && $ligne[$champPrix] !== "") {
 				$prix[$nomCarburant] = [
 					"name" => $nomCarburant,
 					"value" => (float) $ligne[$champPrix],
-					"updated_at" => "",
+					"updated_at" => (string) ($ligne[$champsCarburant["updated_at"]] ?? ""),
 				];
 			}
 		}
@@ -842,11 +843,12 @@ function rechercher_stations(?array $city, array $fuelTypes, string $sortBy, boo
 		$prixPrincipal = min($prixSelectionnes);
 		$carburantPrincipal = array_search($prixPrincipal, $prixSelectionnes, true);
 
-		$station["distance"] = $distance;
-		$station["main_price"] = $prixPrincipal;
-		$station["main_fuel"] = is_string($carburantPrincipal) ? $carburantPrincipal : "";
-		$resultat[] = $station;
-	}
+			$station["distance"] = $distance;
+			$station["main_price"] = $prixPrincipal;
+			$station["main_fuel"] = is_string($carburantPrincipal) ? $carburantPrincipal : "";
+			$station["main_updated_at"] = is_string($carburantPrincipal) ? (string) ($station["prices"][$carburantPrincipal]["updated_at"] ?? "") : "";
+			$resultat[] = $station;
+		}
 
 	usort($resultat, static function (array $a, array $b) use ($sortBy): int {
 		if ($sortBy === "distance") {
@@ -870,6 +872,20 @@ function formater_prix(?float $prix): string
 	}
 
 	return number_format($prix, 3, ",", " ") . " EUR/L";
+}
+
+function formater_date_heure(?string $date): string
+{
+	if ($date === null || trim($date) === "") {
+		return "";
+	}
+
+	$timestamp = strtotime($date);
+	if ($timestamp === false) {
+		return "";
+	}
+
+	return date("d/m/Y H:i", $timestamp);
 }
 
 function lire_stations_xml_demo(): array
@@ -929,6 +945,8 @@ function lire_tendances_prix_officielles(?int $annee = null, array $carburants =
 	if ($cache !== null && time() - (int) $cache["time"] < $dureeCache) {
 		$donnees = json_decode((string) $cache["body"], true);
 		if (is_array($donnees)) {
+			$donnees["source_url"] = $donnees["source_url"] ?? "https://donnees.roulez-eco.fr/opendata/annee/" . $annee;
+			$donnees["cached_at"] = date("c", (int) $cache["time"]);
 			return $donnees;
 		}
 	}
@@ -1049,7 +1067,9 @@ function lire_tendances_prix_officielles(?int $annee = null, array $carburants =
 
 	$resultat = [
 		"source" => "archive annuelle officielle XML",
+		"source_url" => "https://donnees.roulez-eco.fr/opendata/annee/" . $annee,
 		"year" => $annee,
+		"cached_at" => date("c"),
 		"fuels" => $tendances,
 	];
 
@@ -1183,10 +1203,19 @@ function calculer_statistiques(): array
 	$topVilles = [];
 	$topDepartements = [];
 	$topRegions = [];
+	$topCarburants = [];
+	$topModes = [];
 	$visiteurs = [];
 
 	foreach ($lignes as $ligne) {
 		$mode = trim($ligne["mode"] ?? "");
+		if ($mode !== "") {
+			if (!isset($topModes[$mode])) {
+				$topModes[$mode] = 0;
+			}
+			$topModes[$mode]++;
+		}
+
 		$ville = trim($ligne["city"] ?? "");
 		if ($ville !== "" && $mode !== "departement") {
 			if (!isset($topVilles[$ville])) {
@@ -1211,6 +1240,18 @@ function calculer_statistiques(): array
 			$topRegions[$region]++;
 		}
 
+		foreach (explode(",", (string) ($ligne["fuel"] ?? "")) as $carburant) {
+			$carburant = trim($carburant);
+			if ($carburant === "") {
+				continue;
+			}
+
+			if (!isset($topCarburants[$carburant])) {
+				$topCarburants[$carburant] = 0;
+			}
+			$topCarburants[$carburant]++;
+		}
+
 		$hash = trim($ligne["visitor_hash"] ?? "");
 		if ($hash !== "") {
 			$visiteurs[$hash] = true;
@@ -1220,11 +1261,15 @@ function calculer_statistiques(): array
 	arsort($topVilles);
 	arsort($topDepartements);
 	arsort($topRegions);
+	arsort($topCarburants);
+	arsort($topModes);
 
 	return [
 		"top_cities" => array_slice($topVilles, 0, 8, true),
 		"top_departments" => array_slice($topDepartements, 0, 8, true),
 		"top_regions" => array_slice($topRegions, 0, 8, true),
+		"top_fuels" => array_slice($topCarburants, 0, 8, true),
+		"top_modes" => $topModes,
 		"total_visitors" => count($visiteurs),
 		"consultation_count" => count($lignes),
 	];

@@ -242,19 +242,28 @@ require __DIR__ . "/includes/header.php";
 									</div>
 							</div>
 
-							<p class="meta-line">
-								Distance : <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
-								| flux <?= texte_securise($station["source"]) ?>
-							</p>
+								<p class="meta-line">
+									Distance : <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
+									| flux <?= texte_securise($station["source"]) ?>
+									<?php if (formater_date_heure($station["main_updated_at"] ?? "") !== ""): ?>
+										| prix mis a jour le <?= texte_securise(formater_date_heure($station["main_updated_at"])) ?>
+									<?php endif; ?>
+								</p>
 
 							<?php if ($view === "detailed"): ?>
 								<div class="details-grid">
 									<div>
 										<h4>Carburants</h4>
 										<ul class="plain-list">
-											<?php foreach ($station["prices"] as $price): ?>
-												<li><?= texte_securise($price["name"]) ?> : <?= texte_securise(formater_prix((float) $price["value"])) ?></li>
-											<?php endforeach; ?>
+												<?php foreach ($station["prices"] as $price): ?>
+													<li>
+														<?= texte_securise($price["name"]) ?> :
+														<?= texte_securise(formater_prix((float) $price["value"])) ?>
+														<?php if (formater_date_heure($price["updated_at"] ?? "") !== ""): ?>
+															(mis a jour le <?= texte_securise(formater_date_heure($price["updated_at"])) ?>)
+														<?php endif; ?>
+													</li>
+												<?php endforeach; ?>
 										</ul>
 									</div>
 									<div>
