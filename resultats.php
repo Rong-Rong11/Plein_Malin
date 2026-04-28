@@ -57,6 +57,8 @@ if ($currentCity !== null) {
 
 	if (!$departmentMode && $currentCity["city_code"] !== "") {
 		enregistrer_derniere_ville($currentCity["city_code"]);
+	} elseif ($departmentMode && $department !== "") {
+		enregistrer_derniere_recherche("departement", $department);
 	}
 	$stations = rechercher_stations($currentCity, $selectedFuels, $sort, $departmentMode, $useGeo ? $geo : null, $geoRadius);
 
@@ -92,6 +94,19 @@ if ($sort === "distance") {
 
 $viewLabel = $view === "detailed" ? "Detaillee" : "Synthese";
 $selectedFuelsLabel = texte_carburants_selectionnes($selectedFuels);
+$searchTargetLabel = "Non defini";
+
+if ($useGeo) {
+	$searchTargetLabel = "votre position approximative";
+} elseif ($departmentMode) {
+	$searchTargetLabel = "tout le departement " . ($departmentInfo["department_name"] ?? $department);
+	if ($department !== "") {
+		$searchTargetLabel .= " (" . $department . ")";
+	}
+} elseif ($currentCity !== null) {
+	$searchTargetLabel = $currentCity["city_name"];
+}
+
 $searchParameters = [
 	"region" => $region,
 	"department" => $department,
@@ -128,19 +143,22 @@ require __DIR__ . "/includes/header.php";
 						<summary class="detail-toggle">Detail</summary>
 						<div class="search-details-box">
 							<h2>Recherche actuelle</h2>
-							<ul class="plain-list">
-								<li>Mode : <?= texte_securise($searchModeLabel) ?></li>
-									<li>Carburants choisis : <?= texte_securise($selectedFuelsLabel) ?></li>
-								<li>Tri choisi : <?= texte_securise($sortLabel) ?></li>
-								<li>Vue choisie : <?= texte_securise($viewLabel) ?></li>
-								<li>Stations trouvees : <?= texte_securise((string) count($stations)) ?></li>
-								<li>Region : <?= texte_securise($regionInfo["region_name"] ?? "Non definie") ?></li>
-								<li>Departement : <?= texte_securise($departmentInfo["department_name"] ?? "Non defini") ?><?= $department !== "" ? " (" . texte_securise($department) . ")" : "" ?></li>
-								<li>Ville de reference : <?= texte_securise($currentCity["city_name"] ?? "Non definie") ?></li>
-								<?php if ($currentCity !== null): ?>
-									<li>Code ville : <?= texte_securise($currentCity["city_code"]) ?></li>
-									<li>Code postal : <?= texte_securise($currentCity["postal_code"]) ?></li>
-								<?php endif; ?>
+								<ul class="plain-list">
+									<li>Mode : <?= texte_securise($searchModeLabel) ?></li>
+										<li>Carburants choisis : <?= texte_securise($selectedFuelsLabel) ?></li>
+									<li>Tri choisi : <?= texte_securise($sortLabel) ?></li>
+									<li>Vue choisie : <?= texte_securise($viewLabel) ?></li>
+									<li>Stations trouvees : <?= texte_securise((string) count($stations)) ?></li>
+									<li>Perimetre : <?= texte_securise($searchTargetLabel) ?></li>
+									<li>Region : <?= texte_securise($regionInfo["region_name"] ?? "Non definie") ?></li>
+									<li>Departement : <?= texte_securise($departmentInfo["department_name"] ?? "Non defini") ?><?= $department !== "" ? " (" . texte_securise($department) . ")" : "" ?></li>
+									<?php if (!$departmentMode): ?>
+										<li>Ville de reference : <?= texte_securise($currentCity["city_name"] ?? "Non definie") ?></li>
+									<?php endif; ?>
+									<?php if (!$departmentMode && $currentCity !== null): ?>
+										<li>Code ville : <?= texte_securise($currentCity["city_code"]) ?></li>
+										<li>Code postal : <?= texte_securise($currentCity["postal_code"]) ?></li>
+									<?php endif; ?>
 								<?php if ($useGeo && $geo !== null): ?>
 									<li>Rayon geolocalise : <?= texte_securise((string) $geoRadius) ?> km</li>
 									<li>Latitude : <?= texte_securise((string) $geo["latitude"]) ?></li>
@@ -174,12 +192,12 @@ require __DIR__ . "/includes/header.php";
 
 		<section class="results-panel" id="resultats">
 			<h2>Resultats</h2>
-			<p class="small-note">
-				<?= texte_securise($message) ?>
-				<?php if ($currentCity !== null): ?>
-					<strong><?= texte_securise($currentCity["city_name"]) ?></strong>
-				<?php endif; ?>
-			</p>
+				<p class="small-note">
+					<?= texte_securise($message) ?>
+					<?php if ($currentCity !== null): ?>
+						<strong><?= texte_securise($searchTargetLabel) ?></strong>
+					<?php endif; ?>
+				</p>
 
 			<?php if ($currentCity === null): ?>
 				<p class="empty-state">Aucune recherche lancee.</p>

@@ -5,14 +5,32 @@ preparer_dossiers_et_fichiers();
 
 $theme = gerer_theme();
 $derniereVille = null;
+$dernierDepartement = null;
 $codeDerniereVille = lire_derniere_ville();
 $lienDerniereRecherche = "";
+$libelleDerniereRecherche = "";
+$typeDerniereRecherche = "";
+$derniereRecherche = lire_derniere_recherche();
 
-if ($codeDerniereVille !== "") {
+if (($derniereRecherche["type"] ?? "") === "departement") {
+	$dernierDepartement = trouver_departement((string) $derniereRecherche["code"]);
+
+	if ($dernierDepartement !== null) {
+		$lienDerniereRecherche = lien_resultats_departement($dernierDepartement["department_code"]);
+		$libelleDerniereRecherche = $dernierDepartement["department_name"] . " (" . $dernierDepartement["department_code"] . ")";
+		$typeDerniereRecherche = "Dernier departement consulte";
+	}
+} elseif (($derniereRecherche["type"] ?? "") === "ville") {
+	$codeDerniereVille = (string) $derniereRecherche["code"];
+}
+
+if ($typeDerniereRecherche === "" && $codeDerniereVille !== "") {
 	$derniereVille = trouver_ville($codeDerniereVille);
 
 	if ($derniereVille !== null) {
 		$lienDerniereRecherche = lien_resultats_ville($derniereVille);
+		$libelleDerniereRecherche = $derniereVille["city_name"] . " (" . $derniereVille["postal_code"] . ")";
+		$typeDerniereRecherche = "Derniere ville consultee";
 	}
 }
 
@@ -47,15 +65,15 @@ require __DIR__ . "/includes/header.php";
 		</div>
 	</section>
 
-	<?php if ($derniereVille !== null): ?>
-		<section class="panel">
-			<h2>Derniere recherche</h2>
-			<p class="lead">
-				Derniere ville consultee : <strong><?= texte_securise($derniereVille["city_name"]) ?></strong>
-				(<?= texte_securise($derniereVille["postal_code"]) ?>)
-			</p>
-			<div class="form-actions">
-				<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>">Reprendre cette recherche</a>
+		<?php if ($typeDerniereRecherche !== ""): ?>
+			<section class="panel">
+				<h2>Derniere recherche</h2>
+				<p class="lead">
+					<?= texte_securise($typeDerniereRecherche) ?> :
+					<strong><?= texte_securise($libelleDerniereRecherche) ?></strong>
+				</p>
+				<div class="form-actions">
+					<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>">Reprendre cette recherche</a>
 			</div>
 		</section>
 	<?php endif; ?>

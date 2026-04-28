@@ -171,8 +171,60 @@ function lien_resultats_ville(array $city): string
 	return "resultats.php?region="
 		. rawurlencode($region)
 		. "&department=" . rawurlencode($department)
-		. "&city=" . rawurlencode((string) ($city["city_code"] ?? ""))
-		. "#resultats";
+			. "&city=" . rawurlencode((string) ($city["city_code"] ?? ""))
+			. "#resultats";
+}
+
+function lien_resultats_departement(string $codeDepartment): string
+{
+	$departmentInfo = trouver_departement($codeDepartment);
+	$region = $departmentInfo["region_code"] ?? "";
+
+	return "resultats.php?region="
+		. rawurlencode($region)
+		. "&department=" . rawurlencode($codeDepartment)
+		. "&department_mode=1#resultats";
+}
+
+function enregistrer_derniere_recherche(string $type, string $code): void
+{
+	if (!in_array($type, ["ville", "departement"], true) || $code === "") {
+		return;
+	}
+
+	$valeur = json_encode([
+		"type" => $type,
+		"code" => $code,
+		"date" => date("c"),
+	]);
+
+	if ($valeur !== false) {
+		setcookie("last_search", $valeur, time() + 30 * 24 * 3600, chemin_cookie());
+		$_COOKIE["last_search"] = $valeur;
+	}
+}
+
+function lire_derniere_recherche(): array
+{
+	if (!isset($_COOKIE["last_search"])) {
+		return [];
+	}
+
+	$recherche = json_decode((string) $_COOKIE["last_search"], true);
+
+	if (
+		!is_array($recherche)
+		|| !isset($recherche["type"], $recherche["code"])
+		|| !in_array($recherche["type"], ["ville", "departement"], true)
+		|| !is_string($recherche["code"])
+		|| $recherche["code"] === ""
+	) {
+		setcookie("last_search", "", time() - 3600, chemin_cookie());
+		unset($_COOKIE["last_search"]);
+		return [];
+	}
+
+	return $recherche;
 }
 
 function enregistrer_derniere_ville(string $codeVille): void
@@ -180,6 +232,7 @@ function enregistrer_derniere_ville(string $codeVille): void
 	if ($codeVille !== "") {
 		setcookie("last_visited_city", $codeVille, time() + 30 * 24 * 3600, chemin_cookie());
 		$_COOKIE["last_visited_city"] = $codeVille;
+		enregistrer_derniere_recherche("ville", $codeVille);
 	}
 }
 
@@ -755,6 +808,8 @@ function calculer_statistiques(): array
 {
 	$lignes = lire_csv_assoc(PM_STORAGE_DIR . "/consultations.csv");
 	$topVilles = [];
+	$topDepartements = [];
+	$topRegions = [];
 	$visiteurs = [];
 
 	foreach ($lignes as $ligne) {
@@ -766,6 +821,22 @@ function calculer_statistiques(): array
 			$topVilles[$ville]++;
 		}
 
+		$departement = trim($ligne["department"] ?? "");
+		if ($departement !== "") {
+			if (!isset($topDepartements[$departement])) {
+				$topDepartements[$departement] = 0;
+			}
+			$topDepartements[$departement]++;
+		}
+
+		$region = trim($ligne["region"] ?? "");
+		if ($region !== "") {
+			if (!isset($topRegions[$region])) {
+				$topRegions[$region] = 0;
+			}
+			$topRegions[$region]++;
+		}
+
 		$hash = trim($ligne["visitor_hash"] ?? "");
 		if ($hash !== "") {
 			$visiteurs[$hash] = true;
@@ -773,9 +844,13 @@ function calculer_statistiques(): array
 	}
 
 	arsort($topVilles);
+	arsort($topDepartements);
+	arsort($topRegions);
 
 	return [
 		"top_cities" => array_slice($topVilles, 0, 8, true),
+		"top_departments" => array_slice($topDepartements, 0, 8, true),
+		"top_regions" => array_slice($topRegions, 0, 8, true),
 		"total_visitors" => count($visiteurs),
 		"consultation_count" => count($lignes),
 	];
