@@ -9,42 +9,23 @@ $fuelLabels = liste_carburants();
 $region = $_GET["region"] ?? "";
 $department = $_GET["department"] ?? "";
 $city = $_GET["city"] ?? "";
-$fuel = $_GET["fuel"] ?? "Gazole";
+$selectedFuels = normaliser_carburants_selection($_GET["fuel"] ?? []);
 $view = $_GET["view"] ?? "summary";
 $sort = $_GET["sort"] ?? "price";
+$geoRadius = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? 10));
 $departmentMode = isset($_GET["department_mode"]);
 
 if ($region === "") {
 	$department = "";
 	$city = "";
 } else {
-	$departementsRegion = departements_par_region($region);
-	$departementValide = false;
-
-	foreach ($departementsRegion as $unDepartement) {
-		if ($unDepartement["department_code"] === $department) {
-			$departementValide = true;
-		}
-	}
-
-	if (!$departementValide) {
+	if (!departement_existe_dans_region($department, $region)) {
 		$department = "";
 		$city = "";
 	}
 
-	if ($department !== "") {
-		$villesDepartement = villes_par_departement($department);
-		$villeValide = false;
-
-		foreach ($villesDepartement as $uneVille) {
-			if ($uneVille["city_code"] === $city) {
-				$villeValide = true;
-			}
-		}
-
-		if (!$villeValide) {
-			$city = "";
-		}
+	if ($department !== "" && !ville_existe_dans_departement($city, $department)) {
+		$city = "";
 	}
 }
 
@@ -161,18 +142,20 @@ require __DIR__ . "/includes/header.php";
 				</div>
 
 				<div class="search-section">
-					<p class="section-label">3. Preferences et actions</p>
-					<div class="field-grid field-grid-secondary">
-						<label class="field-card field-card-soft">
-							<span class="field-title">Carburant</span>
-							<select name="fuel">
-								<?php foreach ($fuelLabels as $codeCarburant => $nomCarburant): ?>
-									<option value="<?= texte_securise($codeCarburant) ?>" <?= $fuel === $codeCarburant ? "selected" : "" ?>>
-										<?= texte_securise($nomCarburant) ?>
-									</option>
-								<?php endforeach; ?>
-							</select>
-						</label>
+						<p class="section-label">3. Preferences et actions</p>
+						<div class="field-grid field-grid-secondary">
+							<div class="field-card field-card-soft field-card-wide">
+								<span class="field-title">Carburants</span>
+								<span class="field-help">Cochez un ou plusieurs carburants.</span>
+								<span class="fuel-choice-list">
+									<?php foreach ($fuelLabels as $codeCarburant => $nomCarburant): ?>
+										<label class="fuel-choice">
+											<input type="checkbox" name="fuel[]" value="<?= texte_securise($codeCarburant) ?>" <?= in_array($codeCarburant, $selectedFuels, true) ? "checked" : "" ?>>
+											<span><?= texte_securise($nomCarburant) ?></span>
+										</label>
+									<?php endforeach; ?>
+								</span>
+							</div>
 
 						<label class="field-card field-card-soft">
 							<span class="field-title">Tri</span>
@@ -183,25 +166,35 @@ require __DIR__ . "/includes/header.php";
 							</select>
 						</label>
 
-						<label class="field-card field-card-soft">
-							<span class="field-title">Vue</span>
-							<select name="view">
-								<option value="summary" <?= $view === "summary" ? "selected" : "" ?>>Synthese</option>
-								<option value="detailed" <?= $view === "detailed" ? "selected" : "" ?>>Detaillee</option>
-							</select>
-						</label>
-					</div>
+							<label class="field-card field-card-soft">
+								<span class="field-title">Vue</span>
+								<select name="view">
+									<option value="summary" <?= $view === "summary" ? "selected" : "" ?>>Synthese</option>
+									<option value="detailed" <?= $view === "detailed" ? "selected" : "" ?>>Detaillee</option>
+								</select>
+							</label>
+						</div>
 
-					<div class="action-panel">
-						<div class="action-copy">
-							<p class="context-title">Lancer la recherche</p>
+						<div class="action-panel">
+							<div class="action-copy">
+								<p class="context-title">Lancer la recherche</p>
 							<p class="small-note">Choisissez votre mode puis affichez les stations.</p>
+							</div>
+							<div class="form-actions action-buttons">
+								<label class="inline-filter">
+									<span>Rayon</span>
+									<select name="geo_radius">
+										<?php foreach (rayons_geo_disponibles() as $radius): ?>
+											<option value="<?= texte_securise((string) $radius) ?>" <?= $geoRadius === $radius ? "selected" : "" ?>>
+												<?= texte_securise((string) $radius) ?> km
+											</option>
+										<?php endforeach; ?>
+									</select>
+								</label>
+								<button type="submit">Rechercher</button>
+								<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
+							</div>
 						</div>
-						<div class="form-actions action-buttons">
-							<button type="submit">Rechercher</button>
-							<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
-						</div>
-					</div>
 				</div>
 			</form>
 		</section>

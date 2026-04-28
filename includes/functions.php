@@ -77,6 +77,104 @@ function nom_theme(string $theme): string
 	return "jour";
 }
 
+function lien_bascule_theme(string $theme): string
+{
+	$themeCible = $theme === "night" ? "day" : "night";
+	$parametres = $_GET;
+	$parametres["theme"] = $themeCible;
+	$requete = http_build_query($parametres);
+	$script = basename($_SERVER["PHP_SELF"] ?? "index.php");
+
+	if ($requete === "") {
+		return $script;
+	}
+
+	return $script . "?" . $requete;
+}
+
+function departement_existe_dans_region(string $codeDepartment, string $codeRegion): bool
+{
+	foreach (departements_par_region($codeRegion) as $department) {
+		if ($department["department_code"] === $codeDepartment) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function ville_existe_dans_departement(string $codeVille, string $codeDepartment): bool
+{
+	foreach (villes_par_departement($codeDepartment) as $city) {
+		if ($city["city_code"] === $codeVille) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function mode_recherche(bool $useGeo, bool $departmentMode): string
+{
+	if ($useGeo) {
+		return "geolocalisation";
+	}
+
+	if ($departmentMode) {
+		return "departement";
+	}
+
+	return "ville";
+}
+
+function message_resultats(?array $currentCity, bool $useGeo, bool $departmentMode, array $stations): string
+{
+	if ($currentCity === null) {
+		return "Aucune recherche lancee.";
+	}
+
+	if ($useGeo) {
+		return "Recherche autour de votre position approximative.";
+	}
+
+	if ($departmentMode) {
+		return "Recherche dans tout le departement selectionne.";
+	}
+
+	if ($stations === []) {
+		return "Aucune station trouvee dans la ville selectionnee.";
+	}
+
+	return "Recherche dans la ville selectionnee.";
+}
+
+function rayons_geo_disponibles(): array
+{
+	return [5, 10, 15, 20, 30];
+}
+
+function normaliser_rayon_geo(int $radius): int
+{
+	if (in_array($radius, rayons_geo_disponibles(), true)) {
+		return $radius;
+	}
+
+	return 10;
+}
+
+function lien_resultats_ville(array $city): string
+{
+	$department = $city["department_code"] ?? "";
+	$regionInfo = trouver_departement($department);
+	$region = $regionInfo["region_code"] ?? "";
+
+	return "resultats.php?region="
+		. rawurlencode($region)
+		. "&department=" . rawurlencode($department)
+		. "&city=" . rawurlencode((string) ($city["city_code"] ?? ""))
+		. "#resultats";
+}
+
 function enregistrer_derniere_ville(string $codeVille): void
 {
 	if ($codeVille !== "") {
@@ -238,6 +336,48 @@ function liste_carburants(): array
 	];
 }
 
+function normaliser_carburants_selection($fuelInput): array
+{
+	$carburantsValides = array_keys(liste_carburants());
+
+	if (!is_array($fuelInput)) {
+		if (is_string($fuelInput) && $fuelInput !== "") {
+			$fuelInput = [$fuelInput];
+		} else {
+			$fuelInput = [];
+		}
+	}
+
+	$resultat = [];
+	foreach ($fuelInput as $fuel) {
+		if (is_string($fuel) && in_array($fuel, $carburantsValides, true)) {
+			$resultat[] = $fuel;
+		}
+	}
+
+	$resultat = array_values(array_unique($resultat));
+
+	if ($resultat === []) {
+		return ["Gazole"];
+	}
+
+	return $resultat;
+}
+
+function texte_carburants_selectionnes(array $fuelTypes): string
+{
+	$labels = liste_carburants();
+	$noms = [];
+
+	foreach ($fuelTypes as $fuelType) {
+		if (isset($labels[$fuelType])) {
+			$noms[] = $labels[$fuelType];
+		}
+	}
+
+	return implode(", ", $noms);
+}
+
 function lire_cache_api(string $fichierCache): ?array
 {
 	if (!file_exists($fichierCache)) {
@@ -383,9 +523,14 @@ function trouver_ville_plus_proche(float $latitude, float $longitude): ?array
 	return $villeProche;
 }
 
-function lire_stations_api(?array $city, bool $departmentMode = false): ?array
+function arrondir_coordonnee_cache(float $value): float
 {
-	if ($city === null) {
+	return round($value, 2);
+}
+
+function lire_stations_api(?array $city, bool $departmentMode = false, ?array $origin = null, int $radiusKm = 10): ?array
+{
+	if ($city === null && $origin === null) {
 		return [];
 	}
 
@@ -393,12 +538,20 @@ function lire_stations_api(?array $city, bool $departmentMode = false): ?array
 	$ville = trim((string) ($city["city_name"] ?? ""));
 	$filtres = [];
 
-	if ($departement !== "") {
-		$filtres[] = 'code_departement="' . addslashes($departement) . '"';
-	}
+	if ($origin !== null) {
+		$latitude = arrondir_coordonnee_cache((float) ($origin["latitude"] ?? 0));
+		$longitude = arrondir_coordonnee_cache((float) ($origin["longitude"] ?? 0));
+		$rayonKm = normaliser_rayon_geo($radiusKm);
 
-	if (!$departmentMode && $ville !== "") {
-		$filtres[] = 'ville="' . addslashes($ville) . '"';
+		$filtres[] = "within_distance(geom, geom'POINT(" . $longitude . " " . $latitude . ")', " . $rayonKm . " km)";
+	} else {
+		if ($departement !== "") {
+			$filtres[] = 'code_departement="' . addslashes($departement) . '"';
+		}
+
+		if (!$departmentMode && $ville !== "") {
+			$filtres[] = 'ville="' . addslashes($ville) . '"';
+		}
 	}
 
 	if ($filtres === []) {
@@ -465,9 +618,21 @@ function lire_stations_api(?array $city, bool $departmentMode = false): ?array
 			}
 		}
 
+		$nomStation = trim((string) ($ligne["nom"] ?? ""));
+		if ($nomStation === "") {
+			$nomStation = trim((string) ($ligne["enseigne"] ?? ""));
+		}
+		if ($nomStation === "") {
+			$nomStation = "Station " . (string) ($ligne["id"] ?? "");
+			$adresseStation = trim((string) ($ligne["adresse"] ?? ""));
+			if ($adresseStation !== "") {
+				$nomStation .= " - " . $adresseStation;
+			}
+		}
+
 		$stations[] = [
 			"id" => (string) ($ligne["id"] ?? ""),
-			"name" => (string) ($ligne["nom"] ?? "Station"),
+			"name" => $nomStation,
 			"address" => (string) ($ligne["adresse"] ?? ""),
 			"postal_code" => (string) ($ligne["code_postal"] ?? ""),
 			"raw_city_name" => (string) ($ligne["ville"] ?? ""),
@@ -484,38 +649,47 @@ function lire_stations_api(?array $city, bool $departmentMode = false): ?array
 	return $stations;
 }
 
-function rechercher_stations(?array $city, string $fuelType, string $sortBy, bool $departmentMode = false): array
+function rechercher_stations(?array $city, array $fuelTypes, string $sortBy, bool $departmentMode = false, ?array $origin = null, int $radiusKm = 10): array
 {
-	if ($city === null) {
+	if ($city === null && $origin === null) {
 		return [];
 	}
 
 	$resultat = [];
-	$stationsDisponibles = lire_stations_api($city, $departmentMode);
+	$stationsDisponibles = lire_stations_api($city, $departmentMode, $origin, $radiusKm);
 
 	if ($stationsDisponibles === null) {
 		return [];
 	}
 
+	$referenceLatitude = (float) ($origin["latitude"] ?? $city["latitude"] ?? 0);
+	$referenceLongitude = (float) ($origin["longitude"] ?? $city["longitude"] ?? 0);
+
 	foreach ($stationsDisponibles as $station) {
 		$distance = calculer_distance_km(
-			(float) $city["latitude"],
-			(float) $city["longitude"],
+			$referenceLatitude,
+			$referenceLongitude,
 			(float) $station["latitude"],
 			(float) $station["longitude"]
 		);
 
-		if ($fuelType !== "" && !isset($station["prices"][$fuelType])) {
+		$prixSelectionnes = [];
+		foreach ($fuelTypes as $fuelType) {
+			if (isset($station["prices"][$fuelType])) {
+				$prixSelectionnes[$fuelType] = (float) $station["prices"][$fuelType]["value"];
+			}
+		}
+
+		if ($prixSelectionnes === []) {
 			continue;
 		}
 
-		$prixPrincipal = null;
-		if ($fuelType !== "" && isset($station["prices"][$fuelType])) {
-			$prixPrincipal = (float) $station["prices"][$fuelType]["value"];
-		}
+		$prixPrincipal = min($prixSelectionnes);
+		$carburantPrincipal = array_search($prixPrincipal, $prixSelectionnes, true);
 
 		$station["distance"] = $distance;
 		$station["main_price"] = $prixPrincipal;
+		$station["main_fuel"] = is_string($carburantPrincipal) ? $carburantPrincipal : "";
 		$resultat[] = $station;
 	}
 
