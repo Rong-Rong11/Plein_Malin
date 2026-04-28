@@ -18,7 +18,7 @@ $city = $_GET["city"] ?? "";
 $currentCity = null;
 $stations = [];
 $geo = null;
-$message = "Aucune recherche lancee.";
+$message = "Aucune recherche lancée.";
 $departmentInfo = null;
 $regionInfo = null;
 $choixRechercheIncomplet = !$useGeo && !$departmentMode && $department !== "" && $city === "";
@@ -46,7 +46,7 @@ if ($useGeo) {
 			$villesDepartement = villes_par_departement($department);
 			$currentCity = $villesDepartement[0] ?? [
 				"city_code" => "",
-				"city_name" => "Departement " . $department,
+				"city_name" => "Département " . $department,
 				"postal_code" => "",
 				"department_code" => $department,
 				"latitude" => 0,
@@ -74,7 +74,7 @@ if ($currentCity !== null) {
 	enregistrer_consultation([
 		"region" => $regionInfo["region_name"] ?? "",
 		"department" => $departmentInfo["department_name"] ?? "",
-		"city" => $departmentMode ? "Departement " . ($departmentInfo["department_name"] ?? $department) : $currentCity["city_name"],
+		"city" => $departmentMode ? "Département " . ($departmentInfo["department_name"] ?? $department) : $currentCity["city_name"],
 		"mode" => mode_recherche($useGeo, $departmentMode),
 		"view" => $view,
 		"fuel" => texte_carburants_selectionnes($selectedFuels),
@@ -86,31 +86,31 @@ $message = message_resultats($currentCity, $useGeo, $departmentMode, $stations);
 if ($useGeo && $currentCity !== null) {
 	$message = "Recherche autour de votre position approximative dans un rayon de " . $geoRadius . " km.";
 } elseif ($choixRechercheIncomplet) {
-	$message = "Vous avez choisi le departement " . $departmentLabel . ". Selectionnez une ville ou cochez \"Tout le departement\" pour lancer la recherche.";
+	$message = "Vous avez choisi le département " . $departmentLabel . ". Sélectionnez une ville ou cochez \"Tout le département\" pour lancer la recherche.";
 }
 
 $searchModeLabel = "Ville";
 if ($useGeo) {
 	$searchModeLabel = "Autour de moi";
 } elseif ($departmentMode) {
-	$searchModeLabel = "Departement";
+	$searchModeLabel = "Département";
 }
 
 $sortLabel = "Prix croissant";
 if ($sort === "distance") {
-	$sortLabel = "Proximite";
+	$sortLabel = "Proximité";
 } elseif ($sort === "name") {
 	$sortLabel = "Nom";
 }
 
-$viewLabel = $view === "detailed" ? "Detaillee" : "Synthese";
+$viewLabel = $view === "detailed" ? "Détaillée" : "Synthèse";
 $selectedFuelsLabel = texte_carburants_selectionnes($selectedFuels);
-$searchTargetLabel = "Non defini";
+$searchTargetLabel = "Non défini";
 
 if ($useGeo) {
 	$searchTargetLabel = "votre position approximative";
 } elseif ($departmentMode) {
-	$searchTargetLabel = "tout le departement " . ($departmentInfo["department_name"] ?? $department);
+	$searchTargetLabel = "tout le département " . ($departmentInfo["department_name"] ?? $department);
 	if ($department !== "") {
 		$searchTargetLabel .= " (" . $department . ")";
 	}
@@ -136,12 +136,26 @@ if ($useGeo) {
 	$searchParameters["use_geo"] = "1";
 }
 
+$prixRecherche = array_column($stations, "main_price");
+$prixMoyenRecherche = null;
+$meilleureStation = null;
+
+if ($prixRecherche !== []) {
+	$prixMoyenRecherche = array_sum($prixRecherche) / count($prixRecherche);
+
+	foreach ($stations as $station) {
+		if ($meilleureStation === null || (float) $station["main_price"] < (float) $meilleureStation["main_price"]) {
+			$meilleureStation = $station;
+		}
+	}
+}
+
 enregistrer_parametres_derniere_recherche($searchParameters);
 
 $searchLink = "recherche.php?" . http_build_query($searchParameters) . "#recherche";
 
-$pageTitle = "Resultats - Plein Malin";
-$pageDescription = "Resultats des stations-service et des prix.";
+$pageTitle = "Résultats - Plein Malin";
+$pageDescription = "Résultats des stations-service et des prix.";
 $activePage = "resultats";
 $footerText = "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026";
 
@@ -149,39 +163,39 @@ require __DIR__ . "/includes/header.php";
 ?>
 	<main class="page-shell">
 			<section class="panel">
-				<p class="eyebrow">Resultats</p>
+				<p class="eyebrow">Résultats</p>
 				<h1>Stations pour <?= texte_securise($selectedFuelsLabel) ?></h1>
 					<p class="lead">
-						Consultez les stations trouvees puis revenez a la recherche si besoin.
+						Consultez les stations trouvées puis revenez à la recherche si besoin.
 					</p>
 				<div class="form-actions">
 						<a class="cta-link" href="<?= texte_securise($searchLink) ?>">Modifier ma recherche</a>
 					<details class="search-details">
-						<summary class="detail-toggle">Detail</summary>
+						<summary class="detail-toggle">Détail</summary>
 						<div class="search-details-box">
 							<h2>Recherche actuelle</h2>
 								<ul class="plain-list">
 									<li>Mode : <?= texte_securise($searchModeLabel) ?></li>
-										<li>Carburants choisis : <?= texte_securise($selectedFuelsLabel) ?></li>
+									<li>Carburants choisis : <?= texte_securise($selectedFuelsLabel) ?></li>
 									<li>Tri choisi : <?= texte_securise($sortLabel) ?></li>
 									<li>Vue choisie : <?= texte_securise($viewLabel) ?></li>
-									<li>Stations trouvees : <?= texte_securise((string) count($stations)) ?></li>
-									<li>Perimetre : <?= texte_securise($searchTargetLabel) ?></li>
-									<li>Region : <?= texte_securise($regionInfo["region_name"] ?? "Non definie") ?></li>
-									<li>Departement : <?= texte_securise($departmentInfo["department_name"] ?? "Non defini") ?><?= $department !== "" ? " (" . texte_securise($department) . ")" : "" ?></li>
+									<li>Stations trouvées : <?= texte_securise((string) count($stations)) ?></li>
+									<li>Périmètre : <?= texte_securise($searchTargetLabel) ?></li>
+									<li>Région : <?= texte_securise($regionInfo["region_name"] ?? "Non définie") ?></li>
+									<li>Département : <?= texte_securise($departmentInfo["department_name"] ?? "Non défini") ?><?= $department !== "" ? " (" . texte_securise($department) . ")" : "" ?></li>
 									<?php if (!$departmentMode): ?>
-										<li>Ville de reference : <?= texte_securise($currentCity["city_name"] ?? "Non definie") ?></li>
+										<li>Ville de référence : <?= texte_securise($currentCity["city_name"] ?? "Non définie") ?></li>
 									<?php endif; ?>
 									<?php if (!$departmentMode && $currentCity !== null): ?>
 										<li>Code ville : <?= texte_securise($currentCity["city_code"]) ?></li>
 										<li>Code postal : <?= texte_securise($currentCity["postal_code"]) ?></li>
 									<?php endif; ?>
 								<?php if ($useGeo && $geo !== null): ?>
-									<li>Rayon geolocalise : <?= texte_securise((string) $geoRadius) ?> km</li>
+									<li>Rayon géolocalisé : <?= texte_securise((string) $geoRadius) ?> km</li>
 									<li>Latitude : <?= texte_securise((string) $geo["latitude"]) ?></li>
 									<li>Longitude : <?= texte_securise((string) $geo["longitude"]) ?></li>
 									<li>Ville retournee par l'IP : <?= texte_securise($geo["city"]) ?></li>
-									<li>Region retournee par l'IP : <?= texte_securise($geo["region"]) ?></li>
+									<li>Région retournée par l'IP : <?= texte_securise($geo["region"]) ?></li>
 									<li>Source de localisation : <?= texte_securise($geo["source"]) ?></li>
 								<?php endif; ?>
 							</ul>
@@ -208,7 +222,7 @@ require __DIR__ . "/includes/header.php";
 			</section>
 
 		<section class="results-panel" id="resultats">
-			<h2>Resultats</h2>
+			<h2>Résultats</h2>
 				<p class="small-note">
 					<?= texte_securise($message) ?>
 					<?php if ($currentCity !== null): ?>
@@ -216,21 +230,41 @@ require __DIR__ . "/includes/header.php";
 					<?php endif; ?>
 				</p>
 				<?php if ($useGeo): ?>
-					<p class="small-note">Position estimee a partir de l'adresse IP.</p>
+					<p class="small-note">Position estimée à partir de l'adresse IP.</p>
 				<?php endif; ?>
 
 				<?php if ($currentCity === null): ?>
 					<p class="empty-state">
-						<?= texte_securise($choixRechercheIncomplet ? "Choisissez une ville dans le departement " . $departmentLabel . " ou activez la recherche dans tout le departement." : "Aucune recherche lancee.") ?>
+						<?= texte_securise($choixRechercheIncomplet ? "Choisissez une ville dans le département " . $departmentLabel . " ou activez la recherche dans tout le département." : "Aucune recherche lancée.") ?>
 					</p>
 				<?php elseif ($stations === []): ?>
-				<p class="empty-state">Aucune station trouvee avec ces criteres.</p>
-			<?php else: ?>
-				<p class="small-note"><?= texte_securise((string) count($stations)) ?> station(s) trouvee(s).</p>
+				<p class="empty-state">Aucune station trouvée avec ces critères.</p>
+				<?php else: ?>
+					<p class="small-note"><?= texte_securise((string) count($stations)) ?> station(s) trouvée(s).</p>
 
-				<div class="cards">
-					<?php foreach ($stations as $station): ?>
-						<article class="station-card">
+					<?php if ($prixMoyenRecherche !== null && $meilleureStation !== null): ?>
+						<div class="stats-inline result-summary">
+							<div class="stat-chip">
+								<strong><?= texte_securise(formater_prix($prixMoyenRecherche)) ?></strong>
+								<span>prix moyen trouvé</span>
+							</div>
+							<a class="stat-chip best-price-link" href="#station-<?= texte_securise(rawurlencode((string) $meilleureStation["id"])) ?>">
+								<strong><?= texte_securise(formater_prix((float) $meilleureStation["main_price"])) ?></strong>
+								<span>meilleur prix trouvé - <?= texte_securise($meilleureStation["name"]) ?></span>
+								<small>Cliquer pour voir la station</small>
+							</a>
+						</div>
+					<?php endif; ?>
+
+					<div class="cards">
+						<?php foreach ($stations as $station): ?>
+							<?php
+							$stationAnchor = rawurlencode((string) $station["id"]);
+							$detailParameters = $searchParameters;
+							$detailParameters["view"] = "detailed";
+							$detailLink = "resultats.php?" . http_build_query($detailParameters) . "#station-" . $stationAnchor;
+							?>
+							<article class="station-card" id="station-<?= texte_securise($stationAnchor) ?>">
 							<div class="station-top">
 								<div>
 									<h3><?= texte_securise($station["name"]) ?></h3>
@@ -246,11 +280,17 @@ require __DIR__ . "/includes/header.php";
 									Distance : <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
 									| flux <?= texte_securise($station["source"]) ?>
 									<?php if (formater_date_heure($station["main_updated_at"] ?? "") !== ""): ?>
-										| prix mis a jour le <?= texte_securise(formater_date_heure($station["main_updated_at"])) ?>
+										| prix mis à jour le <?= texte_securise(formater_date_heure($station["main_updated_at"])) ?>
 									<?php endif; ?>
-								</p>
+									</p>
 
-							<?php if ($view === "detailed"): ?>
+								<?php if ($view !== "detailed"): ?>
+									<div class="form-actions station-actions">
+										<a class="secondary-btn" href="<?= texte_securise($detailLink) ?>">Voir les détails</a>
+									</div>
+								<?php endif; ?>
+
+								<?php if ($view === "detailed"): ?>
 								<div class="details-grid">
 									<div>
 										<h4>Carburants</h4>
@@ -260,7 +300,7 @@ require __DIR__ . "/includes/header.php";
 														<?= texte_securise($price["name"]) ?> :
 														<?= texte_securise(formater_prix((float) $price["value"])) ?>
 														<?php if (formater_date_heure($price["updated_at"] ?? "") !== ""): ?>
-															(mis a jour le <?= texte_securise(formater_date_heure($price["updated_at"])) ?>)
+																(mis à jour le <?= texte_securise(formater_date_heure($price["updated_at"])) ?>)
 														<?php endif; ?>
 													</li>
 												<?php endforeach; ?>
@@ -280,11 +320,14 @@ require __DIR__ . "/includes/header.php";
 									</div>
 								</div>
 							<?php endif; ?>
-						</article>
-					<?php endforeach; ?>
-				</div>
-			<?php endif; ?>
-		</section>
+							</article>
+						<?php endforeach; ?>
+					</div>
+					<div class="form-actions bottom-actions">
+						<a class="cta-link" href="<?= texte_securise($searchLink) ?>">Retour à la recherche</a>
+					</div>
+				<?php endif; ?>
+			</section>
 	</main>
 
 <?php require __DIR__ . "/includes/footer.php"; ?>

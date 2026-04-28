@@ -27,7 +27,7 @@ if (($derniereRecherche["type"] ?? "") === "departement") {
 	if ($dernierDepartement !== null) {
 		$lienDerniereRecherche = lien_resultats_departement($dernierDepartement["department_code"]);
 		$libelleDerniereRecherche = $dernierDepartement["department_name"] . " (" . $dernierDepartement["department_code"] . ")";
-		$typeDerniereRecherche = "Dernier departement consulte";
+		$typeDerniereRecherche = "Dernier département consulté";
 	}
 } elseif (($derniereRecherche["type"] ?? "") === "ville") {
 	$codeDerniereVille = (string) $derniereRecherche["code"];
@@ -39,7 +39,7 @@ if ($typeDerniereRecherche === "" && $codeDerniereVille !== "") {
 	if ($derniereVille !== null) {
 		$lienDerniereRecherche = lien_resultats_ville($derniereVille);
 		$libelleDerniereRecherche = $derniereVille["city_name"] . " (" . $derniereVille["postal_code"] . ")";
-		$typeDerniereRecherche = "Derniere ville consultee";
+		$typeDerniereRecherche = "Dernière ville consultée";
 	}
 }
 
@@ -56,7 +56,7 @@ require __DIR__ . "/includes/header.php";
 			<p class="eyebrow">Prix des carburants</p>
 			<h1>Trouvez une station plus facilement</h1>
 			<p class="lead">
-				Plein Malin permet de choisir une region, un departement puis une ville
+				Plein Malin permet de choisir une région, un département puis une ville
 				pour consulter les stations-service et comparer les prix.
 			</p>
 			<div class="form-actions">
@@ -67,7 +67,7 @@ require __DIR__ . "/includes/header.php";
 		<div class="panel">
 			<h2>Ce que fait le site</h2>
 			<ul class="plain-list">
-				<li>Recherche par region, departement et ville</li>
+				<li>Recherche par région, département et ville</li>
 				<li>Affichage simple des stations et des prix</li>
 				<li>Statistiques a partir des consultations enregistrees</li>
 			</ul>
@@ -76,13 +76,13 @@ require __DIR__ . "/includes/header.php";
 
 		<?php if ($typeDerniereRecherche !== ""): ?>
 			<section class="panel">
-				<h2>Derniere recherche</h2>
+				<h2>Dernière recherche</h2>
 				<p class="lead">
 					<?= texte_securise($typeDerniereRecherche) ?> :
 					<strong><?= texte_securise($libelleDerniereRecherche) ?></strong>
 				</p>
 				<?php if ($dateDerniereRecherche !== ""): ?>
-					<p class="small-note">Derniere recherche le <?= texte_securise($dateDerniereRecherche) ?></p>
+					<p class="small-note">Dernière recherche le <?= texte_securise($dateDerniereRecherche) ?></p>
 				<?php endif; ?>
 				<div class="form-actions">
 					<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>">Reprendre cette recherche</a>
@@ -94,12 +94,12 @@ require __DIR__ . "/includes/header.php";
 		<article class="panel">
 			<h2>Recherche guidee</h2>
 			<p class="small-note">
-				La recherche suit l'ordre region, departement puis ville pour rester simple.
+				La recherche suit l'ordre région, département puis ville pour rester simple.
 			</p>
 		</article>
 
 		<article class="panel">
-			<h2>Resultats lisibles</h2>
+			<h2>Résultats lisibles</h2>
 			<p class="small-note">
 				Chaque station affiche son adresse, ses prix et ses informations utiles.
 			</p>
@@ -108,7 +108,7 @@ require __DIR__ . "/includes/header.php";
 		<article class="panel">
 			<h2>Statistiques</h2>
 			<p class="small-note">
-				Une page dediee resume les villes les plus consultees et le nombre de visites.
+				Une page dédiée résume les villes les plus consultées et le nombre de visites.
 			</p>
 		</article>
 	</section>

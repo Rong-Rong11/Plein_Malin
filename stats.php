@@ -14,7 +14,7 @@ $fuelTrends = lire_tendances_prix_officielles(null, ["Gazole", "SP95", "SP98", "
 $pageTitle = "Statistiques - Plein Malin";
 $pageDescription = "Page statistiques de Plein Malin.";
 $activePage = "stats";
-$footerText = "Enzo Phung | Fatma-Zhara Baarir | Statistiques generees a partir du CSV de consultations.";
+$footerText = "Enzo Phung | Fatma-Zhara Baarir | Statistiques générées à partir du CSV de consultations.";
 
 require __DIR__ . "/includes/header.php";
 ?>
@@ -39,9 +39,9 @@ require __DIR__ . "/includes/header.php";
 		</section>
 
 		<section class="panel">
-			<h2>Top des villes consultees</h2>
+					<h2>Top des villes consultées</h2>
 			<?php if ($stats['top_cities'] === []): ?>
-				<p class="empty-state">Aucune consultation enregistree pour le moment.</p>
+						<p class="empty-state">Aucune consultation enregistrée pour le moment.</p>
 				<?php else: ?>
 					<div class="bar-chart">
 						<?php foreach ($stats['top_cities'] as $city => $count): ?>
@@ -58,9 +58,9 @@ require __DIR__ . "/includes/header.php";
 			</section>
 
 			<section class="panel">
-				<h2>Top des departements consultes</h2>
+					<h2>Top des départements consultés</h2>
 				<?php if ($stats['top_departments'] === []): ?>
-					<p class="empty-state">Aucun departement enregistre pour le moment.</p>
+						<p class="empty-state">Aucun département enregistré pour le moment.</p>
 				<?php else: ?>
 					<div class="bar-chart">
 						<?php foreach ($stats['top_departments'] as $department => $count): ?>
@@ -77,9 +77,9 @@ require __DIR__ . "/includes/header.php";
 			</section>
 
 			<section class="panel">
-				<h2>Top des regions consultees</h2>
+					<h2>Top des régions consultées</h2>
 				<?php if ($stats['top_regions'] === []): ?>
-					<p class="empty-state">Aucune region enregistree pour le moment.</p>
+						<p class="empty-state">Aucune région enregistrée pour le moment.</p>
 				<?php else: ?>
 					<div class="bar-chart">
 						<?php foreach ($stats['top_regions'] as $region => $count): ?>
@@ -96,9 +96,9 @@ require __DIR__ . "/includes/header.php";
 				</section>
 
 				<section class="panel">
-					<h2>Carburants les plus recherches</h2>
+					<h2>Carburants les plus recherchés</h2>
 					<?php if ($stats['top_fuels'] === []): ?>
-						<p class="empty-state">Aucun carburant enregistre pour le moment.</p>
+						<p class="empty-state">Aucun carburant enregistré pour le moment.</p>
 					<?php else: ?>
 						<div class="bar-chart">
 							<?php foreach ($stats['top_fuels'] as $fuel => $count): ?>
@@ -117,7 +117,7 @@ require __DIR__ . "/includes/header.php";
 				<section class="panel">
 					<h2>Recherches par mode</h2>
 					<?php if ($stats['top_modes'] === []): ?>
-						<p class="empty-state">Aucun mode de recherche enregistre pour le moment.</p>
+						<p class="empty-state">Aucun mode de recherche enregistré pour le moment.</p>
 					<?php else: ?>
 						<div class="bar-chart">
 							<?php foreach ($stats['top_modes'] as $mode => $count): ?>
@@ -136,7 +136,7 @@ require __DIR__ . "/includes/header.php";
 				<section class="panel">
 					<h2>Tendance annuelle des prix</h2>
 					<p class="small-note">
-						Moyennes mensuelles calculees cote serveur depuis l'archive annuelle officielle XML
+					Moyennes mensuelles calculées côté serveur depuis l'archive annuelle officielle XML
 						<?= texte_securise((string) ($fuelTrends["year"] ?? date("Y"))) ?>.
 					</p>
 					<p class="small-note">
@@ -145,7 +145,7 @@ require __DIR__ . "/includes/header.php";
 							donnees.roulez-eco.fr
 						</a>
 						<?php if (formater_date_heure($fuelTrends["cached_at"] ?? "") !== ""): ?>
-							- derniere mise a jour du cache le <?= texte_securise(formater_date_heure($fuelTrends["cached_at"])) ?>
+							- dernière mise à jour du cache le <?= texte_securise(formater_date_heure($fuelTrends["cached_at"])) ?>
 						<?php endif; ?>
 					</p>
 
@@ -157,7 +157,7 @@ require __DIR__ . "/includes/header.php";
 							<article class="trend-group">
 								<h3><?= texte_securise($fuelName) ?></h3>
 								<?php if ($months === []): ?>
-									<p class="empty-state">Aucune donnee disponible.</p>
+								<p class="empty-state">Aucune donnée disponible.</p>
 								<?php else: ?>
 									<?php
 									$points = points_graphique_tendance($months);

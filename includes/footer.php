@@ -7,7 +7,7 @@ $lienResultatsFooter = lien_resultats_memorises();
 			<div class="footer-links">
 				<a href="index.php">Accueil</a>
 				<a href="<?= texte_securise($lienRechercheFooter) ?>">Recherche</a>
-					<a href="<?= texte_securise($lienResultatsFooter) ?>">Resultats</a>
+					<a href="<?= texte_securise($lienResultatsFooter) ?>">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 				<a href="tech.php">Page tech</a>
 			</div>

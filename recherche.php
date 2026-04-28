@@ -81,7 +81,7 @@ function coordonnees_carte(string $coords, int $largeurOriginale, int $hauteurOr
 }
 
 $pageTitle = "Recherche - Plein Malin";
-$pageDescription = "Choisir une region, un departement et une ville.";
+$pageDescription = "Choisir une région, un département et une ville.";
 $activePage = "recherche";
 $footerText = "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026";
 
@@ -92,20 +92,20 @@ require __DIR__ . "/includes/header.php";
 		<p class="eyebrow">Recherche principale</p>
 		<h1>Rechercher une station</h1>
 		<p class="lead">
-			Choisissez une region sur la carte, puis un departement, puis une ville.
+			Choisissez une région sur la carte, puis un département, puis une ville.
 		</p>
 	</section>
 
 	<section class="panel">
-		<h2>Carte des regions</h2>
+		<h2>Carte des régions</h2>
 		<p class="small-note">
-			Cliquez sur une region pour commencer.
+			Cliquez sur une région pour commencer.
 			<?php if ($regionInfo !== null): ?>
-				Region choisie : <strong><?= texte_securise($regionInfo["region_name"]) ?></strong>
+					Région choisie : <strong><?= texte_securise($regionInfo["region_name"]) ?></strong>
 			<?php endif; ?>
 		</p>
 				<div class="map-scroll">
-					<img src="image/<?= $theme === "night" ? "map(dark).png" : "map(light).png" ?>" alt="Carte des regions de France"
+					<img src="image/<?= $theme === "night" ? "map(dark).png" : "map(light).png" ?>" alt="Carte des régions de France"
 						usemap="#regions-map" class="map-image" width="<?= $largeurCarte ?>" height="<?= $hauteurCarte ?>">
 				</div>
 				<map name="regions-map">
@@ -148,7 +148,7 @@ require __DIR__ . "/includes/header.php";
 				<?php if ($regionInfo !== null): ?>
 					<div class="context-card">
 						<div>
-							<p class="context-title">Region deja choisie</p>
+							<p class="context-title">Région déjà choisie</p>
 							<div class="region-badge"><?= texte_securise($regionInfo["region_name"]) ?></div>
 						</div>
 						<a href="recherche.php#recherche" class="context-link">Changer sur la carte</a>
@@ -156,7 +156,7 @@ require __DIR__ . "/includes/header.php";
 				<?php else: ?>
 					<div class="context-card">
 						<div>
-							<p class="context-title">Aucune region selectionnee</p>
+							<p class="context-title">Aucune région sélectionnée</p>
 							<p class="small-note">Commencez par cliquer sur la carte au-dessus.</p>
 						</div>
 					</div>
@@ -167,12 +167,12 @@ require __DIR__ . "/includes/header.php";
 				<p class="section-label">2. Localisation precise</p>
 				<div class="field-grid field-grid-main">
 					<label class="field-card">
-						<span class="field-title">Departement</span>
-						<span class="field-help">Choisissez d'abord le departement de la region.</span>
+							<span class="field-title">Département</span>
+							<span class="field-help">Choisissez d'abord le département de la région.</span>
 						<select name="department"
 							onchange="window.location.href='recherche.php?region=<?= texte_securise($region) ?>&department=' + encodeURIComponent(this.value) + '#recherche'"
 							<?= $region === "" ? "disabled" : "" ?>>
-							<option value=""><?= $region === "" ? "Choisir d'abord une region" : "Choisir un departement" ?>
+							<option value=""><?= $region === "" ? "Choisir d'abord une région" : "Choisir un département" ?>
 							</option>
 							<?php foreach ($departments as $unDepartment): ?>
 								<option value="<?= texte_securise($unDepartment["department_code"]) ?>"
@@ -186,9 +186,9 @@ require __DIR__ . "/includes/header.php";
 
 					<label class="field-card">
 						<span class="field-title">Ville</span>
-						<span class="field-help">La liste depend du departement choisi.</span>
+							<span class="field-help">La liste dépend du département choisi.</span>
 						<select name="city" <?= $department === "" ? "disabled" : "" ?>>
-							<option value=""><?= $department === "" ? "Choisir d'abord un departement" : "Choisir une ville" ?>
+							<option value=""><?= $department === "" ? "Choisir d'abord un département" : "Choisir une ville" ?>
 							</option>
 							<?php foreach ($cities as $uneVille): ?>
 								<option value="<?= texte_securise($uneVille["city_code"]) ?>" <?= $city === $uneVille["city_code"] ? "selected" : "" ?>>
@@ -200,7 +200,7 @@ require __DIR__ . "/includes/header.php";
 				</div>
 
 				<div class="search-section">
-					<p class="section-label">3. Preferences et actions</p>
+					<p class="section-label">3. Préférences et actions</p>
 					<div class="field-grid field-grid-secondary">
 						<div class="field-card field-card-soft field-card-wide">
 							<span class="field-title">Carburants</span>
@@ -219,8 +219,8 @@ require __DIR__ . "/includes/header.php";
 						<label class="field-card field-card-soft">
 							<span class="field-title">Vue</span>
 							<select name="view">
-								<option value="summary" <?= $view === "summary" ? "selected" : "" ?>>Synthese</option>
-								<option value="detailed" <?= $view === "detailed" ? "selected" : "" ?>>Detaillee</option>
+								<option value="summary" <?= $view === "summary" ? "selected" : "" ?>>Synthèse</option>
+								<option value="detailed" <?= $view === "detailed" ? "selected" : "" ?>>Détaillée</option>
 							</select>
 						</label>
 
@@ -234,12 +234,12 @@ require __DIR__ . "/includes/header.php";
 						</label>
 
 						<label class="field-card field-card-soft">
-							<span class="field-title">Mode departement</span>
-							<span class="field-help">Afficher les stations du departement choisi.</span>
+							<span class="field-title">Mode département</span>
+							<span class="field-help">Afficher les stations du département choisi.</span>
 							<span class="fuel-choice">
 								<input type="checkbox" name="department_mode" value="1" <?= $departmentMode ? "checked" : "" ?>
 									<?= $department === "" ? "disabled" : "" ?>>
-								<span>Tout le departement</span>
+								<span>Tout le département</span>
 							</span>
 						</label>
 					</div>
@@ -262,7 +262,8 @@ require __DIR__ . "/includes/header.php";
 								</label>
 								<button type="submit">Rechercher</button>
 								<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
-								<a href="recherche.php?reset=1#recherche" class="secondary-btn reset-link">Reinitialiser</a>
+								<span class="small-note geo-note">Position approximative par IP.</span>
+								<a href="recherche.php?reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
 							</div>
 						</div>
 				</div>

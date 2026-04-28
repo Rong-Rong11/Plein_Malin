@@ -33,3 +33,12 @@ timestamp,visitor_hash,region,department,city,mode,view,fuel,station_count
 2026-04-28T15:22:46+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
 2026-04-28T16:02:43+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
 2026-04-28T16:04:41+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:18:29+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:18:47+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:20:31+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:20:43+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:23:11+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:31:23+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:31:46+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,summary,"Gazole, SP98, E85",99
+2026-04-28T18:32:34+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,summary,"Gazole, SP98, E85",99
+2026-04-28T18:32:39+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,detailed,"Gazole, SP98, E85",99

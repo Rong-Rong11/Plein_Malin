@@ -31,10 +31,9 @@ $lienResultatsNavigation = lien_resultats_memorises();
 				</div>
 			</div>
 
-				<nav class="main-nav">
-					<a href="index.php"<?= $activePage === "index" ? ' aria-current="page"' : "" ?>>Accueil</a>
+			<nav class="main-nav">
 				<a href="<?= texte_securise($lienRechercheNavigation) ?>"<?= $activePage === "recherche" ? ' aria-current="page"' : "" ?>>Recherche</a>
-				<a href="<?= texte_securise($lienResultatsNavigation) ?>"<?= $activePage === "resultats" ? ' aria-current="page"' : "" ?>>Resultats</a>
+				<a href="<?= texte_securise($lienResultatsNavigation) ?>"<?= $activePage === "resultats" ? ' aria-current="page"' : "" ?>>Résultats</a>
 				<a href="stats.php"<?= $activePage === "stats" ? ' aria-current="page"' : "" ?>>Statistiques</a>
 			</nav>
 		</header>

@@ -508,6 +508,16 @@ button {
 	flex-wrap: wrap;
 }
 
+.result-summary {
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	margin: 18px 0;
+}
+
+.bottom-actions {
+	margin-top: 22px;
+}
+
 .badge,
 .stat-chip {
 	background: var(--panel-alt);
@@ -525,6 +535,19 @@ button {
 	background: color-mix(in srgb, var(--panel) 92%, white 8%);
 	border-radius: 20px;
 	border: 1px solid var(--line);
+}
+
+.station-card:target {
+	border-color: var(--accent);
+	box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 28%, transparent 72%), var(--shadow);
+}
+
+.station-actions {
+	margin-top: 12px;
+}
+
+.geo-note {
+	align-self: center;
 }
 
 .station-top {
@@ -674,6 +697,23 @@ button {
 	color: var(--accent-dark);
 }
 
+.stat-chip small {
+	display: block;
+	margin-top: 4px;
+	color: var(--muted);
+	font-size: 0.82rem;
+}
+
+.best-price-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+.best-price-link:hover {
+	transform: translateY(-1px);
+	border-color: var(--accent);
+}
+
 .site-footer {
 	padding: 22px clamp(18px, 4vw, 42px) 36px;
 	background: color-mix(in srgb, var(--panel) 90%, white 10%);
@@ -706,6 +746,13 @@ button {
 	border: 1px solid var(--accent);
 	box-shadow: var(--shadow);
 	text-decoration: none;
+	transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-top:hover {
+	transform: translateY(-3px);
+	background: var(--accent-dark);
+	box-shadow: 0 20px 44px rgba(0, 0, 0, 0.18);
 }
 
 .back-top img {
