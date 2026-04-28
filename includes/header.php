@@ -2,6 +2,8 @@
 $pageTitle = $pageTitle ?? "Plein Malin";
 $pageDescription = $pageDescription ?? "Site Plein Malin";
 $activePage = $activePage ?? "";
+$lienRechercheNavigation = lien_recherche_memorisee();
+$lienResultatsNavigation = lien_resultats_memorises();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,10 +31,10 @@ $activePage = $activePage ?? "";
 				</div>
 			</div>
 
-			<nav class="main-nav">
-				<a href="index.php"<?= $activePage === "index" ? ' aria-current="page"' : "" ?>>Accueil</a>
-				<a href="recherche.php#recherche"<?= $activePage === "recherche" ? ' aria-current="page"' : "" ?>>Recherche</a>
-				<a href="resultats.php"<?= $activePage === "resultats" ? ' aria-current="page"' : "" ?>>Resultats</a>
+				<nav class="main-nav">
+					<a href="index.php"<?= $activePage === "index" ? ' aria-current="page"' : "" ?>>Accueil</a>
+					<a href="<?= texte_securise($lienRechercheNavigation) ?>"<?= $activePage === "recherche" ? ' aria-current="page"' : "" ?>>Recherche</a>
+					<a href="<?= texte_securise($lienResultatsNavigation) ?>"<?= $activePage === "resultats" ? ' aria-current="page"' : "" ?>>Resultats</a>
 			<a href="stats.php"<?= $activePage === "stats" ? ' aria-current="page"' : "" ?>>Statistiques</a>
 			<a href="tech.php"<?= $activePage === "tech" ? ' aria-current="page"' : "" ?>>Page tech</a>
 		</nav>

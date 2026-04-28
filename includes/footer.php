@@ -1,11 +1,13 @@
 <?php
 $footerText = $footerText ?? "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026";
+$lienRechercheFooter = lien_recherche_memorisee();
+$lienResultatsFooter = lien_resultats_memorises();
 ?>
-	<footer class="site-footer">
-		<div class="footer-links">
-			<a href="index.php">Accueil</a>
-			<a href="recherche.php#recherche">Recherche</a>
-				<a href="resultats.php">Resultats</a>
+		<footer class="site-footer">
+			<div class="footer-links">
+				<a href="index.php">Accueil</a>
+				<a href="<?= texte_securise($lienRechercheFooter) ?>">Recherche</a>
+					<a href="<?= texte_securise($lienResultatsFooter) ?>">Resultats</a>
 				<a href="stats.php">Statistiques</a>
 				<a href="tech.php">Page tech</a>
 			</div>

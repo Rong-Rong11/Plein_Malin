@@ -10,7 +10,16 @@ $codeDerniereVille = lire_derniere_ville();
 $lienDerniereRecherche = "";
 $libelleDerniereRecherche = "";
 $typeDerniereRecherche = "";
+$dateDerniereRecherche = "";
 $derniereRecherche = lire_derniere_recherche();
+
+if (isset($derniereRecherche["date"]) && is_string($derniereRecherche["date"])) {
+	$dateCookie = strtotime($derniereRecherche["date"]);
+
+	if ($dateCookie !== false) {
+		$dateDerniereRecherche = date("d/m/Y", $dateCookie);
+	}
+}
 
 if (($derniereRecherche["type"] ?? "") === "departement") {
 	$dernierDepartement = trouver_departement((string) $derniereRecherche["code"]);
@@ -72,9 +81,12 @@ require __DIR__ . "/includes/header.php";
 					<?= texte_securise($typeDerniereRecherche) ?> :
 					<strong><?= texte_securise($libelleDerniereRecherche) ?></strong>
 				</p>
+				<?php if ($dateDerniereRecherche !== ""): ?>
+					<p class="small-note">Derniere recherche le <?= texte_securise($dateDerniereRecherche) ?></p>
+				<?php endif; ?>
 				<div class="form-actions">
 					<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>">Reprendre cette recherche</a>
-			</div>
+				</div>
 		</section>
 	<?php endif; ?>
 

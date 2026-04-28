@@ -21,13 +21,22 @@ $geo = null;
 $message = "Aucune recherche lancee.";
 $departmentInfo = null;
 $regionInfo = null;
+$choixRechercheIncomplet = !$useGeo && !$departmentMode && $department !== "" && $city === "";
+$departmentLabel = $department;
+
+if ($department !== "") {
+	$departmentInfo = trouver_departement($department);
+	if ($departmentInfo !== null) {
+		$region = $departmentInfo["region_code"] ?? $region;
+		$regionInfo = trouver_region($region);
+		$departmentLabel = $departmentInfo["department_name"] . " (" . $department . ")";
+	}
+}
 
 if ($useGeo) {
 	$geo = recuperer_geolocalisation();
 	$currentCity = trouver_ville_plus_proche((float) $geo["latitude"], (float) $geo["longitude"]);
 } elseif ($departmentMode && $department !== "") {
-	$departmentInfo = trouver_departement($department);
-
 	if ($departmentInfo !== null) {
 		$region = $departmentInfo["region_code"] ?? $region;
 		$regionInfo = trouver_region($region);
@@ -76,6 +85,8 @@ if ($currentCity !== null) {
 $message = message_resultats($currentCity, $useGeo, $departmentMode, $stations);
 if ($useGeo && $currentCity !== null) {
 	$message = "Recherche autour de votre position approximative dans un rayon de " . $geoRadius . " km.";
+} elseif ($choixRechercheIncomplet) {
+	$message = "Vous avez choisi le departement " . $departmentLabel . ". Selectionnez une ville ou cochez \"Tout le departement\" pour lancer la recherche.";
 }
 
 $searchModeLabel = "Ville";
@@ -121,6 +132,12 @@ if ($departmentMode) {
 	$searchParameters["department_mode"] = "1";
 }
 
+if ($useGeo) {
+	$searchParameters["use_geo"] = "1";
+}
+
+enregistrer_parametres_derniere_recherche($searchParameters);
+
 $searchLink = "recherche.php?" . http_build_query($searchParameters) . "#recherche";
 
 $pageTitle = "Resultats - Plein Malin";
@@ -131,12 +148,12 @@ $footerText = "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Pro
 require __DIR__ . "/includes/header.php";
 ?>
 	<main class="page-shell">
-		<section class="panel">
-			<p class="eyebrow">Resultats</p>
-			<h1>Stations-service</h1>
-				<p class="lead">
-					Consultez les stations trouvees puis revenez a la recherche si besoin.
-				</p>
+			<section class="panel">
+				<p class="eyebrow">Resultats</p>
+				<h1>Stations pour <?= texte_securise($selectedFuelsLabel) ?></h1>
+					<p class="lead">
+						Consultez les stations trouvees puis revenez a la recherche si besoin.
+					</p>
 				<div class="form-actions">
 						<a class="cta-link" href="<?= texte_securise($searchLink) ?>">Modifier ma recherche</a>
 					<details class="search-details">
@@ -198,10 +215,15 @@ require __DIR__ . "/includes/header.php";
 						<strong><?= texte_securise($searchTargetLabel) ?></strong>
 					<?php endif; ?>
 				</p>
+				<?php if ($useGeo): ?>
+					<p class="small-note">Position estimee a partir de l'adresse IP.</p>
+				<?php endif; ?>
 
-			<?php if ($currentCity === null): ?>
-				<p class="empty-state">Aucune recherche lancee.</p>
-			<?php elseif ($stations === []): ?>
+				<?php if ($currentCity === null): ?>
+					<p class="empty-state">
+						<?= texte_securise($choixRechercheIncomplet ? "Choisissez une ville dans le departement " . $departmentLabel . " ou activez la recherche dans tout le departement." : "Aucune recherche lancee.") ?>
+					</p>
+				<?php elseif ($stations === []): ?>
 				<p class="empty-state">Aucune station trouvee avec ces criteres.</p>
 			<?php else: ?>
 				<p class="small-note"><?= texte_securise((string) count($stations)) ?> station(s) trouvee(s).</p>

@@ -6,6 +6,11 @@ preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 $fuelLabels = liste_carburants();
 
+if (isset($_GET["reset"])) {
+	effacer_parametres_derniere_recherche();
+	$_GET = [];
+}
+
 $region = $_GET["region"] ?? "";
 $department = $_GET["department"] ?? "";
 $city = $_GET["city"] ?? "";
@@ -27,6 +32,31 @@ if ($region === "") {
 	if ($department !== "" && !ville_existe_dans_departement($city, $department)) {
 		$city = "";
 	}
+}
+
+$parametresMemorises = lire_parametres_derniere_recherche();
+if (
+	$city === ""
+	&& $department !== ""
+	&& ($parametresMemorises["region"] ?? "") === $region
+	&& ($parametresMemorises["department"] ?? "") === $department
+	&& ($parametresMemorises["city"] ?? "") !== ""
+	&& ville_existe_dans_departement((string) $parametresMemorises["city"], $department)
+) {
+	$city = (string) $parametresMemorises["city"];
+}
+
+if (array_intersect(["region", "department", "city", "fuel", "view", "sort", "geo_radius", "department_mode"], array_keys($_GET)) !== []) {
+	enregistrer_parametres_derniere_recherche([
+		"region" => $region,
+		"department" => $department,
+		"city" => $city,
+		"fuel" => $selectedFuels,
+		"view" => $view,
+		"sort" => $sort,
+		"geo_radius" => $geoRadius,
+		"department_mode" => $departmentMode ? "1" : null,
+	]);
 }
 
 $departments = departements_par_region($region);
@@ -229,11 +259,12 @@ require __DIR__ . "/includes/header.php";
 										</option>
 									<?php endforeach; ?>
 								</select>
-							</label>
-							<button type="submit">Rechercher</button>
-							<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
+								</label>
+								<button type="submit">Rechercher</button>
+								<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
+								<a href="recherche.php?reset=1#recherche" class="secondary-btn reset-link">Reinitialiser</a>
+							</div>
 						</div>
-					</div>
 				</div>
 			</div>
 		</form>

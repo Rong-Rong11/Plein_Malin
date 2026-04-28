@@ -227,6 +227,99 @@ function lire_derniere_recherche(): array
 	return $recherche;
 }
 
+function normaliser_parametres_recherche(array $parametres): array
+{
+	$resultat = [
+		"region" => isset($parametres["region"]) ? (string) $parametres["region"] : "",
+		"department" => isset($parametres["department"]) ? (string) $parametres["department"] : "",
+		"city" => isset($parametres["city"]) ? (string) $parametres["city"] : "",
+		"fuel" => normaliser_carburants_selection($parametres["fuel"] ?? []),
+		"view" => ($parametres["view"] ?? "summary") === "detailed" ? "detailed" : "summary",
+		"sort" => in_array(($parametres["sort"] ?? "price"), ["price", "distance", "name"], true) ? (string) $parametres["sort"] : "price",
+		"geo_radius" => normaliser_rayon_geo((int) ($parametres["geo_radius"] ?? 10)),
+	];
+
+	if (isset($parametres["department_mode"])) {
+		$resultat["department_mode"] = "1";
+	}
+
+	if (isset($parametres["use_geo"])) {
+		$resultat["use_geo"] = "1";
+	}
+
+	return $resultat;
+}
+
+function enregistrer_parametres_derniere_recherche(array $parametres): void
+{
+	$parametres = normaliser_parametres_recherche($parametres);
+	$anciensParametres = lire_parametres_derniere_recherche();
+
+	if (
+		$parametres["city"] === ""
+		&& !isset($parametres["department_mode"], $parametres["use_geo"])
+		&& ($anciensParametres["city"] ?? "") !== ""
+		&& ($anciensParametres["region"] ?? "") === $parametres["region"]
+		&& ($anciensParametres["department"] ?? "") === $parametres["department"]
+	) {
+		$parametres["city"] = $anciensParametres["city"];
+	}
+
+	$parametres["date"] = date("c");
+	$valeur = json_encode($parametres);
+
+	if ($valeur !== false) {
+		setcookie("last_search_params", $valeur, time() + 30 * 24 * 3600, chemin_cookie());
+		$_COOKIE["last_search_params"] = $valeur;
+	}
+}
+
+function lire_parametres_derniere_recherche(): array
+{
+	if (!isset($_COOKIE["last_search_params"])) {
+		return [];
+	}
+
+	$parametres = json_decode((string) $_COOKIE["last_search_params"], true);
+
+	if (!is_array($parametres)) {
+		setcookie("last_search_params", "", time() - 3600, chemin_cookie());
+		unset($_COOKIE["last_search_params"]);
+		return [];
+	}
+
+	return normaliser_parametres_recherche($parametres);
+}
+
+function effacer_parametres_derniere_recherche(): void
+{
+	setcookie("last_search_params", "", time() - 3600, chemin_cookie());
+	unset($_COOKIE["last_search_params"]);
+}
+
+function lien_recherche_memorisee(): string
+{
+	$parametres = lire_parametres_derniere_recherche();
+
+	if ($parametres === []) {
+		return "recherche.php#recherche";
+	}
+
+	unset($parametres["use_geo"]);
+	return "recherche.php?" . http_build_query($parametres) . "#recherche";
+}
+
+function lien_resultats_memorises(): string
+{
+	$parametres = lire_parametres_derniere_recherche();
+
+	if ($parametres === []) {
+		return "resultats.php";
+	}
+
+	return "resultats.php?" . http_build_query($parametres) . "#resultats";
+}
+
 function enregistrer_derniere_ville(string $codeVille): void
 {
 	if ($codeVille !== "") {
@@ -813,8 +906,9 @@ function calculer_statistiques(): array
 	$visiteurs = [];
 
 	foreach ($lignes as $ligne) {
+		$mode = trim($ligne["mode"] ?? "");
 		$ville = trim($ligne["city"] ?? "");
-		if ($ville !== "") {
+		if ($ville !== "" && $mode !== "departement") {
 			if (!isset($topVilles[$ville])) {
 				$topVilles[$ville] = 0;
 			}
