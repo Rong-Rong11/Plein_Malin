@@ -7,6 +7,7 @@ $stats = calculer_statistiques();
 $maxCityCount = $stats['top_cities'] === [] ? 1 : max($stats['top_cities']);
 $maxDepartmentCount = $stats['top_departments'] === [] ? 1 : max($stats['top_departments']);
 $maxRegionCount = $stats['top_regions'] === [] ? 1 : max($stats['top_regions']);
+$fuelTrends = lire_tendances_prix_officielles(null, ["Gazole", "SP95", "SP98", "E10"]);
 
 $pageTitle = "Statistiques - Plein Malin";
 $pageDescription = "Page statistiques de Plein Malin.";
@@ -87,6 +88,65 @@ require __DIR__ . "/includes/header.php";
 								</div>
 								<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
 							</div>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+			</section>
+
+			<section class="panel">
+				<h2>Tendance annuelle des prix</h2>
+				<p class="small-note">
+					Moyennes mensuelles calculees cote serveur depuis l'archive annuelle officielle XML
+					<?= texte_securise((string) ($fuelTrends["year"] ?? date("Y"))) ?>.
+				</p>
+
+				<?php if (($fuelTrends["fuels"] ?? []) === []): ?>
+					<p class="empty-state">Tendances indisponibles pour le moment.</p>
+				<?php else: ?>
+					<div class="trend-grid">
+						<?php foreach ($fuelTrends["fuels"] as $fuelName => $months): ?>
+							<article class="trend-group">
+								<h3><?= texte_securise($fuelName) ?></h3>
+								<?php if ($months === []): ?>
+									<p class="empty-state">Aucune donnee disponible.</p>
+								<?php else: ?>
+									<?php
+									$points = points_graphique_tendance($months);
+									$graduationsPrix = graduations_prix_tendance($months);
+									$graduationsMois = graduations_mois_tendance($months);
+									$firstMonth = $months[0];
+									$lastMonth = $months[count($months) - 1];
+									?>
+									<div class="line-chart">
+										<svg viewBox="0 0 420 170" role="img" aria-label="Evolution <?= texte_securise($fuelName) ?>">
+											<?php foreach ($graduationsPrix as $graduation): ?>
+												<line x1="<?= texte_securise((string) $graduation["x1"]) ?>" y1="<?= texte_securise((string) $graduation["y"]) ?>" x2="<?= texte_securise((string) $graduation["x2"]) ?>" y2="<?= texte_securise((string) $graduation["y"]) ?>" class="chart-grid"></line>
+												<text x="2" y="<?= texte_securise((string) ((float) $graduation["y"] + 4)) ?>" class="chart-label">
+													<?= texte_securise(number_format((float) $graduation["value"], 2, ",", " ")) ?>
+												</text>
+											<?php endforeach; ?>
+											<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
+											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
+											<?php if ($points !== ""): ?>
+												<polyline points="<?= texte_securise($points) ?>" class="chart-line"></polyline>
+												<?php foreach (explode(" ", $points) as $point): ?>
+													<?php [$x, $y] = explode(",", $point); ?>
+													<circle cx="<?= texte_securise($x) ?>" cy="<?= texte_securise($y) ?>" r="4" class="chart-point"></circle>
+												<?php endforeach; ?>
+											<?php endif; ?>
+											<?php foreach ($graduationsMois as $graduation): ?>
+												<text x="<?= texte_securise((string) $graduation["x"]) ?>" y="168" class="chart-label chart-month">
+													<?= texte_securise($graduation["label"]) ?>
+												</text>
+											<?php endforeach; ?>
+										</svg>
+										<div class="chart-caption">
+											<span><?= texte_securise($firstMonth["month"]) ?> : <?= texte_securise(number_format((float) $firstMonth["average_price"], 3, ",", " ")) ?> EUR/L</span>
+											<span><?= texte_securise($lastMonth["month"]) ?> : <?= texte_securise(number_format((float) $lastMonth["average_price"], 3, ",", " ")) ?> EUR/L</span>
+										</div>
+									</div>
+								<?php endif; ?>
+							</article>
 						<?php endforeach; ?>
 					</div>
 				<?php endif; ?>

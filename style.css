@@ -567,6 +567,74 @@ button {
 	gap: 14px;
 }
 
+.trend-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 18px;
+	margin-top: 18px;
+}
+
+.trend-group {
+	padding: 16px;
+	border: 1px solid var(--line);
+	border-radius: 18px;
+	background: color-mix(in srgb, var(--panel-alt) 55%, var(--panel) 45%);
+}
+
+.trend-group h3 {
+	margin-top: 0;
+}
+
+.line-chart svg {
+	width: 100%;
+	height: auto;
+	border-radius: 14px;
+	background: color-mix(in srgb, var(--panel) 78%, var(--panel-alt) 22%);
+}
+
+.chart-axis {
+	stroke: var(--line);
+	stroke-width: 2;
+}
+
+.chart-grid {
+	stroke: var(--line);
+	stroke-width: 1;
+	opacity: 0.45;
+}
+
+.chart-label {
+	fill: var(--muted);
+	font-size: 10px;
+}
+
+.chart-month {
+	text-anchor: middle;
+}
+
+.chart-line {
+	fill: none;
+	stroke: var(--accent);
+	stroke-width: 4;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.chart-point {
+	fill: var(--accent);
+	stroke: var(--panel);
+	stroke-width: 2;
+}
+
+.chart-caption {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 10px;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
 .bar-row {
 	display: grid;
 	grid-template-columns: 180px 1fr 52px;
@@ -648,6 +716,7 @@ button {
 @media (max-width: 900px) {
 	.hero,
 	.panel-grid,
+	.trend-grid,
 	.details-grid {
 		grid-template-columns: 1fr;
 		flex-direction: column;

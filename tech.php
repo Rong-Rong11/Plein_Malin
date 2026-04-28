@@ -5,17 +5,12 @@ preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 $geoData = recuperer_geolocalisation();
 $stats = calculer_statistiques();
+$stationsXml = lire_stations_xml_demo();
 
 $pageTitle = "Page tech - Plein Malin";
 $pageDescription = "Page technique conservee pour la validation de la partie 1 du projet.";
 $activePage = "tech";
 $footerText = "Enzo Phung | Fatma-Zhara Baarir | Page technique conservee pour validation.";
-
-$url = "https://ghibliapi.vercel.app/films"; //adresse où on va chercher données
-$json = file_get_contents($url); // pour bien formatter le flux de l'api
-$data = json_decode($json, true); //transforme json en tableau associatif grâce à true
-// choisir un film aléatoire
-$film = $data[array_rand($data)];
 
 require __DIR__ . "/includes/header.php";
 ?>
@@ -31,21 +26,28 @@ require __DIR__ . "/includes/header.php";
 
 	<section class="panel-grid">
 		<article class="panel">
-			<h2>API Ghibli</h2>
-			<h3>
-				<?= $film['title'] ?>
-			</h3>
-			<h3 lang="jp">
-				<?= $film['original_title'] ?>
-			</h3>
-			<p>
-				<?= $film['release_date'] ?>
-			</p>
-			<p lang="en">
-				<?= $film['description'] ?>
-			</p>
-			<img src="<?= $film['image'] ?>" width="200">
-			<img src="<?= $film['movie_banner'] ?>" width="400">
+			<h2>Flux XML carburants</h2>
+			<p>Lecture de <code>data/sample_fuel_prices.xml</code> avec <code>simplexml_load_file()</code>.</p>
+			<?php if ($stationsXml === []): ?>
+				<p class="empty-state">Aucune donnee XML disponible.</p>
+			<?php else: ?>
+				<ul class="plain-list">
+					<?php foreach (array_slice($stationsXml, 0, 5) as $station): ?>
+						<li>
+							<strong><?= texte_securise($station["enseigne"]) ?></strong>
+							- <?= texte_securise($station["ville"]) ?>
+							(<?= texte_securise($station["cp"]) ?>)
+							<?php if ($station["prix"] !== []): ?>
+								:
+								<?php foreach ($station["prix"] as $indexPrix => $prix): ?>
+									<?= $indexPrix > 0 ? ", " : "" ?><?= texte_securise($prix["nom"]) ?>
+									<?= texte_securise($prix["valeur"]) ?> EUR/L
+								<?php endforeach; ?>
+							<?php endif; ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
 		</article>
 
 		<article class="panel">
@@ -80,9 +82,10 @@ require __DIR__ . "/includes/header.php";
 			<h2>Stockages attendus</h2>
 			<ul class="plain-list">
 				<li>CSV serveur: historique des consultations</li>
-				<li>Cookie <code>last_visited_city</code>: derniere ville</li>
-				<li>Cookie <code>theme</code>: jour ou nuit</li>
-				<li>Cache JSON: reponses externes et fallback sur cache expire</li>
+					<li>Cookie <code>last_visited_city</code>: derniere ville</li>
+					<li>Cookie <code>last_search_params</code>: derniere recherche complete</li>
+					<li>Cookie <code>theme</code>: jour ou nuit</li>
+					<li>Cache JSON: reponses externes et fallback sur cache expire</li>
 			</ul>
 		</article>
 

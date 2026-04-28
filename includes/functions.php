@@ -872,6 +872,286 @@ function formater_prix(?float $prix): string
 	return number_format($prix, 3, ",", " ") . " EUR/L";
 }
 
+function lire_stations_xml_demo(): array
+{
+	$fichier = PM_DATA_DIR . "/sample_fuel_prices.xml";
+
+	if (!file_exists($fichier)) {
+		return [];
+	}
+
+	$xml = simplexml_load_file($fichier);
+
+	if ($xml === false) {
+		return [];
+	}
+
+	$stations = [];
+
+	foreach ($xml->pdv as $pdv) {
+		$prix = [];
+		$services = [];
+
+		foreach ($pdv->prix as $prixXml) {
+			$prix[] = [
+				"nom" => (string) ($prixXml["nom"] ?? ""),
+				"valeur" => (string) ($prixXml["valeur"] ?? ""),
+				"maj" => (string) ($prixXml["maj"] ?? ""),
+			];
+		}
+
+		foreach ($pdv->services->service ?? [] as $serviceXml) {
+			$services[] = (string) $serviceXml;
+		}
+
+		$stations[] = [
+			"id" => (string) ($pdv["id"] ?? ""),
+			"cp" => (string) ($pdv["cp"] ?? ""),
+			"adresse" => (string) $pdv->adresse,
+			"ville" => (string) $pdv->ville,
+			"enseigne" => (string) $pdv->enseigne,
+			"prix" => $prix,
+			"services" => $services,
+		];
+	}
+
+	return $stations;
+}
+
+function lire_tendances_prix_officielles(?int $annee = null, array $carburants = ["Gazole", "SP95", "SP98", "E10"]): array
+{
+	$annee = $annee ?? (int) date("Y");
+	$cleCarburants = md5(implode("|", $carburants));
+	$fichierCacheResultats = PM_CACHE_DIR . "/fuel_trends_" . $annee . "_" . $cleCarburants . ".json";
+	$dureeCache = 24 * 3600;
+
+	$cache = lire_cache_api($fichierCacheResultats);
+	if ($cache !== null && time() - (int) $cache["time"] < $dureeCache) {
+		$donnees = json_decode((string) $cache["body"], true);
+		if (is_array($donnees)) {
+			return $donnees;
+		}
+	}
+
+	$fichierZip = PM_CACHE_DIR . "/fuel_history_" . $annee . ".zip";
+	if (!file_exists($fichierZip) || time() - filemtime($fichierZip) > $dureeCache) {
+		$url = "https://donnees.roulez-eco.fr/opendata/annee/" . $annee;
+		$contexte = stream_context_create([
+			"http" => [
+				"timeout" => 20,
+				"header" => "User-Agent: PleinMalin/1.0\r\n",
+			],
+			"ssl" => [
+				"verify_peer" => false,
+				"verify_peer_name" => false,
+			],
+		]);
+
+		$contenu = @file_get_contents($url, false, $contexte);
+		if ($contenu === false || $contenu === "") {
+			return [
+				"source" => "archive officielle indisponible",
+				"year" => $annee,
+				"fuels" => [],
+			];
+		}
+
+		file_put_contents($fichierZip, $contenu);
+	}
+
+	$zip = new ZipArchive();
+	if ($zip->open($fichierZip) !== true) {
+		return [
+			"source" => "archive officielle illisible",
+			"year" => $annee,
+			"fuels" => [],
+		];
+	}
+
+	$nomXml = "";
+	for ($i = 0; $i < $zip->numFiles; $i++) {
+		$nom = (string) $zip->getNameIndex($i);
+		if (strtolower(pathinfo($nom, PATHINFO_EXTENSION)) === "xml") {
+			$nomXml = $nom;
+			break;
+		}
+	}
+	$zip->close();
+
+	if ($nomXml === "") {
+		return [
+			"source" => "archive officielle sans XML",
+			"year" => $annee,
+			"fuels" => [],
+		];
+	}
+
+	$agregats = [];
+	foreach ($carburants as $carburant) {
+		$agregats[$carburant] = [];
+	}
+
+	$lecteur = new XMLReader();
+	$cheminZip = "zip://" . realpath($fichierZip) . "#" . $nomXml;
+	if (!$lecteur->open($cheminZip)) {
+		return [
+			"source" => "archive officielle non ouverte",
+			"year" => $annee,
+			"fuels" => [],
+		];
+	}
+
+	while ($lecteur->read()) {
+		if ($lecteur->nodeType !== XMLReader::ELEMENT || $lecteur->name !== "prix") {
+			continue;
+		}
+
+		$nomCarburant = (string) $lecteur->getAttribute("nom");
+		if (!isset($agregats[$nomCarburant])) {
+			continue;
+		}
+
+		$valeur = (float) $lecteur->getAttribute("valeur");
+		$dateMaj = (string) $lecteur->getAttribute("maj");
+		$mois = substr($dateMaj, 0, 7);
+
+		if ($valeur <= 0 || strlen($mois) !== 7) {
+			continue;
+		}
+
+		if (!isset($agregats[$nomCarburant][$mois])) {
+			$agregats[$nomCarburant][$mois] = [
+				"sum" => 0.0,
+				"count" => 0,
+			];
+		}
+
+		$agregats[$nomCarburant][$mois]["sum"] += $valeur;
+		$agregats[$nomCarburant][$mois]["count"]++;
+	}
+	$lecteur->close();
+
+	$tendances = [];
+	foreach ($agregats as $carburant => $moisAgreges) {
+		ksort($moisAgreges);
+		$tendances[$carburant] = [];
+
+		foreach ($moisAgreges as $mois => $agregat) {
+			if ($agregat["count"] > 0) {
+				$tendances[$carburant][] = [
+					"month" => $mois,
+					"average_price" => round($agregat["sum"] / $agregat["count"], 3),
+					"price_count" => $agregat["count"],
+				];
+			}
+		}
+	}
+
+	$resultat = [
+		"source" => "archive annuelle officielle XML",
+		"year" => $annee,
+		"fuels" => $tendances,
+	];
+
+	file_put_contents($fichierCacheResultats, json_encode([
+		"time" => time(),
+		"body" => json_encode($resultat),
+	], JSON_PRETTY_PRINT));
+
+	return $resultat;
+}
+
+function points_graphique_tendance(array $months, int $largeur = 420, int $hauteur = 170): string
+{
+	if (count($months) < 2) {
+		return "";
+	}
+
+	$prix = array_map(static function (array $month): float {
+		return (float) $month["average_price"];
+	}, $months);
+
+	$min = min($prix);
+	$max = max($prix);
+	$marge = 16;
+	$amplitude = $max - $min;
+
+	if ($amplitude <= 0) {
+		$amplitude = 1;
+	}
+
+	$points = [];
+	$dernierIndex = count($months) - 1;
+
+	foreach ($prix as $index => $valeur) {
+		$x = $marge + ($index / $dernierIndex) * ($largeur - 2 * $marge);
+		$y = $hauteur - $marge - (($valeur - $min) / $amplitude) * ($hauteur - 2 * $marge);
+		$points[] = round($x, 1) . "," . round($y, 1);
+	}
+
+	return implode(" ", $points);
+}
+
+function graduations_prix_tendance(array $months, int $largeur = 420, int $hauteur = 170, int $nombre = 4): array
+{
+	if ($months === []) {
+		return [];
+	}
+
+	$prix = array_map(static function (array $month): float {
+		return (float) $month["average_price"];
+	}, $months);
+
+	$min = min($prix);
+	$max = max($prix);
+	$amplitude = $max - $min;
+	$marge = 16;
+
+	if ($amplitude <= 0) {
+		$amplitude = 0.1;
+		$min -= 0.05;
+		$max += 0.05;
+	}
+
+	$graduations = [];
+
+	for ($i = 0; $i <= $nombre; $i++) {
+		$ratio = $i / $nombre;
+		$valeur = $min + $ratio * ($max - $min);
+		$y = $hauteur - $marge - $ratio * ($hauteur - 2 * $marge);
+
+		$graduations[] = [
+			"value" => round($valeur, 3),
+			"y" => round($y, 1),
+			"x1" => $marge,
+			"x2" => $largeur - $marge,
+		];
+	}
+
+	return $graduations;
+}
+
+function graduations_mois_tendance(array $months, int $largeur = 420): array
+{
+	if ($months === []) {
+		return [];
+	}
+
+	$marge = 16;
+	$dernierIndex = count($months) - 1;
+	$graduations = [];
+
+	foreach ($months as $index => $month) {
+		$x = $dernierIndex === 0 ? $largeur / 2 : $marge + ($index / $dernierIndex) * ($largeur - 2 * $marge);
+		$graduations[] = [
+			"label" => substr((string) $month["month"], 5, 2),
+			"x" => round($x, 1),
+		];
+	}
+
+	return $graduations;
+}
+
 function enregistrer_consultation(array $infos): void
 {
 	$fichier = PM_STORAGE_DIR . "/consultations.csv";
