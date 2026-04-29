@@ -105,8 +105,8 @@ require __DIR__ . "/includes/header.php";
 			<?php endif; ?>
 		</p>
 		<div class="map-scroll">
-			<img src="image/<?= $theme === "night" ? "map(dark).png" : "map(light).png" ?>" alt="Carte des régions de France"
-				usemap="#regions-map" class="map-image" width="<?= texte_securise((string) $largeurCarte) ?>" height="<?= texte_securise((string) $hauteurCarte) ?>" />
+			<img src="image/<?= $theme === "night" ? "map-dark-optimized.jpg" : "map-light-optimized.jpg" ?>" alt="Carte interactive des régions de France"
+				usemap="#regions-map" class="map-image" width="<?= texte_securise((string) $largeurCarte) ?>" height="<?= texte_securise((string) $hauteurCarte) ?>" decoding="async" fetchpriority="high" />
 		</div>
 		<map name="regions-map">
 			<area shape="rect" coords="<?= coordonnees_carte("252,314,423,380", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=53#recherche" alt="Bretagne" title="Bretagne" />
@@ -148,20 +148,15 @@ require __DIR__ . "/includes/header.php";
 						</div>
 					</div>
 				<?php endif; ?>
-				<div class="geo-shortcut">
-					<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
-					<span class="small-note">Position approximative par IP.</span>
-				</div>
 			</div>
 
 			<div class="search-section">
 				<p class="section-label">2. Localisation precise</p>
 				<div class="field-grid field-grid-main">
-					<label class="field-card">
-						<span class="field-title">Département</span>
-						<span class="field-help">Choisissez d'abord le département de la région.</span>
-						<select name="department"
-							onchange="window.location.href='recherche.php?region=<?= texte_securise($region) ?>&amp;department=' + encodeURIComponent(this.value) + '#recherche'"
+					<div class="field-card">
+						<label class="field-title" for="department-select">Département</label>
+						<span class="field-help">Choisissez un département.</span>
+						<select id="department-select" name="department"
 							<?= $region === "" ? 'disabled="disabled"' : "" ?>>
 							<option value=""><?= $region === "" ? "Choisir d'abord une région" : "Choisir un département" ?></option>
 							<?php foreach ($departments as $unDepartment): ?>
@@ -172,12 +167,12 @@ require __DIR__ . "/includes/header.php";
 								</option>
 							<?php endforeach; ?>
 						</select>
-					</label>
+					</div>
 
-					<label class="field-card">
-						<span class="field-title">Ville</span>
-						<span class="field-help">La liste dépend du département choisi.</span>
-						<select name="city" <?= $department === "" ? 'disabled="disabled"' : "" ?>>
+					<div class="field-card">
+						<label class="field-title" for="city-select">Ville</label>
+						<span class="field-help">Choisissez une ville.</span>
+						<select id="city-select" name="city" <?= $department === "" ? 'disabled="disabled"' : "" ?>>
 							<option value=""><?= $department === "" ? "Choisir d'abord un département" : "Choisir une ville" ?></option>
 							<?php foreach ($cities as $uneVille): ?>
 								<option value="<?= texte_securise($uneVille["city_code"]) ?>" <?= $city === $uneVille["city_code"] ? 'selected="selected"' : "" ?>>
@@ -185,71 +180,71 @@ require __DIR__ . "/includes/header.php";
 								</option>
 							<?php endforeach; ?>
 						</select>
-					</label>
+					</div>
 				</div>
 
 				<div class="search-section">
 					<p class="section-label">3. Préférences et actions</p>
 					<div class="field-grid field-grid-secondary">
-						<div class="field-card field-card-soft field-card-wide">
-							<span class="field-title">Carburants</span>
-							<span class="field-help">Cochez un ou plusieurs carburants.</span>
-							<span class="field-help">Si aucun carburant n'est sélectionné, le Gazole est utilisé par défaut.</span>
+						<fieldset class="field-card field-card-soft field-card-wide">
+							<legend class="field-title">Carburants</legend>
+							<span class="field-help">Gazole par défaut si rien n'est coché.</span>
 							<span class="fuel-choice-list">
 								<?php foreach ($fuelLabels as $codeCarburant => $nomCarburant): ?>
 									<label class="fuel-choice">
-										<input type="checkbox" name="fuel[]" value="<?= texte_securise($codeCarburant) ?>"
+										<input type="checkbox" id="fuel-<?= texte_securise(strtolower($codeCarburant)) ?>" name="fuel[]" value="<?= texte_securise($codeCarburant) ?>"
 											<?= in_array($codeCarburant, $selectedFuels, true) ? 'checked="checked"' : "" ?> />
 										<span><?= texte_securise($nomCarburant) ?></span>
 									</label>
 								<?php endforeach; ?>
 							</span>
-						</div>
+						</fieldset>
 
-						<label class="field-card field-card-soft">
-							<span class="field-title">Vue</span>
-							<select name="view">
+						<div class="field-card field-card-soft">
+							<label class="field-title" for="view-select">Vue</label>
+							<select id="view-select" name="view">
 								<option value="summary" <?= $view === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
 								<option value="detailed" <?= $view === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
 							</select>
-						</label>
+						</div>
 
-						<label class="field-card field-card-soft">
-							<span class="field-title">Tri</span>
-							<select name="sort">
+						<div class="field-card field-card-soft">
+							<label class="field-title" for="sort-select">Tri</label>
+							<select id="sort-select" name="sort">
 								<option value="price" <?= $sort === "price" ? 'selected="selected"' : "" ?>>Prix croissant</option>
 								<option value="distance" <?= $sort === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
 								<option value="name" <?= $sort === "name" ? 'selected="selected"' : "" ?>>Nom</option>
 							</select>
-						</label>
+						</div>
 
-						<label class="field-card field-card-soft">
-							<span class="field-title">Mode département</span>
-							<span class="field-help">Afficher les stations du département choisi.</span>
+						<div class="field-card field-card-soft">
+							<span class="field-title" id="department-mode-title">Mode département</span>
+							<span class="field-help">Rechercher dans tout le département.</span>
 							<span class="fuel-choice">
-								<input type="checkbox" name="department_mode" value="1" <?= $departmentMode ? 'checked="checked"' : "" ?>
+								<input type="checkbox" id="department-mode" name="department_mode" value="1" aria-labelledby="department-mode-title"
+									<?= $departmentMode ? 'checked="checked"' : "" ?>
 									<?= $department === "" ? 'disabled="disabled"' : "" ?> />
-								<span>Tout le département</span>
+								<label for="department-mode">Tout le département</label>
 							</span>
-						</label>
+						</div>
 					</div>
 
 					<div class="action-panel">
 						<div class="action-copy">
 							<p class="context-title">Lancer la recherche</p>
-							<p class="small-note">Choisissez votre mode puis affichez les stations.</p>
+							<p class="small-note">Affichez les stations selon vos critères.</p>
 						</div>
 						<div class="form-actions action-buttons">
-							<label class="inline-filter">
-								<span>Rayon</span>
-								<select name="geo_radius">
+							<div class="inline-filter">
+								<label for="geo-radius-select">Rayon</label>
+								<select id="geo-radius-select" name="geo_radius">
 									<?php foreach (rayons_geo_disponibles() as $radius): ?>
 										<option value="<?= texte_securise((string) $radius) ?>" <?= $geoRadius === $radius ? 'selected="selected"' : "" ?>>
 											<?= texte_securise((string) $radius) ?> km
 										</option>
 									<?php endforeach; ?>
 								</select>
-							</label>
+							</div>
 							<button type="submit">Rechercher</button>
 							<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
 							<span class="small-note geo-note">Position approximative par IP.</span>

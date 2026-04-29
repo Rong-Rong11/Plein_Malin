@@ -137,14 +137,17 @@ if ($useGeo) {
 	$searchParameters["use_geo"] = "1";
 }
 
-$prixRecherche = array_column($stations, "main_price");
 $prixMoyenRecherche = null;
 $meilleureStation = null;
+$limiteStationsAffichees = 15;
+$stationsAffichees = array_slice($stations, 0, $limiteStationsAffichees);
+$stationsMasquees = max(0, count($stations) - count($stationsAffichees));
+$prixRecherche = array_column($stationsAffichees, "main_price");
 
 if ($prixRecherche !== []) {
 	$prixMoyenRecherche = array_sum($prixRecherche) / count($prixRecherche);
 
-	foreach ($stations as $station) {
+	foreach ($stationsAffichees as $station) {
 		if ($meilleureStation === null || (float) $station["main_price"] < (float) $meilleureStation["main_price"]) {
 			$meilleureStation = $station;
 		}
@@ -186,14 +189,15 @@ require __DIR__ . "/includes/header.php";
 							<?php if ($useGeo): ?>
 								<input type="hidden" name="use_geo" value="1" />
 							<?php endif; ?>
-							<label class="inline-filter">
-								<span>Trier</span>
-								<select name="sort" onchange="this.form.submit()">
+							<div class="inline-filter">
+								<label for="result-sort-select">Trier</label>
+								<select id="result-sort-select" name="sort">
 									<option value="price" <?= $sort === "price" ? 'selected="selected"' : "" ?>>Prix croissant</option>
 									<option value="distance" <?= $sort === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
 									<option value="name" <?= $sort === "name" ? 'selected="selected"' : "" ?>>Nom</option>
 								</select>
-							</label>
+							</div>
+							<button type="submit" class="secondary-btn">Appliquer le tri</button>
 						</form>
 						<details class="search-details">
 						<summary class="detail-toggle">Détail</summary>
@@ -256,6 +260,13 @@ require __DIR__ . "/includes/header.php";
 				<p class="empty-state">Aucune station trouvée avec ces critères.</p>
 				<?php else: ?>
 					<p class="small-note"><?= texte_securise((string) count($stations)) ?> station(s) trouvée(s).</p>
+					<?php if ($stationsMasquees > 0): ?>
+						<p class="small-note">
+							Pour limiter le poids de la page et réduire sa complexité, seules les <?= texte_securise((string) count($stationsAffichees)) ?>
+							premières stations sont affichées sur <?= texte_securise((string) count($stations)) ?> trouvées. Elles correspondent aux résultats
+							<?= $sort === "price" ? "les moins chers" : "les plus pertinents selon le tri choisi" ?>.
+						</p>
+					<?php endif; ?>
 					<p class="small-note">
 						Les prix dépendent de la dernière mise à jour transmise par l'API officielle.
 						Certaines stations peuvent ne pas proposer tous les carburants sélectionnés.
@@ -265,18 +276,18 @@ require __DIR__ . "/includes/header.php";
 						<div class="stats-inline result-summary">
 							<div class="stat-chip">
 								<strong><?= texte_securise(formater_prix($prixMoyenRecherche)) ?></strong>
-								<span>prix moyen trouvé</span>
+								<span>prix moyen trouvé sur les stations affichées</span>
 							</div>
 							<a class="stat-chip best-price-link" href="#station-<?= texte_securise(rawurlencode((string) $meilleureStation["id"])) ?>">
 								<strong><?= texte_securise(formater_prix((float) $meilleureStation["main_price"])) ?></strong>
-								<span>meilleur prix trouvé - <?= texte_securise($meilleureStation["name"]) ?></span>
+								<span>meilleur prix affiché - <?= texte_securise($meilleureStation["name"]) ?></span>
 								<small>Cliquer pour voir la station</small>
 							</a>
 						</div>
 					<?php endif; ?>
 
 					<div class="cards">
-						<?php foreach ($stations as $station): ?>
+						<?php foreach ($stationsAffichees as $station): ?>
 							<?php
 									$stationAnchor = rawurlencode((string) $station["id"]);
 									$detailParameters = $searchParameters;

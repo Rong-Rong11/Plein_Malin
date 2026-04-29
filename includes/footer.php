@@ -23,7 +23,7 @@ $lienResultatsFooter = lien_resultats_memorises();
 			<p><?= texte_securise($footerText) ?></p>
 		</footer>
 		<a href="#top" class="back-top">
-			<img src="image/back_top.png" alt="Retour en haut" />
+			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
 		</a>
 	</body>
 	</html>

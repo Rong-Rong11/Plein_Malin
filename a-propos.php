@@ -41,6 +41,16 @@ require __DIR__ . "/includes/header.php";
 			<li>Stockage serveur des consultations dans un fichier CSV.</li>
 		</ul>
 	</section>
+
+	<section class="panel">
+		<h2>Sobriété numérique</h2>
+		<ul class="plain-list">
+			<li>Les images de la carte et du bouton retour en haut sont compressées pour réduire le poids des pages.</li>
+			<li>Les réponses des API sont mises en cache côté serveur afin d'éviter des requêtes répétées.</li>
+			<li>La page de résultats affiche uniquement les premières stations utiles pour limiter la quantité de contenu chargé.</li>
+			<li>Le site utilise très peu de JavaScript et privilégie des fichiers simples comme CSV, JSON et XML.</li>
+		</ul>
+	</section>
 </main>
 
 <?php require __DIR__ . "/includes/footer.php"; ?>

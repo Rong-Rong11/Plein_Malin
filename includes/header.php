@@ -1,7 +1,12 @@
 <?php
+if (!function_exists("gerer_theme")) {
+	require_once __DIR__ . "/functions.php";
+}
+
 $pageTitle = $pageTitle ?? "Plein Malin";
 $pageDescription = $pageDescription ?? "Site Plein Malin";
 $activePage = $activePage ?? "";
+$theme = isset($theme) && in_array($theme, ["day", "night"], true) ? $theme : gerer_theme();
 $langue = gerer_langue();
 $lienRechercheNavigation = lien_recherche_memorisee();
 $lienResultatsNavigation = lien_resultats_memorises();
@@ -27,11 +32,11 @@ ob_start(static function (string $html) use ($langue): string {
 		<header class="site-header">
 			<div class="brand-row">
 				<a class="brand-link" href="index.php">
-					<img class="logo" src="image/<?= $theme === "night" ? "logoblanc.svg" : "logonoir.svg" ?>" alt="Logo Plein Malin" />
+					<img class="logo" src="image/<?= $theme === "night" ? "logoblanc.svg" : "logonoir.svg" ?>" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
 					<div class="theme-switch">
 						<a href="<?= texte_securise(lien_bascule_theme($theme)) ?>" class="theme-link">
-							<img src="image/theme-<?= $theme === "night" ? "day" : "night" ?>.svg" alt="" />
+							<img src="image/theme-<?= $theme === "night" ? "day" : "night" ?>.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode <?= texte_securise(nom_theme($theme === "night" ? "day" : "night")) ?></span>
 						</a>
 						<a href="<?= texte_securise(lien_bascule_langue($langue)) ?>" class="theme-link">
