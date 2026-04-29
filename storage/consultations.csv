@@ -42,3 +42,7 @@ timestamp,visitor_hash,region,department,city,mode,view,fuel,station_count
 2026-04-28T18:31:46+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,summary,"Gazole, SP98, E85",99
 2026-04-28T18:32:34+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,summary,"Gazole, SP98, E85",99
 2026-04-28T18:32:39+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,detailed,"Gazole, SP98, E85",99
+2026-04-29T07:48:10+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,detailed,"Gazole, SP98, E85",98
+2026-04-29T07:49:08+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,summary,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
+2026-04-29T07:49:12+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,detailed,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
+2026-04-29T08:00:27+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,detailed,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97

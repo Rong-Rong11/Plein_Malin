@@ -4,6 +4,7 @@ $pageDescription = $pageDescription ?? "Site Plein Malin";
 $activePage = $activePage ?? "";
 $lienRechercheNavigation = lien_recherche_memorisee();
 $lienResultatsNavigation = lien_resultats_memorises();
+enregistrer_visite_page();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -13,7 +14,8 @@ $lienResultatsNavigation = lien_resultats_memorises();
 		<title><?= texte_securise($pageTitle) ?></title>
 		<meta name="description" content="<?= texte_securise($pageDescription) ?>">
 		<link rel="stylesheet" href="style.css">
-		<link rel="icon" href="image/favicon.ico" type="image/x-icon">
+			<link rel="icon" href="image/logonoir.svg" type="image/svg+xml">
+			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon">
 	</head>
 	<body class="theme-<?= texte_securise($theme) ?>">
 		<div id="top"></div>

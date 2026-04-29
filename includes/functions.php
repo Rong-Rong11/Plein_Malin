@@ -25,6 +25,11 @@ function preparer_dossiers_et_fichiers(): void
 	if (!file_exists($fichier)) {
 		file_put_contents($fichier, "timestamp,visitor_hash,region,department,city,mode,view,fuel,station_count\n");
 	}
+
+	$fichierVisites = PM_STORAGE_DIR . "/page_visits.csv";
+	if (!file_exists($fichierVisites)) {
+		file_put_contents($fichierVisites, "timestamp,visitor_hash,page\n");
+	}
 }
 
 function chemin_cookie(): string
@@ -1197,15 +1202,39 @@ function enregistrer_consultation(array $infos): void
 	}
 }
 
+function enregistrer_visite_page(): void
+{
+	$fichier = PM_STORAGE_DIR . "/page_visits.csv";
+	$page = basename((string) ($_SERVER["PHP_SELF"] ?? ""));
+
+	if ($page === "") {
+		$page = "inconnue";
+	}
+
+	$ligne = [
+		date("c"),
+		sha1(recuperer_ip_visiteur()),
+		$page,
+	];
+
+	$handle = fopen($fichier, "a");
+	if ($handle !== false) {
+		fputcsv($handle, $ligne, ",", "\"", "\\");
+		fclose($handle);
+	}
+}
+
 function calculer_statistiques(): array
 {
 	$lignes = lire_csv_assoc(PM_STORAGE_DIR . "/consultations.csv");
+	$visites = lire_csv_assoc(PM_STORAGE_DIR . "/page_visits.csv");
 	$topVilles = [];
 	$topDepartements = [];
 	$topRegions = [];
 	$topCarburants = [];
 	$topModes = [];
 	$visiteurs = [];
+	$visiteursPages = [];
 
 	foreach ($lignes as $ligne) {
 		$mode = trim($ligne["mode"] ?? "");
@@ -1258,6 +1287,13 @@ function calculer_statistiques(): array
 		}
 	}
 
+	foreach ($visites as $visite) {
+		$hash = trim($visite["visitor_hash"] ?? "");
+		if ($hash !== "") {
+			$visiteursPages[$hash] = true;
+		}
+	}
+
 	arsort($topVilles);
 	arsort($topDepartements);
 	arsort($topRegions);
@@ -1269,8 +1305,10 @@ function calculer_statistiques(): array
 		"top_departments" => array_slice($topDepartements, 0, 8, true),
 		"top_regions" => array_slice($topRegions, 0, 8, true),
 		"top_fuels" => array_slice($topCarburants, 0, 8, true),
-		"top_modes" => $topModes,
-		"total_visitors" => count($visiteurs),
-		"consultation_count" => count($lignes),
-	];
-}
+			"top_modes" => $topModes,
+			"total_visitors" => count($visiteurs),
+			"page_visit_count" => count($visites),
+			"page_visitor_count" => count($visiteursPages),
+			"consultation_count" => count($lignes),
+		];
+	}

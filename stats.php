@@ -22,20 +22,28 @@ require __DIR__ . "/includes/header.php";
 		<section class="panel">
 			<p class="eyebrow">Rubrique statistiques</p>
 			<h1>Consultations Plein Malin</h1>
-			<p class="lead">
-				Le total visiteurs reste une approximation pragmatique basee sur le nombre de
-				hashes IP distincts stockes dans l'historique CSV.
-			</p>
-			<div class="stats-inline">
-				<div class="stat-chip">
-					<strong><?= texte_securise((string) $stats['consultation_count']) ?></strong>
-					<span>consultations</span>
+				<p class="lead">
+					Les recherches correspondent aux consultations avec critères. Les visites comptent aussi
+					les pages vues sans lancement de recherche.
+				</p>
+				<p class="small-note">
+					Une recherche est enregistrée quand une page de résultats est produite ; une visite de page
+					est comptée à chaque affichage d'une page du site, même sans recherche.
+				</p>
+				<div class="stats-inline">
+					<div class="stat-chip">
+						<strong><?= texte_securise((string) $stats['consultation_count']) ?></strong>
+						<span>recherches</span>
+					</div>
+					<div class="stat-chip">
+						<strong><?= texte_securise((string) $stats['page_visit_count']) ?></strong>
+						<span>visites de pages</span>
+					</div>
+					<div class="stat-chip">
+						<strong><?= texte_securise((string) $stats['page_visitor_count']) ?></strong>
+						<span>visiteurs approx.</span>
+					</div>
 				</div>
-				<div class="stat-chip">
-					<strong><?= texte_securise((string) $stats['total_visitors']) ?></strong>
-					<span>visiteurs approx.</span>
-				</div>
-			</div>
 		</section>
 
 		<section class="panel">

@@ -259,21 +259,31 @@ require __DIR__ . "/includes/header.php";
 					<div class="cards">
 						<?php foreach ($stations as $station): ?>
 							<?php
-							$stationAnchor = rawurlencode((string) $station["id"]);
-							$detailParameters = $searchParameters;
-							$detailParameters["view"] = "detailed";
-							$detailLink = "resultats.php?" . http_build_query($detailParameters) . "#station-" . $stationAnchor;
-							?>
+								$stationAnchor = rawurlencode((string) $station["id"]);
+								$detailParameters = $searchParameters;
+								$detailParameters["view"] = "detailed";
+								$detailLink = "resultats.php?" . http_build_query($detailParameters) . "#station-" . $stationAnchor;
+								$prixCarburantsSelectionnes = [];
+								foreach ($selectedFuels as $carburantSelectionne) {
+									if (isset($station["prices"][$carburantSelectionne])) {
+										$prixCarburantsSelectionnes[] = $station["prices"][$carburantSelectionne];
+									}
+								}
+								?>
 							<article class="station-card" id="station-<?= texte_securise($stationAnchor) ?>">
 							<div class="station-top">
 								<div>
 									<h3><?= texte_securise($station["name"]) ?></h3>
 									<p><?= texte_securise($station["address"]) ?>, <?= texte_securise($station["postal_code"]) ?> <?= texte_securise($station["city_name"]) ?></p>
-								</div>
-									<div class="price-box">
-										<span><?= texte_securise($station["main_fuel"] !== "" ? $station["main_fuel"] : $selectedFuelsLabel) ?></span>
-										<strong><?= texte_securise(formater_prix($station["main_price"])) ?></strong>
 									</div>
+										<div class="price-box">
+											<?php foreach ($prixCarburantsSelectionnes as $prixSelectionne): ?>
+												<div class="price-line">
+													<span><?= texte_securise($prixSelectionne["name"]) ?></span>
+													<strong><?= texte_securise(formater_prix((float) $prixSelectionne["value"])) ?></strong>
+												</div>
+											<?php endforeach; ?>
+										</div>
 							</div>
 
 								<p class="meta-line">

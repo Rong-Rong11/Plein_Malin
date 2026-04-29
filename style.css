@@ -535,11 +535,13 @@ button {
 	background: color-mix(in srgb, var(--panel) 92%, white 8%);
 	border-radius: 20px;
 	border: 1px solid var(--line);
+	transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .station-card:target {
 	border-color: var(--accent);
 	box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 28%, transparent 72%), var(--shadow);
+	transform: translateY(-2px);
 }
 
 .station-actions {
@@ -555,16 +557,23 @@ button {
 }
 
 .price-box {
-	min-width: 160px;
+	min-width: 190px;
 	padding: 14px;
 	border-radius: 18px;
 	background: var(--panel-alt);
-	text-align: center;
+	text-align: left;
+	display: grid;
+	gap: 10px;
+}
+
+.price-line {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 14px;
 }
 
 .price-box span {
-	display: block;
-	margin-bottom: 6px;
 	font-size: 0.9rem;
 	color: var(--muted);
 }
