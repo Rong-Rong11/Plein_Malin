@@ -753,6 +753,18 @@ button {
 	margin-top: 18px;
 }
 
+.sitemap-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px 22px;
+	margin: 14px 0 20px;
+	padding: 12px 0;
+	border-top: 1px solid var(--line);
+	border-bottom: 1px solid var(--line);
+	color: var(--muted);
+	font-size: 0.95rem;
+}
+
 .sitemap-node {
 	display: grid;
 	gap: 6px;
@@ -764,9 +776,17 @@ button {
 	text-decoration: none;
 }
 
+.sitemap-node small {
+	color: var(--accent-dark);
+	font-weight: 800;
+	text-transform: uppercase;
+	font-size: 0.76rem;
+}
+
 .sitemap-node span {
 	color: var(--muted);
 	font-size: 0.9rem;
+	line-height: 1.5;
 }
 
 .sitemap-home {
@@ -782,7 +802,7 @@ button {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 28px;
-	padding-top: 24px;
+	padding-top: 44px;
 }
 
 .sitemap-branches::before {
@@ -791,7 +811,17 @@ button {
 	top: 0;
 	left: 50%;
 	width: 1px;
-	height: 24px;
+	height: 44px;
+	background: var(--line);
+}
+
+.sitemap-branches::after {
+	content: "";
+	position: absolute;
+	top: 22px;
+	left: 25%;
+	right: 25%;
+	height: 1px;
 	background: var(--line);
 }
 
@@ -799,6 +829,20 @@ button {
 	position: relative;
 	padding-top: 18px;
 	border-top: 1px solid var(--line);
+}
+
+.sitemap-group::before {
+	content: "↓";
+	position: absolute;
+	top: -26px;
+	left: 50%;
+	transform: translateX(-50%);
+	color: var(--muted);
+	font-weight: 800;
+}
+
+.sitemap-main-path {
+	border-top-color: var(--accent);
 }
 
 .sitemap-group h3 {
@@ -810,6 +854,21 @@ button {
 .sitemap-line {
 	display: grid;
 	gap: 12px;
+}
+
+.sitemap-main-path .sitemap-line .sitemap-node:not(:last-child) {
+	position: relative;
+	margin-bottom: 16px;
+}
+
+.sitemap-main-path .sitemap-line .sitemap-node:not(:last-child)::after {
+	content: "↓ puis";
+	position: absolute;
+	left: 18px;
+	bottom: -25px;
+	color: var(--muted);
+	font-size: 0.9rem;
+	font-weight: 700;
 }
 
 .sitemap-line-info .sitemap-node {
