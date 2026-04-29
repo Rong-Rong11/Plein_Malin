@@ -101,47 +101,34 @@ require __DIR__ . "/includes/header.php";
 		<p class="small-note">
 			Cliquez sur une région pour commencer.
 			<?php if ($regionInfo !== null): ?>
-					Région choisie : <strong><?= texte_securise($regionInfo["region_name"]) ?></strong>
+				Région choisie : <strong><?= texte_securise($regionInfo["region_name"]) ?></strong>
 			<?php endif; ?>
 		</p>
-				<div class="map-scroll">
-					<img src="image/<?= $theme === "night" ? "map(dark).png" : "map(light).png" ?>" alt="Carte des régions de France"
-						usemap="#regions-map" class="map-image" width="<?= $largeurCarte ?>" height="<?= $hauteurCarte ?>">
-				</div>
-				<map name="regions-map">
-					<area shape="rect" coords="<?= coordonnees_carte("252,314,423,380", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=53#recherche" alt="Bretagne"
-						title="Bretagne">
-				<area shape="rect" coords="<?= coordonnees_carte("481,232,642,295", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=28#recherche" alt="Normandie"
-					title="Normandie">
-				<area shape="rect" coords="<?= coordonnees_carte("749,83,917,179", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=32#recherche" alt="Hauts-de-France"
-					title="Hauts-de-France">
-				<area shape="rect" coords="<?= coordonnees_carte("982,248,1168,320", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=44#recherche" alt="Grand Est"
-					title="Grand Est">
-				<area shape="rect" coords="<?= coordonnees_carte("405,409,625,485", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=52#recherche" alt="Pays de la Loire"
-					title="Pays de la Loire">
-				<area shape="rect" coords="<?= coordonnees_carte("654,387,860,487", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=24#recherche" alt="Centre-Val de Loire"
-					title="Centre-Val de Loire">
-				<area shape="rect" coords="<?= coordonnees_carte("747,228,874,328", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=11#recherche" alt="Ile-de-France"
-					title="Ile-de-France">
-				<area shape="rect" coords="<?= coordonnees_carte("902,423,1117,542", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=27#recherche"
-					alt="Bourgogne-Franche-Comte" title="Bourgogne-Franche-Comte">
-				<area shape="rect" coords="<?= coordonnees_carte("543,636,729,733", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=75#recherche" alt="Nouvelle-Aquitaine"
-					title="Nouvelle-Aquitaine">
-				<area shape="rect" coords="<?= coordonnees_carte("653,837,848,905", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=76#recherche" alt="Occitanie"
-					title="Occitanie">
-				<area shape="rect" coords="<?= coordonnees_carte("831,617,1048,719", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=84#recherche"
-					alt="Auvergne-Rhone-Alpes" title="Auvergne-Rhone-Alpes">
-				<area shape="rect" coords="<?= coordonnees_carte("989,781,1183,880", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=93#recherche"
-					alt="Provence-Alpes-Cote d'Azur" title="Provence-Alpes-Cote d'Azur">
-					<area shape="rect" coords="<?= coordonnees_carte("1277,898,1384,955", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=94#recherche" alt="Corse"
-						title="Corse">
-				</map>
-		</section>
+		<div class="map-scroll">
+			<img src="image/<?= $theme === "night" ? "map(dark).png" : "map(light).png" ?>" alt="Carte des régions de France"
+				usemap="#regions-map" class="map-image" width="<?= texte_securise((string) $largeurCarte) ?>" height="<?= texte_securise((string) $hauteurCarte) ?>" />
+		</div>
+		<map name="regions-map">
+			<area shape="rect" coords="<?= coordonnees_carte("252,314,423,380", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=53#recherche" alt="Bretagne" title="Bretagne" />
+			<area shape="rect" coords="<?= coordonnees_carte("481,232,642,295", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=28#recherche" alt="Normandie" title="Normandie" />
+			<area shape="rect" coords="<?= coordonnees_carte("749,83,917,179", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=32#recherche" alt="Hauts-de-France" title="Hauts-de-France" />
+			<area shape="rect" coords="<?= coordonnees_carte("982,248,1168,320", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=44#recherche" alt="Grand Est" title="Grand Est" />
+			<area shape="rect" coords="<?= coordonnees_carte("405,409,625,485", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=52#recherche" alt="Pays de la Loire" title="Pays de la Loire" />
+			<area shape="rect" coords="<?= coordonnees_carte("654,387,860,487", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=24#recherche" alt="Centre-Val de Loire" title="Centre-Val de Loire" />
+			<area shape="rect" coords="<?= coordonnees_carte("747,228,874,328", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=11#recherche" alt="Ile-de-France" title="Ile-de-France" />
+			<area shape="rect" coords="<?= coordonnees_carte("902,423,1117,542", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=27#recherche" alt="Bourgogne-Franche-Comte" title="Bourgogne-Franche-Comte" />
+			<area shape="rect" coords="<?= coordonnees_carte("543,636,729,733", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=75#recherche" alt="Nouvelle-Aquitaine" title="Nouvelle-Aquitaine" />
+			<area shape="rect" coords="<?= coordonnees_carte("653,837,848,905", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=76#recherche" alt="Occitanie" title="Occitanie" />
+			<area shape="rect" coords="<?= coordonnees_carte("831,617,1048,719", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=84#recherche" alt="Auvergne-Rhone-Alpes" title="Auvergne-Rhone-Alpes" />
+			<area shape="rect" coords="<?= coordonnees_carte("989,781,1183,880", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=93#recherche" alt="Provence-Alpes-Cote d'Azur" title="Provence-Alpes-Cote d'Azur" />
+			<area shape="rect" coords="<?= coordonnees_carte("1277,898,1384,955", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?region=94#recherche" alt="Corse" title="Corse" />
+		</map>
+	</section>
 
 	<section class="panel" id="recherche">
 		<h2>Formulaire</h2>
 		<form action="resultats.php#resultats" method="get" class="search-form search-form-structured">
-			<input type="hidden" name="region" value="<?= texte_securise($region) ?>">
+			<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
 
 			<div class="search-section search-context">
 				<p class="section-label">1. Contexte</p>
@@ -160,27 +147,26 @@ require __DIR__ . "/includes/header.php";
 							<p class="small-note">Commencez par cliquer sur la carte au-dessus.</p>
 						</div>
 					</div>
-					<?php endif; ?>
-					<div class="geo-shortcut">
-						<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
-						<span class="small-note">Position approximative par IP.</span>
-					</div>
+				<?php endif; ?>
+				<div class="geo-shortcut">
+					<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
+					<span class="small-note">Position approximative par IP.</span>
 				</div>
+			</div>
 
 			<div class="search-section">
 				<p class="section-label">2. Localisation precise</p>
 				<div class="field-grid field-grid-main">
 					<label class="field-card">
-							<span class="field-title">Département</span>
-							<span class="field-help">Choisissez d'abord le département de la région.</span>
+						<span class="field-title">Département</span>
+						<span class="field-help">Choisissez d'abord le département de la région.</span>
 						<select name="department"
-							onchange="window.location.href='recherche.php?region=<?= texte_securise($region) ?>&department=' + encodeURIComponent(this.value) + '#recherche'"
-							<?= $region === "" ? "disabled" : "" ?>>
-							<option value=""><?= $region === "" ? "Choisir d'abord une région" : "Choisir un département" ?>
-							</option>
+							onchange="window.location.href='recherche.php?region=<?= texte_securise($region) ?>&amp;department=' + encodeURIComponent(this.value) + '#recherche'"
+							<?= $region === "" ? 'disabled="disabled"' : "" ?>>
+							<option value=""><?= $region === "" ? "Choisir d'abord une région" : "Choisir un département" ?></option>
 							<?php foreach ($departments as $unDepartment): ?>
 								<option value="<?= texte_securise($unDepartment["department_code"]) ?>"
-									<?= $department === $unDepartment["department_code"] ? "selected" : "" ?>>
+									<?= $department === $unDepartment["department_code"] ? 'selected="selected"' : "" ?>>
 									<?= texte_securise($unDepartment["department_name"]) ?>
 									(<?= texte_securise($unDepartment["department_code"]) ?>)
 								</option>
@@ -190,12 +176,11 @@ require __DIR__ . "/includes/header.php";
 
 					<label class="field-card">
 						<span class="field-title">Ville</span>
-							<span class="field-help">La liste dépend du département choisi.</span>
-						<select name="city" <?= $department === "" ? "disabled" : "" ?>>
-							<option value=""><?= $department === "" ? "Choisir d'abord un département" : "Choisir une ville" ?>
-							</option>
+						<span class="field-help">La liste dépend du département choisi.</span>
+						<select name="city" <?= $department === "" ? 'disabled="disabled"' : "" ?>>
+							<option value=""><?= $department === "" ? "Choisir d'abord un département" : "Choisir une ville" ?></option>
 							<?php foreach ($cities as $uneVille): ?>
-								<option value="<?= texte_securise($uneVille["city_code"]) ?>" <?= $city === $uneVille["city_code"] ? "selected" : "" ?>>
+								<option value="<?= texte_securise($uneVille["city_code"]) ?>" <?= $city === $uneVille["city_code"] ? 'selected="selected"' : "" ?>>
 									<?= texte_securise($uneVille["city_name"]) ?> (<?= texte_securise($uneVille["postal_code"]) ?>)
 								</option>
 							<?php endforeach; ?>
@@ -209,11 +194,12 @@ require __DIR__ . "/includes/header.php";
 						<div class="field-card field-card-soft field-card-wide">
 							<span class="field-title">Carburants</span>
 							<span class="field-help">Cochez un ou plusieurs carburants.</span>
+							<span class="field-help">Si aucun carburant n'est sélectionné, le Gazole est utilisé par défaut.</span>
 							<span class="fuel-choice-list">
 								<?php foreach ($fuelLabels as $codeCarburant => $nomCarburant): ?>
 									<label class="fuel-choice">
 										<input type="checkbox" name="fuel[]" value="<?= texte_securise($codeCarburant) ?>"
-											<?= in_array($codeCarburant, $selectedFuels, true) ? "checked" : "" ?>>
+											<?= in_array($codeCarburant, $selectedFuels, true) ? 'checked="checked"' : "" ?> />
 										<span><?= texte_securise($nomCarburant) ?></span>
 									</label>
 								<?php endforeach; ?>
@@ -223,17 +209,17 @@ require __DIR__ . "/includes/header.php";
 						<label class="field-card field-card-soft">
 							<span class="field-title">Vue</span>
 							<select name="view">
-								<option value="summary" <?= $view === "summary" ? "selected" : "" ?>>Synthèse</option>
-								<option value="detailed" <?= $view === "detailed" ? "selected" : "" ?>>Détaillée</option>
+								<option value="summary" <?= $view === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
+								<option value="detailed" <?= $view === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
 							</select>
 						</label>
 
 						<label class="field-card field-card-soft">
 							<span class="field-title">Tri</span>
 							<select name="sort">
-								<option value="price" <?= $sort === "price" ? "selected" : "" ?>>Prix croissant</option>
-								<option value="distance" <?= $sort === "distance" ? "selected" : "" ?>>Distance</option>
-								<option value="name" <?= $sort === "name" ? "selected" : "" ?>>Nom</option>
+								<option value="price" <?= $sort === "price" ? 'selected="selected"' : "" ?>>Prix croissant</option>
+								<option value="distance" <?= $sort === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
+								<option value="name" <?= $sort === "name" ? 'selected="selected"' : "" ?>>Nom</option>
 							</select>
 						</label>
 
@@ -241,8 +227,8 @@ require __DIR__ . "/includes/header.php";
 							<span class="field-title">Mode département</span>
 							<span class="field-help">Afficher les stations du département choisi.</span>
 							<span class="fuel-choice">
-								<input type="checkbox" name="department_mode" value="1" <?= $departmentMode ? "checked" : "" ?>
-									<?= $department === "" ? "disabled" : "" ?>>
+								<input type="checkbox" name="department_mode" value="1" <?= $departmentMode ? 'checked="checked"' : "" ?>
+									<?= $department === "" ? 'disabled="disabled"' : "" ?> />
 								<span>Tout le département</span>
 							</span>
 						</label>
@@ -258,18 +244,18 @@ require __DIR__ . "/includes/header.php";
 								<span>Rayon</span>
 								<select name="geo_radius">
 									<?php foreach (rayons_geo_disponibles() as $radius): ?>
-										<option value="<?= texte_securise((string) $radius) ?>" <?= $geoRadius === $radius ? "selected" : "" ?>>
+										<option value="<?= texte_securise((string) $radius) ?>" <?= $geoRadius === $radius ? 'selected="selected"' : "" ?>>
 											<?= texte_securise((string) $radius) ?> km
 										</option>
 									<?php endforeach; ?>
 								</select>
-								</label>
-								<button type="submit">Rechercher</button>
-								<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
-								<span class="small-note geo-note">Position approximative par IP.</span>
-								<a href="recherche.php?reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
-							</div>
+							</label>
+							<button type="submit">Rechercher</button>
+							<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
+							<span class="small-note geo-note">Position approximative par IP.</span>
+							<a href="recherche.php?reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
 						</div>
+					</div>
 				</div>
 			</div>
 		</form>

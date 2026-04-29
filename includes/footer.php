@@ -4,17 +4,26 @@ $lienRechercheFooter = lien_recherche_memorisee();
 $lienResultatsFooter = lien_resultats_memorises();
 ?>
 		<footer class="site-footer">
-			<div class="footer-links">
-				<a href="index.php">Accueil</a>
-				<a href="<?= texte_securise($lienRechercheFooter) ?>">Recherche</a>
+			<div class="footer-nav-block">
+				<div class="footer-links footer-links-main">
+					<a href="index.php">Accueil</a>
+					<a href="<?= texte_securise($lienRechercheFooter) ?>">Recherche</a>
 					<a href="<?= texte_securise($lienResultatsFooter) ?>">Résultats</a>
-				<a href="stats.php">Statistiques</a>
-				<a href="tech.php">Page tech</a>
+					<a href="stats.php">Statistiques</a>
+				</div>
+				<div class="footer-links footer-links-info">
+					<a href="a-propos.php">À propos</a>
+					<a href="aide.php">Aide</a>
+					<a href="sources.php">Sources des données</a>
+					<a href="confidentialite.php">Confidentialité</a>
+					<a href="plan-site.php">Plan du site</a>
+					<a href="tech.php">Page tech</a>
+				</div>
 			</div>
 			<p><?= texte_securise($footerText) ?></p>
 		</footer>
 		<a href="#top" class="back-top">
-			<img src="image/back_top.png" alt="Retour en haut">
+			<img src="image/back_top.png" alt="Retour en haut" />
 		</a>
 	</body>
 	</html>

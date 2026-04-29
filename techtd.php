@@ -78,8 +78,8 @@ print_r($geo);
 			<p lang="en">
 				<?= $film['description'] ?>
 			</p>
-			<img src="<?= $film['image'] ?>" width="200">
-			<img src="<?= $film['movie_banner'] ?>" width="400">
+			<img src="<?= $film['image'] ?>" width="200" alt="" />
+			<img src="<?= $film['movie_banner'] ?>" width="400" alt="" />
 		</section>
 
 		<section id="geo">

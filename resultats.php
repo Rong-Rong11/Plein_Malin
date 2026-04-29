@@ -172,26 +172,26 @@ require __DIR__ . "/includes/header.php";
 					<div class="form-actions">
 						<a class="cta-link" href="<?= texte_securise($searchLink) ?>">Modifier ma recherche</a>
 						<form action="resultats.php#resultats" method="get" class="inline-sort-form">
-							<input type="hidden" name="region" value="<?= texte_securise($region) ?>">
-							<input type="hidden" name="department" value="<?= texte_securise($department) ?>">
-							<input type="hidden" name="city" value="<?= texte_securise($city) ?>">
+							<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
+							<input type="hidden" name="department" value="<?= texte_securise($department) ?>" />
+							<input type="hidden" name="city" value="<?= texte_securise($city) ?>" />
 							<?php foreach ($selectedFuels as $fuel): ?>
-								<input type="hidden" name="fuel[]" value="<?= texte_securise($fuel) ?>">
+								<input type="hidden" name="fuel[]" value="<?= texte_securise($fuel) ?>" />
 							<?php endforeach; ?>
-							<input type="hidden" name="view" value="<?= texte_securise($view) ?>">
-							<input type="hidden" name="geo_radius" value="<?= texte_securise((string) $geoRadius) ?>">
+							<input type="hidden" name="view" value="<?= texte_securise($view) ?>" />
+							<input type="hidden" name="geo_radius" value="<?= texte_securise((string) $geoRadius) ?>" />
 							<?php if ($departmentMode): ?>
-								<input type="hidden" name="department_mode" value="1">
+								<input type="hidden" name="department_mode" value="1" />
 							<?php endif; ?>
 							<?php if ($useGeo): ?>
-								<input type="hidden" name="use_geo" value="1">
+								<input type="hidden" name="use_geo" value="1" />
 							<?php endif; ?>
 							<label class="inline-filter">
 								<span>Trier</span>
 								<select name="sort" onchange="this.form.submit()">
-									<option value="price" <?= $sort === "price" ? "selected" : "" ?>>Prix croissant</option>
-									<option value="distance" <?= $sort === "distance" ? "selected" : "" ?>>Distance</option>
-									<option value="name" <?= $sort === "name" ? "selected" : "" ?>>Nom</option>
+									<option value="price" <?= $sort === "price" ? 'selected="selected"' : "" ?>>Prix croissant</option>
+									<option value="distance" <?= $sort === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
+									<option value="name" <?= $sort === "name" ? 'selected="selected"' : "" ?>>Nom</option>
 								</select>
 							</label>
 						</form>
@@ -256,6 +256,10 @@ require __DIR__ . "/includes/header.php";
 				<p class="empty-state">Aucune station trouvée avec ces critères.</p>
 				<?php else: ?>
 					<p class="small-note"><?= texte_securise((string) count($stations)) ?> station(s) trouvée(s).</p>
+					<p class="small-note">
+						Les prix dépendent de la dernière mise à jour transmise par l'API officielle.
+						Certaines stations peuvent ne pas proposer tous les carburants sélectionnés.
+					</p>
 
 					<?php if ($prixMoyenRecherche !== null && $meilleureStation !== null): ?>
 						<div class="stats-inline result-summary">
@@ -290,6 +294,18 @@ require __DIR__ . "/includes/header.php";
 										$prixCarburantsSelectionnes[] = $station["prices"][$carburantSelectionne];
 									}
 								}
+								$latitudeStation = (float) ($station["latitude"] ?? 0);
+								$longitudeStation = (float) ($station["longitude"] ?? 0);
+								$lienCarteStation = "";
+								if ($latitudeStation !== 0.0 || $longitudeStation !== 0.0) {
+									$lienCarteStation = "https://www.openstreetmap.org/?mlat="
+										. rawurlencode((string) $latitudeStation)
+										. "&mlon=" . rawurlencode((string) $longitudeStation)
+										. "#map=16/"
+										. rawurlencode((string) $latitudeStation)
+										. "/"
+										. rawurlencode((string) $longitudeStation);
+								}
 								?>
 							<article class="station-card" id="station-<?= texte_securise($stationAnchor) ?>">
 							<div class="station-top">
@@ -318,10 +334,18 @@ require __DIR__ . "/includes/header.php";
 									<?php if (!$afficherDetailsStation): ?>
 										<div class="form-actions station-actions">
 											<a class="secondary-btn" href="<?= texte_securise($detailLink) ?>">Voir les détails</a>
+											<?php if ($lienCarteStation !== ""): ?>
+												<a class="secondary-btn" href="<?= texte_securise($lienCarteStation) ?>" target="_blank" rel="noopener">Voir sur une carte</a>
+											<?php endif; ?>
 										</div>
 									<?php endif; ?>
 
 									<?php if ($afficherDetailsStation): ?>
+								<div class="form-actions station-actions">
+									<?php if ($lienCarteStation !== ""): ?>
+										<a class="secondary-btn" href="<?= texte_securise($lienCarteStation) ?>" target="_blank" rel="noopener">Voir sur une carte</a>
+									<?php endif; ?>
+								</div>
 								<div class="details-grid">
 									<div>
 										<h4>Carburants</h4>
