@@ -7,7 +7,7 @@
 	--accent: #d6612b;
 	--accent-dark: #9a3b10;
 	--line: #d5c5ab;
-	--shadow: 0 18px 40px rgba(24, 33, 43, 0.1);
+	--shadow: none;
 }
 
 body.theme-night {
@@ -19,7 +19,7 @@ body.theme-night {
 	--accent: #ff9d5c;
 	--accent-dark: #ffbf8f;
 	--line: #33404c;
-	--shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+	--shadow: none;
 }
 
 * {
@@ -29,9 +29,7 @@ body.theme-night {
 body {
 	margin: 0;
 	font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-	background:
-		radial-gradient(circle at top left, rgba(214, 97, 43, 0.15), transparent 25%),
-		linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg) 78%, black 6%));
+	background: var(--bg);
 	color: var(--text);
 }
 
@@ -106,7 +104,7 @@ img {
 button,
 .stat-chip,
 .badge {
-	border-radius: 999px;
+	border-radius: 8px;
 }
 
 .theme-link,
@@ -126,7 +124,7 @@ button,
 	align-items: center;
 	justify-content: center;
 	padding: 12px 18px;
-	border-radius: 999px;
+	border-radius: 8px;
 	background: var(--accent);
 	color: #fff;
 	text-decoration: none;
@@ -138,7 +136,7 @@ button,
 	align-items: center;
 	justify-content: center;
 	padding: 12px 18px;
-	border-radius: 999px;
+	border-radius: 8px;
 	background: var(--panel-alt);
 	border: 1px solid var(--line);
 	font-weight: 700;
@@ -152,14 +150,19 @@ button,
 
 .search-details {
 	position: relative;
+	flex-basis: auto;
+}
+
+.search-details[open] {
+	flex-basis: 100%;
+	order: 2;
 }
 
 .search-details-box {
 	margin-top: 12px;
-	padding: 18px;
-	border-radius: 18px;
-	background: color-mix(in srgb, var(--panel) 88%, var(--panel-alt) 12%);
-	border: 1px solid var(--line);
+	padding: 14px 0 0;
+	border-top: 1px solid var(--line);
+	background: transparent;
 }
 
 .search-details-box h2 {
@@ -193,16 +196,15 @@ button:hover {
 .hero,
 .panel,
 .results-panel {
-	border-radius: 24px;
+	border-radius: 8px;
 	padding: clamp(18px, 3vw, 28px);
 	background: var(--panel);
 	border: 1px solid var(--line);
+	margin-bottom: 18px;
 }
 
 .hero {
-	display: grid;
-	grid-template-columns: 1.1fr 0.9fr;
-	gap: 22px;
+	display: block;
 	margin-bottom: 22px;
 }
 
@@ -248,7 +250,7 @@ button:hover {
 	overflow: auto hidden;
 	padding-bottom: 8px;
 	box-sizing: border-box;
-	border-radius: 18px;
+	border-radius: 8px;
 	border: 1px solid var(--line);
 	background: color-mix(in srgb, var(--panel-alt) 55%, white 45%);
 }
@@ -259,8 +261,8 @@ button:hover {
 }
 
 .panel-grid {
+	display: block;
 	margin-bottom: 22px;
-	align-items: stretch;
 }
 
 .panel,
@@ -280,17 +282,25 @@ button:hover {
 	gap: 22px;
 }
 
+.geo-shortcut {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+	margin-top: 14px;
+}
+
 .search-section {
 	display: grid;
 	gap: 16px;
 	padding: 20px;
-	border-radius: 22px;
+	border-radius: 8px;
 	background: color-mix(in srgb, var(--panel) 86%, var(--panel-alt) 14%);
 	border: 1px solid var(--line);
 }
 
 .search-context {
-	background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, var(--panel) 88%), var(--panel));
+	background: color-mix(in srgb, var(--panel) 88%, var(--accent) 12%);
 }
 
 .section-label {
@@ -309,7 +319,7 @@ button:hover {
 	justify-content: space-between;
 	gap: 18px;
 	padding: 18px 20px;
-	border-radius: 18px;
+	border-radius: 8px;
 	background: color-mix(in srgb, var(--panel) 84%, white 16%);
 	border: 1px solid var(--line);
 }
@@ -324,7 +334,7 @@ button:hover {
 	display: inline-flex;
 	align-items: center;
 	padding: 8px 14px;
-	border-radius: 999px;
+	border-radius: 8px;
 	background: var(--accent);
 	color: #fff;
 	font-weight: 800;
@@ -357,7 +367,7 @@ button:hover {
 	display: grid;
 	gap: 10px;
 	padding: 18px;
-	border-radius: 18px;
+	border-radius: 8px;
 	background: color-mix(in srgb, var(--panel-alt) 62%, var(--panel) 38%);
 	border: 1px solid var(--line);
 }
@@ -394,7 +404,7 @@ button {
 .search-form select {
 	width: 100%;
 	padding: 14px 16px;
-	border-radius: 16px;
+	border-radius: 8px;
 	border: 1px solid var(--line);
 	background: color-mix(in srgb, var(--panel) 92%, white 8%);
 	color: var(--text);
@@ -412,7 +422,7 @@ button {
 	align-items: center;
 	gap: 8px;
 	padding: 10px 12px;
-	border-radius: 14px;
+	border-radius: 8px;
 	background: color-mix(in srgb, var(--panel) 85%, var(--panel-alt) 15%);
 	border: 1px solid var(--line);
 	font-weight: 700;
@@ -444,7 +454,7 @@ button {
 
 .checkbox-card {
 	padding: 16px 18px;
-	border-radius: 18px;
+	border-radius: 8px;
 	background: color-mix(in srgb, var(--panel) 72%, var(--panel-alt) 28%);
 	border: 1px solid var(--line);
 }
@@ -469,6 +479,11 @@ button {
 .action-buttons {
 	grid-column: auto;
 	justify-content: flex-end;
+}
+
+.inline-sort-form {
+	display: inline-flex;
+	align-items: center;
 }
 
 
@@ -512,6 +527,9 @@ button {
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	margin: 18px 0;
+	padding: 12px 0;
+	border-top: 1px solid var(--line);
+	border-bottom: 1px solid var(--line);
 }
 
 .bottom-actions {
@@ -520,28 +538,32 @@ button {
 
 .badge,
 .stat-chip {
-	background: var(--panel-alt);
-	border: 1px solid var(--line);
-	padding: 8px 14px;
+	background: transparent;
+	border: 0;
+	padding: 0;
 	font-weight: 700;
 }
 
 .cards {
 	flex-direction: column;
+	gap: 0;
+	border-top: 1px solid var(--line);
 }
 
 .station-card {
-	padding: 18px;
-	background: color-mix(in srgb, var(--panel) 92%, white 8%);
-	border-radius: 20px;
-	border: 1px solid var(--line);
+	padding: 18px 0;
+	background: transparent;
+	border-radius: 0;
+	border: 0;
+	border-bottom: 1px solid var(--line);
 	transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 
 .station-card:target {
-	border-color: var(--accent);
-	box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 28%, transparent 72%), var(--shadow);
-	transform: translateY(-2px);
+	padding-left: 12px;
+	border-left: 4px solid var(--accent);
+	box-shadow: none;
+	transform: none;
 }
 
 .station-actions {
@@ -558,9 +580,9 @@ button {
 
 .price-box {
 	min-width: 190px;
-	padding: 14px;
-	border-radius: 18px;
-	background: var(--panel-alt);
+	padding: 0;
+	border-radius: 0;
+	background: transparent;
 	text-align: left;
 	display: grid;
 	gap: 10px;
@@ -585,13 +607,15 @@ button {
 .details-grid {
 	margin-top: 18px;
 	align-items: flex-start;
+	padding-top: 14px;
+	border-top: 1px solid var(--line);
 }
 
 .details-grid > div {
 	flex: 1;
-	padding: 14px;
-	border-radius: 16px;
-	background: var(--panel-alt);
+	padding: 0;
+	border-radius: 0;
+	background: transparent;
 }
 
 .bar-chart {
@@ -601,7 +625,7 @@ button {
 
 .trend-grid {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-columns: 1fr;
 	gap: 18px;
 	margin-top: 18px;
 }
@@ -609,7 +633,7 @@ button {
 .trend-group {
 	padding: 16px;
 	border: 1px solid var(--line);
-	border-radius: 18px;
+	border-radius: 8px;
 	background: color-mix(in srgb, var(--panel-alt) 55%, var(--panel) 45%);
 }
 
@@ -620,7 +644,7 @@ button {
 .line-chart svg {
 	width: 100%;
 	height: auto;
-	border-radius: 14px;
+	border-radius: 8px;
 	background: color-mix(in srgb, var(--panel) 78%, var(--panel-alt) 22%);
 }
 
@@ -676,7 +700,7 @@ button {
 
 .bar-track {
 	height: 18px;
-	border-radius: 999px;
+	border-radius: 4px;
 	background: color-mix(in srgb, var(--panel-alt) 75%, white 25%);
 	overflow: hidden;
 }
@@ -690,14 +714,14 @@ button {
 .empty-state {
 	margin: 0;
 	padding: 18px;
-	border-radius: 16px;
+	border-radius: 8px;
 	background: var(--panel-alt);
 	color: var(--muted);
 }
 
 .stat-chip {
 	min-width: 150px;
-	text-align: center;
+	text-align: left;
 }
 
 .stat-chip strong {

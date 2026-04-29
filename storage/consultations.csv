@@ -46,3 +46,39 @@ timestamp,visitor_hash,region,department,city,mode,view,fuel,station_count
 2026-04-29T07:49:08+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,summary,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
 2026-04-29T07:49:12+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,detailed,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
 2026-04-29T08:00:27+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,detailed,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
+2026-04-29T08:36:14+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,detailed,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
+2026-04-29T08:38:38+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Paris,"Département Paris",departement,summary,Gazole,40
+2026-04-29T08:52:07+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Paris,"Paris 04",geolocalisation,summary,Gazole,91
+2026-04-29T08:57:25+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,summary,"Gazole, E85",78
+2026-04-29T08:57:30+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,summary,"Gazole, E85",78
+2026-04-29T08:57:37+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:40+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:41+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:42+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:43+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:44+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:45+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:47+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:48+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:49+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:50+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:51+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:52+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:53+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:54+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:55+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:56+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:57+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:57+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:59+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:00+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:01+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:02+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:03+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:04+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:04+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:06+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:07+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:09+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:59:10+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,Eaubonne,ville,summary,"Gazole, SP98",2
+2026-04-29T08:59:50+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,Eaubonne,ville,summary,"Gazole, SP98",2

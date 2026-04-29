@@ -97,6 +97,244 @@ function lien_bascule_theme(string $theme): string
 	return $script . "?" . $requete;
 }
 
+function gerer_langue(): string
+{
+	$langue = "fr";
+	$languesValides = ["fr", "en"];
+
+	if (isset($_GET["lang"])) {
+		if (in_array($_GET["lang"], $languesValides, true)) {
+			$langue = $_GET["lang"];
+			setcookie("lang", $langue, time() + 30 * 24 * 3600, chemin_cookie());
+			$_COOKIE["lang"] = $langue;
+			return $langue;
+		}
+
+		setcookie("lang", "", time() - 3600, chemin_cookie());
+		unset($_COOKIE["lang"]);
+		return "fr";
+	}
+
+	if (isset($_COOKIE["lang"])) {
+		if (in_array($_COOKIE["lang"], $languesValides, true)) {
+			return $_COOKIE["lang"];
+		}
+
+		setcookie("lang", "", time() - 3600, chemin_cookie());
+		unset($_COOKIE["lang"]);
+	}
+
+	return $langue;
+}
+
+function lien_bascule_langue(string $langue): string
+{
+	$parametres = $_GET;
+	$parametres["lang"] = $langue === "en" ? "fr" : "en";
+	$requete = http_build_query($parametres);
+	$script = basename($_SERVER["PHP_SELF"] ?? "index.php");
+
+	if ($requete === "") {
+		return $script;
+	}
+
+	return $script . "?" . $requete;
+}
+
+function libelle_bascule_langue(string $langue): string
+{
+	return $langue === "en" ? "Français" : "English";
+}
+
+function traductions_interface(): array
+{
+	return [
+		"Mode jour" => "Day mode",
+		"Mode nuit" => "Night mode",
+			"Recherche" => "Search",
+			"Résultats" => "Results",
+			"Resultats" => "Results",
+			"Statistiques" => "Statistics",
+			"Choisir une région, un département et une ville." => "Choose a region, a department and a city.",
+			"Résultats des stations-service et des prix." => "Service station and price results.",
+			"Resultats des stations-service et des prix." => "Service station and price results.",
+		"Prix des carburants" => "Fuel prices",
+		"Trouvez une station plus facilement" => "Find a station more easily",
+		"Plein Malin permet de choisir une région, un département puis une ville" => "Plein Malin lets you choose a region, a department, then a city",
+		"pour consulter les stations-service et comparer les prix." => "to view service stations and compare prices.",
+		"Rechercher une station" => "Search for a station",
+		"Ce que fait le site" => "What the site does",
+		"Recherche par région, département et ville" => "Search by region, department and city",
+		"Affichage simple des stations et des prix" => "Simple display of stations and prices",
+		"Statistiques à partir des consultations enregistrées" => "Statistics based on recorded searches",
+		"Statistiques a partir des consultations enregistrees" => "Statistics based on recorded searches",
+		"Dernière recherche" => "Last search",
+		"Dernière recherche le" => "Last search on",
+		"Reprendre cette recherche" => "Resume this search",
+		"Recherche guidée" => "Guided search",
+		"Recherche guidee" => "Guided search",
+		"La recherche suit l'ordre région, département puis ville pour rester simple." => "The search follows region, department, then city to stay simple.",
+		"Résultats lisibles" => "Readable results",
+		"Chaque station affiche son adresse, ses prix et ses informations utiles." => "Each station shows its address, prices and useful information.",
+		"Une page dédiée résume les villes les plus consultées et le nombre de visites." => "A dedicated page summarizes the most viewed cities and visit counts.",
+		"Recherche principale" => "Main search",
+		"Rechercher une station" => "Search for a station",
+		"Choisissez une région sur la carte, puis un département, puis une ville." => "Choose a region on the map, then a department, then a city.",
+		"Carte des régions" => "Regions map",
+		"Cliquez sur une région pour commencer." => "Click a region to start.",
+		"Région choisie" => "Selected region",
+		"Formulaire" => "Form",
+		"Contexte" => "Context",
+		"Région déjà choisie" => "Region already selected",
+		"Changer sur la carte" => "Change on the map",
+		"Aucune région sélectionnée" => "No region selected",
+		"Commencez par cliquer sur la carte au-dessus." => "Start by clicking the map above.",
+		"Localisation precise" => "Precise location",
+		"Département" => "Department",
+		"Choisissez d'abord le département de la région." => "First choose the department in the region.",
+		"Choisir d'abord une région" => "Choose a region first",
+		"Choisir un département" => "Choose a department",
+		"Ville" => "City",
+		"La liste dépend du département choisi." => "The list depends on the selected department.",
+		"Choisir d'abord un département" => "Choose a department first",
+		"Choisir une ville" => "Choose a city",
+		"Préférences et actions" => "Preferences and actions",
+		"Carburants" => "Fuels",
+		"Cochez un ou plusieurs carburants." => "Select one or more fuels.",
+		"Vue" => "View",
+		"Synthèse" => "Summary",
+		"Détaillée" => "Detailed",
+			"Trier" => "Sort",
+			"Tri" => "Sort",
+		"Prix croissant" => "Lowest price",
+		"Distance" => "Distance",
+		"Nom</option>" => "Name</option>",
+		"Mode département" => "Department mode",
+		"Afficher les stations du département choisi." => "Show stations in the selected department.",
+		"Tout le département" => "Whole department",
+		"Lancer la recherche" => "Launch search",
+		"Choisissez votre mode puis affichez les stations." => "Choose your mode, then show stations.",
+		"Rayon" => "Radius",
+		"Autour de moi" => "Near me",
+		"Position approximative par IP." => "Approximate position by IP.",
+		"Réinitialiser" => "Reset",
+		"Stations pour" => "Stations for",
+		"Consultez les stations trouvées puis revenez à la recherche si besoin." => "View the stations found, then return to search if needed.",
+		"Modifier ma recherche" => "Edit my search",
+		"Détail" => "Details",
+		"Recherche actuelle" => "Current search",
+		"Mode" => "Mode",
+		"Carburants choisis" => "Selected fuels",
+		"Tri choisi" => "Selected sort",
+		"Vue choisie" => "Selected view",
+		"Stations trouvées" => "Stations found",
+		"Périmètre" => "Scope",
+		"Région" => "Region",
+		"Ville de référence" => "Reference city",
+		"Code ville" => "City code",
+		"Code postal" => "Postal code",
+		"Rayon géolocalisé" => "Geolocated radius",
+		"Ville retournée par l'IP" => "City returned by IP",
+		"Région retournée par l'IP" => "Region returned by IP",
+		"Source de localisation" => "Location source",
+			"Position estimée à partir de l'adresse IP." => "Position estimated from the IP address.",
+			"Aucune recherche lancée." => "No search launched.",
+			"Aucune recherche lancee." => "No search launched.",
+			"Recherche autour de votre position approximative." => "Search around your approximate position.",
+			"Recherche dans tout le département sélectionné." => "Search in the whole selected department.",
+			"Recherche dans tout le departement selectionne." => "Search in the whole selected department.",
+			"Recherche dans la ville sélectionnée." => "Search in the selected city.",
+			"Recherche dans la ville selectionnee." => "Search in the selected city.",
+			"Aucune station trouvée dans la ville sélectionnée." => "No station found in the selected city.",
+			"Aucune station trouvee dans la ville selectionnee." => "No station found in the selected city.",
+			"Aucune station trouvée avec ces critères." => "No station found with these criteria.",
+		"station(s) trouvée(s)." => "station(s) found.",
+		"prix moyen trouvé" => "average price found",
+		"meilleur prix trouvé" => "best price found",
+		"Cliquer pour voir la station" => "Click to view the station",
+		"Distance :" => "Distance:",
+		"flux" => "feed",
+		"prix mis à jour le" => "price updated on",
+		"Voir les détails" => "View details",
+		"Services" => "Services",
+			"Aucun service indique." => "No service indicated.",
+			"Retour à la recherche" => "Back to search",
+			"Rubrique statistiques" => "Statistics section",
+			"Consultations Plein Malin" => "Plein Malin consultations",
+		"Les recherches correspondent aux consultations avec critères. Les visites comptent aussi" => "Searches correspond to queries with criteria. Visits also count",
+		"les pages vues sans lancement de recherche." => "page views without launching a search.",
+		"Une recherche est enregistrée quand une page de résultats est produite ; une visite de page" => "A search is recorded when a results page is produced; a page visit",
+		"est comptée à chaque affichage d'une page du site, même sans recherche." => "is counted each time a site page is displayed, even without a search.",
+		"recherches" => "searches",
+		"visites de pages" => "page visits",
+		"visiteurs approx." => "approx. visitors",
+		"Top des villes consultées" => "Top viewed cities",
+		"Top des départements consultés" => "Top viewed departments",
+		"Top des régions consultées" => "Top viewed regions",
+		"Carburants les plus recherchés" => "Most searched fuels",
+			"Recherches par mode" => "Searches by mode",
+			"Tendance annuelle des prix" => "Annual price trend",
+			"Moyennes mensuelles calculées côté serveur depuis l'archive annuelle officielle XML" => "Monthly averages calculated server-side from the official annual XML archive",
+			"Source officielle" => "Official source",
+			"dernière mise à jour du cache le" => "cache last updated on",
+			"Statistiques générées à partir du CSV de consultations." => "Statistics generated from the consultations CSV.",
+			"Statistics générées à partir du CSV de consultations." => "Statistics generated from the consultations CSV.",
+			"Retour en haut" => "Back to top",
+			"Page tech" => "Tech page",
+			"Page technique conservee pour la validation de la partie 1 du projet." => "Technical page kept for validation of part 1 of the project.",
+			"Page technique conservee pour validation." => "Technical page kept for validation.",
+			"Cette page reste accessible depuis le footer pour montrer l'avancement initial" => "This page remains accessible from the footer to show the initial progress",
+			"et la logique technique reutilisee dans Plein Malin." => "and the technical logic reused in Plein Malin.",
+			"Synthese technique du projet" => "Project technical summary",
+			"geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP." => "IP geolocation and the official fuel price API, processed server-side in PHP.",
+			"lecture de <code>data/sample_fuel_prices.xml</code> et archive annuelle officielle pour les tendances de prix." => "reading <code>data/sample_fuel_prices.xml</code> and the official annual archive for price trends.",
+			"regions, departements, villes, consultations et page visits." => "regions, departments, cities, searches and page visits.",
+			"regions, departements, villes, consultations et visites de pages." => "regions, departments, cities, searches and page visits.",
+			"theme jour/nuit, langue, derniere recherche et derniere ville consultee." => "day/night theme, language, last search and last viewed city.",
+			"tops des villes, departements, regions, carburants, modes de recherche et tendances de prix." => "top cities, departments, regions, fuels, search modes and price trends.",
+			"API Ghibli indisponible pour le moment." => "Ghibli API is unavailable for now.",
+			"Flux XML carburants" => "Fuel XML feed",
+			"Lecture de <code>data/sample_fuel_prices.xml</code> avec <code>simplexml_load_file()</code>." => "Reading <code>data/sample_fuel_prices.xml</code> with <code>simplexml_load_file()</code>.",
+			"Aucune donnee XML disponible." => "No XML data available.",
+			"Flux JSON cote serveur" => "Server-side JSON feed",
+			"Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON." => "Approximate IP geolocation obtained in PHP with a JSON file cache.",
+			"IP detectee" => "Detected IP",
+			"Ville retournee" => "Returned city",
+			"City retournee" => "Returned city",
+			"Region retournee" => "Returned region",
+			"Source utilisee" => "Source used",
+			"echantillon local" => "local sample",
+			"Flux carburants cote serveur" => "Server-side fuel feed",
+			"Les stations-service sont recherchees depuis l'API JSON officielle du" => "Service stations are searched from the official JSON API of the",
+			"gouvernement avec un filtre sur le departement et la ville." => "government with a filter on department and city.",
+			"Requete HTTP cote serveur en PHP" => "Server-side HTTP request in PHP",
+			"Reponse JSON transformee en tableaux PHP" => "JSON response transformed into PHP arrays",
+			"Reutilisation dans la page resultats pour les prix et services" => "Reused in the results page for prices and services",
+			"Stockages attendus" => "Expected storage",
+			"CSV serveur: historique des consultations" => "Server CSV: search history",
+			"Cookie <code>last_visited_city</code>: derniere ville" => "Cookie <code>last_visited_city</code>: last city",
+			"Cookie <code>last_search_params</code>: derniere recherche complete" => "Cookie <code>last_search_params</code>: complete last search",
+			"Cookie <code>theme</code>: jour ou nuit" => "Cookie <code>theme</code>: day or night",
+			"Cookie <code>lang</code>: langue d'affichage" => "Cookie <code>lang</code>: display language",
+			"Cache JSON: reponses externes et fallback sur cache expire" => "JSON cache: external responses and fallback on expired cache",
+			"Etat des statistiques" => "Statistics status",
+			"Consultations enregistrees" => "Recorded searches",
+			"Visites de pages" => "Page visits",
+			"Visiteurs approx." => "Approx. visitors",
+			"Nombre de villes dans le top" => "Number of cities in the top",
+		"Accueil" => "Home",
+	];
+}
+
+function traduire_interface(string $html, string $langue): string
+{
+	if ($langue !== "en") {
+		return $html;
+	}
+
+	return strtr($html, traductions_interface());
+}
+
 function departement_existe_dans_region(string $codeDepartment, string $codeRegion): bool
 {
 	foreach (departements_par_region($codeRegion) as $department) {
@@ -135,7 +373,7 @@ function mode_recherche(bool $useGeo, bool $departmentMode): string
 function message_resultats(?array $currentCity, bool $useGeo, bool $departmentMode, array $stations): string
 {
 	if ($currentCity === null) {
-		return "Aucune recherche lancee.";
+		return "Aucune recherche lancée.";
 	}
 
 	if ($useGeo) {
@@ -143,14 +381,14 @@ function message_resultats(?array $currentCity, bool $useGeo, bool $departmentMo
 	}
 
 	if ($departmentMode) {
-		return "Recherche dans tout le departement selectionne.";
+		return "Recherche dans tout le département sélectionné.";
 	}
 
 	if ($stations === []) {
-		return "Aucune station trouvee dans la ville selectionnee.";
+		return "Aucune station trouvée dans la ville sélectionnée.";
 	}
 
-	return "Recherche dans la ville selectionnee.";
+	return "Recherche dans la ville sélectionnée.";
 }
 
 function rayons_geo_disponibles(): array
@@ -783,13 +1021,9 @@ function lire_stations_api(?array $city, bool $departmentMode = false, ?array $o
 		if ($nomStation === "") {
 			$nomStation = trim((string) ($ligne["enseigne"] ?? ""));
 		}
-		if ($nomStation === "") {
-			$nomStation = "Station " . (string) ($ligne["id"] ?? "");
-			$adresseStation = trim((string) ($ligne["adresse"] ?? ""));
-			if ($adresseStation !== "") {
-				$nomStation .= " - " . $adresseStation;
+			if ($nomStation === "") {
+				$nomStation = "Station " . (string) ($ligne["id"] ?? "");
 			}
-		}
 
 		$stations[] = [
 			"id" => (string) ($ligne["id"] ?? ""),

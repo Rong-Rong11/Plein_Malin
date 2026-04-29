@@ -88,7 +88,7 @@ $footerText = "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Pro
 require __DIR__ . "/includes/header.php";
 ?>
 <main class="page-shell">
-	<section class="panel">
+	<section class="panel" id="carte">
 		<p class="eyebrow">Recherche principale</p>
 		<h1>Rechercher une station</h1>
 		<p class="lead">
@@ -151,7 +151,7 @@ require __DIR__ . "/includes/header.php";
 							<p class="context-title">Région déjà choisie</p>
 							<div class="region-badge"><?= texte_securise($regionInfo["region_name"]) ?></div>
 						</div>
-						<a href="recherche.php#recherche" class="context-link">Changer sur la carte</a>
+						<a href="recherche.php#carte" class="context-link">Changer sur la carte</a>
 					</div>
 				<?php else: ?>
 					<div class="context-card">
@@ -160,8 +160,12 @@ require __DIR__ . "/includes/header.php";
 							<p class="small-note">Commencez par cliquer sur la carte au-dessus.</p>
 						</div>
 					</div>
-				<?php endif; ?>
-			</div>
+					<?php endif; ?>
+					<div class="geo-shortcut">
+						<button type="submit" name="use_geo" value="1" class="secondary-btn">Autour de moi</button>
+						<span class="small-note">Position approximative par IP.</span>
+					</div>
+				</div>
 
 			<div class="search-section">
 				<p class="section-label">2. Localisation precise</p>
