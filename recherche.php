@@ -15,7 +15,6 @@ $region = $_GET["region"] ?? "";
 $department = $_GET["department"] ?? "";
 $city = $_GET["city"] ?? "";
 $selectedFuels = normaliser_carburants_selection($_GET["fuel"] ?? []);
-$view = $_GET["view"] ?? "summary";
 $sort = $_GET["sort"] ?? "price";
 $geoRadius = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? 10));
 $departmentMode = isset($_GET["department_mode"]);
@@ -51,13 +50,12 @@ if (
 	$city = (string) $parametresMemorises["city"];
 }
 
-if (array_intersect(["region", "department", "city", "fuel", "view", "sort", "geo_radius", "department_mode"], array_keys($_GET)) !== []) {
+if (array_intersect(["region", "department", "city", "fuel", "sort", "geo_radius", "department_mode"], array_keys($_GET)) !== []) {
 	enregistrer_parametres_derniere_recherche([
 		"region" => $region,
 		"department" => $department,
 		"city" => $city,
 		"fuel" => $selectedFuels,
-		"view" => $view,
 		"sort" => $sort,
 		"geo_radius" => $geoRadius,
 		"department_mode" => $departmentMode ? "1" : null,
@@ -138,14 +136,6 @@ require __DIR__ . "/includes/header.php";
 								<?php endforeach; ?>
 							</span>
 						</fieldset>
-
-						<div class="field-card field-card-soft">
-							<label class="field-title" for="geo-view-select">Vue</label>
-							<select id="geo-view-select" name="view">
-								<option value="summary" <?= $view === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
-								<option value="detailed" <?= $view === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
-							</select>
-						</div>
 
 						<div class="field-card field-card-soft">
 							<label class="field-title" for="geo-sort-select">Tri</label>
@@ -270,14 +260,6 @@ require __DIR__ . "/includes/header.php";
 									<?php endforeach; ?>
 								</span>
 							</fieldset>
-
-							<div class="field-card field-card-soft">
-								<label class="field-title" for="view-select">Vue</label>
-								<select id="view-select" name="view">
-									<option value="summary" <?= $view === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
-									<option value="detailed" <?= $view === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
-								</select>
-							</div>
 
 							<div class="field-card field-card-soft">
 								<label class="field-title" for="sort-select">Tri</label>

@@ -42,7 +42,7 @@ require __DIR__ . "/includes/header.php";
 		<ul class="plain-list">
 			<li>Le prix moyen résume les prix trouvés pour la recherche actuelle.</li>
 			<li>Le meilleur prix permet d'aller directement à la station correspondante.</li>
-			<li>Le bouton Voir les détails affiche les carburants et les services proposés par une station.</li>
+			<li>Chaque station affiche son adresse, sa distance et les prix des carburants sélectionnés.</li>
 			<li>Le lien Voir sur une carte ouvre la station dans OpenStreetMap quand les coordonnées sont disponibles.</li>
 		</ul>
 		</section>
@@ -57,9 +57,6 @@ require __DIR__ . "/includes/header.php";
 
 		<h3>D'où viennent les prix ?</h3>
 		<p class="small-note">Les prix viennent de l'API officielle des prix des carburants et sont traités côté serveur en PHP.</p>
-
-		<h3>À quoi correspondent les services ?</h3>
-		<p class="small-note">Les services sont les équipements ou prestations proposés par la station, par exemple lavage, gonflage, boutique ou automate CB.</p>
 		</section>
 	</section>
 </main>

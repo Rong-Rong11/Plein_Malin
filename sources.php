@@ -16,7 +16,7 @@ require __DIR__ . "/includes/header.php";
 		<p class="eyebrow">Données</p>
 		<h1>Sources des données</h1>
 		<p class="lead">
-			Cette page résume les fichiers et services utilisés par le site pour répondre aux consignes du projet.
+			Cette page résume les sources et fichiers utilisés par le site pour répondre aux consignes du projet.
 		</p>
 		<section class="info-block">
 			<h2>Données statiques</h2>
@@ -39,7 +39,9 @@ require __DIR__ . "/includes/header.php";
 			<h2>Limites des données</h2>
 		<ul class="plain-list">
 			<li>Les prix affichés dépendent de la dernière mise à jour disponible dans l'API officielle.</li>
-			<li>La géolocalisation par adresse IP est approximative et ne donne pas une position exacte.</li>
+			<li>Si l'API officielle ne répond pas, le site affiche un message d'erreur au lieu d'annoncer simplement zéro station.</li>
+			<li>La géolocalisation par adresse IP est approximative : elle peut indiquer une ville proche, pas une adresse exacte.</li>
+			<li>Le cache serveur évite de refaire trop souvent les mêmes requêtes, mais il peut afficher une réponse déjà enregistrée pendant quelques heures.</li>
 			<li>Certaines stations ne proposent pas tous les carburants ou ne fournissent pas toujours un prix pour chaque carburant.</li>
 		</ul>
 		</section>

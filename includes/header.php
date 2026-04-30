@@ -1,8 +1,4 @@
 <?php
-if (!function_exists("gerer_theme")) {
-	require_once __DIR__ . "/functions.php";
-}
-
 $pageTitle = $pageTitle ?? "Plein Malin";
 $pageDescription = $pageDescription ?? "Site Plein Malin";
 $activePage = $activePage ?? "";

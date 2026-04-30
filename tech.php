@@ -108,7 +108,7 @@ require __DIR__ . "/includes/header.php";
 			<ul class="plain-list">
 				<li>Requete HTTP cote serveur en PHP</li>
 				<li>Reponse JSON transformee en tableaux PHP</li>
-				<li>Reutilisation dans la page resultats pour les prix et services</li>
+				<li>Reutilisation dans la page resultats pour les prix, distances et liens de carte</li>
 			</ul>
 		</section>
 

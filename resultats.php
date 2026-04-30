@@ -5,7 +5,6 @@ preparer_dossiers_et_fichiers();
 
 $theme = gerer_theme();
 $selectedFuels = normaliser_carburants_selection($_GET["fuel"] ?? []);
-$view = $_GET["view"] ?? "summary";
 $sort = $_GET["sort"] ?? "price";
 $geoRadius = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? 10));
 $departmentMode = isset($_GET["department_mode"]);
@@ -21,6 +20,7 @@ $geo = null;
 $message = "Aucune recherche lancée.";
 $departmentInfo = null;
 $regionInfo = null;
+$apiCarburantsErreur = false;
 $choixRechercheIncomplet = !$useGeo && !$departmentMode && $department !== "" && $city === "";
 $departmentLabel = $department;
 
@@ -69,21 +69,25 @@ if ($currentCity !== null) {
 	} elseif ($departmentMode && $department !== "") {
 		enregistrer_derniere_recherche("departement", $department);
 	}
-	$stations = rechercher_stations($currentCity, $selectedFuels, $sort, $departmentMode, $useGeo ? $geo : null, $geoRadius);
+	$resultatRecherche = rechercher_stations_avec_statut($currentCity, $selectedFuels, $sort, $departmentMode, $useGeo ? $geo : null, $geoRadius);
+	$stations = $resultatRecherche["stations"];
+	$apiCarburantsErreur = $resultatRecherche["api_error"];
 
 	enregistrer_consultation([
 		"region" => $regionInfo["region_name"] ?? "",
 		"department" => $departmentInfo["department_name"] ?? "",
 		"city" => $departmentMode ? "Département " . ($departmentInfo["department_name"] ?? $department) : $currentCity["city_name"],
 		"mode" => mode_recherche($useGeo, $departmentMode),
-		"view" => $view,
+		"view" => "",
 		"fuel" => texte_carburants_selectionnes($selectedFuels),
 		"station_count" => count($stations),
 	]);
 }
 
 $message = message_resultats($currentCity, $useGeo, $departmentMode, $stations);
-if ($useGeo && $currentCity !== null) {
+if ($apiCarburantsErreur) {
+	$message = "L'API officielle des carburants ne répond pas pour le moment.";
+} elseif ($useGeo && $currentCity !== null) {
 	$message = "Recherche autour de votre position approximative dans un rayon de " . $geoRadius . " km.";
 } elseif ($choixRechercheIncomplet) {
 	$message = "Vous avez choisi le département " . $departmentLabel . ". Sélectionnez une ville ou cochez \"Tout le département\" pour lancer la recherche.";
@@ -105,7 +109,6 @@ if ($sort === "price_desc") {
 	$sortLabel = "Nom";
 }
 
-$viewLabel = $view === "detailed" ? "Détaillée" : "Synthèse";
 $selectedFuelsLabel = texte_carburants_selectionnes($selectedFuels);
 $searchTargetLabel = "Non défini";
 
@@ -125,7 +128,6 @@ $searchParameters = [
 	"department" => $department,
 	"city" => $city,
 	"fuel" => $selectedFuels,
-	"view" => $view,
 	"sort" => $sort,
 	"geo_radius" => $geoRadius,
 ];
@@ -217,13 +219,6 @@ require __DIR__ . "/includes/header.php";
 							</div>
 							<div class="field-grid field-grid-main">
 								<div class="field-card">
-									<label class="field-title" for="result-view-select">Vue</label>
-									<select id="result-view-select" name="view">
-										<option value="summary" <?= $view === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
-										<option value="detailed" <?= $view === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
-									</select>
-								</div>
-								<div class="field-card">
 									<label class="field-title" for="result-sort-select">Tri</label>
 									<select id="result-sort-select" name="sort">
 										<option value="price" <?= $sort === "price" ? 'selected="selected"' : "" ?>>Prix croissant</option>
@@ -247,7 +242,6 @@ require __DIR__ . "/includes/header.php";
 									<li>Mode : <?= texte_securise($searchModeLabel) ?></li>
 									<li>Carburants choisis : <?= texte_securise($selectedFuelsLabel) ?></li>
 									<li>Tri choisi : <?= texte_securise($sortLabel) ?></li>
-									<li>Vue choisie : <?= texte_securise($viewLabel) ?></li>
 									<li>Stations trouvées : <?= texte_securise((string) count($stations)) ?></li>
 									<li>Périmètre : <?= texte_securise($searchTargetLabel) ?></li>
 									<li>Région : <?= texte_securise($regionInfo["region_name"] ?? "Non définie") ?></li>
@@ -286,6 +280,8 @@ require __DIR__ . "/includes/header.php";
 					<p class="empty-state">
 						<?= texte_securise($choixRechercheIncomplet ? "Choisissez une ville dans le département " . $departmentLabel . " ou activez la recherche dans tout le département." : "Aucune recherche lancée.") ?>
 					</p>
+				<?php elseif ($apiCarburantsErreur): ?>
+				<p class="empty-state">Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard.</p>
 				<?php elseif ($stations === []): ?>
 				<p class="empty-state">Aucune station trouvée avec ces critères.</p>
 				<?php else: ?>
