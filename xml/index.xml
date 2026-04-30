@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+	<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Plein Malin</title>
+		<meta name="description" content="Comparer les prix des carburants et trouver une station en France." />
+		<link rel="stylesheet" href="style.css" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
+	</head>
+	<body class="theme-day">
+		<div id="top"></div>
+
+		<header class="site-header">
+			<div class="brand-row">
+				<a class="brand-link" href="index.php">
+					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
+				</a>
+					<div class="theme-switch">
+						<a href="index.php?theme=night" class="theme-link">
+							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
+							<span>Mode nuit</span>
+						</a>
+						<a href="index.php?lang=en" class="theme-link">
+							<span>English</span>
+						</a>
+					</div>
+				</div>
+
+			<nav class="main-nav">
+				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+				<a href="stats.php">Statistiques</a>
+			</nav>
+		</header>
+<main class="page-shell">
+	<section class="hero">
+		<div class="hero-copy">
+			<p class="eyebrow">Prix des carburants</p>
+			<h1>Trouvez une station plus facilement</h1>
+			<p class="lead">
+				Plein Malin permet de choisir une région, un département puis une ville
+				pour consulter les stations-service et comparer les prix.
+			</p>
+			<div class="form-actions">
+				<a class="cta-link" href="recherche.php#recherche">Rechercher une station</a>
+			</div>
+		</div>
+
+		<div class="panel">
+			<h2>Ce que fait le site</h2>
+			<ul class="plain-list">
+				<li>Recherche par région, département et ville</li>
+				<li>Affichage simple des stations et des prix</li>
+				<li>Statistiques a partir des consultations enregistrees</li>
+			</ul>
+		</div>
+	</section>
+
+					<section class="panel">
+				<h2>Dernière recherche</h2>
+				<p class="lead">
+					Dernier département consulté :
+					<strong>Seine-et-Marne (77)</strong>
+				</p>
+									<p class="small-note">Dernière recherche le 29/04/2026</p>
+								<div class="form-actions">
+					<a class="cta-link" href="resultats.php?region=11&amp;department=77&amp;department_mode=1#resultats">Reprendre cette recherche</a>
+				</div>
+		</section>
+	
+	<section class="panel-grid">
+		<article class="panel">
+			<h2>Recherche guidee</h2>
+			<p class="small-note">
+				La recherche suit l'ordre région, département puis ville pour rester simple.
+			</p>
+		</article>
+
+		<article class="panel">
+			<h2>Résultats lisibles</h2>
+			<p class="small-note">
+				Chaque station affiche son adresse, ses prix et ses informations utiles.
+			</p>
+		</article>
+
+		<article class="panel">
+			<h2>Statistiques</h2>
+			<p class="small-note">
+				Une page dédiée résume les villes les plus consultées et le nombre de visites.
+			</p>
+		</article>
+	</section>
+</main>
+
+		<footer class="site-footer">
+			<div class="footer-nav-block">
+				<div class="footer-links footer-links-main">
+					<a href="index.php">Accueil</a>
+					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+					<a href="stats.php">Statistiques</a>
+				</div>
+				<div class="footer-links footer-links-info">
+					<a href="a-propos.php">À propos</a>
+					<a href="aide.php">Aide</a>
+					<a href="sources.php">Sources des données</a>
+					<a href="confidentialite.php">Confidentialité</a>
+					<a href="plan-site.php">Plan du site</a>
+					<a href="tech.php">Page tech</a>
+				</div>
+			</div>
+			<p>Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026</p>
+		</footer>
+		<a href="#top" class="back-top">
+			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+		</a>
+	</body>
+	</html>

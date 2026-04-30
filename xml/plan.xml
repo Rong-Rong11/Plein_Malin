@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+	<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Plan du site - Plein Malin</title>
+		<meta name="description" content="Plan du site Plein Malin." />
+		<link rel="stylesheet" href="style.css" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
+	</head>
+	<body class="theme-day">
+		<div id="top"></div>
+
+		<header class="site-header">
+			<div class="brand-row">
+				<a class="brand-link" href="index.php">
+					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
+				</a>
+					<div class="theme-switch">
+						<a href="plan-site.php?theme=night" class="theme-link">
+							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
+							<span>Mode nuit</span>
+						</a>
+						<a href="plan-site.php?lang=en" class="theme-link">
+							<span>English</span>
+						</a>
+					</div>
+				</div>
+
+			<nav class="main-nav">
+				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+				<a href="stats.php">Statistiques</a>
+			</nav>
+		</header>
+<main class="page-shell">
+	<section class="panel">
+		<p class="eyebrow">Navigation</p>
+		<h1>Plan du site</h1>
+		<p class="lead">
+			Retrouvez ici les pages principales du site et les pages d'information du projet.
+		</p>
+	</section>
+
+	<section class="panel">
+		<h2>Schéma de navigation</h2>
+		<p class="small-note">
+			Le schéma se lit de haut en bas : commencez par l'accueil, puis suivez la colonne de gauche
+			pour effectuer une recherche. La colonne de droite regroupe les pages d'explication du projet.
+		</p>
+		<div class="sitemap-legend">
+			<span><strong>Trait orange</strong> : parcours principal de l'utilisateur</span>
+			<span><strong>Trait gris</strong> : pages d'information</span>
+		</div>
+		<div class="sitemap-diagram">
+			<a class="sitemap-node sitemap-home" href="index.php">
+				<small>Départ</small>
+				<strong>Accueil</strong>
+				<span>Page d'entrée du site</span>
+			</a>
+
+			<div class="sitemap-branches">
+				<div class="sitemap-group sitemap-main-path">
+					<h3>Parcours principal : chercher une station</h3>
+					<div class="sitemap-line">
+						<a class="sitemap-node" href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">
+							<small>Étape 1</small>
+							<strong>Recherche</strong>
+							<span>Choisir une région, un département, une ville et un carburant</span>
+						</a>
+						<a class="sitemap-node" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">
+							<small>Étape 2</small>
+							<strong>Résultats</strong>
+							<span>Comparer les stations, les prix, les services et la carte</span>
+						</a>
+						<a class="sitemap-node" href="stats.php">
+							<small>Étape 3</small>
+							<strong>Statistiques</strong>
+							<span>Voir les recherches, visites et tendances de prix</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="sitemap-group">
+					<h3>Pages d'explication</h3>
+					<div class="sitemap-line sitemap-line-info">
+						<a class="sitemap-node" href="a-propos.php">
+							<strong>À propos</strong>
+							<span>Comprendre le but du site</span>
+						</a>
+						<a class="sitemap-node" href="aide.php">
+							<strong>Aide</strong>
+							<span>Apprendre à utiliser la recherche et les résultats</span>
+						</a>
+						<a class="sitemap-node" href="sources.php">
+							<strong>Sources des données</strong>
+							<span>Voir d'où viennent les données CSV, JSON, XML et API</span>
+						</a>
+						<a class="sitemap-node" href="confidentialite.php">
+							<strong>Confidentialité</strong>
+							<span>Comprendre les cookies et le stockage serveur</span>
+						</a>
+						<a class="sitemap-node" href="tech.php">
+							<strong>Page technique</strong>
+							<span>Afficher la démonstration technique des flux</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+		<footer class="site-footer">
+			<div class="footer-nav-block">
+				<div class="footer-links footer-links-main">
+					<a href="index.php">Accueil</a>
+					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+					<a href="stats.php">Statistiques</a>
+				</div>
+				<div class="footer-links footer-links-info">
+					<a href="a-propos.php">À propos</a>
+					<a href="aide.php">Aide</a>
+					<a href="sources.php">Sources des données</a>
+					<a href="confidentialite.php">Confidentialité</a>
+					<a href="plan-site.php">Plan du site</a>
+					<a href="tech.php">Page tech</a>
+				</div>
+			</div>
+			<p>Enzo Phung | Fatma-Zhara Baarir | Plan du site.</p>
+		</footer>
+		<a href="#top" class="back-top">
+			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+		</a>
+	</body>
+	</html>

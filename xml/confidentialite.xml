@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+	<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Confidentialité - Plein Malin</title>
+		<meta name="description" content="Informations sur les cookies et les données conservées par Plein Malin." />
+		<link rel="stylesheet" href="style.css" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
+	</head>
+	<body class="theme-day">
+		<div id="top"></div>
+
+		<header class="site-header">
+			<div class="brand-row">
+				<a class="brand-link" href="index.php">
+					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
+				</a>
+					<div class="theme-switch">
+						<a href="confidentialite.php?theme=night" class="theme-link">
+							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
+							<span>Mode nuit</span>
+						</a>
+						<a href="confidentialite.php?lang=en" class="theme-link">
+							<span>English</span>
+						</a>
+					</div>
+				</div>
+
+			<nav class="main-nav">
+				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+				<a href="stats.php">Statistiques</a>
+			</nav>
+		</header>
+<main class="page-shell">
+	<section class="panel">
+		<p class="eyebrow">Confidentialité</p>
+		<h1>Confidentialité</h1>
+		<p class="lead">
+			Le site utilise quelques mécanismes de mémorisation pour améliorer l'expérience utilisateur
+			et produire les statistiques demandées dans le projet.
+		</p>
+	</section>
+
+	<section class="panel">
+		<h2>Cookies utilisés</h2>
+		<ul class="plain-list">
+			<li><code>theme</code> : mémorise le choix du mode jour ou nuit.</li>
+			<li><code>lang</code> : mémorise la langue d'affichage.</li>
+			<li><code>last_visited_city</code> : mémorise la dernière ville consultée.</li>
+			<li><code>last_search</code> et <code>last_search_params</code> : mémorisent la dernière recherche.</li>
+		</ul>
+	</section>
+
+	<section class="panel">
+		<h2>Données stockées côté serveur</h2>
+		<ul class="plain-list">
+			<li>Les consultations sont enregistrées dans <code>storage/consultations.csv</code>.</li>
+			<li>Les visites de pages sont enregistrées dans <code>storage/page_visits.csv</code>.</li>
+			<li>Chaque ligne contient un horodatage pour permettre les statistiques.</li>
+		</ul>
+	</section>
+
+	<section class="panel">
+		<h2>Géolocalisation</h2>
+		<p class="small-note">
+			La recherche autour de moi utilise une position estimée à partir de l'adresse IP.
+			Cette position est approximative et peut être différente de la position réelle de l'utilisateur.
+		</p>
+	</section>
+</main>
+
+		<footer class="site-footer">
+			<div class="footer-nav-block">
+				<div class="footer-links footer-links-main">
+					<a href="index.php">Accueil</a>
+					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+					<a href="stats.php">Statistiques</a>
+				</div>
+				<div class="footer-links footer-links-info">
+					<a href="a-propos.php">À propos</a>
+					<a href="aide.php">Aide</a>
+					<a href="sources.php">Sources des données</a>
+					<a href="confidentialite.php">Confidentialité</a>
+					<a href="plan-site.php">Plan du site</a>
+					<a href="tech.php">Page tech</a>
+				</div>
+			</div>
+			<p>Enzo Phung | Fatma-Zhara Baarir | Confidentialité.</p>
+		</footer>
+		<a href="#top" class="back-top">
+			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+		</a>
+	</body>
+	</html>

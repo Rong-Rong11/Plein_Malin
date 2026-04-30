@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+	<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Sources des données - Plein Malin</title>
+		<meta name="description" content="Sources des données utilisées par Plein Malin." />
+		<link rel="stylesheet" href="style.css" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
+	</head>
+	<body class="theme-day">
+		<div id="top"></div>
+
+		<header class="site-header">
+			<div class="brand-row">
+				<a class="brand-link" href="index.php">
+					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
+				</a>
+					<div class="theme-switch">
+						<a href="sources.php?theme=night" class="theme-link">
+							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
+							<span>Mode nuit</span>
+						</a>
+						<a href="sources.php?lang=en" class="theme-link">
+							<span>English</span>
+						</a>
+					</div>
+				</div>
+
+			<nav class="main-nav">
+				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+				<a href="stats.php">Statistiques</a>
+			</nav>
+		</header>
+<main class="page-shell">
+	<section class="panel">
+		<p class="eyebrow">Données</p>
+		<h1>Sources des données</h1>
+		<p class="lead">
+			Cette page résume les fichiers et services utilisés par le site pour répondre aux consignes du projet.
+		</p>
+	</section>
+
+	<section class="panel">
+		<h2>Données statiques</h2>
+		<ul class="plain-list">
+			<li>Régions, départements et villes : fichiers CSV locaux placés dans le dossier <code>data</code>.</li>
+			<li>Ces fichiers servent à alimenter les listes de sélection du formulaire de recherche.</li>
+		</ul>
+	</section>
+
+	<section class="panel">
+		<h2>Données dynamiques</h2>
+		<ul class="plain-list">
+			<li>Prix des carburants : API officielle des prix des carburants, interrogée côté serveur en PHP.</li>
+			<li>Géolocalisation : position estimée à partir de l'adresse IP de l'utilisateur.</li>
+			<li>Tendances : archive annuelle XML officielle de <code>donnees.roulez-eco.fr</code>.</li>
+		</ul>
+	</section>
+
+	<section class="panel">
+		<h2>Limites des données</h2>
+		<ul class="plain-list">
+			<li>Les prix affichés dépendent de la dernière mise à jour disponible dans l'API officielle.</li>
+			<li>La géolocalisation par adresse IP est approximative et ne donne pas une position exacte.</li>
+			<li>Certaines stations ne proposent pas tous les carburants ou ne fournissent pas toujours un prix pour chaque carburant.</li>
+		</ul>
+	</section>
+
+	<section class="panel">
+		<h2>Formats exploités</h2>
+		<ul class="plain-list">
+			<li><strong>CSV</strong> : données locales et historique des consultations.</li>
+			<li><strong>JSON</strong> : réponses de l'API carburants et cache serveur.</li>
+			<li><strong>XML</strong> : lecture d'un fichier de démonstration et archive annuelle des tendances.</li>
+			<li><strong>Cookies</strong> : thème, langue et dernière recherche.</li>
+		</ul>
+	</section>
+</main>
+
+		<footer class="site-footer">
+			<div class="footer-nav-block">
+				<div class="footer-links footer-links-main">
+					<a href="index.php">Accueil</a>
+					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+					<a href="stats.php">Statistiques</a>
+				</div>
+				<div class="footer-links footer-links-info">
+					<a href="a-propos.php">À propos</a>
+					<a href="aide.php">Aide</a>
+					<a href="sources.php">Sources des données</a>
+					<a href="confidentialite.php">Confidentialité</a>
+					<a href="plan-site.php">Plan du site</a>
+					<a href="tech.php">Page tech</a>
+				</div>
+			</div>
+			<p>Enzo Phung | Fatma-Zhara Baarir | Sources des données.</p>
+		</footer>
+		<a href="#top" class="back-top">
+			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+		</a>
+	</body>
+	</html>

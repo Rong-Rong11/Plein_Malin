@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+	<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Page tech - Plein Malin</title>
+		<meta name="description" content="Page technique conservee pour la validation de la partie 1 du projet." />
+		<link rel="stylesheet" href="style.css" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
+	</head>
+	<body class="theme-day">
+		<div id="top"></div>
+
+		<header class="site-header">
+			<div class="brand-row">
+				<a class="brand-link" href="index.php">
+					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" />
+				</a>
+					<div class="theme-switch">
+						<a href="tech.php?theme=night" class="theme-link">
+							<img src="image/theme-night.svg" alt="" />
+							<span>Mode nuit</span>
+						</a>
+						<a href="tech.php?lang=en" class="theme-link">
+							<span>English</span>
+						</a>
+					</div>
+				</div>
+
+			<nav class="main-nav">
+				<a href="recherche.php?region=11&amp;department=95&amp;city=&amp;fuel%5B0%5D=Gazole&amp;fuel%5B1%5D=SP95&amp;fuel%5B2%5D=SP98&amp;fuel%5B3%5D=E10&amp;fuel%5B4%5D=E85&amp;fuel%5B5%5D=GPLc&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+				<a href="resultats.php?region=11&amp;department=95&amp;city=&amp;fuel%5B0%5D=Gazole&amp;fuel%5B1%5D=SP95&amp;fuel%5B2%5D=SP98&amp;fuel%5B3%5D=E10&amp;fuel%5B4%5D=E85&amp;fuel%5B5%5D=GPLc&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+				<a href="stats.php">Statistiques</a>
+			</nav>
+		</header>
+<main class="page-shell">
+	<section class="panel">
+		<h1>Page tech</h1>
+		<p class="lead">
+			Cette page reste accessible depuis le footer pour montrer l'avancement initial
+			et la logique technique reutilisee dans Plein Malin.
+		</p>
+		</section>
+
+		<section class="panel">
+			<h2>Synthese technique du projet</h2>
+			<ul class="plain-list">
+				<li><strong>JSON</strong> : geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.</li>
+				<li><strong>XML</strong> : lecture de <code>data/sample_fuel_prices.xml</code> et archive annuelle officielle pour les tendances de prix.</li>
+				<li><strong>CSV</strong> : regions, departements, villes, consultations et visites de pages.</li>
+				<li><strong>Cookies</strong> : theme jour/nuit, langue, derniere recherche et derniere ville consultee.</li>
+				<li><strong>Statistiques</strong> : tops des villes, departements, regions, carburants, modes de recherche et tendances de prix.</li>
+			</ul>
+		</section>
+
+		<div class="panel-grid">
+			<article class="panel">
+				<h2>API Ghibli</h2>
+							<h3>
+					Earwig and the Witch				</h3>
+				<h3 lang="ja">
+					アーヤと魔女				</h3>
+				<p>
+					2021				</p>
+				<p lang="en">
+					An orphan girl, Earwig, is adopted by a witch and comes home to a spooky house filled with mystery and magic.				</p>
+				<img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sJhFtY3eHuvvACaPpxpzdCLQqpQ.jpg" width="200" alt="" />
+				<img src="https://www.themoviedb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg" width="400" alt="" />
+						</article>
+
+			<article class="panel">
+				<h2>Flux XML carburants</h2>
+				<p>Lecture de <code>data/sample_fuel_prices.xml</code> avec <code>simplexml_load_file()</code>.</p>
+									<ul class="plain-list">
+													<li>
+								<strong>TotalEnergies Paris Est</strong>
+								- Paris								(75012)
+																	:
+																			Gazole										1.829 EUR/L
+																			, SP95										1.934 EUR/L
+																			, E10										1.892 EUR/L
+																								</li>
+													<li>
+								<strong>Esso Nanterre Centre</strong>
+								- Nanterre								(92000)
+																	:
+																			Gazole										1.799 EUR/L
+																			, SP98										1.971 EUR/L
+																			, E10										1.871 EUR/L
+																								</li>
+													<li>
+								<strong>Carrefour Meaux</strong>
+								- Meaux								(77100)
+																	:
+																			Gazole										1.769 EUR/L
+																			, SP95										1.879 EUR/L
+																			, E85										0.889 EUR/L
+																								</li>
+													<li>
+								<strong>Avia Prado</strong>
+								- Marseille								(13008)
+																	:
+																			Gazole										1.759 EUR/L
+																			, SP95										1.869 EUR/L
+																			, GPLc										0.989 EUR/L
+																								</li>
+													<li>
+								<strong>Intermarche Aix</strong>
+								- Aix-en-Provence								(13100)
+																	:
+																			Gazole										1.739 EUR/L
+																			, SP98										1.918 EUR/L
+																			, E10										1.851 EUR/L
+																								</li>
+											</ul>
+							</article>
+
+			<article class="panel">
+				<h2>Flux JSON cote serveur</h2>
+			<p>Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.</p>
+			<ul class="plain-list">
+				<li>IP detectee: 2001:861:3245:9d0:8840:1e74:ada2:2a41</li>
+				<li>Ville retournee: Ermont</li>
+				<li>Region retournee: Île-de-France</li>
+				<li>Latitude: 48.9948</li>
+				<li>Longitude: 2.257</li>
+				<li>Source utilisee: api json</li>
+			</ul>
+		</article>
+
+		<article class="panel">
+			<h2>Flux carburants cote serveur</h2>
+			<p>
+				Les stations-service sont recherchees depuis l'API JSON officielle du
+				gouvernement avec un filtre sur le departement et la ville.
+			</p>
+			<ul class="plain-list">
+				<li>Requete HTTP cote serveur en PHP</li>
+				<li>Reponse JSON transformee en tableaux PHP</li>
+				<li>Reutilisation dans la page resultats pour les prix et services</li>
+			</ul>
+		</article>
+		</div>
+
+		<div class="panel-grid">
+		<article class="panel">
+			<h2>Stockages attendus</h2>
+			<ul class="plain-list">
+				<li>CSV serveur: historique des consultations</li>
+				<li>Cookie <code>last_visited_city</code>: derniere ville</li>
+					<li>Cookie <code>last_search_params</code>: derniere recherche complete</li>
+					<li>Cookie <code>theme</code>: jour ou nuit</li>
+					<li>Cookie <code>lang</code>: langue d'affichage</li>
+					<li>Cache JSON: reponses externes et fallback sur cache expire</li>
+				</ul>
+			</article>
+
+		<article class="panel">
+			<h2>Etat des statistiques</h2>
+			<ul class="plain-list">
+					<li>Consultations enregistrees: 84</li>
+					<li>Visites de pages: 104</li>
+					<li>Visiteurs approx.: 3</li>
+					<li>Nombre de villes dans le top: 8</li>
+				</ul>
+			</article>
+		</div>
+</main>
+
+		<footer class="site-footer">
+			<div class="footer-links">
+				<a href="index.php">Accueil</a>
+				<a href="recherche.php?region=11&amp;department=95&amp;city=&amp;fuel%5B0%5D=Gazole&amp;fuel%5B1%5D=SP95&amp;fuel%5B2%5D=SP98&amp;fuel%5B3%5D=E10&amp;fuel%5B4%5D=E85&amp;fuel%5B5%5D=GPLc&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+					<a href="resultats.php?region=11&amp;department=95&amp;city=&amp;fuel%5B0%5D=Gazole&amp;fuel%5B1%5D=SP95&amp;fuel%5B2%5D=SP98&amp;fuel%5B3%5D=E10&amp;fuel%5B4%5D=E85&amp;fuel%5B5%5D=GPLc&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+				<a href="stats.php">Statistiques</a>
+				<a href="tech.php">Page tech</a>
+			</div>
+			<p>Enzo Phung | Fatma-Zhara Baarir | Page technique conservee pour validation.</p>
+		</footer>
+		<a href="#top" class="back-top">
+			<img src="image/back_top.png" alt="Retour en haut" />
+		</a>
+	</body>
+	</html>
