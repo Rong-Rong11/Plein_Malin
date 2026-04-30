@@ -47,64 +47,67 @@ require __DIR__ . "/includes/header.php";
 		</section>
 
 		<section class="panel">
-					<h2>Top des villes consultées</h2>
-			<?php if ($stats['top_cities'] === []): ?>
+			<h2>Graphiques des consultations</h2>
+			<div class="stats-grid">
+				<article class="stats-card">
+					<h3>Top des villes consultées</h3>
+					<?php if ($stats['top_cities'] === []): ?>
 						<p class="empty-state">Aucune consultation enregistrée pour le moment.</p>
-				<?php else: ?>
-					<div class="bar-chart">
-						<?php foreach ($stats['top_cities'] as $city => $count): ?>
-							<div class="bar-row">
-								<span class="bar-label"><?= texte_securise($city) ?></span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxCityCount) * 100))) ?>%"></div>
+					<?php else: ?>
+						<div class="bar-chart">
+							<?php foreach ($stats['top_cities'] as $city => $count): ?>
+								<div class="bar-row">
+									<span class="bar-label"><?= texte_securise($city) ?></span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxCityCount) * 100))) ?>%"></div>
+									</div>
+									<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
 								</div>
-								<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
-							</div>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-			</section>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
+				</article>
 
-			<section class="panel">
-					<h2>Top des départements consultés</h2>
-				<?php if ($stats['top_departments'] === []): ?>
+				<article class="stats-card">
+					<h3>Top des départements consultés</h3>
+					<?php if ($stats['top_departments'] === []): ?>
 						<p class="empty-state">Aucun département enregistré pour le moment.</p>
-				<?php else: ?>
-					<div class="bar-chart">
-						<?php foreach ($stats['top_departments'] as $department => $count): ?>
-							<div class="bar-row">
-								<span class="bar-label"><?= texte_securise($department) ?></span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxDepartmentCount) * 100))) ?>%"></div>
+					<?php else: ?>
+						<div class="bar-chart">
+							<?php foreach ($stats['top_departments'] as $department => $count): ?>
+								<div class="bar-row">
+									<span class="bar-label"><?= texte_securise($department) ?></span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxDepartmentCount) * 100))) ?>%"></div>
+									</div>
+									<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
 								</div>
-								<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
-							</div>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-			</section>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
+				</article>
 
-			<section class="panel">
-					<h2>Top des régions consultées</h2>
-				<?php if ($stats['top_regions'] === []): ?>
+				<article class="stats-card">
+					<h3>Top des régions consultées</h3>
+					<?php if ($stats['top_regions'] === []): ?>
 						<p class="empty-state">Aucune région enregistrée pour le moment.</p>
-				<?php else: ?>
-					<div class="bar-chart">
-						<?php foreach ($stats['top_regions'] as $region => $count): ?>
-							<div class="bar-row">
-								<span class="bar-label"><?= texte_securise($region) ?></span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxRegionCount) * 100))) ?>%"></div>
+					<?php else: ?>
+						<div class="bar-chart">
+							<?php foreach ($stats['top_regions'] as $region => $count): ?>
+								<div class="bar-row">
+									<span class="bar-label"><?= texte_securise($region) ?></span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxRegionCount) * 100))) ?>%"></div>
+									</div>
+									<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
 								</div>
-								<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
-							</div>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
-				</section>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
+				</article>
 
-				<section class="panel">
-					<h2>Carburants les plus recherchés</h2>
+				<article class="stats-card">
+					<h3>Carburants les plus recherchés</h3>
 					<?php if ($stats['top_fuels'] === []): ?>
 						<p class="empty-state">Aucun carburant enregistré pour le moment.</p>
 					<?php else: ?>
@@ -120,10 +123,10 @@ require __DIR__ . "/includes/header.php";
 							<?php endforeach; ?>
 						</div>
 					<?php endif; ?>
-				</section>
+				</article>
 
-				<section class="panel">
-					<h2>Recherches par mode</h2>
+				<article class="stats-card stats-card-wide">
+					<h3>Recherches par mode</h3>
 					<?php if ($stats['top_modes'] === []): ?>
 						<p class="empty-state">Aucun mode de recherche enregistré pour le moment.</p>
 					<?php else: ?>
@@ -139,7 +142,9 @@ require __DIR__ . "/includes/header.php";
 							<?php endforeach; ?>
 						</div>
 					<?php endif; ?>
-				</section>
+				</article>
+			</div>
+		</section>
 
 				<section class="panel">
 					<h2>Tendance annuelle des prix</h2>

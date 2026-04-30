@@ -1305,6 +1305,79 @@ function rechercher_stations(?array $city, array $fuelTypes, string $sortBy, boo
 	return $resultat;
 }
 
+function rechercher_stations_avec_statut(?array $city, array $fuelTypes, string $sortBy, bool $departmentMode = false, ?array $origin = null, int $radiusKm = 10): array
+{
+	if ($city === null && $origin === null) {
+		return [
+			"stations" => [],
+			"api_error" => false,
+		];
+	}
+
+	$stationsDisponibles = lire_stations_api($city, $departmentMode, $origin, $radiusKm);
+
+	if ($stationsDisponibles === null) {
+		return [
+			"stations" => [],
+			"api_error" => true,
+		];
+	}
+
+	$resultat = [];
+	$referenceLatitude = (float) ($origin["latitude"] ?? $city["latitude"] ?? 0);
+	$referenceLongitude = (float) ($origin["longitude"] ?? $city["longitude"] ?? 0);
+
+	foreach ($stationsDisponibles as $station) {
+		$distance = calculer_distance_km(
+			$referenceLatitude,
+			$referenceLongitude,
+			(float) $station["latitude"],
+			(float) $station["longitude"]
+		);
+
+		$prixSelectionnes = [];
+		foreach ($fuelTypes as $fuelType) {
+			if (isset($station["prices"][$fuelType])) {
+				$prixSelectionnes[$fuelType] = (float) $station["prices"][$fuelType]["value"];
+			}
+		}
+
+		if ($prixSelectionnes === []) {
+			continue;
+		}
+
+		$prixPrincipal = min($prixSelectionnes);
+		$carburantPrincipal = array_search($prixPrincipal, $prixSelectionnes, true);
+
+		$station["distance"] = $distance;
+		$station["main_price"] = $prixPrincipal;
+		$station["main_fuel"] = is_string($carburantPrincipal) ? $carburantPrincipal : "";
+		$station["main_updated_at"] = is_string($carburantPrincipal) ? (string) ($station["prices"][$carburantPrincipal]["updated_at"] ?? "") : "";
+		$resultat[] = $station;
+	}
+
+	usort($resultat, static function (array $a, array $b) use ($sortBy): int {
+		if ($sortBy === "price_desc") {
+			return ($b["main_price"] ?? 0) <=> ($a["main_price"] ?? 0);
+		}
+
+		if ($sortBy === "distance") {
+			return $a["distance"] <=> $b["distance"];
+		}
+
+		if ($sortBy === "name") {
+			return strcmp($a["name"], $b["name"]);
+		}
+
+		return ($a["main_price"] ?? 999) <=> ($b["main_price"] ?? 999);
+	});
+
+	return [
+		"stations" => $resultat,
+		"api_error" => false,
+	];
+}
+
 function formater_prix(?float $prix): string
 {
 	if ($prix === null) {

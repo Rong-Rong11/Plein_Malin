@@ -52,7 +52,7 @@ require __DIR__ . "/includes/header.php";
 						<a class="sitemap-node" href="<?= texte_securise($lienResultats) ?>">
 							<small>Étape 2</small>
 							<strong>Résultats</strong>
-							<span>Comparer les stations, les prix, les services et la carte</span>
+							<span>Comparer les stations, les prix et les liens de carte</span>
 						</a>
 						<a class="sitemap-node" href="stats.php">
 							<small>Étape 3</small>
