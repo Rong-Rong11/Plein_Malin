@@ -6,7 +6,6 @@ preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 $selectedFuels = normaliser_carburants_selection($_GET["fuel"] ?? []);
 $view = $_GET["view"] ?? "summary";
-$detailStation = isset($_GET["station"]) ? (string) $_GET["station"] : "";
 $sort = $_GET["sort"] ?? "price";
 $geoRadius = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? 10));
 $departmentMode = isset($_GET["department_mode"]);
@@ -98,7 +97,9 @@ if ($useGeo) {
 }
 
 $sortLabel = "Prix croissant";
-if ($sort === "distance") {
+if ($sort === "price_desc") {
+	$sortLabel = "Prix décroissant";
+} elseif ($sort === "distance") {
 	$sortLabel = "Proximité";
 } elseif ($sort === "name") {
 	$sortLabel = "Nom";
@@ -172,37 +173,76 @@ require __DIR__ . "/includes/header.php";
 					<p class="lead">
 						Consultez les stations trouvées puis revenez à la recherche si besoin.
 					</p>
+					<?php if ($useGeo): ?>
+						<p class="lead">
+							<?php if ($currentCity !== null): ?>
+								Vous êtes approximativement à <strong><?= texte_securise($currentCity["city_name"]) ?></strong>,
+								d'après une position estimée à partir de l'adresse IP.
+							<?php elseif ($geo !== null && trim((string) ($geo["city"] ?? "")) !== ""): ?>
+								Vous êtes approximativement à <strong><?= texte_securise((string) $geo["city"]) ?></strong>,
+								d'après une position estimée à partir de l'adresse IP.
+							<?php else: ?>
+								Position estimée à partir de l'adresse IP.
+							<?php endif; ?>
+						</p>
+					<?php endif; ?>
 					<div class="form-actions">
-						<a class="cta-link" href="<?= texte_securise($searchLink) ?>">Modifier ma recherche</a>
-						<form action="resultats.php#resultats" method="get" class="inline-sort-form">
-							<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
-							<input type="hidden" name="department" value="<?= texte_securise($department) ?>" />
-							<input type="hidden" name="city" value="<?= texte_securise($city) ?>" />
-							<?php foreach ($selectedFuels as $fuel): ?>
-								<input type="hidden" name="fuel[]" value="<?= texte_securise($fuel) ?>" />
-							<?php endforeach; ?>
-							<input type="hidden" name="view" value="<?= texte_securise($view) ?>" />
-							<input type="hidden" name="geo_radius" value="<?= texte_securise((string) $geoRadius) ?>" />
-							<?php if ($departmentMode): ?>
-								<input type="hidden" name="department_mode" value="1" />
-							<?php endif; ?>
-							<?php if ($useGeo): ?>
-								<input type="hidden" name="use_geo" value="1" />
-							<?php endif; ?>
-							<div class="inline-filter">
-								<label for="result-sort-select">Trier</label>
-								<select id="result-sort-select" name="sort">
-									<option value="price" <?= $sort === "price" ? 'selected="selected"' : "" ?>>Prix croissant</option>
-									<option value="distance" <?= $sort === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
-									<option value="name" <?= $sort === "name" ? 'selected="selected"' : "" ?>>Nom</option>
-								</select>
+						<a class="cta-link" href="recherche.php?search_mode=manual">Recherche manuelle</a>
+					</div>
+					<div class="results-tools">
+					<form action="resultats.php#resultats" method="get" class="results-refine-form search-form search-form-structured">
+						<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
+						<input type="hidden" name="department" value="<?= texte_securise($department) ?>" />
+						<input type="hidden" name="city" value="<?= texte_securise($city) ?>" />
+						<input type="hidden" name="geo_radius" value="<?= texte_securise((string) $geoRadius) ?>" />
+						<?php if ($departmentMode): ?>
+							<input type="hidden" name="department_mode" value="1" />
+						<?php endif; ?>
+						<?php if ($useGeo): ?>
+							<input type="hidden" name="use_geo" value="1" />
+						<?php endif; ?>
+						<div class="search-section search-plain">
+							<div class="field-card field-card-wide">
+								<span class="field-title">Carburants</span>
+								<span class="field-help">Gazole par défaut si rien n'est coché.</span>
+								<span class="fuel-choice-list">
+									<?php foreach (liste_carburants() as $codeCarburant => $nomCarburant): ?>
+										<label class="fuel-choice">
+											<input type="checkbox" id="result-fuel-<?= texte_securise(strtolower($codeCarburant)) ?>" name="fuel[]" value="<?= texte_securise($codeCarburant) ?>"
+												<?= in_array($codeCarburant, $selectedFuels, true) ? 'checked="checked"' : "" ?> />
+											<span><?= texte_securise($nomCarburant) ?></span>
+										</label>
+									<?php endforeach; ?>
+								</span>
 							</div>
-							<button type="submit" class="secondary-btn">Appliquer le tri</button>
-						</form>
+							<div class="field-grid field-grid-main">
+								<div class="field-card">
+									<label class="field-title" for="result-view-select">Vue</label>
+									<select id="result-view-select" name="view">
+										<option value="summary" <?= $view === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
+										<option value="detailed" <?= $view === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
+									</select>
+								</div>
+								<div class="field-card">
+									<label class="field-title" for="result-sort-select">Tri</label>
+									<select id="result-sort-select" name="sort">
+										<option value="price" <?= $sort === "price" ? 'selected="selected"' : "" ?>>Prix croissant</option>
+										<option value="price_desc" <?= $sort === "price_desc" ? 'selected="selected"' : "" ?>>Prix décroissant</option>
+										<option value="distance" <?= $sort === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
+										<option value="name" <?= $sort === "name" ? 'selected="selected"' : "" ?>>Nom</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-actions action-buttons">
+								<button type="submit">Appliquer</button>
+							</div>
+						</div>
+					</form>
+					<div class="form-actions results-detail-toggle">
 						<details class="search-details">
-						<summary class="detail-toggle">Détail</summary>
-						<div class="search-details-box">
-							<h2>Recherche actuelle</h2>
+							<summary class="detail-toggle">Détail</summary>
+							<div class="search-details-box">
+								<h2>Recherche actuelle</h2>
 								<ul class="plain-list">
 									<li>Mode : <?= texte_securise($searchModeLabel) ?></li>
 									<li>Carburants choisis : <?= texte_securise($selectedFuelsLabel) ?></li>
@@ -219,18 +259,19 @@ require __DIR__ . "/includes/header.php";
 										<li>Code ville : <?= texte_securise($currentCity["city_code"]) ?></li>
 										<li>Code postal : <?= texte_securise($currentCity["postal_code"]) ?></li>
 									<?php endif; ?>
-								<?php if ($useGeo && $geo !== null): ?>
-									<li>Rayon géolocalisé : <?= texte_securise((string) $geoRadius) ?> km</li>
-									<li>Latitude : <?= texte_securise((string) $geo["latitude"]) ?></li>
-									<li>Longitude : <?= texte_securise((string) $geo["longitude"]) ?></li>
-									<li>Ville retournee par l'IP : <?= texte_securise($geo["city"]) ?></li>
-									<li>Région retournée par l'IP : <?= texte_securise($geo["region"]) ?></li>
-									<li>Source de localisation : <?= texte_securise($geo["source"]) ?></li>
-								<?php endif; ?>
-							</ul>
+									<?php if ($useGeo && $geo !== null): ?>
+										<li>Rayon géolocalisé : <?= texte_securise((string) $geoRadius) ?> km</li>
+										<li>Latitude : <?= texte_securise((string) $geo["latitude"]) ?></li>
+										<li>Longitude : <?= texte_securise((string) $geo["longitude"]) ?></li>
+										<li>Ville retournee par l'IP : <?= texte_securise($geo["city"]) ?></li>
+										<li>Région retournée par l'IP : <?= texte_securise($geo["region"]) ?></li>
+										<li>Source de localisation : <?= texte_securise($geo["source"]) ?></li>
+									<?php endif; ?>
+								</ul>
 							</div>
-					</details>
-				</div>
+						</details>
+					</div>
+					</div>
 			</section>
 
 		<section class="results-panel" id="resultats">
@@ -241,17 +282,6 @@ require __DIR__ . "/includes/header.php";
 						<strong><?= texte_securise($searchTargetLabel) ?></strong>
 					<?php endif; ?>
 					</p>
-					<?php if ($useGeo): ?>
-						<p class="small-note">
-							Position estimée à partir de l'adresse IP.
-							<?php if ($geo !== null && trim((string) ($geo["city"] ?? "")) !== ""): ?>
-								Vous êtes approximativement à <strong><?= texte_securise((string) $geo["city"]) ?></strong>.
-							<?php elseif ($currentCity !== null): ?>
-								Vous êtes approximativement près de <strong><?= texte_securise($currentCity["city_name"]) ?></strong>.
-							<?php endif; ?>
-						</p>
-					<?php endif; ?>
-
 				<?php if ($currentCity === null): ?>
 					<p class="empty-state">
 						<?= texte_securise($choixRechercheIncomplet ? "Choisissez une ville dans le département " . $departmentLabel . " ou activez la recherche dans tout le département." : "Aucune recherche lancée.") ?>
@@ -290,11 +320,6 @@ require __DIR__ . "/includes/header.php";
 						<?php foreach ($stationsAffichees as $station): ?>
 							<?php
 									$stationAnchor = rawurlencode((string) $station["id"]);
-									$detailParameters = $searchParameters;
-								$detailParameters["view"] = "detailed";
-								$detailParameters["station"] = (string) $station["id"];
-								$detailLink = "resultats.php?" . http_build_query($detailParameters) . "#station-" . $stationAnchor;
-								$afficherDetailsStation = $view === "detailed" && ($detailStation === "" || $detailStation === (string) $station["id"]);
 								$stationName = (string) $station["name"];
 								if ($station["address"] !== "") {
 									$stationName = trim(str_replace(" - " . $station["address"], "", $stationName));
@@ -342,51 +367,11 @@ require __DIR__ . "/includes/header.php";
 									<?php endif; ?>
 									</p>
 
-									<?php if (!$afficherDetailsStation): ?>
-										<div class="form-actions station-actions">
-											<a class="secondary-btn" href="<?= texte_securise($detailLink) ?>">Voir les détails</a>
-											<?php if ($lienCarteStation !== ""): ?>
-												<a class="secondary-btn" href="<?= texte_securise($lienCarteStation) ?>" target="_blank" rel="noopener">Voir sur une carte</a>
-											<?php endif; ?>
-										</div>
-									<?php endif; ?>
-
-									<?php if ($afficherDetailsStation): ?>
 								<div class="form-actions station-actions">
 									<?php if ($lienCarteStation !== ""): ?>
 										<a class="secondary-btn" href="<?= texte_securise($lienCarteStation) ?>" target="_blank" rel="noopener">Voir sur une carte</a>
 									<?php endif; ?>
 								</div>
-								<div class="details-grid">
-									<div>
-										<h4>Carburants</h4>
-										<ul class="plain-list">
-												<?php foreach ($station["prices"] as $price): ?>
-													<li>
-														<?= texte_securise($price["name"]) ?> :
-														<?= texte_securise(formater_prix((float) $price["value"])) ?>
-														<?php if (formater_date_heure($price["updated_at"] ?? "") !== ""): ?>
-																(mis à jour le <?= texte_securise(formater_date_heure($price["updated_at"])) ?>)
-														<?php endif; ?>
-													</li>
-												<?php endforeach; ?>
-										</ul>
-									</div>
-									<div>
-										<h4>Services</h4>
-										<p class="small-note">Équipements et prestations proposés par la station.</p>
-										<?php if ($station["services"] === []): ?>
-											<p class="small-note">Aucun service indique.</p>
-										<?php else: ?>
-											<ul class="plain-list">
-												<?php foreach ($station["services"] as $service): ?>
-													<li><?= texte_securise($service) ?></li>
-												<?php endforeach; ?>
-											</ul>
-										<?php endif; ?>
-									</div>
-								</div>
-							<?php endif; ?>
 							</article>
 						<?php endforeach; ?>
 					</div>

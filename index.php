@@ -50,67 +50,85 @@ $footerText = "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Pro
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page-shell">
-	<section class="hero">
+<main class="page-shell home-page">
+	<section class="hero home-hero">
 		<div class="hero-copy">
 			<p class="eyebrow">Prix des carburants</p>
 			<h1>Trouvez une station plus facilement</h1>
 			<p class="lead">
-				Plein Malin permet de choisir une région, un département puis une ville
-				pour consulter les stations-service et comparer les prix.
+				Plein Malin aide à comparer rapidement les prix du carburant en France.
+				Le site propose une recherche manuelle par région, département et ville,
+				mais aussi une recherche autour de votre position approximative.
+			</p>
+			<p class="small-note">
+				L'objectif est de garder une interface simple : choisir un périmètre,
+				sélectionner un ou plusieurs carburants, puis consulter des résultats
+				lisibles sans surcharge inutile.
 			</p>
 			<div class="form-actions">
-				<a class="cta-link" href="recherche.php#recherche">Rechercher une station</a>
+				<a class="cta-link" href="recherche.php?search_mode=manual">Rechercher une station</a>
 			</div>
-		</div>
 
-		<div class="panel">
-			<h2>Ce que fait le site</h2>
-			<ul class="plain-list">
-				<li>Recherche par région, département et ville</li>
-				<li>Affichage simple des stations et des prix</li>
-				<li>Statistiques a partir des consultations enregistrees</li>
-			</ul>
+			<?php if ($typeDerniereRecherche !== ""): ?>
+				<div class="home-last-search-inline">
+					<h2>Dernière recherche</h2>
+					<p>
+						<?= texte_securise($typeDerniereRecherche) ?> :
+						<strong><?= texte_securise($libelleDerniereRecherche) ?></strong>
+					</p>
+					<?php if ($dateDerniereRecherche !== ""): ?>
+						<p class="small-note">Dernière recherche le <?= texte_securise($dateDerniereRecherche) ?></p>
+					<?php endif; ?>
+					<div class="form-actions">
+						<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>">Reprendre cette recherche</a>
+					</div>
+				</div>
+			<?php endif; ?>
 		</div>
 	</section>
 
-		<?php if ($typeDerniereRecherche !== ""): ?>
-			<section class="panel">
-				<h2>Dernière recherche</h2>
-				<p class="lead">
-					<?= texte_securise($typeDerniereRecherche) ?> :
-					<strong><?= texte_securise($libelleDerniereRecherche) ?></strong>
+	<section class="panel home-intro">
+		<h2>Comment fonctionne le site</h2>
+		<p>
+			La recherche principale suit un parcours guidé : vous choisissez d'abord
+			une région, puis un département, puis une ville. Ce fonctionnement permet
+			d'encadrer la recherche et de garder une navigation compréhensible.
+		</p>
+		<p>
+			Si vous voulez aller plus vite, le mode <strong>Autour de moi</strong>
+			utilise une estimation de position basée sur l'adresse IP pour proposer
+			des stations proches dans un rayon choisi.
+		</p>
+		<p>
+			Les résultats affichent les stations trouvées, les prix disponibles pour
+			les carburants sélectionnés et un accès direct à une carte quand les
+			coordonnées sont connues.
+		</p>
+
+		<h2>Informations utiles</h2>
+		<div class="home-columns">
+			<article>
+				<h3>Recherche guidée</h3>
+				<p>
+					La recherche suit l'ordre région, département puis ville pour rester
+					simple et éviter les choix incohérents.
 				</p>
-				<?php if ($dateDerniereRecherche !== ""): ?>
-					<p class="small-note">Dernière recherche le <?= texte_securise($dateDerniereRecherche) ?></p>
-				<?php endif; ?>
-				<div class="form-actions">
-					<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>">Reprendre cette recherche</a>
-				</div>
-		</section>
-	<?php endif; ?>
-
-	<section class="panel-grid">
-		<article class="panel">
-			<h2>Recherche guidee</h2>
-			<p class="small-note">
-				La recherche suit l'ordre région, département puis ville pour rester simple.
-			</p>
-		</article>
-
-		<article class="panel">
-			<h2>Résultats lisibles</h2>
-			<p class="small-note">
-				Chaque station affiche son adresse, ses prix et ses informations utiles.
-			</p>
-		</article>
-
-		<article class="panel">
-			<h2>Statistiques</h2>
-			<p class="small-note">
-				Une page dédiée résume les villes les plus consultées et le nombre de visites.
-			</p>
-		</article>
+			</article>
+			<article>
+				<h3>Résultats lisibles</h3>
+				<p>
+					Chaque station affiche son adresse, ses prix et les informations
+					utiles pour comparer rapidement plusieurs points de vente.
+				</p>
+			</article>
+			<article>
+				<h3>Statistiques</h3>
+				<p>
+					Une page dédiée résume les recherches effectuées, les visites et les
+					tendances de prix observées dans les données disponibles.
+				</p>
+			</article>
+		</div>
 	</section>
 </main>
 

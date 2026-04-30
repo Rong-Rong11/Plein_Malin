@@ -19,16 +19,14 @@ $footerText = "Enzo Phung | Fatma-Zhara Baarir | Page technique conservee pour v
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page-shell">
-	<section class="panel">
+<main class="page-shell tech-page info-page">
+	<section class="panel tech-hero">
 		<h1>Page tech</h1>
 		<p class="lead">
 			Cette page reste accessible depuis le footer pour montrer l'avancement initial
 			et la logique technique reutilisee dans Plein Malin.
 		</p>
-		</section>
-
-		<section class="panel">
+		<section class="info-block tech-summary">
 			<h2>Synthese technique du projet</h2>
 			<ul class="plain-list">
 				<li><strong>JSON</strong> : geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.</li>
@@ -39,30 +37,31 @@ require __DIR__ . "/includes/header.php";
 			</ul>
 		</section>
 
-		<div class="panel-grid">
-			<article class="panel">
+		<section class="info-block tech-feature">
 				<h2>API Ghibli</h2>
 			<?php if ($film === null): ?>
 				<p class="empty-state">API Ghibli indisponible pour le moment.</p>
 			<?php else: ?>
-				<h3>
+				<h3 class="tech-subtitle">
 					<?= texte_securise((string) $film['title']) ?>
 				</h3>
-				<h3 lang="ja">
+				<h3 class="tech-original-title" lang="ja">
 					<?= texte_securise((string) $film['original_title']) ?>
 				</h3>
-				<p>
+				<p class="meta-line">
 					<?= texte_securise((string) $film['release_date']) ?>
 				</p>
-				<p lang="en">
+				<p class="tech-copy" lang="en">
 					<?= texte_securise((string) $film['description']) ?>
 				</p>
-				<img src="<?= texte_securise((string) $film['image']) ?>" width="200" alt="" />
-				<img src="<?= texte_securise((string) $film['movie_banner']) ?>" width="400" alt="" />
+				<div class="tech-media">
+					<img src="<?= texte_securise((string) $film['image']) ?>" width="200" alt="" />
+					<img class="tech-banner" src="<?= texte_securise((string) $film['movie_banner']) ?>" width="400" alt="" />
+				</div>
 			<?php endif; ?>
-			</article>
+		</section>
 
-			<article class="panel">
+		<section class="info-block tech-feature">
 				<h2>Flux XML carburants</h2>
 				<p>Lecture de <code>data/sample_fuel_prices.xml</code> avec <code>simplexml_load_file()</code>.</p>
 				<?php if ($stationsXml === []): ?>
@@ -85,9 +84,9 @@ require __DIR__ . "/includes/header.php";
 						<?php endforeach; ?>
 					</ul>
 				<?php endif; ?>
-			</article>
+		</section>
 
-			<article class="panel">
+		<section class="info-block tech-feature">
 				<h2>Flux JSON cote serveur</h2>
 			<p>Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.</p>
 			<ul class="plain-list">
@@ -98,9 +97,9 @@ require __DIR__ . "/includes/header.php";
 				<li>Longitude: <?= texte_securise((string) $geoData['longitude']) ?></li>
 				<li>Source utilisee: <?= texte_securise($geoData['source']) ?></li>
 			</ul>
-		</article>
+		</section>
 
-		<article class="panel">
+		<section class="info-block tech-feature">
 			<h2>Flux carburants cote serveur</h2>
 			<p>
 				Les stations-service sont recherchees depuis l'API JSON officielle du
@@ -111,11 +110,9 @@ require __DIR__ . "/includes/header.php";
 				<li>Reponse JSON transformee en tableaux PHP</li>
 				<li>Reutilisation dans la page resultats pour les prix et services</li>
 			</ul>
-		</article>
-		</div>
+		</section>
 
-		<div class="panel-grid">
-		<article class="panel">
+		<section class="info-block tech-feature">
 			<h2>Stockages attendus</h2>
 			<ul class="plain-list">
 				<li>CSV serveur: historique des consultations</li>
@@ -125,9 +122,9 @@ require __DIR__ . "/includes/header.php";
 					<li>Cookie <code>lang</code>: langue d'affichage</li>
 					<li>Cache JSON: reponses externes et fallback sur cache expire</li>
 				</ul>
-			</article>
+		</section>
 
-		<article class="panel">
+		<section class="info-block tech-feature">
 			<h2>Etat des statistiques</h2>
 			<ul class="plain-list">
 					<li>Consultations enregistrees: <?= texte_securise((string) $stats['consultation_count']) ?></li>
@@ -135,8 +132,8 @@ require __DIR__ . "/includes/header.php";
 					<li>Visiteurs approx.: <?= texte_securise((string) $stats['page_visitor_count']) ?></li>
 					<li>Nombre de villes dans le top: <?= texte_securise((string) count($stats['top_cities'])) ?></li>
 				</ul>
-			</article>
-		</div>
+		</section>
+	</section>
 </main>
 
 <?php require __DIR__ . "/includes/footer.php"; ?>
