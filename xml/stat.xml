@@ -30,7 +30,7 @@
 				</div>
 
 			<nav class="main-nav">
-				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
 				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
 				<a href="stats.php" aria-current="page">Statistiques</a>
 			</nav>
@@ -49,222 +49,225 @@
 				</p>
 				<div class="stats-inline">
 					<div class="stat-chip">
-						<strong>108</strong>
+						<strong>104</strong>
 						<span>recherches</span>
 					</div>
 					<div class="stat-chip">
-						<strong>192</strong>
+						<strong>169</strong>
 						<span>visites de pages</span>
 					</div>
 					<div class="stat-chip">
-						<strong>16</strong>
+						<strong>12</strong>
 						<span>visiteurs approx.</span>
 					</div>
 				</div>
 		</section>
 
 		<section class="panel">
-					<h2>Top des villes consultées</h2>
-								<div class="bar-chart">
-													<div class="bar-row">
-								<span class="bar-label">Miquelon Langlade</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 100%"></div>
+			<h2>Graphiques des consultations</h2>
+			<div class="stats-grid">
+				<article class="stats-card">
+					<h3>Top des villes consultées</h3>
+											<div class="bar-chart">
+															<div class="bar-row">
+									<span class="bar-label">Miquelon Langlade</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 100%"></div>
+									</div>
+									<strong class="bar-value">10</strong>
 								</div>
-								<strong class="bar-value">10</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Eaubonne</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 40%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Eaubonne</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 40%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
 								</div>
-								<strong class="bar-value">4</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Auxais</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 30%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Auxais</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 30%"></div>
+									</div>
+									<strong class="bar-value">3</strong>
 								</div>
-								<strong class="bar-value">3</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">L Abergement Clemenciat</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 20%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Paris 04</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 30%"></div>
+									</div>
+									<strong class="bar-value">3</strong>
 								</div>
-								<strong class="bar-value">2</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Langon</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">L Abergement Clemenciat</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 20%"></div>
+									</div>
+									<strong class="bar-value">2</strong>
 								</div>
-								<strong class="bar-value">1</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Amfreville Les Champs</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Langon</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
 								</div>
-								<strong class="bar-value">1</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Airel</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Amfreville Les Champs</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
 								</div>
-								<strong class="bar-value">1</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Paris 04</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Airel</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
 								</div>
-								<strong class="bar-value">1</strong>
-							</div>
-											</div>
-							</section>
+													</div>
+									</article>
 
-			<section class="panel">
-					<h2>Top des départements consultés</h2>
-									<div class="bar-chart">
-													<div class="bar-row">
-								<span class="bar-label">Seine-Saint-Denis</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 100%"></div>
+				<article class="stats-card">
+					<h3>Top des départements consultés</h3>
+											<div class="bar-chart">
+															<div class="bar-row">
+									<span class="bar-label">Seine-Saint-Denis</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 100%"></div>
+									</div>
+									<strong class="bar-value">31</strong>
 								</div>
-								<strong class="bar-value">31</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Seine-et-Marne</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 71%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Val-d&#039;Oise</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 48%"></div>
+									</div>
+									<strong class="bar-value">15</strong>
 								</div>
-								<strong class="bar-value">22</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Haute-Garonne</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 48%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Haute-Garonne</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 48%"></div>
+									</div>
+									<strong class="bar-value">15</strong>
 								</div>
-								<strong class="bar-value">15</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Val-d&#039;Oise</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 29%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Seine-et-Marne</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 42%"></div>
+									</div>
+									<strong class="bar-value">13</strong>
 								</div>
-								<strong class="bar-value">9</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Manche</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 16%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Manche</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 16%"></div>
+									</div>
+									<strong class="bar-value">5</strong>
 								</div>
-								<strong class="bar-value">5</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Oise</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 13%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Oise</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 13%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
 								</div>
-								<strong class="bar-value">4</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Hauts-de-Seine</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Paris</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 13%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
 								</div>
-								<strong class="bar-value">3</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Cote-d&#039;Or</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Cote-d&#039;Or</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">2</strong>
 								</div>
-								<strong class="bar-value">2</strong>
-							</div>
-											</div>
-							</section>
+													</div>
+									</article>
 
-			<section class="panel">
-					<h2>Top des régions consultées</h2>
-									<div class="bar-chart">
-													<div class="bar-row">
-								<span class="bar-label">Ile-de-France</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 100%"></div>
+				<article class="stats-card">
+					<h3>Top des régions consultées</h3>
+											<div class="bar-chart">
+															<div class="bar-row">
+									<span class="bar-label">Ile-de-France</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 100%"></div>
+									</div>
+									<strong class="bar-value">63</strong>
 								</div>
-								<strong class="bar-value">67</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Occitanie</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 22%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Occitanie</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 24%"></div>
+									</div>
+									<strong class="bar-value">15</strong>
 								</div>
-								<strong class="bar-value">15</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Normandie</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 12%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Normandie</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 13%"></div>
+									</div>
+									<strong class="bar-value">8</strong>
 								</div>
-								<strong class="bar-value">8</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Hauts-de-France</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Hauts-de-France</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
 								</div>
-								<strong class="bar-value">4</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Bourgogne-Franche-Comte</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Bourgogne-Franche-Comte</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">2</strong>
 								</div>
-								<strong class="bar-value">2</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Bretagne</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Bretagne</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
 								</div>
-								<strong class="bar-value">1</strong>
-							</div>
-													<div class="bar-row">
-								<span class="bar-label">Centre-Val de Loire</span>
-								<div class="bar-track">
-									<div class="bar-fill" style="width: 10%"></div>
+															<div class="bar-row">
+									<span class="bar-label">Centre-Val de Loire</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
 								</div>
-								<strong class="bar-value">1</strong>
-							</div>
-											</div>
-								</section>
+													</div>
+									</article>
 
-				<section class="panel">
-					<h2>Carburants les plus recherchés</h2>
+				<article class="stats-card">
+					<h3>Carburants les plus recherchés</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
 									<span class="bar-label">Gazole</span>
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">107</strong>
+									<strong class="bar-value">103</strong>
 								</div>
 															<div class="bar-row">
 									<span class="bar-label">E85</span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: 37%"></div>
+										<div class="bar-fill" style="width: 39%"></div>
 									</div>
 									<strong class="bar-value">40</strong>
 								</div>
 															<div class="bar-row">
 									<span class="bar-label">SP98</span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: 13%"></div>
+										<div class="bar-fill" style="width: 11%"></div>
 									</div>
-									<strong class="bar-value">14</strong>
+									<strong class="bar-value">11</strong>
 								</div>
 															<div class="bar-row">
 									<span class="bar-label">SP95-E10</span>
@@ -288,34 +291,36 @@
 									<strong class="bar-value">4</strong>
 								</div>
 													</div>
-									</section>
+									</article>
 
-				<section class="panel">
-					<h2>Recherches par mode</h2>
+				<article class="stats-card stats-card-wide">
+					<h3>Recherches par mode</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
 									<span class="bar-label">departement</span>
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">85</strong>
+									<strong class="bar-value">79</strong>
 								</div>
 															<div class="bar-row">
 									<span class="bar-label">ville</span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: 15%"></div>
+										<div class="bar-fill" style="width: 16%"></div>
 									</div>
 									<strong class="bar-value">13</strong>
 								</div>
 															<div class="bar-row">
 									<span class="bar-label">geolocalisation</span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: 12%"></div>
+										<div class="bar-fill" style="width: 15%"></div>
 									</div>
-									<strong class="bar-value">10</strong>
+									<strong class="bar-value">12</strong>
 								</div>
 													</div>
-									</section>
+									</article>
+			</div>
+		</section>
 
 				<section class="panel">
 					<h2>Tendance annuelle des prix</h2>
@@ -328,7 +333,7 @@
 						<a href="https://donnees.roulez-eco.fr/opendata/annee/2026">
 							donnees.roulez-eco.fr
 						</a>
-													- dernière mise à jour du cache le 29/04/2026 20:09											</p>
+													- dernière mise à jour du cache le 30/04/2026 20:16											</p>
 
 										<div class="trend-grid">
 													<article class="trend-group">
@@ -346,16 +351,16 @@
 													1,96												</text>
 																							<line x1="16" y1="50.5" x2="404" y2="50.5" class="chart-grid"></line>
 												<text x="2" y="54.5" class="chart-label">
-													2,11												</text>
+													2,10												</text>
 																							<line x1="16" y1="16" x2="404" y2="16" class="chart-grid"></line>
 												<text x="2" y="20" class="chart-label">
 													2,25												</text>
 																						<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
 											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
-																							<polyline points="16,154 145.3,145.3 274.7,61.4 404,16" class="chart-line"></polyline>
+																							<polyline points="16,154 145.3,145.3 274.7,60.7 404,16" class="chart-line"></polyline>
 																																						<circle cx="16" cy="154" r="4" class="chart-point"></circle>
 																																						<circle cx="145.3" cy="145.3" r="4" class="chart-point"></circle>
-																																						<circle cx="274.7" cy="61.4" r="4" class="chart-point"></circle>
+																																						<circle cx="274.7" cy="60.7" r="4" class="chart-point"></circle>
 																																						<circle cx="404" cy="16" r="4" class="chart-point"></circle>
 																																														<text x="16" y="168" class="chart-label chart-month">
 													01												</text>
@@ -368,7 +373,7 @@
 																					</svg>
 										<div class="chart-caption">
 											<span>2026-01 : 1,663 EUR/L</span>
-											<span>2026-04 : 2,253 EUR/L</span>
+											<span>2026-04 : 2,249 EUR/L</span>
 										</div>
 									</div>
 															</article>
@@ -393,10 +398,10 @@
 													2,03												</text>
 																						<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
 											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
-																							<polyline points="16,154 145.3,146.2 274.7,63.7 404,16" class="chart-line"></polyline>
+																							<polyline points="16,154 145.3,146.2 274.7,64 404,16" class="chart-line"></polyline>
 																																						<circle cx="16" cy="154" r="4" class="chart-point"></circle>
 																																						<circle cx="145.3" cy="146.2" r="4" class="chart-point"></circle>
-																																						<circle cx="274.7" cy="63.7" r="4" class="chart-point"></circle>
+																																						<circle cx="274.7" cy="64" r="4" class="chart-point"></circle>
 																																						<circle cx="404" cy="16" r="4" class="chart-point"></circle>
 																																														<text x="16" y="168" class="chart-label chart-month">
 													01												</text>
@@ -409,7 +414,7 @@
 																					</svg>
 										<div class="chart-caption">
 											<span>2026-01 : 1,715 EUR/L</span>
-											<span>2026-04 : 2,033 EUR/L</span>
+											<span>2026-04 : 2,034 EUR/L</span>
 										</div>
 									</div>
 															</article>
@@ -434,10 +439,10 @@
 													2,08												</text>
 																						<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
 											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
-																							<polyline points="16,154 145.3,144.9 274.7,59.3 404,16" class="chart-line"></polyline>
+																							<polyline points="16,154 145.3,144.5 274.7,59.7 404,16" class="chart-line"></polyline>
 																																						<circle cx="16" cy="154" r="4" class="chart-point"></circle>
-																																						<circle cx="145.3" cy="144.9" r="4" class="chart-point"></circle>
-																																						<circle cx="274.7" cy="59.3" r="4" class="chart-point"></circle>
+																																						<circle cx="145.3" cy="144.5" r="4" class="chart-point"></circle>
+																																						<circle cx="274.7" cy="59.7" r="4" class="chart-point"></circle>
 																																						<circle cx="404" cy="16" r="4" class="chart-point"></circle>
 																																														<text x="16" y="168" class="chart-label chart-month">
 													01												</text>
@@ -449,7 +454,7 @@
 													04												</text>
 																					</svg>
 										<div class="chart-caption">
-											<span>2026-01 : 1,802 EUR/L</span>
+											<span>2026-01 : 1,801 EUR/L</span>
 											<span>2026-04 : 2,076 EUR/L</span>
 										</div>
 									</div>
@@ -466,7 +471,7 @@
 													1,77												</text>
 																							<line x1="16" y1="85" x2="404" y2="85" class="chart-grid"></line>
 												<text x="2" y="89" class="chart-label">
-													1,84												</text>
+													1,85												</text>
 																							<line x1="16" y1="50.5" x2="404" y2="50.5" class="chart-grid"></line>
 												<text x="2" y="54.5" class="chart-label">
 													1,92												</text>
@@ -475,10 +480,10 @@
 													1,99												</text>
 																						<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
 											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
-																							<polyline points="16,154 145.3,147.5 274.7,59.1 404,16" class="chart-line"></polyline>
+																							<polyline points="16,154 145.3,148 274.7,59.4 404,16" class="chart-line"></polyline>
 																																						<circle cx="16" cy="154" r="4" class="chart-point"></circle>
-																																						<circle cx="145.3" cy="147.5" r="4" class="chart-point"></circle>
-																																						<circle cx="274.7" cy="59.1" r="4" class="chart-point"></circle>
+																																						<circle cx="145.3" cy="148" r="4" class="chart-point"></circle>
+																																						<circle cx="274.7" cy="59.4" r="4" class="chart-point"></circle>
 																																						<circle cx="404" cy="16" r="4" class="chart-point"></circle>
 																																														<text x="16" y="168" class="chart-label chart-month">
 													01												</text>
@@ -491,7 +496,7 @@
 																					</svg>
 										<div class="chart-caption">
 											<span>2026-01 : 1,695 EUR/L</span>
-											<span>2026-04 : 1,993 EUR/L</span>
+											<span>2026-04 : 1,994 EUR/L</span>
 										</div>
 									</div>
 															</article>
@@ -503,7 +508,7 @@
 			<div class="footer-nav-block">
 				<div class="footer-links footer-links-main">
 					<a href="index.php">Accueil</a>
-					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
 					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
 					<a href="stats.php">Statistiques</a>
 				</div>

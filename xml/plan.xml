@@ -30,7 +30,7 @@
 				</div>
 
 			<nav class="main-nav">
-				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
 				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
@@ -65,7 +65,7 @@
 				<div class="sitemap-group sitemap-main-path">
 					<h3>Parcours principal : chercher une station</h3>
 					<div class="sitemap-line">
-						<a class="sitemap-node" href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">
+						<a class="sitemap-node" href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">
 							<small>Étape 1</small>
 							<strong>Recherche</strong>
 							<span>Choisir une région, un département, une ville et un carburant</span>
@@ -73,7 +73,7 @@
 						<a class="sitemap-node" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">
 							<small>Étape 2</small>
 							<strong>Résultats</strong>
-							<span>Comparer les stations, les prix, les services et la carte</span>
+							<span>Comparer les stations, les prix et les liens de carte</span>
 						</a>
 						<a class="sitemap-node" href="stats.php">
 							<small>Étape 3</small>
@@ -117,7 +117,7 @@
 			<div class="footer-nav-block">
 				<div class="footer-links footer-links-main">
 					<a href="index.php">Accueil</a>
-					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
 					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
 					<a href="stats.php">Statistiques</a>
 				</div>

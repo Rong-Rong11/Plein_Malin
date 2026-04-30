@@ -165,7 +165,7 @@ require __DIR__ . "/includes/header.php";
 								</select>
 							</div>
 							<button type="submit">Rechercher autour de moi</button>
-							<a href="recherche.php?search_mode=geo&reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
+							<a href="recherche.php?search_mode=geo&amp;reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
 						</div>
 					</div>
 				</div>
@@ -198,19 +198,19 @@ require __DIR__ . "/includes/header.php";
 							usemap="#regions-map" class="map-image" width="<?= texte_securise((string) $largeurCarte) ?>" height="<?= texte_securise((string) $hauteurCarte) ?>" decoding="async" fetchpriority="high" />
 					</div>
 					<map name="regions-map">
-						<area shape="rect" coords="<?= coordonnees_carte("252,314,423,380", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=53#recherche" alt="Bretagne" title="Bretagne" />
-						<area shape="rect" coords="<?= coordonnees_carte("481,232,642,295", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=28#recherche" alt="Normandie" title="Normandie" />
-						<area shape="rect" coords="<?= coordonnees_carte("749,83,917,179", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=32#recherche" alt="Hauts-de-France" title="Hauts-de-France" />
-						<area shape="rect" coords="<?= coordonnees_carte("982,248,1168,320", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=44#recherche" alt="Grand Est" title="Grand Est" />
-						<area shape="rect" coords="<?= coordonnees_carte("405,409,625,485", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=52#recherche" alt="Pays de la Loire" title="Pays de la Loire" />
-						<area shape="rect" coords="<?= coordonnees_carte("654,387,860,487", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=24#recherche" alt="Centre-Val de Loire" title="Centre-Val de Loire" />
-						<area shape="rect" coords="<?= coordonnees_carte("747,228,874,328", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=11#recherche" alt="Ile-de-France" title="Ile-de-France" />
-						<area shape="rect" coords="<?= coordonnees_carte("902,423,1117,542", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=27#recherche" alt="Bourgogne-Franche-Comte" title="Bourgogne-Franche-Comte" />
-						<area shape="rect" coords="<?= coordonnees_carte("543,636,729,733", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=75#recherche" alt="Nouvelle-Aquitaine" title="Nouvelle-Aquitaine" />
-						<area shape="rect" coords="<?= coordonnees_carte("653,837,848,905", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=76#recherche" alt="Occitanie" title="Occitanie" />
-						<area shape="rect" coords="<?= coordonnees_carte("831,617,1048,719", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=84#recherche" alt="Auvergne-Rhone-Alpes" title="Auvergne-Rhone-Alpes" />
-						<area shape="rect" coords="<?= coordonnees_carte("989,781,1183,880", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=93#recherche" alt="Provence-Alpes-Cote d'Azur" title="Provence-Alpes-Cote d'Azur" />
-						<area shape="rect" coords="<?= coordonnees_carte("1277,898,1384,955", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&region=94#recherche" alt="Corse" title="Corse" />
+						<area shape="rect" coords="<?= coordonnees_carte("252,314,423,380", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=53#recherche" alt="Bretagne" title="Bretagne" />
+						<area shape="rect" coords="<?= coordonnees_carte("481,232,642,295", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=28#recherche" alt="Normandie" title="Normandie" />
+						<area shape="rect" coords="<?= coordonnees_carte("749,83,917,179", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=32#recherche" alt="Hauts-de-France" title="Hauts-de-France" />
+						<area shape="rect" coords="<?= coordonnees_carte("982,248,1168,320", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=44#recherche" alt="Grand Est" title="Grand Est" />
+						<area shape="rect" coords="<?= coordonnees_carte("405,409,625,485", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=52#recherche" alt="Pays de la Loire" title="Pays de la Loire" />
+						<area shape="rect" coords="<?= coordonnees_carte("654,387,860,487", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=24#recherche" alt="Centre-Val de Loire" title="Centre-Val de Loire" />
+						<area shape="rect" coords="<?= coordonnees_carte("747,228,874,328", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=11#recherche" alt="Ile-de-France" title="Ile-de-France" />
+						<area shape="rect" coords="<?= coordonnees_carte("902,423,1117,542", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=27#recherche" alt="Bourgogne-Franche-Comte" title="Bourgogne-Franche-Comte" />
+						<area shape="rect" coords="<?= coordonnees_carte("543,636,729,733", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=75#recherche" alt="Nouvelle-Aquitaine" title="Nouvelle-Aquitaine" />
+						<area shape="rect" coords="<?= coordonnees_carte("653,837,848,905", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=76#recherche" alt="Occitanie" title="Occitanie" />
+						<area shape="rect" coords="<?= coordonnees_carte("831,617,1048,719", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=84#recherche" alt="Auvergne-Rhone-Alpes" title="Auvergne-Rhone-Alpes" />
+						<area shape="rect" coords="<?= coordonnees_carte("989,781,1183,880", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=93#recherche" alt="Provence-Alpes-Cote d'Azur" title="Provence-Alpes-Cote d'Azur" />
+						<area shape="rect" coords="<?= coordonnees_carte("1277,898,1384,955", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=94#recherche" alt="Corse" title="Corse" />
 					</map>
 					<div class="field-grid field-grid-main">
 						<div class="field-card">
@@ -290,7 +290,7 @@ require __DIR__ . "/includes/header.php";
 							</div>
 							<div class="form-actions action-buttons">
 								<button type="submit" formaction="resultats.php#resultats">Rechercher</button>
-								<a href="recherche.php?search_mode=manual&reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
+								<a href="recherche.php?search_mode=manual&amp;reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
 							</div>
 						</div>
 				</div>

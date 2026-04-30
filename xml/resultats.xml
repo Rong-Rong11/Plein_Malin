@@ -30,7 +30,7 @@
 				</div>
 
 			<nav class="main-nav">
-				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
 				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats" aria-current="page">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
@@ -42,43 +42,87 @@
 					<p class="lead">
 						Consultez les stations trouvées puis revenez à la recherche si besoin.
 					</p>
-					<div class="form-actions">
-						<a class="cta-link" href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Modifier ma recherche</a>
-						<form action="resultats.php#resultats" method="get" class="inline-sort-form">
-							<input type="hidden" name="region" value="11" />
-							<input type="hidden" name="department" value="77" />
-							<input type="hidden" name="city" value="" />
-															<input type="hidden" name="fuel[]" value="Gazole" />
-														<input type="hidden" name="view" value="summary" />
-							<input type="hidden" name="geo_radius" value="10" />
-															<input type="hidden" name="department_mode" value="1" />
-																					<div class="inline-filter">
-								<label for="result-sort-select">Trier</label>
-								<select id="result-sort-select" name="sort">
-									<option value="price" selected="selected">Prix croissant</option>
-									<option value="distance" >Distance</option>
-									<option value="name" >Nom</option>
-								</select>
+										<div class="form-actions">
+						<a class="cta-link" href="recherche.php?search_mode=manual">Recherche manuelle</a>
+					</div>
+					<div class="results-tools">
+					<form action="resultats.php#resultats" method="get" class="results-refine-form search-form search-form-structured">
+						<input type="hidden" name="region" value="11" />
+						<input type="hidden" name="department" value="77" />
+						<input type="hidden" name="city" value="" />
+						<input type="hidden" name="geo_radius" value="10" />
+													<input type="hidden" name="department_mode" value="1" />
+																		<div class="search-section search-plain">
+							<div class="field-card field-card-wide">
+								<span class="field-title">Carburants</span>
+								<span class="field-help">Gazole par défaut si rien n'est coché.</span>
+								<span class="fuel-choice-list">
+																			<label class="fuel-choice">
+											<input type="checkbox" id="result-fuel-gazole" name="fuel[]" value="Gazole"
+												checked="checked" />
+											<span>Gazole</span>
+										</label>
+																			<label class="fuel-choice">
+											<input type="checkbox" id="result-fuel-sp95" name="fuel[]" value="SP95"
+												 />
+											<span>SP95</span>
+										</label>
+																			<label class="fuel-choice">
+											<input type="checkbox" id="result-fuel-sp98" name="fuel[]" value="SP98"
+												 />
+											<span>SP98</span>
+										</label>
+																			<label class="fuel-choice">
+											<input type="checkbox" id="result-fuel-e10" name="fuel[]" value="E10"
+												 />
+											<span>SP95-E10</span>
+										</label>
+																			<label class="fuel-choice">
+											<input type="checkbox" id="result-fuel-e85" name="fuel[]" value="E85"
+												 />
+											<span>E85</span>
+										</label>
+																			<label class="fuel-choice">
+											<input type="checkbox" id="result-fuel-gplc" name="fuel[]" value="GPLc"
+												 />
+											<span>GPLc</span>
+										</label>
+																	</span>
 							</div>
-							<button type="submit" class="secondary-btn">Appliquer le tri</button>
-						</form>
+							<div class="field-grid field-grid-main">
+								<div class="field-card">
+									<label class="field-title" for="result-sort-select">Tri</label>
+									<select id="result-sort-select" name="sort">
+										<option value="price" selected="selected">Prix croissant</option>
+										<option value="price_desc" >Prix décroissant</option>
+										<option value="distance" >Distance</option>
+										<option value="name" >Nom</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-actions action-buttons">
+								<button type="submit">Appliquer</button>
+							</div>
+						</div>
+					</form>
+					<div class="form-actions results-detail-toggle">
 						<details class="search-details">
-						<summary class="detail-toggle">Détail</summary>
-						<div class="search-details-box">
-							<h2>Recherche actuelle</h2>
+							<summary class="detail-toggle">Détail</summary>
+							<div class="search-details-box">
+								<h2>Recherche actuelle</h2>
 								<ul class="plain-list">
 									<li>Mode : Département</li>
 									<li>Carburants choisis : Gazole</li>
 									<li>Tri choisi : Prix croissant</li>
-									<li>Vue choisie : Synthèse</li>
-									<li>Stations trouvées : 96</li>
+									<li>Stations trouvées : 97</li>
 									<li>Périmètre : tout le département Seine-et-Marne (77)</li>
 									<li>Région : Ile-de-France</li>
 									<li>Département : Seine-et-Marne (77)</li>
-																																	</ul>
+																																			</ul>
 							</div>
-					</details>
-				</div>
+						</details>
+					</div>
+					</div>
 			</section>
 
 		<section class="results-panel" id="resultats">
@@ -86,10 +130,9 @@
 				<p class="small-note">
 					Recherche dans tout le département sélectionné.											<strong>tout le département Seine-et-Marne (77)</strong>
 										</p>
-					
-									<p class="small-note">96 station(s) trouvée(s).</p>
+									<p class="small-note">97 station(s) trouvée(s).</p>
 											<p class="small-note">
-							Pour limiter le poids de la page et réduire sa complexité, seules les 15							premières stations sont affichées sur 96 trouvées. Elles correspondent aux résultats
+							Pour limiter le poids de la page et réduire sa complexité, seules les 15							premières stations sont affichées sur 97 trouvées. Elles correspondent aux résultats
 							les moins chers.
 						</p>
 										<p class="small-note">
@@ -99,137 +142,39 @@
 
 											<div class="stats-inline result-summary">
 							<div class="stat-chip">
-								<strong>2,152 EUR/L</strong>
+								<strong>2,162 EUR/L</strong>
 								<span>prix moyen trouvé sur les stations affichées</span>
 							</div>
-							<a class="stat-chip best-price-link" href="#station-77100016">
-								<strong>2,113 EUR/L</strong>
-								<span>meilleur prix affiché - Station 77100016</span>
+							<a class="stat-chip best-price-link" href="#station-77160003">
+								<strong>2,141 EUR/L</strong>
+								<span>meilleur prix affiché - Station 77160003</span>
 								<small>Cliquer pour voir la station</small>
 							</a>
 						</div>
 					
 					<div class="cards">
-																				<article class="station-card" id="station-77100016">
+																				<article class="station-card" id="station-77160003">
 							<div class="station-top">
 								<div>
-										<h3>Station 77100016</h3>
-									<p>30 MAIL DE LA GRANDE HAIE,  Mareuil-lès-Meaux</p>
+										<h3>Station 77160003</h3>
+									<p>15 Avenue du Maréchal de Lattre de Tassigny,  Provins</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,113 EUR/L</strong>
+													<strong>2,141 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 69,8 km
-									| flux api json																			| prix mis à jour le 29/04/2026 13:30																		</p>
+									Distance : 59,7 km
+									| flux api json																			| prix mis à jour le 30/04/2026 12:39																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77100016#station-77100016">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.94&amp;mlon=2.878#map=16/48.94/2.878" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77620001">
-							<div class="station-top">
-								<div>
-										<h3>Station 77620001</h3>
-									<p>ROUTE DE LORREZ,  Égreville</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,119 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 29,6 km
-									| flux api json																			| prix mis à jour le 27/04/2026 08:48																		</p>
-
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77620001#station-77620001">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.177&amp;mlon=2.872#map=16/48.177/2.872" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77610002">
-							<div class="station-top">
-								<div>
-										<h3>Station 77610002</h3>
-									<p>Rue Bertaux,  Fontenay-Trésigny</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,139 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 45,8 km
-									| flux api json																			| prix mis à jour le 28/04/2026 10:40																		</p>
-
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77610002#station-77610002">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.71&amp;mlon=2.86#map=16/48.71/2.86" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77130008">
-							<div class="station-top">
-								<div>
-										<h3>Station 77130008</h3>
-									<p>route du bréau,  Varennes-sur-Seine</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,139 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 28,1 km
-									| flux api json																			| prix mis à jour le 29/04/2026 12:19																		</p>
-
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77130008#station-77130008">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.375&amp;mlon=2.943#map=16/48.375/2.943" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77230004">
-							<div class="station-top">
-								<div>
-										<h3>Station 77230004</h3>
-									<p>Route de Vémars,  Moussy-le-Neuf</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,143 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 79,7 km
-									| flux api json																			| prix mis à jour le 28/04/2026 14:34																		</p>
-
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77230004#station-77230004">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=49.06414392&amp;mlon=2.59786578#map=16/49.06414392/2.59786578" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.559&amp;mlon=3.309#map=16/48.559/3.309" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
 																				<article class="station-card" id="station-77130005">
 							<div class="station-top">
 								<div>
@@ -248,137 +193,125 @@
 									Distance : 27,7 km
 									| flux api json																			| prix mis à jour le 27/04/2026 11:00																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77130005#station-77130005">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.37&amp;mlon=2.939#map=16/48.37/2.939" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77160003">
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.37&amp;mlon=2.939#map=16/48.37/2.939" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77130006">
 							<div class="station-top">
 								<div>
-										<h3>Station 77160003</h3>
-									<p>15 Avenue du Maréchal de Lattre de Tassigny,  Provins</p>
+										<h3>Station 77130006</h3>
+									<p>BOULEVARD DIDEROT,  Montereau-Fault-Yonne</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,156 EUR/L</strong>
+													<strong>2,150 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 59,7 km
-									| flux api json																			| prix mis à jour le 28/04/2026 12:21																		</p>
+									Distance : 29,1 km
+									| flux api json																			| prix mis à jour le 28/04/2026 09:09																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77160003#station-77160003">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.559&amp;mlon=3.309#map=16/48.559/3.309" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77350004">
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.3985391824&amp;mlon=2.95158027595#map=16/48.3985391824/2.95158027595" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77508002">
 							<div class="station-top">
 								<div>
-										<h3>Station 77350004</h3>
-									<p>Avenue Jean Monnet,  Le Mée-sur-Seine</p>
+										<h3>Station 77508002</h3>
+									<p>Route Nationale 3,  Claye-Souilly</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,159 EUR/L</strong>
+													<strong>2,158 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 21,7 km
-									| flux api json																			| prix mis à jour le 28/04/2026 13:59																		</p>
+									Distance : 66,7 km
+									| flux api json																			| prix mis à jour le 30/04/2026 16:29																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77350004#station-77350004">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.54&amp;mlon=2.612#map=16/48.54/2.612" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77780003">
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.944253&amp;mlon=2.660456#map=16/48.944253/2.660456" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77124002">
 							<div class="station-top">
 								<div>
-										<h3>Station 77780003</h3>
-									<p>RN 7,  Bourron-Marlotte</p>
+										<h3>Station 77124002</h3>
+									<p>11 av Roland Moréno,  Chauconin-Neufmontiers</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,159 EUR/L</strong>
+													<strong>2,158 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 9,3 km
-									| flux api json																			| prix mis à jour le 29/04/2026 02:01																		</p>
+									Distance : 71,7 km
+									| flux api json																			| prix mis à jour le 30/04/2026 18:22																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77780003#station-77780003">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.328&amp;mlon=2.687#map=16/48.328/2.687" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77190005">
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.962&amp;mlon=2.862#map=16/48.962/2.862" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77346001">
 							<div class="station-top">
 								<div>
-										<h3>Station 77190005</h3>
-									<p>936 AVENUE DU GENERAL LECLERC,  Dammarie-les-Lys</p>
+										<h3>Station 77346001</h3>
+									<p>RN 4 77346 Pontault-Combault,  Pontault-Combault</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,164 EUR/L</strong>
+													<strong>2,162 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 20,1 km
-									| flux api json																			| prix mis à jour le 29/04/2026 02:01																		</p>
+									Distance : 47,7 km
+									| flux api json																			| prix mis à jour le 30/04/2026 00:48																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77190005#station-77190005">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.518812310534&amp;mlon=2.654305293398#map=16/48.518812310534/2.654305293398" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77000013">
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.776&amp;mlon=2.605#map=16/48.776/2.605" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77330003">
 							<div class="station-top">
 								<div>
-										<h3>Station 77000013</h3>
-									<p>27 BIS AVENUE DU GENERAL LECLERC,  La Rochette</p>
+										<h3>Station 77330003</h3>
+									<p>84 Rue François de Tessan,  Ozoir-la-Ferrière</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,164 EUR/L</strong>
+													<strong>2,162 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 20,6 km
-									| flux api json																			| prix mis à jour le 29/04/2026 02:01																		</p>
+									Distance : 46,6 km
+									| flux api json																			| prix mis à jour le 30/04/2026 12:02																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77000013#station-77000013">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.5228144311&amp;mlon=2.65389046258#map=16/48.5228144311/2.65389046258" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77340003">
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.757&amp;mlon=2.7#map=16/48.757/2.7" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77520002">
 							<div class="station-top">
 								<div>
-										<h3>Station 77340003</h3>
-									<p>Route de Paris,  Pontault-Combault</p>
+										<h3>Station 77520002</h3>
+									<p>2 RUE MONTPENSIER,  Donnemarie-Dontilly</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
@@ -389,68 +322,40 @@
 							</div>
 
 								<p class="meta-line">
-									Distance : 47,8 km
-									| flux api json																			| prix mis à jour le 28/04/2026 00:46																		</p>
+									Distance : 44,7 km
+									| flux api json																			| prix mis à jour le 30/04/2026 18:37																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77340003#station-77340003">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.7768&amp;mlon=2.59631#map=16/48.7768/2.59631" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77260004">
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.476368&amp;mlon=3.139413#map=16/48.476368/3.139413" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77164002">
 							<div class="station-top">
 								<div>
-										<h3>Station 77260004</h3>
-									<p>Avenue de Rebais,  La Ferté-sous-Jouarre</p>
+										<h3>Station 77164002</h3>
+									<p>ZAC DES HAUTS DE FERRIERES - PARC DES MERLETTES,  Ferrières-en-Brie</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,166 EUR/L</strong>
+													<strong>2,167 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 77,6 km
-									| flux api json																			| prix mis à jour le 29/04/2026 10:44																		</p>
+									Distance : 54,3 km
+									| flux api json																			| prix mis à jour le 30/04/2026 15:54																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77260004#station-77260004">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.9383414&amp;mlon=3.1277923#map=16/48.9383414/3.1277923" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77100023">
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.827475189366&amp;mlon=2.7031953919577#map=16/48.827475189366/2.7031953919577" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77000014">
 							<div class="station-top">
 								<div>
-										<h3>Station 77100023</h3>
-									<p>334 AVENUE DE LA VICTOIRE,  Meaux</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,169 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 73,1 km
-									| flux api json																			| prix mis à jour le 29/04/2026 02:01																		</p>
-
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77100023#station-77100023">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.95742&amp;mlon=2.93791#map=16/48.95742/2.93791" target="_blank" rel="noopener">Voir sur une carte</a>
-																					</div>
-									
-																</article>
-																				<article class="station-card" id="station-77124002">
-							<div class="station-top">
-								<div>
-										<h3>Station 77124002</h3>
-									<p>11 av Roland Moréno,  Chauconin-Neufmontiers</p>
+										<h3>Station 77000014</h3>
+									<p>27 ROUTE DE MONTEREAU,  Vaux-le-Pénil</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
@@ -461,18 +366,126 @@
 							</div>
 
 								<p class="meta-line">
-									Distance : 71,7 km
-									| flux api json																			| prix mis à jour le 29/04/2026 10:40																		</p>
+									Distance : 23,1 km
+									| flux api json																			| prix mis à jour le 30/04/2026 12:50																		</p>
 
-																			<div class="form-actions station-actions">
-											<a class="secondary-btn" href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=detailed&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;station=77124002#station-77124002">Voir les détails</a>
-																							<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.962&amp;mlon=2.862#map=16/48.962/2.862" target="_blank" rel="noopener">Voir sur une carte</a>
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.541&amp;mlon=2.68#map=16/48.541/2.68" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77650001">
+							<div class="station-top">
+								<div>
+										<h3>Station 77650001</h3>
+									<p>RUE DE LA CROIX BROUILLARD,  Longueville</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,169 EUR/L</strong>
+												</div>
 																					</div>
-									
-																</article>
+							</div>
+
+								<p class="meta-line">
+									Distance : 52,9 km
+									| flux api json																			| prix mis à jour le 30/04/2026 16:33																		</p>
+
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.521&amp;mlon=3.233#map=16/48.521/3.233" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77100016">
+							<div class="station-top">
+								<div>
+										<h3>Station 77100016</h3>
+									<p>30 MAIL DE LA GRANDE HAIE,  Mareuil-lès-Meaux</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,169 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								<p class="meta-line">
+									Distance : 69,8 km
+									| flux api json																			| prix mis à jour le 30/04/2026 13:07																		</p>
+
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.94&amp;mlon=2.878#map=16/48.94/2.878" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77480002">
+							<div class="station-top">
+								<div>
+										<h3>Station 77480002</h3>
+									<p>82 AVENUE DE LA LIBERATION,  Bray-sur-Seine</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,169 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								<p class="meta-line">
+									Distance : 50,5 km
+									| flux api json																			| prix mis à jour le 29/04/2026 17:09																		</p>
+
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.414&amp;mlon=3.242#map=16/48.414/3.242" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77190004">
+							<div class="station-top">
+								<div>
+										<h3>Station 77190004</h3>
+									<p>544 Avenue André Ampère,  Dammarie-les-Lys</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,170 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								<p class="meta-line">
+									Distance : 18,2 km
+									| flux api json																			| prix mis à jour le 30/04/2026 19:09																		</p>
+
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.509&amp;mlon=2.604#map=16/48.509/2.604" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77160002">
+							<div class="station-top">
+								<div>
+										<h3>Station 77160002</h3>
+									<p>Avenue de la Voulzie,  Provins</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,170 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								<p class="meta-line">
+									Distance : 58,0 km
+									| flux api json																			| prix mis à jour le 30/04/2026 11:57																		</p>
+
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.548&amp;mlon=3.292#map=16/48.548/3.292" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
 											</div>
 					<div class="form-actions bottom-actions">
-						<a class="cta-link" href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Retour à la recherche</a>
+						<a class="cta-link" href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Retour à la recherche</a>
 					</div>
 							</section>
 	</main>
@@ -481,7 +494,7 @@
 			<div class="footer-nav-block">
 				<div class="footer-links footer-links-main">
 					<a href="index.php">Accueil</a>
-					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Recherche</a>
+					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
 					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
 					<a href="stats.php">Statistiques</a>
 				</div>
