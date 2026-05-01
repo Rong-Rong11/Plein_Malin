@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" role="img" aria-labelledby="title desc">
-  <title id="title">Logo Plein Malin clair</title>
-  <desc id="desc">Logo simple autour du carburant et de la mobilite.</desc>
-  <rect width="360" height="110" rx="24" fill="#f4e6cf"/>
-  <path d="M36 73c0-15 12-27 27-27h26v-8c0-7 6-13 13-13h12c7 0 13 6 13 13v35c0 7-6 13-13 13H63C48 86 36 88 36 73Z" fill="#18212b"/>
-  <path d="M81 25h16v17H81z" fill="#d6612b"/>
-  <circle cx="69" cy="86" r="8" fill="#d6612b"/>
-  <circle cx="112" cy="86" r="8" fill="#d6612b"/>
-  <path d="M137 45h50l17 11-17 11h-50l8-11-8-11Z" fill="#d6612b"/>
-  <text x="215" y="51" font-family="Trebuchet MS, sans-serif" font-size="30" font-weight="700" fill="#18212b">Plein</text>
-  <text x="215" y="82" font-family="Trebuchet MS, sans-serif" font-size="30" font-weight="700" fill="#18212b">Malin</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 110" width="320" height="98"><rect width="360" height="110" rx="24" fill="#f4e6cf"/><path d="M36 73c0-15 12-27 27-27h26v-8c0-7 6-13 13-13h12c7 0 13 6 13 13v35c0 7-6 13-13 13H63C48 86 36 88 36 73Z" fill="#18212b"/><path d="M81 25h16v17H81z" fill="#d6612b"/><circle cx="69" cy="86" r="8" fill="#d6612b"/><circle cx="112" cy="86" r="8" fill="#d6612b"/><path d="M137 45h50l17 11-17 11h-50l8-11-8-11Z" fill="#d6612b"/><text x="215" y="51" font-family="Trebuchet MS,sans-serif" font-size="30" font-weight="700" fill="#18212b">Plein</text><text x="215" y="82" font-family="Trebuchet MS,sans-serif" font-size="30" font-weight="700" fill="#18212b">Malin</text></svg>

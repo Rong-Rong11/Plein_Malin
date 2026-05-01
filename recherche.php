@@ -59,7 +59,7 @@ require __DIR__ . "/includes/header.php";
 					Region choisie : <strong><?= texte_securise($regionInfo["region_name"]) ?></strong>
 				<?php endif; ?>
 			</p>
-			<img src="image/<?= $theme === "night" ? "map(dark).png" : "map(light).png" ?>" alt="Carte des regions de France" usemap="#regions-map" class="map-image" width="<?= $largeurCarte ?>" height="<?= $hauteurCarte ?>">
+			<img src="image/<?= $theme === "night" ? "map(dark).jpg" : "map(light).jpg" ?>" alt="Carte des regions de France" usemap="#regions-map" class="map-image" width="<?= $largeurCarte ?>" height="<?= $hauteurCarte ?>">
 			<map name="regions-map">
 				<area shape="rect" coords="252,314,423,380" href="recherche.php?region=53#recherche" alt="Bretagne" title="Bretagne">
 				<area shape="rect" coords="481,232,642,295" href="recherche.php?region=28#recherche" alt="Normandie" title="Normandie">
