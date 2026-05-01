@@ -24,7 +24,7 @@ $department = $_GET["department"] ?? "";
 $city = $_GET["city"] ?? "";
 $selectedFuels = normaliser_carburants_selection($_GET["fuel"] ?? []);
 $sort = $_GET["sort"] ?? "price";
-$geoRadius = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? 10));
+$geoRadius = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? 5));
 $departmentMode = isset($_GET["department_mode"]);
 $searchMode = $_GET["search_mode"] ?? "";
 

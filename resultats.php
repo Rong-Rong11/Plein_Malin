@@ -12,7 +12,7 @@ preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 $selectedFuels = normaliser_carburants_selection($_GET["fuel"] ?? []);
 $sort = $_GET["sort"] ?? "price";
-$geoRadius = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? 10));
+$geoRadius = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? 5));
 $departmentMode = isset($_GET["department_mode"]);
 $useGeo = isset($_GET["use_geo"]);
 
@@ -314,7 +314,7 @@ require __DIR__ . "/includes/header.php";
 			<h2>Résultats</h2>
 				<p class="small-note">
 					<?= texte_securise($message) ?>
-					<?php if ($currentCity !== null) { ?>
+					<?php if ($currentCity !== null && !$useGeo && !$manualRadiusMode) { ?>
 						<strong><?= texte_securise($searchTargetLabel) ?></strong>
 					<?php } ?>
 					</p>
@@ -326,9 +326,9 @@ require __DIR__ . "/includes/header.php";
 				<p class="empty-state">Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard.</p>
 				<?php } elseif ($stations === []) { ?>
 				<p class="empty-state">
-					Aucune station trouvée avec ces critères.
+					Aucune station trouvée avec ces critères. Essayez d'élargir le champ de recherche.
 					<?php if ($manualRadiusMode) { ?>
-						Essayez d'augmenter le rayon de recherche.
+						Vous pouvez aussi augmenter le rayon de recherche.
 					<?php } ?>
 				</p>
 				<?php } else { ?>

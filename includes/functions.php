@@ -715,7 +715,7 @@ function normaliser_rayon_geo(int $radius): int
 		return $radius;
 	}
 
-	return 10;
+	return 5;
 }
 
 /**
