@@ -20,7 +20,6 @@ ob_start(static function (string $html) use ($langue): string {
 		<meta name="description" content="<?= texte_securise($pageDescription) ?>" />
 		<link rel="stylesheet" href="style.css" />
 			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
-			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
 	</head>
 	<body class="theme-<?= texte_securise($theme) ?>">
 		<div id="top"></div>
