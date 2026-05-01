@@ -39,9 +39,9 @@ require __DIR__ . "/includes/header.php";
 
 		<section class="info-block tech-feature">
 				<h2>API Ghibli</h2>
-			<?php if ($film === null): ?>
+			<?php if ($film === null) { ?>
 				<p class="empty-state">API Ghibli indisponible pour le moment.</p>
-			<?php else: ?>
+			<?php } else { ?>
 				<h3 class="tech-subtitle">
 					<?= texte_securise((string) $film['title']) ?>
 				</h3>
@@ -58,32 +58,32 @@ require __DIR__ . "/includes/header.php";
 					<img src="<?= texte_securise((string) $film['image']) ?>" width="200" alt="" />
 					<img class="tech-banner" src="<?= texte_securise((string) $film['movie_banner']) ?>" width="400" alt="" />
 				</div>
-			<?php endif; ?>
+			<?php } ?>
 		</section>
 
 		<section class="info-block tech-feature">
 				<h2>Flux XML carburants</h2>
 				<p>Lecture de <code>data/sample_fuel_prices.xml</code> avec <code>simplexml_load_file()</code>.</p>
-				<?php if ($stationsXml === []): ?>
+				<?php if ($stationsXml === []) { ?>
 					<p class="empty-state">Aucune donnee XML disponible.</p>
-				<?php else: ?>
+				<?php } else { ?>
 					<ul class="plain-list">
-						<?php foreach (array_slice($stationsXml, 0, 5) as $station): ?>
+						<?php foreach (array_slice($stationsXml, 0, 5) as $station) { ?>
 							<li>
 								<strong><?= texte_securise($station["enseigne"]) ?></strong>
 								- <?= texte_securise($station["ville"]) ?>
 								(<?= texte_securise($station["cp"]) ?>)
-								<?php if ($station["prix"] !== []): ?>
+								<?php if ($station["prix"] !== []) { ?>
 									:
-									<?php foreach ($station["prix"] as $indexPrix => $prix): ?>
+									<?php foreach ($station["prix"] as $indexPrix => $prix) { ?>
 										<?= $indexPrix > 0 ? ", " : "" ?><?= texte_securise($prix["nom"]) ?>
 										<?= texte_securise($prix["valeur"]) ?> EUR/L
-									<?php endforeach; ?>
-								<?php endif; ?>
+									<?php } ?>
+								<?php } ?>
 							</li>
-						<?php endforeach; ?>
+						<?php } ?>
 					</ul>
-				<?php endif; ?>
+				<?php } ?>
 		</section>
 
 		<section class="info-block tech-feature">

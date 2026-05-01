@@ -69,21 +69,21 @@ require __DIR__ . "/includes/header.php";
 				<a class="cta-link" href="recherche.php?search_mode=manual">Rechercher une station</a>
 			</div>
 
-			<?php if ($typeDerniereRecherche !== ""): ?>
+			<?php if ($typeDerniereRecherche !== "") { ?>
 				<div class="home-last-search-inline">
 					<h2>Dernière recherche</h2>
 					<p>
 						<?= texte_securise($typeDerniereRecherche) ?> :
 						<strong><?= texte_securise($libelleDerniereRecherche) ?></strong>
 					</p>
-					<?php if ($dateDerniereRecherche !== ""): ?>
+					<?php if ($dateDerniereRecherche !== "") { ?>
 						<p class="small-note">Dernière recherche le <?= texte_securise($dateDerniereRecherche) ?></p>
-					<?php endif; ?>
+					<?php } ?>
 					<div class="form-actions">
 						<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>">Reprendre cette recherche</a>
 					</div>
 				</div>
-			<?php endif; ?>
+			<?php } ?>
 		</div>
 	</section>
 

@@ -94,16 +94,16 @@ require __DIR__ . "/includes/header.php";
 	<section class="panel" id="carte">
 		<p class="eyebrow">Recherche principale</p>
 		<h1>Rechercher une station</h1>
-		<?php if ($searchMode === "geo"): ?>
+		<?php if ($searchMode === "geo") { ?>
 			<p class="lead">
 				Utilisez votre position approximative pour lancer une recherche rapide,
 				sans passer par la carte ni le choix manuel de ville.
 			</p>
-		<?php else: ?>
+		<?php } else { ?>
 			<p class="lead">
 				Choisissez votre région, puis précisez le département et la ville dans le formulaire.
 			</p>
-		<?php endif; ?>
+		<?php } ?>
 		<div class="search-mode-switch">
 			<form action="recherche.php#recherche" method="get" class="mode-switch-form">
 				<input type="hidden" name="search_mode" value="manual" />
@@ -118,7 +118,7 @@ require __DIR__ . "/includes/header.php";
 
 	<section class="panel" id="recherche">
 		<h2>Formulaire</h2>
-		<?php if ($searchMode === "geo"): ?>
+		<?php if ($searchMode === "geo") { ?>
 			<form action="resultats.php#resultats" method="get" class="search-form search-form-structured">
 				<input type="hidden" name="use_geo" value="1" />
 				<div class="search-section search-plain">
@@ -127,13 +127,13 @@ require __DIR__ . "/includes/header.php";
 						<fieldset class="field-card field-card-soft field-card-wide">
 							<legend class="field-title">Carburants</legend>
 							<span class="fuel-choice-list">
-								<?php foreach ($fuelLabels as $codeCarburant => $nomCarburant): ?>
+								<?php foreach ($fuelLabels as $codeCarburant => $nomCarburant) { ?>
 									<label class="fuel-choice">
 										<input type="checkbox" id="geo-fuel-<?= texte_securise(strtolower($codeCarburant)) ?>" name="fuel[]" value="<?= texte_securise($codeCarburant) ?>"
 											<?= in_array($codeCarburant, $selectedFuels, true) ? 'checked="checked"' : "" ?> />
 										<span><?= texte_securise($nomCarburant) ?></span>
 									</label>
-								<?php endforeach; ?>
+								<?php } ?>
 							</span>
 						</fieldset>
 
@@ -157,11 +157,11 @@ require __DIR__ . "/includes/header.php";
 							<div class="inline-filter">
 								<label for="geo-radius-select">Rayon</label>
 								<select id="geo-radius-select" name="geo_radius">
-									<?php foreach (rayons_geo_disponibles() as $radius): ?>
+									<?php foreach (rayons_geo_disponibles() as $radius) { ?>
 										<option value="<?= texte_securise((string) $radius) ?>" <?= $geoRadius === $radius ? 'selected="selected"' : "" ?>>
 											<?= texte_securise((string) $radius) ?> km
 										</option>
-									<?php endforeach; ?>
+									<?php } ?>
 								</select>
 							</div>
 							<button type="submit">Rechercher autour de moi</button>
@@ -170,14 +170,14 @@ require __DIR__ . "/includes/header.php";
 					</div>
 				</div>
 			</form>
-		<?php else: ?>
+		<?php } else { ?>
 			<form action="recherche.php#recherche" method="get" class="search-form search-form-structured">
 				<input type="hidden" name="search_mode" value="manual" />
 				<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
 
 				<div class="search-section search-context">
 					<p class="section-label">1. Région et localisation</p>
-					<?php if ($regionInfo !== null): ?>
+					<?php if ($regionInfo !== null) { ?>
 						<div class="context-card">
 							<div>
 								<p class="context-title">Région déjà choisie</p>
@@ -185,14 +185,14 @@ require __DIR__ . "/includes/header.php";
 							</div>
 							<span class="context-link">Choisissez une autre région directement sur la carte ci-dessous.</span>
 						</div>
-					<?php else: ?>
+					<?php } else { ?>
 						<div class="context-card">
 							<div>
 								<p class="context-title">Aucune région sélectionnée</p>
 								<p class="small-note">Commencez par cliquer sur la carte ci-dessous.</p>
 							</div>
 						</div>
-					<?php endif; ?>
+					<?php } ?>
 					<div class="map-scroll">
 						<img src="image/<?= $theme === "night" ? "map-dark-optimized.jpg" : "map-light-optimized.jpg" ?>" alt="Carte interactive des régions de France"
 							usemap="#regions-map" class="map-image" width="<?= texte_securise((string) $largeurCarte) ?>" height="<?= texte_securise((string) $hauteurCarte) ?>" decoding="async" fetchpriority="high" />
@@ -216,16 +216,16 @@ require __DIR__ . "/includes/header.php";
 						<div class="field-card">
 							<label class="field-title" for="department-select">Département</label>
 							<span class="field-help">Choisissez un département.</span>
-							<select id="department-select" name="department" onchange="this.form.action='recherche.php#form-end'; this.form.submit();"
+							<select id="department-select" name="department" onchange="this.form.action='recherche.php#recherche'; this.form.submit();"
 								<?= $region === "" ? 'disabled="disabled"' : "" ?>>
 								<option value=""><?= $region === "" ? "Choisir d'abord une région" : "Choisir un département" ?></option>
-								<?php foreach ($departments as $unDepartment): ?>
+								<?php foreach ($departments as $unDepartment) { ?>
 									<option value="<?= texte_securise($unDepartment["department_code"]) ?>"
 										<?= $department === $unDepartment["department_code"] ? 'selected="selected"' : "" ?>>
 										<?= texte_securise($unDepartment["department_name"]) ?>
 										(<?= texte_securise($unDepartment["department_code"]) ?>)
 									</option>
-								<?php endforeach; ?>
+								<?php } ?>
 							</select>
 						</div>
 
@@ -234,11 +234,11 @@ require __DIR__ . "/includes/header.php";
 							<span class="field-help">Choisissez une ville.</span>
 							<select id="city-select" name="city" <?= $department === "" ? 'disabled="disabled"' : "" ?>>
 								<option value=""><?= $department === "" ? "Choisir d'abord un département" : "Choisir une ville" ?></option>
-								<?php foreach ($cities as $uneVille): ?>
+								<?php foreach ($cities as $uneVille) { ?>
 									<option value="<?= texte_securise($uneVille["city_code"]) ?>" <?= $city === $uneVille["city_code"] ? 'selected="selected"' : "" ?>>
 										<?= texte_securise($uneVille["city_name"]) ?> (<?= texte_securise($uneVille["postal_code"]) ?>)
 									</option>
-								<?php endforeach; ?>
+								<?php } ?>
 							</select>
 						</div>
 					</div>
@@ -251,13 +251,13 @@ require __DIR__ . "/includes/header.php";
 							<fieldset class="field-card field-card-soft field-card-wide">
 								<legend class="field-title">Carburants</legend>
 								<span class="fuel-choice-list">
-									<?php foreach ($fuelLabels as $codeCarburant => $nomCarburant): ?>
+									<?php foreach ($fuelLabels as $codeCarburant => $nomCarburant) { ?>
 										<label class="fuel-choice">
 											<input type="checkbox" id="fuel-<?= texte_securise(strtolower($codeCarburant)) ?>" name="fuel[]" value="<?= texte_securise($codeCarburant) ?>"
 												<?= in_array($codeCarburant, $selectedFuels, true) ? 'checked="checked"' : "" ?> />
 											<span><?= texte_securise($nomCarburant) ?></span>
 										</label>
-									<?php endforeach; ?>
+									<?php } ?>
 								</span>
 							</fieldset>
 
@@ -295,7 +295,7 @@ require __DIR__ . "/includes/header.php";
 						</div>
 				</div>
 			</form>
-		<?php endif; ?>
+		<?php } ?>
 	</section>
 </main>
 
