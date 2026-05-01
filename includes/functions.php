@@ -1,15 +1,32 @@
 <?php
 
+/**
+ * Constantes de chemins utilisees par tout le site.
+ *
+ * Elles centralisent les dossiers de cache, de donnees et de stockage pour
+ * eviter de dupliquer les chemins dans chaque page PHP.
+ */
 define("PM_CACHE_DIR", __DIR__ . "/../cache");
 define("PM_DATA_DIR", __DIR__ . "/../data");
 define("PM_STORAGE_DIR", __DIR__ . "/../storage");
 define("PM_CITIES_INDEX_FILE", __DIR__ . "/../data/villes_index.csv");
 
+/**
+ * Echappe une chaine avant affichage dans le HTML.
+ *
+ * @param string $texte Texte potentiellement fourni par une source externe.
+ * @return string Texte protege contre l'injection HTML.
+ */
 function texte_securise(string $texte): string
 {
 	return htmlspecialchars($texte, ENT_QUOTES, "UTF-8");
 }
 
+/**
+ * Cree les dossiers et fichiers de stockage attendus par l'application.
+ *
+ * @return void
+ */
 function preparer_dossiers_et_fichiers(): void
 {
 	if (!is_dir(PM_CACHE_DIR)) {
@@ -31,6 +48,11 @@ function preparer_dossiers_et_fichiers(): void
 	}
 }
 
+/**
+ * Retourne le chemin a utiliser pour les cookies du site.
+ *
+ * @return string Chemin compatible avec une installation locale ou en sous-dossier.
+ */
 function chemin_cookie(): string
 {
 	$chemin = dirname($_SERVER["SCRIPT_NAME"] ?? "/");
@@ -42,6 +64,11 @@ function chemin_cookie(): string
 	return rtrim(str_replace("\\", "/", $chemin), "/") . "/";
 }
 
+/**
+ * Lit, valide et memorise le theme choisi par l'utilisateur.
+ *
+ * @return string Theme actif : "day" ou "night".
+ */
 function gerer_theme(): string
 {
 	$theme = "day";
@@ -72,6 +99,12 @@ function gerer_theme(): string
 	return $theme;
 }
 
+/**
+ * Retourne le libelle francais d'un theme.
+ *
+ * @param string $theme Code du theme.
+ * @return string Libelle lisible par l'utilisateur.
+ */
 function nom_theme(string $theme): string
 {
 	if ($theme === "night") {
@@ -81,6 +114,12 @@ function nom_theme(string $theme): string
 	return "jour";
 }
 
+/**
+ * Construit l'URL permettant de basculer entre le mode jour et le mode nuit.
+ *
+ * @param string $theme Theme actuellement actif.
+ * @return string URL de la page courante avec le theme inverse.
+ */
 function lien_bascule_theme(string $theme): string
 {
 	$themeCible = $theme === "night" ? "day" : "night";
@@ -96,6 +135,11 @@ function lien_bascule_theme(string $theme): string
 	return $script . "?" . $requete;
 }
 
+/**
+ * Lit, valide et memorise la langue d'affichage.
+ *
+ * @return string Langue active : "fr" ou "en".
+ */
 function gerer_langue(): string
 {
 	$langue = "fr";
@@ -126,6 +170,12 @@ function gerer_langue(): string
 	return $langue;
 }
 
+/**
+ * Construit l'URL permettant de basculer entre francais et anglais.
+ *
+ * @param string $langue Langue actuellement active.
+ * @return string URL de la page courante avec la langue inverse.
+ */
 function lien_bascule_langue(string $langue): string
 {
 	$parametres = $_GET;
@@ -140,11 +190,22 @@ function lien_bascule_langue(string $langue): string
 	return $script . "?" . $requete;
 }
 
+/**
+ * Retourne le texte affiche dans le bouton de changement de langue.
+ *
+ * @param string $langue Langue actuellement active.
+ * @return string Langue cible a afficher.
+ */
 function libelle_bascule_langue(string $langue): string
 {
 	return $langue === "en" ? "Français" : "English";
 }
 
+/**
+ * Traductions communes reutilisees dans l'en-tete, le menu et le pied de page.
+ *
+ * @return array<string,string> Table de correspondance francais vers anglais.
+ */
 function traductions_communes(): array
 {
 	return [
@@ -165,6 +226,11 @@ function traductions_communes(): array
 	];
 }
 
+/**
+ * Traductions propres a la page d'accueil.
+ *
+ * @return array<string,string> Textes de l'accueil traduits en anglais.
+ */
 function traductions_accueil(): array
 {
 	return [
@@ -190,6 +256,11 @@ function traductions_accueil(): array
 	];
 }
 
+/**
+ * Traductions propres au formulaire de recherche.
+ *
+ * @return array<string,string> Textes de recherche traduits en anglais.
+ */
 function traductions_recherche(): array
 {
 	return [
@@ -254,6 +325,11 @@ function traductions_recherche(): array
 	];
 }
 
+/**
+ * Traductions propres a la page de resultats.
+ *
+ * @return array<string,string> Textes de resultats traduits en anglais.
+ */
 function traductions_resultats(): array
 {
 	return [
@@ -323,6 +399,11 @@ function traductions_resultats(): array
 	];
 }
 
+/**
+ * Traductions propres a la page de statistiques.
+ *
+ * @return array<string,string> Textes de statistiques traduits en anglais.
+ */
 function traductions_statistiques(): array
 {
 	return [
@@ -354,6 +435,11 @@ function traductions_statistiques(): array
 	];
 }
 
+/**
+ * Traductions propres a la page technique.
+ *
+ * @return array<string,string> Textes techniques traduits en anglais.
+ */
 function traductions_technique(): array
 {
 	return [
@@ -396,6 +482,11 @@ function traductions_technique(): array
 	];
 }
 
+/**
+ * Traductions des pages d'information du projet.
+ *
+ * @return array<string,string> Textes des pages annexes traduits en anglais.
+ */
 function traductions_pages_info(): array
 {
 	return [
@@ -482,6 +573,11 @@ function traductions_pages_info(): array
 	];
 }
 
+/**
+ * Fusionne toutes les tables de traduction de l'interface.
+ *
+ * @return array<string,string> Table complete de traduction.
+ */
 function traductions_interface(): array
 {
 	return array_merge(
@@ -495,6 +591,13 @@ function traductions_interface(): array
 	);
 }
 
+/**
+ * Traduit le HTML final lorsque la langue anglaise est active.
+ *
+ * @param string $html HTML produit par la page.
+ * @param string $langue Langue active.
+ * @return string HTML traduit ou laisse intact en francais.
+ */
 function traduire_interface(string $html, string $langue): string
 {
 	if ($langue !== "en") {
@@ -504,6 +607,13 @@ function traduire_interface(string $html, string $langue): string
 	return strtr($html, traductions_interface());
 }
 
+/**
+ * Verifie qu'un departement appartient bien a une region.
+ *
+ * @param string $codeDepartment Code INSEE du departement.
+ * @param string $codeRegion Code de la region.
+ * @return bool True si le departement est trouve dans la region.
+ */
 function departement_existe_dans_region(string $codeDepartment, string $codeRegion): bool
 {
 	foreach (departements_par_region($codeRegion) as $department) {
@@ -515,6 +625,13 @@ function departement_existe_dans_region(string $codeDepartment, string $codeRegi
 	return false;
 }
 
+/**
+ * Verifie qu'une ville appartient au departement selectionne.
+ *
+ * @param string $codeVille Code de la ville.
+ * @param string $codeDepartment Code du departement.
+ * @return bool True si la ville est presente dans le departement.
+ */
 function ville_existe_dans_departement(string $codeVille, string $codeDepartment): bool
 {
 	foreach (villes_par_departement($codeDepartment) as $city) {
@@ -526,6 +643,13 @@ function ville_existe_dans_departement(string $codeVille, string $codeDepartment
 	return false;
 }
 
+/**
+ * Convertit les booleens du formulaire en libelle de mode de recherche.
+ *
+ * @param bool $useGeo Recherche autour de la position approximative.
+ * @param bool $departmentMode Recherche dans tout le departement.
+ * @return string Mode stocke dans les statistiques.
+ */
 function mode_recherche(bool $useGeo, bool $departmentMode): string
 {
 	if ($useGeo) {
@@ -539,6 +663,15 @@ function mode_recherche(bool $useGeo, bool $departmentMode): string
 	return "ville";
 }
 
+/**
+ * Prepare le message de contexte affiche au-dessus des resultats.
+ *
+ * @param array|null $currentCity Ville de reference, si elle existe.
+ * @param bool $useGeo Recherche par geolocalisation IP.
+ * @param bool $departmentMode Recherche par departement complet.
+ * @param array $stations Stations trouvees apres filtrage.
+ * @return string Message adapte a l'etat de la recherche.
+ */
 function message_resultats(?array $currentCity, bool $useGeo, bool $departmentMode, array $stations): string
 {
 	if ($currentCity === null) {
@@ -560,11 +693,22 @@ function message_resultats(?array $currentCity, bool $useGeo, bool $departmentMo
 	return "Recherche dans la ville sélectionnée.";
 }
 
+/**
+ * Liste les rayons autorises pour les recherches de proximite.
+ *
+ * @return int[] Rayons en kilometres.
+ */
 function rayons_geo_disponibles(): array
 {
 	return [5, 10, 15, 20, 30];
 }
 
+/**
+ * Force un rayon a rester dans la liste des valeurs autorisees.
+ *
+ * @param int $radius Rayon demande.
+ * @return int Rayon valide, 10 km par defaut.
+ */
 function normaliser_rayon_geo(int $radius): int
 {
 	if (in_array($radius, rayons_geo_disponibles(), true)) {
@@ -574,6 +718,12 @@ function normaliser_rayon_geo(int $radius): int
 	return 10;
 }
 
+/**
+ * Construit un lien direct vers les resultats d'une ville.
+ *
+ * @param array $city Ville issue des donnees CSV.
+ * @return string URL de resultats.
+ */
 function lien_resultats_ville(array $city): string
 {
 	$department = $city["department_code"] ?? "";
@@ -587,6 +737,12 @@ function lien_resultats_ville(array $city): string
 			. "#resultats";
 }
 
+/**
+ * Construit un lien direct vers les resultats d'un departement complet.
+ *
+ * @param string $codeDepartment Code du departement.
+ * @return string URL de resultats en mode departement.
+ */
 function lien_resultats_departement(string $codeDepartment): string
 {
 	$departmentInfo = trouver_departement($codeDepartment);
@@ -598,6 +754,13 @@ function lien_resultats_departement(string $codeDepartment): string
 		. "&department_mode=1#resultats";
 }
 
+/**
+ * Memorise la derniere recherche simple dans un cookie.
+ *
+ * @param string $type Type de recherche : "ville" ou "departement".
+ * @param string $code Code de la ville ou du departement.
+ * @return void
+ */
 function enregistrer_derniere_recherche(string $type, string $code): void
 {
 	if (!in_array($type, ["ville", "departement"], true) || $code === "") {
@@ -616,6 +779,11 @@ function enregistrer_derniere_recherche(string $type, string $code): void
 	}
 }
 
+/**
+ * Lit et valide le cookie de derniere recherche.
+ *
+ * @return array Derniere recherche valide ou tableau vide.
+ */
 function lire_derniere_recherche(): array
 {
 	if (!isset($_COOKIE["last_search"])) {
@@ -639,6 +807,12 @@ function lire_derniere_recherche(): array
 	return $recherche;
 }
 
+/**
+ * Nettoie les parametres de recherche avant de les stocker ou reutiliser.
+ *
+ * @param array $parametres Parametres GET ou parametres issus du cookie.
+ * @return array Parametres normalises avec valeurs par defaut.
+ */
 function normaliser_parametres_recherche(array $parametres): array
 {
 	$resultat = [
@@ -662,6 +836,12 @@ function normaliser_parametres_recherche(array $parametres): array
 	return $resultat;
 }
 
+/**
+ * Memorise les criteres complets de la derniere recherche.
+ *
+ * @param array $parametres Parametres de recherche courants.
+ * @return void
+ */
 function enregistrer_parametres_derniere_recherche(array $parametres): void
 {
 	$parametres = normaliser_parametres_recherche($parametres);
@@ -686,6 +866,11 @@ function enregistrer_parametres_derniere_recherche(array $parametres): void
 	}
 }
 
+/**
+ * Lit les criteres de la derniere recherche complete.
+ *
+ * @return array Parametres normalises ou tableau vide.
+ */
 function lire_parametres_derniere_recherche(): array
 {
 	if (!isset($_COOKIE["last_search_params"])) {
@@ -703,12 +888,22 @@ function lire_parametres_derniere_recherche(): array
 	return normaliser_parametres_recherche($parametres);
 }
 
+/**
+ * Supprime le cookie qui stocke les criteres de recherche.
+ *
+ * @return void
+ */
 function effacer_parametres_derniere_recherche(): void
 {
 	setcookie("last_search_params", "", time() - 3600, chemin_cookie());
 	unset($_COOKIE["last_search_params"]);
 }
 
+/**
+ * Retourne le lien de navigation vers la recherche memorisee.
+ *
+ * @return string URL de recherche, ou recherche manuelle par defaut.
+ */
 function lien_recherche_memorisee(): string
 {
 	$parametres = lire_parametres_derniere_recherche();
@@ -722,6 +917,11 @@ function lien_recherche_memorisee(): string
 	return "recherche.php?" . http_build_query($parametres);
 }
 
+/**
+ * Retourne le lien de navigation vers les resultats memorises.
+ *
+ * @return string URL de resultats.
+ */
 function lien_resultats_memorises(): string
 {
 	$parametres = lire_parametres_derniere_recherche();
@@ -733,6 +933,12 @@ function lien_resultats_memorises(): string
 	return "resultats.php?" . http_build_query($parametres) . "#resultats";
 }
 
+/**
+ * Memorise la derniere ville consultee et met a jour la derniere recherche.
+ *
+ * @param string $codeVille Code de la ville consultee.
+ * @return void
+ */
 function enregistrer_derniere_ville(string $codeVille): void
 {
 	if ($codeVille !== "") {
@@ -742,6 +948,11 @@ function enregistrer_derniere_ville(string $codeVille): void
 	}
 }
 
+/**
+ * Lit le code de la derniere ville consultee.
+ *
+ * @return string Code ville ou chaine vide.
+ */
 function lire_derniere_ville(): string
 {
 	if (isset($_COOKIE["last_visited_city"])) {
@@ -751,6 +962,12 @@ function lire_derniere_ville(): string
 	return "";
 }
 
+/**
+ * Charge un CSV avec en-tetes sous forme de tableaux associatifs.
+ *
+ * @param string $fichier Chemin du fichier CSV.
+ * @return array<int,array<string,string>> Lignes indexees par nom de colonne.
+ */
 function lire_csv_assoc(string $fichier): array
 {
 	$lignes = [];
@@ -780,6 +997,11 @@ function lire_csv_assoc(string $fichier): array
 	return $lignes;
 }
 
+/**
+ * Charge la liste des regions depuis le CSV local.
+ *
+ * @return array<int,array<string,string>> Regions disponibles.
+ */
 function lire_regions(): array
 {
 	static $regions = null;
@@ -791,6 +1013,11 @@ function lire_regions(): array
 	return $regions;
 }
 
+/**
+ * Charge la liste des departements depuis le CSV local.
+ *
+ * @return array<int,array<string,string>> Departements disponibles.
+ */
 function lire_departements(): array
 {
 	static $departements = null;
@@ -802,6 +1029,11 @@ function lire_departements(): array
 	return $departements;
 }
 
+/**
+ * Charge l'index national des villes depuis le CSV local.
+ *
+ * @return array<int,array<string,string>> Villes disponibles.
+ */
 function lire_villes(): array
 {
 	static $villes = null;
@@ -813,6 +1045,12 @@ function lire_villes(): array
 	return $villes;
 }
 
+/**
+ * Trouve une region par son code.
+ *
+ * @param string $code Code de region.
+ * @return array|null Region trouvee ou null.
+ */
 function trouver_region(string $code): ?array
 {
 	foreach (lire_regions() as $region) {
@@ -824,6 +1062,12 @@ function trouver_region(string $code): ?array
 	return null;
 }
 
+/**
+ * Trouve un departement par son code.
+ *
+ * @param string $code Code de departement.
+ * @return array|null Departement trouve ou null.
+ */
 function trouver_departement(string $code): ?array
 {
 	foreach (lire_departements() as $department) {
@@ -835,6 +1079,12 @@ function trouver_departement(string $code): ?array
 	return null;
 }
 
+/**
+ * Trouve une ville par son code, avec index en memoire pour accelerer les appels.
+ *
+ * @param string $code Code de la ville.
+ * @return array|null Ville trouvee ou null.
+ */
 function trouver_ville(string $code): ?array
 {
 	static $indexVilles = null;
@@ -850,6 +1100,12 @@ function trouver_ville(string $code): ?array
 	return $indexVilles[$code] ?? null;
 }
 
+/**
+ * Retourne les departements d'une region, tries par nom.
+ *
+ * @param string $codeRegion Code de region, ou chaine vide pour tout retourner.
+ * @return array<int,array<string,string>> Departements correspondants.
+ */
 function departements_par_region(string $codeRegion): array
 {
 	$resultat = [];
@@ -867,6 +1123,12 @@ function departements_par_region(string $codeRegion): array
 	return $resultat;
 }
 
+/**
+ * Retourne les villes d'un departement.
+ *
+ * @param string $codeDepartment Code du departement.
+ * @return array<int,array<string,string>> Villes du departement.
+ */
 function villes_par_departement(string $codeDepartment): array
 {
 	static $cacheDepartements = [];
@@ -888,6 +1150,11 @@ function villes_par_departement(string $codeDepartment): array
 	return $cacheDepartements[$codeDepartment];
 }
 
+/**
+ * Liste les carburants geres par le formulaire et par l'API.
+ *
+ * @return array<string,string> Code carburant => libelle affiche.
+ */
 function liste_carburants(): array
 {
 	return [
@@ -900,6 +1167,12 @@ function liste_carburants(): array
 	];
 }
 
+/**
+ * Valide la selection de carburants et applique Gazole par defaut.
+ *
+ * @param mixed $fuelInput Valeur issue de GET, chaine ou tableau.
+ * @return string[] Codes carburants valides.
+ */
 function normaliser_carburants_selection($fuelInput): array
 {
 	$carburantsValides = array_keys(liste_carburants());
@@ -928,6 +1201,12 @@ function normaliser_carburants_selection($fuelInput): array
 	return $resultat;
 }
 
+/**
+ * Transforme une liste de codes carburants en texte lisible.
+ *
+ * @param string[] $fuelTypes Codes carburants selectionnes.
+ * @return string Libelles separes par des virgules.
+ */
 function texte_carburants_selectionnes(array $fuelTypes): string
 {
 	$labels = liste_carburants();
@@ -942,6 +1221,12 @@ function texte_carburants_selectionnes(array $fuelTypes): string
 	return implode(", ", $noms);
 }
 
+/**
+ * Lit un fichier de cache JSON produit par les appels API.
+ *
+ * @param string $fichierCache Chemin du fichier cache.
+ * @return array|null Cache valide contenant time et body, ou null.
+ */
 function lire_cache_api(string $fichierCache): ?array
 {
 	if (!file_exists($fichierCache)) {
@@ -965,6 +1250,13 @@ function lire_cache_api(string $fichierCache): ?array
 	return $cache;
 }
 
+/**
+ * Interroge une URL avec cache fichier et reutilise l'ancien cache si l'API echoue.
+ *
+ * @param string $url URL distante a appeler.
+ * @param string $nomCache Nom logique du fichier cache.
+ * @return string|null Corps de reponse ou null si aucune donnee n'est disponible.
+ */
 function lire_api_avec_cache(string $url, string $nomCache): ?string
 {
 	$fichierCache = PM_CACHE_DIR . "/" . $nomCache . ".json";
@@ -1005,6 +1297,11 @@ function lire_api_avec_cache(string $url, string $nomCache): ?string
 	return null;
 }
 
+/**
+ * Recupere l'adresse IP du visiteur en tenant compte d'un eventuel proxy.
+ *
+ * @return string Adresse IP detectee ou localhost par defaut.
+ */
 function recuperer_ip_visiteur(): string
 {
 	if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"])) {
@@ -1019,6 +1316,11 @@ function recuperer_ip_visiteur(): string
 	return "127.0.0.1";
 }
 
+/**
+ * Recupere une position approximative a partir de l'adresse IP.
+ *
+ * @return array Donnees de geolocalisation : source, IP, ville, region, latitude et longitude.
+ */
 function recuperer_geolocalisation(): array
 {
 	$ip = recuperer_ip_visiteur();
@@ -1049,6 +1351,15 @@ function recuperer_geolocalisation(): array
 	];
 }
 
+/**
+ * Calcule la distance geographique entre deux coordonnees avec la formule de Haversine.
+ *
+ * @param float $lat1 Latitude du premier point.
+ * @param float $lon1 Longitude du premier point.
+ * @param float $lat2 Latitude du deuxieme point.
+ * @param float $lon2 Longitude du deuxieme point.
+ * @return float Distance en kilometres.
+ */
 function calculer_distance_km(float $lat1, float $lon1, float $lat2, float $lon2): float
 {
 	$rayonTerre = 6371;
@@ -1063,6 +1374,13 @@ function calculer_distance_km(float $lat1, float $lon1, float $lat2, float $lon2
 	return $rayonTerre * $c;
 }
 
+/**
+ * Trouve la ville locale la plus proche d'une position geographique.
+ *
+ * @param float $latitude Latitude de reference.
+ * @param float $longitude Longitude de reference.
+ * @return array|null Ville la plus proche, enrichie avec la distance.
+ */
 function trouver_ville_plus_proche(float $latitude, float $longitude): ?array
 {
 	$villeProche = null;
@@ -1081,11 +1399,25 @@ function trouver_ville_plus_proche(float $latitude, float $longitude): ?array
 	return $villeProche;
 }
 
+/**
+ * Arrondit une coordonnee pour stabiliser les cles de cache des recherches proches.
+ *
+ * @param float $value Coordonne brute.
+ * @return float Coordonne arrondie.
+ */
 function arrondir_coordonnee_cache(float $value): float
 {
 	return round($value, 2);
 }
 
+/**
+ * Detecte les arrondissements municipaux de Paris, Lyon et Marseille.
+ *
+ * Ces villes necessitent souvent un filtre par code postal plutot que par nom.
+ *
+ * @param array $city Ville issue du CSV.
+ * @return bool True si la ville correspond a un arrondissement municipal.
+ */
 function est_arrondissement_municipal(array $city): bool
 {
 	$department = (string) ($city["department_code"] ?? "");
@@ -1107,6 +1439,15 @@ function est_arrondissement_municipal(array $city): bool
 	return false;
 }
 
+/**
+ * Lit les stations depuis l'API officielle des prix des carburants.
+ *
+ * @param array|null $city Ville ou departement de reference.
+ * @param bool $departmentMode True pour chercher dans tout le departement.
+ * @param array|null $origin Position de reference pour la recherche autour de moi.
+ * @param int $radiusKm Rayon de recherche en kilometres.
+ * @return array|null Liste de stations, ou null si l'API est indisponible.
+ */
 function lire_stations_api(?array $city, bool $departmentMode = false, ?array $origin = null, int $radiusKm = 10): ?array
 {
 	if ($city === null && $origin === null) {
@@ -1230,6 +1571,17 @@ function lire_stations_api(?array $city, bool $departmentMode = false, ?array $o
 	return $stations;
 }
 
+/**
+ * Recherche et trie les stations proposant au moins un carburant selectionne.
+ *
+ * @param array|null $city Ville ou departement de reference.
+ * @param string[] $fuelTypes Carburants selectionnes.
+ * @param string $sortBy Mode de tri : price, price_desc, distance ou name.
+ * @param bool $departmentMode Recherche sur tout le departement.
+ * @param array|null $origin Position de reference pour la geolocalisation.
+ * @param int $radiusKm Rayon de recherche.
+ * @return array<int,array> Stations filtrees et enrichies avec distance/prix principal.
+ */
 function rechercher_stations(?array $city, array $fuelTypes, string $sortBy, bool $departmentMode = false, ?array $origin = null, int $radiusKm = 10): array
 {
 	if ($city === null && $origin === null) {
@@ -1294,6 +1646,17 @@ function rechercher_stations(?array $city, array $fuelTypes, string $sortBy, boo
 	return $resultat;
 }
 
+/**
+ * Variante de recherche qui indique aussi si l'API carburants a echoue.
+ *
+ * @param array|null $city Ville ou departement de reference.
+ * @param string[] $fuelTypes Carburants selectionnes.
+ * @param string $sortBy Mode de tri.
+ * @param bool $departmentMode Recherche sur tout le departement.
+ * @param array|null $origin Position de reference pour la geolocalisation.
+ * @param int $radiusKm Rayon de recherche.
+ * @return array{stations:array,api_error:bool} Resultats et statut API.
+ */
 function rechercher_stations_avec_statut(?array $city, array $fuelTypes, string $sortBy, bool $departmentMode = false, ?array $origin = null, int $radiusKm = 10): array
 {
 	if ($city === null && $origin === null) {
@@ -1367,6 +1730,12 @@ function rechercher_stations_avec_statut(?array $city, array $fuelTypes, string 
 	];
 }
 
+/**
+ * Formate un prix carburant en euros par litre.
+ *
+ * @param float|null $prix Prix numerique ou null.
+ * @return string Prix formate pour l'interface.
+ */
 function formater_prix(?float $prix): string
 {
 	if ($prix === null) {
@@ -1376,6 +1745,12 @@ function formater_prix(?float $prix): string
 	return number_format($prix, 3, ",", " ") . " EUR/L";
 }
 
+/**
+ * Convertit une date technique en date lisible.
+ *
+ * @param string|null $date Date ISO ou chaine vide.
+ * @return string Date au format francais, ou chaine vide si invalide.
+ */
 function formater_date_heure(?string $date): string
 {
 	if ($date === null || trim($date) === "") {
@@ -1390,6 +1765,11 @@ function formater_date_heure(?string $date): string
 	return date("d/m/Y H:i", $timestamp);
 }
 
+/**
+ * Lit le fichier XML local utilise pour la demonstration technique.
+ *
+ * @return array<int,array> Stations lues dans data/sample_fuel_prices.xml.
+ */
 function lire_stations_xml_demo(): array
 {
 	$fichier = PM_DATA_DIR . "/sample_fuel_prices.xml";
@@ -1436,6 +1816,13 @@ function lire_stations_xml_demo(): array
 	return $stations;
 }
 
+/**
+ * Calcule les moyennes mensuelles depuis l'archive annuelle officielle XML.
+ *
+ * @param int|null $annee Annee a analyser, annee courante par defaut.
+ * @param string[] $carburants Carburants a agreger.
+ * @return array Donnees de tendance pretes pour la page statistiques.
+ */
 function lire_tendances_prix_officielles(?int $annee = null, array $carburants = ["Gazole", "SP95", "SP98", "E10"]): array
 {
 	$annee = $annee ?? (int) date("Y");
@@ -1583,6 +1970,14 @@ function lire_tendances_prix_officielles(?int $annee = null, array $carburants =
 	return $resultat;
 }
 
+/**
+ * Transforme une serie mensuelle en points SVG pour une courbe.
+ *
+ * @param array $months Donnees mensuelles avec average_price.
+ * @param int $largeur Largeur du SVG.
+ * @param int $hauteur Hauteur du SVG.
+ * @return string Points de polyline SVG.
+ */
 function points_graphique_tendance(array $months, int $largeur = 420, int $hauteur = 170): string
 {
 	if (count($months) < 2) {
@@ -1614,6 +2009,15 @@ function points_graphique_tendance(array $months, int $largeur = 420, int $haute
 	return implode(" ", $points);
 }
 
+/**
+ * Calcule les lignes horizontales et libelles de prix d'un graphique SVG.
+ *
+ * @param array $months Donnees mensuelles.
+ * @param int $largeur Largeur du SVG.
+ * @param int $hauteur Hauteur du SVG.
+ * @param int $nombre Nombre d'intervalles.
+ * @return array<int,array<string,float|int>> Graduations de prix.
+ */
 function graduations_prix_tendance(array $months, int $largeur = 420, int $hauteur = 170, int $nombre = 4): array
 {
 	if ($months === []) {
@@ -1653,6 +2057,13 @@ function graduations_prix_tendance(array $months, int $largeur = 420, int $haute
 	return $graduations;
 }
 
+/**
+ * Calcule les positions des libelles de mois d'un graphique SVG.
+ *
+ * @param array $months Donnees mensuelles.
+ * @param int $largeur Largeur du SVG.
+ * @return array<int,array<string,float|string>> Graduations de mois.
+ */
 function graduations_mois_tendance(array $months, int $largeur = 420): array
 {
 	if ($months === []) {
@@ -1674,6 +2085,12 @@ function graduations_mois_tendance(array $months, int $largeur = 420): array
 	return $graduations;
 }
 
+/**
+ * Ajoute une recherche terminee dans le fichier CSV de consultations.
+ *
+ * @param array $infos Informations de recherche et nombre de stations trouvees.
+ * @return void
+ */
 function enregistrer_consultation(array $infos): void
 {
 	$fichier = PM_STORAGE_DIR . "/consultations.csv";
@@ -1699,6 +2116,11 @@ function enregistrer_consultation(array $infos): void
 	}
 }
 
+/**
+ * Enregistre une visite de page pour les statistiques globales.
+ *
+ * @return void
+ */
 function enregistrer_visite_page(): void
 {
 	$fichier = PM_STORAGE_DIR . "/page_visits.csv";
@@ -1721,6 +2143,11 @@ function enregistrer_visite_page(): void
 	}
 }
 
+/**
+ * Calcule les statistiques affichees a partir des fichiers CSV locaux.
+ *
+ * @return array Tops des villes, departements, regions, carburants, modes et compteurs.
+ */
 function calculer_statistiques(): array
 {
 	$lignes = lire_csv_assoc(PM_STORAGE_DIR . "/consultations.csv");

@@ -1,1 +1,3 @@
 timestamp,visitor_hash,region,department,city,mode,view,fuel,station_count
+2026-05-01T15:00:44+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Seine-et-Marne,Chelles,ville,,Gazole,4
+2026-05-01T15:00:45+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Seine-et-Marne,"Département Seine-et-Marne",departement,,Gazole,95

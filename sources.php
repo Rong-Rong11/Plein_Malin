@@ -1,4 +1,9 @@
 <?php
+/**
+ * Page des sources.
+ *
+ * Elle liste les donnees locales et les services externes exploites par le site.
+ */
 require __DIR__ . "/includes/functions.php";
 
 preparer_dossiers_et_fichiers();

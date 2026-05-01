@@ -1,4 +1,10 @@
 <?php
+/**
+ * Page de resultats.
+ *
+ * Elle reconstitue le contexte de recherche, appelle l'API carburants via les
+ * fonctions metier, affiche les stations et enregistre la consultation.
+ */
 require __DIR__ . "/includes/functions.php";
 
 preparer_dossiers_et_fichiers();
@@ -25,6 +31,7 @@ $choixRechercheIncomplet = !$useGeo && !$departmentMode && $department !== "" &&
 $departmentLabel = $department;
 $manualRadiusMode = false;
 
+// Reconstitution du contexte geographique a partir des parametres recus.
 if ($department !== "") {
 	$departmentInfo = trouver_departement($department);
 	if ($departmentInfo !== null) {
@@ -34,6 +41,7 @@ if ($department !== "") {
 	}
 }
 
+// Le mode geolocalise utilise l'IP ; les autres modes utilisent les CSV locaux.
 if ($useGeo) {
 	$geo = recuperer_geolocalisation();
 	if ((float) ($geo["latitude"] ?? 0) !== 0.0 || (float) ($geo["longitude"] ?? 0) !== 0.0) {
@@ -61,6 +69,7 @@ if ($useGeo) {
 	$currentCity = trouver_ville($city);
 }
 
+// Une recherche manuelle sur une ville utilise aussi un rayon autour de cette ville.
 if (!$useGeo && !$departmentMode && $currentCity !== null) {
 	$manualRadiusMode = true;
 }
@@ -92,6 +101,7 @@ if ($currentCity !== null) {
 	]);
 }
 
+// Les libelles suivants alimentent le panneau "Detail" de la recherche.
 $message = message_resultats($currentCity, $useGeo, $departmentMode, $stations);
 if ($apiCarburantsErreur) {
 	$message = "L'API officielle des carburants ne répond pas pour le moment.";
@@ -162,6 +172,7 @@ $stationsAffichees = array_slice($stations, 0, $limiteStationsAffichees);
 $stationsMasquees = max(0, count($stations) - count($stationsAffichees));
 $prixRecherche = array_column($stationsAffichees, "main_price");
 
+// Resume rapide des resultats affiches : moyenne et meilleur prix visible.
 if ($prixRecherche !== []) {
 	$prixMoyenRecherche = array_sum($prixRecherche) / count($prixRecherche);
 

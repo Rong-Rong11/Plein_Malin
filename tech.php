@@ -1,4 +1,10 @@
 <?php
+/**
+ * Page technique.
+ *
+ * Elle montre les formats et services manipules par le projet : JSON, XML,
+ * CSV, cookies, cache et API externes.
+ */
 require __DIR__ . '/includes/functions.php';
 
 preparer_dossiers_et_fichiers();
@@ -7,6 +13,7 @@ $geoData = recuperer_geolocalisation();
 $stats = calculer_statistiques();
 $stationsXml = lire_stations_xml_demo();
 
+// Appel de demonstration JSON conserve pour montrer l'exploitation d'une API.
 $url = "https://ghibliapi.vercel.app/films";
 $json = @file_get_contents($url);
 $data = $json !== false ? json_decode($json, true) : [];

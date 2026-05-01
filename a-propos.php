@@ -1,4 +1,9 @@
 <?php
+/**
+ * Page "A propos".
+ *
+ * Elle presente le projet, ses objectifs et les choix de sobriete numerique.
+ */
 require __DIR__ . "/includes/functions.php";
 
 preparer_dossiers_et_fichiers();

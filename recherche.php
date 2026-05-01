@@ -1,4 +1,10 @@
 <?php
+/**
+ * Page de recherche.
+ *
+ * Elle gere deux parcours : la recherche manuelle par region/departement/ville
+ * et la recherche autour de la position approximative de l'utilisateur.
+ */
 require __DIR__ . "/includes/functions.php";
 
 preparer_dossiers_et_fichiers();
@@ -6,11 +12,13 @@ preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 $fuelLabels = liste_carburants();
 
+// Le bouton de reinitialisation efface les criteres memorises et repart d'un GET vide.
 if (isset($_GET["reset"])) {
 	effacer_parametres_derniere_recherche();
 	$_GET = [];
 }
 
+// Validation defensive des parametres GET pour eviter les combinaisons incoherentes.
 $region = $_GET["region"] ?? "";
 $department = $_GET["department"] ?? "";
 $city = $_GET["city"] ?? "";
@@ -38,6 +46,7 @@ if ($region === "") {
 	}
 }
 
+// Si l'utilisateur revient sur un departement, on restaure la ville memorisee.
 $parametresMemorises = lire_parametres_derniere_recherche();
 if (
 	$city === ""
@@ -70,6 +79,16 @@ $hauteurCarteOriginale = $theme === "night" ? 1024 : 1028;
 $largeurCarte = (int) round($largeurCarteOriginale / 1.35);
 $hauteurCarte = (int) round($hauteurCarteOriginale * ($largeurCarte / $largeurCarteOriginale));
 
+/**
+ * Adapte les coordonnees de la carte cliquable a la taille affichee.
+ *
+ * @param string $coords Coordonnees originales separees par des virgules.
+ * @param int $largeurOriginale Largeur de l'image source.
+ * @param int $hauteurOriginale Hauteur de l'image source.
+ * @param int $largeurAffichee Largeur affichee dans la page.
+ * @param int $hauteurAffichee Hauteur affichee dans la page.
+ * @return string Coordonnees redimensionnees pour la balise area.
+ */
 function coordonnees_carte(string $coords, int $largeurOriginale, int $hauteurOriginale, int $largeurAffichee, int $hauteurAffichee): string
 {
 	$valeurs = array_map("trim", explode(",", $coords));

@@ -1,0 +1,114 @@
+\doxysection{stats.\+php File Reference}
+\hypertarget{stats_8php}{}\label{stats_8php}\index{stats.php@{stats.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{stats_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}{\$theme}} = \doxymbox{\hyperlink{functions_8php_ad846814cbbdd645be54a7f8f3e10de77}{gerer\+\_\+theme}}()
+\item 
+\doxymbox{\hyperlink{stats_8php_ac61adefb58583938c9b820405ddfa018}{\$stats}} = \doxymbox{\hyperlink{functions_8php_a5b42211615afbdf17d0a0f52232108c0}{calculer\+\_\+statistiques}}()
+\item 
+\doxymbox{\hyperlink{stats_8php_aae198bf80db896145044a0888c59c727}{\$max\+City\+Count}} = \$stats\+[\textquotesingle{}top\+\_\+cities\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+cities\textquotesingle{}]\+)
+\item 
+\doxymbox{\hyperlink{stats_8php_a153a7b601cb67be6427ad8a3d6dcabaf}{\$max\+Department\+Count}} = \$stats\+[\textquotesingle{}top\+\_\+departments\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+departments\textquotesingle{}]\+)
+\item 
+\doxymbox{\hyperlink{stats_8php_a3f71f5d5c58c9dbd2654ab2ec8069665}{\$max\+Region\+Count}} = \$stats\+[\textquotesingle{}top\+\_\+regions\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+regions\textquotesingle{}]\+)
+\item 
+\doxymbox{\hyperlink{stats_8php_a8d79b089d907047144d8172a128700bd}{\$max\+Fuel\+Count}} = \$stats\+[\textquotesingle{}top\+\_\+fuels\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+fuels\textquotesingle{}]\+)
+\item 
+\doxymbox{\hyperlink{stats_8php_a0923e751af1ebc0063fba96b038eee0e}{\$max\+Mode\+Count}} = \$stats\+[\textquotesingle{}top\+\_\+modes\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+modes\textquotesingle{}]\+)
+\item 
+\doxymbox{\hyperlink{stats_8php_aa62fbcdfb4de027f310c6c5ba754d29f}{\$fuel\+Trends}} = \doxymbox{\hyperlink{functions_8php_afa484ffbce4f8f277f6b49bab618b2ef}{lire\+\_\+tendances\+\_\+prix\+\_\+officielles}}(null, \+["{}Gazole"{}, "{}SP95"{}, "{}SP98"{}, "{}E10"{}]\+)
+\item 
+\doxymbox{\hyperlink{stats_8php_a3a19a3c439125b55fcedd6bb5dbabdcb}{\$page\+Title}} = "{}Statistiques -\/ Plein Malin"{}
+\item 
+\doxymbox{\hyperlink{stats_8php_ad99e553417ef14ff3eeffa7d69447823}{\$page\+Description}} = "{}Page statistiques de Plein Malin."{}
+\item 
+\doxymbox{\hyperlink{stats_8php_a10dad9009ff7a9d585fe258645a0d97b}{\$active\+Page}} = "{}stats"{}
+\item 
+\doxymbox{\hyperlink{stats_8php_a9a6371febe3a20cee96ecc33d8f076ed}{\$footer\+Text}} = "{}Enzo Phung \texorpdfstring{$\vert$}{|} Fatma-\/Zhara Baarir \texorpdfstring{$\vert$}{|} Statistiques générées à partir du CSV de consultations."{}
+\item 
+\doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\$stats\+[\textquotesingle{}top\+\_\+cities\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach( \$stats\+[ \textquotesingle{}top\+\_\+cities\textquotesingle{}]\+ as \$city=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\$stats\+[\textquotesingle{}top\+\_\+departments\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach( \$stats\+[ \textquotesingle{}top\+\_\+departments\textquotesingle{}]\+ as \$department=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\$stats\+[\textquotesingle{}top\+\_\+regions\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach( \$stats\+[ \textquotesingle{}top\+\_\+regions\textquotesingle{}]\+ as \$region=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\$stats\+[\textquotesingle{}top\+\_\+fuels\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach( \$stats\+[ \textquotesingle{}top\+\_\+fuels\textquotesingle{}]\+ as \$fuel=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\$stats\+[\textquotesingle{}top\+\_\+modes\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach( \$stats\+[ \textquotesingle{}top\+\_\+modes\textquotesingle{}]\+ as \$mode=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\doxymbox{\hyperlink{functions_8php_aca0271ba759d3307cb477bd824525960}{formater\+\_\+date\+\_\+heure}}(\$fuel\+Trends\+["{}cached\+\_\+at"{}]\+ ?? "{}"{}) !=="{}"{}) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(( \$fuel\+Trends\+["{}fuels"{}]\+ ??\+[$\,$]\+)===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} \doxymbox{\hyperlink{stats_8php_af73f4fa3877b30162813f1f1ca90cd84}{foreach}} ( \$fuel\+Trends\+["{}fuels"{}]\+ as \$fuel\+Name=$>$ \$months) \{
+\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{stats_8php_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{stats_8php_a10dad9009ff7a9d585fe258645a0d97b}\index{stats.php@{stats.php}!\$activePage@{\$activePage}}
+\index{\$activePage@{\$activePage}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$activePage}{\$activePage}}
+{\footnotesize\ttfamily \label{stats_8php_a10dad9009ff7a9d585fe258645a0d97b} 
+\$active\+Page = "{}stats"{}}
+
+\Hypertarget{stats_8php_a9a6371febe3a20cee96ecc33d8f076ed}\index{stats.php@{stats.php}!\$footerText@{\$footerText}}
+\index{\$footerText@{\$footerText}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$footerText}{\$footerText}}
+{\footnotesize\ttfamily \label{stats_8php_a9a6371febe3a20cee96ecc33d8f076ed} 
+\$footer\+Text = "{}Enzo Phung \texorpdfstring{$\vert$}{|} Fatma-\/Zhara Baarir \texorpdfstring{$\vert$}{|} Statistiques générées à partir du CSV de consultations."{}}
+
+\Hypertarget{stats_8php_aa62fbcdfb4de027f310c6c5ba754d29f}\index{stats.php@{stats.php}!\$fuelTrends@{\$fuelTrends}}
+\index{\$fuelTrends@{\$fuelTrends}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$fuelTrends}{\$fuelTrends}}
+{\footnotesize\ttfamily \label{stats_8php_aa62fbcdfb4de027f310c6c5ba754d29f} 
+\$fuel\+Trends = \doxymbox{\hyperlink{functions_8php_afa484ffbce4f8f277f6b49bab618b2ef}{lire\+\_\+tendances\+\_\+prix\+\_\+officielles}}(null, \+["{}Gazole"{}, "{}SP95"{}, "{}SP98"{}, "{}E10"{}]\+)}
+
+\Hypertarget{stats_8php_aae198bf80db896145044a0888c59c727}\index{stats.php@{stats.php}!\$maxCityCount@{\$maxCityCount}}
+\index{\$maxCityCount@{\$maxCityCount}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$maxCityCount}{\$maxCityCount}}
+{\footnotesize\ttfamily \label{stats_8php_aae198bf80db896145044a0888c59c727} 
+\$max\+City\+Count = \$stats\+[\textquotesingle{}top\+\_\+cities\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+cities\textquotesingle{}]\+)}
+
+\Hypertarget{stats_8php_a153a7b601cb67be6427ad8a3d6dcabaf}\index{stats.php@{stats.php}!\$maxDepartmentCount@{\$maxDepartmentCount}}
+\index{\$maxDepartmentCount@{\$maxDepartmentCount}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$maxDepartmentCount}{\$maxDepartmentCount}}
+{\footnotesize\ttfamily \label{stats_8php_a153a7b601cb67be6427ad8a3d6dcabaf} 
+\$max\+Department\+Count = \$stats\+[\textquotesingle{}top\+\_\+departments\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+departments\textquotesingle{}]\+)}
+
+\Hypertarget{stats_8php_a8d79b089d907047144d8172a128700bd}\index{stats.php@{stats.php}!\$maxFuelCount@{\$maxFuelCount}}
+\index{\$maxFuelCount@{\$maxFuelCount}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$maxFuelCount}{\$maxFuelCount}}
+{\footnotesize\ttfamily \label{stats_8php_a8d79b089d907047144d8172a128700bd} 
+\$max\+Fuel\+Count = \$stats\+[\textquotesingle{}top\+\_\+fuels\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+fuels\textquotesingle{}]\+)}
+
+\Hypertarget{stats_8php_a0923e751af1ebc0063fba96b038eee0e}\index{stats.php@{stats.php}!\$maxModeCount@{\$maxModeCount}}
+\index{\$maxModeCount@{\$maxModeCount}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$maxModeCount}{\$maxModeCount}}
+{\footnotesize\ttfamily \label{stats_8php_a0923e751af1ebc0063fba96b038eee0e} 
+\$max\+Mode\+Count = \$stats\+[\textquotesingle{}top\+\_\+modes\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+modes\textquotesingle{}]\+)}
+
+\Hypertarget{stats_8php_a3f71f5d5c58c9dbd2654ab2ec8069665}\index{stats.php@{stats.php}!\$maxRegionCount@{\$maxRegionCount}}
+\index{\$maxRegionCount@{\$maxRegionCount}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$maxRegionCount}{\$maxRegionCount}}
+{\footnotesize\ttfamily \label{stats_8php_a3f71f5d5c58c9dbd2654ab2ec8069665} 
+\$max\+Region\+Count = \$stats\+[\textquotesingle{}top\+\_\+regions\textquotesingle{}]\+ === \+[$\,$]\+ ? 1 :\+ max(\$stats\+[\textquotesingle{}top\+\_\+regions\textquotesingle{}]\+)}
+
+\Hypertarget{stats_8php_ad99e553417ef14ff3eeffa7d69447823}\index{stats.php@{stats.php}!\$pageDescription@{\$pageDescription}}
+\index{\$pageDescription@{\$pageDescription}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$pageDescription}{\$pageDescription}}
+{\footnotesize\ttfamily \label{stats_8php_ad99e553417ef14ff3eeffa7d69447823} 
+\$page\+Description = "{}Page statistiques de Plein Malin."{}}
+
+\Hypertarget{stats_8php_a3a19a3c439125b55fcedd6bb5dbabdcb}\index{stats.php@{stats.php}!\$pageTitle@{\$pageTitle}}
+\index{\$pageTitle@{\$pageTitle}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$pageTitle}{\$pageTitle}}
+{\footnotesize\ttfamily \label{stats_8php_a3a19a3c439125b55fcedd6bb5dbabdcb} 
+\$page\+Title = "{}Statistiques -\/ Plein Malin"{}}
+
+\Hypertarget{stats_8php_ac61adefb58583938c9b820405ddfa018}\index{stats.php@{stats.php}!\$stats@{\$stats}}
+\index{\$stats@{\$stats}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$stats}{\$stats}}
+{\footnotesize\ttfamily \label{stats_8php_ac61adefb58583938c9b820405ddfa018} 
+\$stats = \doxymbox{\hyperlink{functions_8php_a5b42211615afbdf17d0a0f52232108c0}{calculer\+\_\+statistiques}}()}
+
+\Hypertarget{stats_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}\index{stats.php@{stats.php}!\$theme@{\$theme}}
+\index{\$theme@{\$theme}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{\$theme}{\$theme}}
+{\footnotesize\ttfamily \label{stats_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc} 
+\$theme = \doxymbox{\hyperlink{functions_8php_ad846814cbbdd645be54a7f8f3e10de77}{gerer\+\_\+theme}}()}
+
+\Hypertarget{stats_8php_af73f4fa3877b30162813f1f1ca90cd84}\index{stats.php@{stats.php}!foreach@{foreach}}
+\index{foreach@{foreach}!stats.php@{stats.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily \label{stats_8php_af73f4fa3877b30162813f1f1ca90cd84} 
+\doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}( \$stats\+[ \textquotesingle{}top\+\_\+cities\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach(\$stats\+[\textquotesingle{}top\+\_\+cities\textquotesingle{}]\+ as \$city=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}( \$stats\+[ \textquotesingle{}top\+\_\+departments\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach(\$stats\+[\textquotesingle{}top\+\_\+departments\textquotesingle{}]\+ as \$department=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}( \$stats\+[ \textquotesingle{}top\+\_\+regions\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach(\$stats\+[\textquotesingle{}top\+\_\+regions\textquotesingle{}]\+ as \$region=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}( \$stats\+[ \textquotesingle{}top\+\_\+fuels\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach(\$stats\+[\textquotesingle{}top\+\_\+fuels\textquotesingle{}]\+ as \$fuel=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}( \$stats\+[ \textquotesingle{}top\+\_\+modes\textquotesingle{}]\+===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach(\$stats\+[\textquotesingle{}top\+\_\+modes\textquotesingle{}]\+ as \$mode=$>$ \$count) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\doxymbox{\hyperlink{functions_8php_aca0271ba759d3307cb477bd824525960}{formater\+\_\+date\+\_\+heure}}( \$fuel\+Trends\+["{}cached\+\_\+at"{}]\+ ?? "{}"{}) !=="{}"{}) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}((\$fuel\+Trends\+["{}fuels"{}]\+ ??\+[$\,$]\+)===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach(\$fuel\+Trends\+["{}fuels"{}]\+ as \$fuel\+Name=$>$ \$months) (\begin{DoxyParamCaption}\item[{}]{\$fuel\+Trends as}{\+["{}fuels"{}]\+, }\item[{}]{\$months}{}\end{DoxyParamCaption}) \{}
+

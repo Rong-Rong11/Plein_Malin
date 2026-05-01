@@ -1,4 +1,9 @@
 <?php
+/**
+ * Page du plan du site.
+ *
+ * Elle regroupe les principales pages accessibles et les pages d'information.
+ */
 require __DIR__ . "/includes/functions.php";
 
 preparer_dossiers_et_fichiers();

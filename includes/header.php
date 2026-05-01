@@ -1,4 +1,10 @@
 <?php
+/**
+ * En-tete commun du site.
+ *
+ * Ce fichier initialise le theme, la langue, les liens de navigation memorises
+ * et demarre le tampon de sortie utilise pour la traduction anglaise.
+ */
 $pageTitle = $pageTitle ?? "Plein Malin";
 $pageDescription = $pageDescription ?? "Site Plein Malin";
 $activePage = $activePage ?? "";

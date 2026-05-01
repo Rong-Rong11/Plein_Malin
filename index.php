@@ -1,4 +1,10 @@
 <?php
+/**
+ * Page d'accueil.
+ *
+ * Elle prepare les liens de reprise de recherche a partir des cookies, puis
+ * presente le fonctionnement general du site.
+ */
 require __DIR__ . "/includes/functions.php";
 
 preparer_dossiers_et_fichiers();
@@ -13,6 +19,7 @@ $typeDerniereRecherche = "";
 $dateDerniereRecherche = "";
 $derniereRecherche = lire_derniere_recherche();
 
+// La date du cookie est convertie en format francais uniquement si elle est valide.
 if (isset($derniereRecherche["date"]) && is_string($derniereRecherche["date"])) {
 	$dateCookie = strtotime($derniereRecherche["date"]);
 
@@ -21,6 +28,7 @@ if (isset($derniereRecherche["date"]) && is_string($derniereRecherche["date"])) 
 	}
 }
 
+// Priorite a la derniere recherche complete, puis a l'ancien cookie de derniere ville.
 if (($derniereRecherche["type"] ?? "") === "departement") {
 	$dernierDepartement = trouver_departement((string) $derniereRecherche["code"]);
 

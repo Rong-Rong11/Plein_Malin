@@ -1,0 +1,114 @@
+\doxysection{tech.\+php File Reference}
+\hypertarget{tech_8php}{}\label{tech_8php}\index{tech.php@{tech.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{tech_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}{\$theme}} = \doxymbox{\hyperlink{functions_8php_ad846814cbbdd645be54a7f8f3e10de77}{gerer\+\_\+theme}}()
+\item 
+\doxymbox{\hyperlink{tech_8php_a75f6bf1afc15e06d16b25cf2016a3c98}{\$geo\+Data}} = \doxymbox{\hyperlink{functions_8php_aa7b38ef75972b9003c6e64a0c9fa1672}{recuperer\+\_\+geolocalisation}}()
+\item 
+\doxymbox{\hyperlink{tech_8php_ac61adefb58583938c9b820405ddfa018}{\$stats}} = \doxymbox{\hyperlink{functions_8php_a5b42211615afbdf17d0a0f52232108c0}{calculer\+\_\+statistiques}}()
+\item 
+\doxymbox{\hyperlink{tech_8php_a38a3fa0c8a2593274b44c8ff7d4cea4a}{\$stations\+Xml}} = \doxymbox{\hyperlink{functions_8php_ae805df52e7ff1c3a432b792f86ecc0a2}{lire\+\_\+stations\+\_\+xml\+\_\+demo}}()
+\item 
+\doxymbox{\hyperlink{tech_8php_acf215f34a917d014776ce684a9ee8909}{\$url}} = "{}https:\+/\+/\+ghibliapi.\+vercel.\+app/\+films"{}
+\item 
+\doxymbox{\hyperlink{tech_8php_acedd13b51401130848ce18f4d5c52605}{\$json}} = @file\+\_\+get\+\_\+contents(\$url)
+\item 
+\doxymbox{\hyperlink{tech_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}{\$data}} = \$json !== false ? json\+\_\+decode(\$json, true) :\+ \+[$\,$]\+
+\item 
+\doxymbox{\hyperlink{tech_8php_a697f20bb465adeab6a51e03978fda04c}{\$film}} = is\+\_\+array(\$data) \&\& \$data !== \+[$\,$]\+ ? \$data\+[array\+\_\+rand(\$data)]\+ :\+ null
+\item 
+\doxymbox{\hyperlink{tech_8php_a3a19a3c439125b55fcedd6bb5dbabdcb}{\$page\+Title}} = "{}Page tech -\/ Plein Malin"{}
+\item 
+\doxymbox{\hyperlink{tech_8php_ad99e553417ef14ff3eeffa7d69447823}{\$page\+Description}} = "{}Page technique conservee pour la validation de la partie 1 du projet."{}
+\item 
+\doxymbox{\hyperlink{tech_8php_a10dad9009ff7a9d585fe258645a0d97b}{\$active\+Page}} = "{}tech"{}
+\item 
+\doxymbox{\hyperlink{tech_8php_a9a6371febe3a20cee96ecc33d8f076ed}{\$footer\+Text}} = "{}Enzo Phung \texorpdfstring{$\vert$}{|} Fatma-\/Zhara Baarir \texorpdfstring{$\vert$}{|} Page technique conservee pour validation."{}
+\item 
+\doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\$film===null) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}( \$stations\+Xml===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} \doxymbox{\hyperlink{tech_8php_a0cea68bc69f913ab8c42001822382b74}{foreach}} (array\+\_\+slice( \$stations\+Xml, 0, 5) as \$station) = \doxymbox{\hyperlink{functions_8php_a2c6f7c63c34379a746a4ac69c9c3278b}{texte\+\_\+securise}}((string) count(\$stats\+[\textquotesingle{}top\+\_\+cities\textquotesingle{}]\+))
+\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{tech_8php_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{tech_8php_a10dad9009ff7a9d585fe258645a0d97b}\index{tech.php@{tech.php}!\$activePage@{\$activePage}}
+\index{\$activePage@{\$activePage}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$activePage}{\$activePage}}
+{\footnotesize\ttfamily \label{tech_8php_a10dad9009ff7a9d585fe258645a0d97b} 
+\$active\+Page = "{}tech"{}}
+
+\Hypertarget{tech_8php_a6efc15b5a2314dd4b5aaa556a375c6d6}\index{tech.php@{tech.php}!\$data@{\$data}}
+\index{\$data@{\$data}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$data}{\$data}}
+{\footnotesize\ttfamily \label{tech_8php_a6efc15b5a2314dd4b5aaa556a375c6d6} 
+\$data = \$json !== false ? json\+\_\+decode(\$json, true) :\+ \+[$\,$]\+}
+
+\Hypertarget{tech_8php_a697f20bb465adeab6a51e03978fda04c}\index{tech.php@{tech.php}!\$film@{\$film}}
+\index{\$film@{\$film}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$film}{\$film}}
+{\footnotesize\ttfamily \label{tech_8php_a697f20bb465adeab6a51e03978fda04c} 
+\$film = is\+\_\+array(\$data) \&\& \$data !== \+[$\,$]\+ ? \$data\+[array\+\_\+rand(\$data)]\+ :\+ null}
+
+\Hypertarget{tech_8php_a9a6371febe3a20cee96ecc33d8f076ed}\index{tech.php@{tech.php}!\$footerText@{\$footerText}}
+\index{\$footerText@{\$footerText}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$footerText}{\$footerText}}
+{\footnotesize\ttfamily \label{tech_8php_a9a6371febe3a20cee96ecc33d8f076ed} 
+\$footer\+Text = "{}Enzo Phung \texorpdfstring{$\vert$}{|} Fatma-\/Zhara Baarir \texorpdfstring{$\vert$}{|} Page technique conservee pour validation."{}}
+
+\Hypertarget{tech_8php_a75f6bf1afc15e06d16b25cf2016a3c98}\index{tech.php@{tech.php}!\$geoData@{\$geoData}}
+\index{\$geoData@{\$geoData}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$geoData}{\$geoData}}
+{\footnotesize\ttfamily \label{tech_8php_a75f6bf1afc15e06d16b25cf2016a3c98} 
+\$geo\+Data = \doxymbox{\hyperlink{functions_8php_aa7b38ef75972b9003c6e64a0c9fa1672}{recuperer\+\_\+geolocalisation}}()}
+
+\Hypertarget{tech_8php_acedd13b51401130848ce18f4d5c52605}\index{tech.php@{tech.php}!\$json@{\$json}}
+\index{\$json@{\$json}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$json}{\$json}}
+{\footnotesize\ttfamily \label{tech_8php_acedd13b51401130848ce18f4d5c52605} 
+\$json = @file\+\_\+get\+\_\+contents(\$url)}
+
+\Hypertarget{tech_8php_ad99e553417ef14ff3eeffa7d69447823}\index{tech.php@{tech.php}!\$pageDescription@{\$pageDescription}}
+\index{\$pageDescription@{\$pageDescription}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$pageDescription}{\$pageDescription}}
+{\footnotesize\ttfamily \label{tech_8php_ad99e553417ef14ff3eeffa7d69447823} 
+\$page\+Description = "{}Page technique conservee pour la validation de la partie 1 du projet."{}}
+
+\Hypertarget{tech_8php_a3a19a3c439125b55fcedd6bb5dbabdcb}\index{tech.php@{tech.php}!\$pageTitle@{\$pageTitle}}
+\index{\$pageTitle@{\$pageTitle}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$pageTitle}{\$pageTitle}}
+{\footnotesize\ttfamily \label{tech_8php_a3a19a3c439125b55fcedd6bb5dbabdcb} 
+\$page\+Title = "{}Page tech -\/ Plein Malin"{}}
+
+\Hypertarget{tech_8php_a38a3fa0c8a2593274b44c8ff7d4cea4a}\index{tech.php@{tech.php}!\$stationsXml@{\$stationsXml}}
+\index{\$stationsXml@{\$stationsXml}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$stationsXml}{\$stationsXml}}
+{\footnotesize\ttfamily \label{tech_8php_a38a3fa0c8a2593274b44c8ff7d4cea4a} 
+\$stations\+Xml = \doxymbox{\hyperlink{functions_8php_ae805df52e7ff1c3a432b792f86ecc0a2}{lire\+\_\+stations\+\_\+xml\+\_\+demo}}()}
+
+\Hypertarget{tech_8php_ac61adefb58583938c9b820405ddfa018}\index{tech.php@{tech.php}!\$stats@{\$stats}}
+\index{\$stats@{\$stats}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$stats}{\$stats}}
+{\footnotesize\ttfamily \label{tech_8php_ac61adefb58583938c9b820405ddfa018} 
+\$stats = \doxymbox{\hyperlink{functions_8php_a5b42211615afbdf17d0a0f52232108c0}{calculer\+\_\+statistiques}}()}
+
+\Hypertarget{tech_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}\index{tech.php@{tech.php}!\$theme@{\$theme}}
+\index{\$theme@{\$theme}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$theme}{\$theme}}
+{\footnotesize\ttfamily \label{tech_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc} 
+\$theme = \doxymbox{\hyperlink{functions_8php_ad846814cbbdd645be54a7f8f3e10de77}{gerer\+\_\+theme}}()}
+
+\Hypertarget{tech_8php_acf215f34a917d014776ce684a9ee8909}\index{tech.php@{tech.php}!\$url@{\$url}}
+\index{\$url@{\$url}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{\$url}{\$url}}
+{\footnotesize\ttfamily \label{tech_8php_acf215f34a917d014776ce684a9ee8909} 
+\$url = "{}https:\+/\+/\+ghibliapi.\+vercel.\+app/\+films"{}}
+
+\Hypertarget{tech_8php_a0cea68bc69f913ab8c42001822382b74}\index{tech.php@{tech.php}!foreach@{foreach}}
+\index{foreach@{foreach}!tech.php@{tech.php}}
+\doxysubsubsection{\texorpdfstring{foreach}{foreach}}
+{\footnotesize\ttfamily \label{tech_8php_a0cea68bc69f913ab8c42001822382b74} 
+\doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}( \$film===null) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\$stations\+Xml===\+[$\,$]\+) \doxymbox{\hyperlink{recherche_8php_a017cc387eb0fa270a586fba46a19e408}{else}} foreach(array\+\_\+slice(\$stations\+Xml, 0, 5) as \$station) (\begin{DoxyParamCaption}\item[{array\+\_\+slice(\$stations\+Xml, 0, 5) as}]{\$station}{}\end{DoxyParamCaption}) = \doxymbox{\hyperlink{functions_8php_a2c6f7c63c34379a746a4ac69c9c3278b}{texte\+\_\+securise}}((string) count(\$stats\+[\textquotesingle{}top\+\_\+cities\textquotesingle{}]\+))}
+

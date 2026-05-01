@@ -1,4 +1,10 @@
 <?php
+/**
+ * Page confidentialite.
+ *
+ * Elle decrit les cookies utilises et les donnees conservees dans les fichiers
+ * CSV du projet.
+ */
 require __DIR__ . "/includes/functions.php";
 
 preparer_dossiers_et_fichiers();

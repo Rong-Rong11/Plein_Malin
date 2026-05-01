@@ -1,0 +1,122 @@
+\doxysection{index.\+php File Reference}
+\hypertarget{index_8php}{}\label{index_8php}\index{index.php@{index.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{index_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}{\$theme}} = \doxymbox{\hyperlink{functions_8php_ad846814cbbdd645be54a7f8f3e10de77}{gerer\+\_\+theme}}()
+\item 
+\doxymbox{\hyperlink{index_8php_a0f8a3a9a410ba940127308072abfcb78}{\$derniere\+Ville}} = null
+\item 
+\doxymbox{\hyperlink{index_8php_ae10a45a5e90f6974275d3e0bb23973c9}{\$dernier\+Departement}} = null
+\item 
+\doxymbox{\hyperlink{index_8php_a2a23fa057925325edf9ae69c0308ea73}{\$code\+Derniere\+Ville}} = \doxymbox{\hyperlink{functions_8php_aaad0373a3434ec23191b346695021ffb}{lire\+\_\+derniere\+\_\+ville}}()
+\item 
+\doxymbox{\hyperlink{index_8php_a2214313f0c67e02274c05fb98f3ecc0a}{\$lien\+Derniere\+Recherche}} = "{}"{}
+\item 
+\doxymbox{\hyperlink{index_8php_acff86d364073eccd7201a882455d9a06}{\$libelle\+Derniere\+Recherche}} = "{}"{}
+\item 
+\doxymbox{\hyperlink{index_8php_a93be4031ebe7b1eb742a229b86676b71}{\$type\+Derniere\+Recherche}} = "{}"{}
+\item 
+\doxymbox{\hyperlink{index_8php_ac123fbd34dc66206c93524cc97221580}{\$date\+Derniere\+Recherche}} = "{}"{}
+\item 
+\doxymbox{\hyperlink{index_8php_add5a65887ad7e2254d94ffdc3de1e42a}{\$derniere\+Recherche}} = \doxymbox{\hyperlink{functions_8php_a025f0ad30ddc5f24e3078638b004d610}{lire\+\_\+derniere\+\_\+recherche}}()
+\item 
+\doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(isset( \$derniere\+Recherche\+["{}date"{}]\+) \&\&is\+\_\+string( \$derniere\+Recherche\+["{}date"{}]\+)) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}((\$derniere\+Recherche\+["{}type"{}]\+ ?? "{}"{})==="{}departement"{}) elseif(( \$derniere\+Recherche\+["{}type"{}]\+ ?? "{}"{})==="{}ville"{}) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(\$type\+Derniere\+Recherche==="{}"{} \&\& \$code\+Derniere\+Ville !=="{}"{} \doxymbox{\hyperlink{index_8php_ae42a543234d43b63387b5f0a98b5ebb3}{\$page\+Title}} ) = "{}Plein Malin"{}
+\item 
+\doxymbox{\hyperlink{index_8php_ad99e553417ef14ff3eeffa7d69447823}{\$page\+Description}} = "{}Comparer les prix des carburants et trouver une station en France."{}
+\item 
+\doxymbox{\hyperlink{index_8php_a10dad9009ff7a9d585fe258645a0d97b}{\$active\+Page}} = "{}index"{}
+\item 
+\doxymbox{\hyperlink{index_8php_a9a6371febe3a20cee96ecc33d8f076ed}{\$footer\+Text}} = "{}Enzo Phung \texorpdfstring{$\vert$}{|} Fatma-\/Zhara Baarir \texorpdfstring{$\vert$}{|} CY Cergy Paris Universite \texorpdfstring{$\vert$}{|} Projet Web 2025-\/2026"{}
+\item 
+\doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}} ( \$type\+Derniere\+Recherche !=="{}"{}) = \doxymbox{\hyperlink{functions_8php_a85c483f46ffd92acb22872393621cdfb}{message\+\_\+resultats}}(\$current\+City, \$use\+Geo, \$department\+Mode, \$stations)
+\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{index_8php_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{index_8php_a10dad9009ff7a9d585fe258645a0d97b}\index{index.php@{index.php}!\$activePage@{\$activePage}}
+\index{\$activePage@{\$activePage}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$activePage}{\$activePage}}
+{\footnotesize\ttfamily \label{index_8php_a10dad9009ff7a9d585fe258645a0d97b} 
+\$active\+Page = "{}index"{}}
+
+\Hypertarget{index_8php_a2a23fa057925325edf9ae69c0308ea73}\index{index.php@{index.php}!\$codeDerniereVille@{\$codeDerniereVille}}
+\index{\$codeDerniereVille@{\$codeDerniereVille}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$codeDerniereVille}{\$codeDerniereVille}}
+{\footnotesize\ttfamily \label{index_8php_a2a23fa057925325edf9ae69c0308ea73} 
+\$code\+Derniere\+Ville = \doxymbox{\hyperlink{functions_8php_aaad0373a3434ec23191b346695021ffb}{lire\+\_\+derniere\+\_\+ville}}()}
+
+\Hypertarget{index_8php_ac123fbd34dc66206c93524cc97221580}\index{index.php@{index.php}!\$dateDerniereRecherche@{\$dateDerniereRecherche}}
+\index{\$dateDerniereRecherche@{\$dateDerniereRecherche}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$dateDerniereRecherche}{\$dateDerniereRecherche}}
+{\footnotesize\ttfamily \label{index_8php_ac123fbd34dc66206c93524cc97221580} 
+\$date\+Derniere\+Recherche = "{}"{}}
+
+\Hypertarget{index_8php_ae10a45a5e90f6974275d3e0bb23973c9}\index{index.php@{index.php}!\$dernierDepartement@{\$dernierDepartement}}
+\index{\$dernierDepartement@{\$dernierDepartement}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$dernierDepartement}{\$dernierDepartement}}
+{\footnotesize\ttfamily \label{index_8php_ae10a45a5e90f6974275d3e0bb23973c9} 
+\$dernier\+Departement = null}
+
+\Hypertarget{index_8php_add5a65887ad7e2254d94ffdc3de1e42a}\index{index.php@{index.php}!\$derniereRecherche@{\$derniereRecherche}}
+\index{\$derniereRecherche@{\$derniereRecherche}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$derniereRecherche}{\$derniereRecherche}}
+{\footnotesize\ttfamily \label{index_8php_add5a65887ad7e2254d94ffdc3de1e42a} 
+\$derniere\+Recherche = \doxymbox{\hyperlink{functions_8php_a025f0ad30ddc5f24e3078638b004d610}{lire\+\_\+derniere\+\_\+recherche}}()}
+
+\Hypertarget{index_8php_a0f8a3a9a410ba940127308072abfcb78}\index{index.php@{index.php}!\$derniereVille@{\$derniereVille}}
+\index{\$derniereVille@{\$derniereVille}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$derniereVille}{\$derniereVille}}
+{\footnotesize\ttfamily \label{index_8php_a0f8a3a9a410ba940127308072abfcb78} 
+\$derniere\+Ville = null}
+
+\Hypertarget{index_8php_a9a6371febe3a20cee96ecc33d8f076ed}\index{index.php@{index.php}!\$footerText@{\$footerText}}
+\index{\$footerText@{\$footerText}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$footerText}{\$footerText}}
+{\footnotesize\ttfamily \label{index_8php_a9a6371febe3a20cee96ecc33d8f076ed} 
+\$footer\+Text = "{}Enzo Phung \texorpdfstring{$\vert$}{|} Fatma-\/Zhara Baarir \texorpdfstring{$\vert$}{|} CY Cergy Paris Universite \texorpdfstring{$\vert$}{|} Projet Web 2025-\/2026"{}}
+
+\Hypertarget{index_8php_acff86d364073eccd7201a882455d9a06}\index{index.php@{index.php}!\$libelleDerniereRecherche@{\$libelleDerniereRecherche}}
+\index{\$libelleDerniereRecherche@{\$libelleDerniereRecherche}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$libelleDerniereRecherche}{\$libelleDerniereRecherche}}
+{\footnotesize\ttfamily \label{index_8php_acff86d364073eccd7201a882455d9a06} 
+\$libelle\+Derniere\+Recherche = "{}"{}}
+
+\Hypertarget{index_8php_a2214313f0c67e02274c05fb98f3ecc0a}\index{index.php@{index.php}!\$lienDerniereRecherche@{\$lienDerniereRecherche}}
+\index{\$lienDerniereRecherche@{\$lienDerniereRecherche}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$lienDerniereRecherche}{\$lienDerniereRecherche}}
+{\footnotesize\ttfamily \label{index_8php_a2214313f0c67e02274c05fb98f3ecc0a} 
+\$lien\+Derniere\+Recherche = "{}"{}}
+
+\Hypertarget{index_8php_ad99e553417ef14ff3eeffa7d69447823}\index{index.php@{index.php}!\$pageDescription@{\$pageDescription}}
+\index{\$pageDescription@{\$pageDescription}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$pageDescription}{\$pageDescription}}
+{\footnotesize\ttfamily \label{index_8php_ad99e553417ef14ff3eeffa7d69447823} 
+\$page\+Description = "{}Comparer les prix des carburants et trouver une station en France."{}}
+
+\Hypertarget{index_8php_ae42a543234d43b63387b5f0a98b5ebb3}\index{index.php@{index.php}!\$pageTitle@{\$pageTitle}}
+\index{\$pageTitle@{\$pageTitle}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$pageTitle}{\$pageTitle}}
+{\footnotesize\ttfamily \label{index_8php_ae42a543234d43b63387b5f0a98b5ebb3} 
+\doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(isset(\$derniere\+Recherche\+["{}date"{}]\+) \&\&is\+\_\+string(\$derniere\+Recherche\+["{}date"{}]\+)) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}}(( \$derniere\+Recherche\+["{}type"{}]\+ ?? "{}"{})==="{}departement"{}) elseif((\$derniere\+Recherche\+["{}type"{}]\+ ?? "{}"{})==="{}ville"{}) \doxymbox{\hyperlink{index_8php_af7823ebb156508b3e619392b20b1e07e}{if}} ( \$type\+Derniere\+Recherche==="{}"{} \&\&\$code\+Derniere\+Ville !=="{}"{} \$page\+Title)  = "{}Plein Malin"{}}
+
+\Hypertarget{index_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}\index{index.php@{index.php}!\$theme@{\$theme}}
+\index{\$theme@{\$theme}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$theme}{\$theme}}
+{\footnotesize\ttfamily \label{index_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc} 
+\$theme = \doxymbox{\hyperlink{functions_8php_ad846814cbbdd645be54a7f8f3e10de77}{gerer\+\_\+theme}}()}
+
+\Hypertarget{index_8php_a93be4031ebe7b1eb742a229b86676b71}\index{index.php@{index.php}!\$typeDerniereRecherche@{\$typeDerniereRecherche}}
+\index{\$typeDerniereRecherche@{\$typeDerniereRecherche}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{\$typeDerniereRecherche}{\$typeDerniereRecherche}}
+{\footnotesize\ttfamily \label{index_8php_a93be4031ebe7b1eb742a229b86676b71} 
+\$type\+Derniere\+Recherche = "{}"{}}
+
+\Hypertarget{index_8php_af7823ebb156508b3e619392b20b1e07e}\index{index.php@{index.php}!if@{if}}
+\index{if@{if}!index.php@{index.php}}
+\doxysubsubsection{\texorpdfstring{if}{if}}
+{\footnotesize\ttfamily \label{index_8php_af7823ebb156508b3e619392b20b1e07e} 
+if( \$department !=="{}"{}) if(\$use\+Geo) elseif( \$department\+Mode \&\&\$department !=="{}"{}) \$message elseif(\$city !=="{}"{}) if(! \$use\+Geo \&\&! \$department\+Mode \&\&\$current\+City !==null) if(\$current\+City !==null) (\begin{DoxyParamCaption}\item[{}]{\$type\+Derniere\+Recherche !}{ = {\ttfamily =~"{}"{}}}\end{DoxyParamCaption}) = \doxymbox{\hyperlink{functions_8php_a85c483f46ffd92acb22872393621cdfb}{message\+\_\+resultats}}(\$current\+City, \$use\+Geo, \$department\+Mode, \$stations)}
+

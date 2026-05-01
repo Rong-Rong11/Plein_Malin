@@ -8,7 +8,6 @@
 		<meta name="description" content="Choisir une région, un département et une ville." />
 		<link rel="stylesheet" href="style.css" />
 			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
-			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
@@ -92,7 +91,7 @@
 						<div class="field-card">
 							<label class="field-title" for="department-select">Département</label>
 							<span class="field-help">Choisissez un département.</span>
-							<select id="department-select" name="department" onchange="this.form.action='recherche.php#form-end'; this.form.submit();"
+							<select id="department-select" name="department" onchange="this.form.action='recherche.php#recherche'; this.form.submit();"
 								>
 								<option value="">Choisir un département</option>
 																	<option value="91"

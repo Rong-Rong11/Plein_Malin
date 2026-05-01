@@ -1,4 +1,10 @@
 <?php
+/**
+ * Page d'aide.
+ *
+ * Elle explique le parcours de recherche, la lecture des resultats et les
+ * questions frequentes du site.
+ */
 require __DIR__ . "/includes/functions.php";
 
 preparer_dossiers_et_fichiers();

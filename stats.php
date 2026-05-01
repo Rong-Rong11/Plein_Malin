@@ -1,4 +1,10 @@
 <?php
+/**
+ * Page de statistiques.
+ *
+ * Elle lit les fichiers CSV de suivi et calcule aussi les tendances annuelles
+ * depuis l'archive XML officielle des prix carburants.
+ */
 require __DIR__ . '/includes/functions.php';
 
 preparer_dossiers_et_fichiers();

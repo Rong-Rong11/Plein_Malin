@@ -1,0 +1,68 @@
+\doxysection{includes/\+header.php File Reference}
+\hypertarget{header_8php}{}\label{header_8php}\index{includes/header.php@{includes/header.php}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{header_8php_a3a19a3c439125b55fcedd6bb5dbabdcb}{\$page\+Title}} = \$page\+Title ?? "{}Plein Malin"{}
+\item 
+\doxymbox{\hyperlink{header_8php_ad99e553417ef14ff3eeffa7d69447823}{\$page\+Description}} = \$page\+Description ?? "{}Site Plein Malin"{}
+\item 
+\doxymbox{\hyperlink{header_8php_a10dad9009ff7a9d585fe258645a0d97b}{\$active\+Page}} = \$active\+Page ?? "{}"{}
+\item 
+\doxymbox{\hyperlink{header_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}{\$theme}} = isset(\$theme) \&\& in\+\_\+array(\$theme, \+["{}day"{}, "{}night"{}]\+, true) ? \$theme :\+ \doxymbox{\hyperlink{functions_8php_ad846814cbbdd645be54a7f8f3e10de77}{gerer\+\_\+theme}}()
+\item 
+\doxymbox{\hyperlink{header_8php_a44c9d3b4171e8a88978a6a6e92cc979d}{\$langue}} = \doxymbox{\hyperlink{functions_8php_af632f271632bec780f6a285d5a4fa1e7}{gerer\+\_\+langue}}()
+\item 
+\doxymbox{\hyperlink{header_8php_a52a0b893e2190cdad3e02caa91316472}{\$lien\+Recherche\+Navigation}} = \doxymbox{\hyperlink{functions_8php_a351f94997a15401db16a15a123b0c5e9}{lien\+\_\+recherche\+\_\+memorisee}}()
+\item 
+\doxymbox{\hyperlink{header_8php_a41183f636912b6f87b4668df08be27ad}{\$lien\+Resultats\+Navigation}} = \doxymbox{\hyperlink{functions_8php_a937147904e02575023943e80f0e3607f}{lien\+\_\+resultats\+\_\+memorises}}()
+\end{DoxyCompactItemize}
+
+
+\label{doc-var-members}
+\Hypertarget{header_8php_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{header_8php_a10dad9009ff7a9d585fe258645a0d97b}\index{header.php@{header.php}!\$activePage@{\$activePage}}
+\index{\$activePage@{\$activePage}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{\$activePage}{\$activePage}}
+{\footnotesize\ttfamily \label{header_8php_a10dad9009ff7a9d585fe258645a0d97b} 
+\$active\+Page = \$active\+Page ?? "{}"{}}
+
+\Hypertarget{header_8php_a44c9d3b4171e8a88978a6a6e92cc979d}\index{header.php@{header.php}!\$langue@{\$langue}}
+\index{\$langue@{\$langue}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{\$langue}{\$langue}}
+{\footnotesize\ttfamily \label{header_8php_a44c9d3b4171e8a88978a6a6e92cc979d} 
+\$langue = \doxymbox{\hyperlink{functions_8php_af632f271632bec780f6a285d5a4fa1e7}{gerer\+\_\+langue}}()}
+
+\Hypertarget{header_8php_a52a0b893e2190cdad3e02caa91316472}\index{header.php@{header.php}!\$lienRechercheNavigation@{\$lienRechercheNavigation}}
+\index{\$lienRechercheNavigation@{\$lienRechercheNavigation}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{\$lienRechercheNavigation}{\$lienRechercheNavigation}}
+{\footnotesize\ttfamily \label{header_8php_a52a0b893e2190cdad3e02caa91316472} 
+\$lien\+Recherche\+Navigation = \doxymbox{\hyperlink{functions_8php_a351f94997a15401db16a15a123b0c5e9}{lien\+\_\+recherche\+\_\+memorisee}}()}
+
+\Hypertarget{header_8php_a41183f636912b6f87b4668df08be27ad}\index{header.php@{header.php}!\$lienResultatsNavigation@{\$lienResultatsNavigation}}
+\index{\$lienResultatsNavigation@{\$lienResultatsNavigation}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{\$lienResultatsNavigation}{\$lienResultatsNavigation}}
+{\footnotesize\ttfamily \label{header_8php_a41183f636912b6f87b4668df08be27ad} 
+\$lien\+Resultats\+Navigation = \doxymbox{\hyperlink{functions_8php_a937147904e02575023943e80f0e3607f}{lien\+\_\+resultats\+\_\+memorises}}()}
+
+\Hypertarget{header_8php_ad99e553417ef14ff3eeffa7d69447823}\index{header.php@{header.php}!\$pageDescription@{\$pageDescription}}
+\index{\$pageDescription@{\$pageDescription}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{\$pageDescription}{\$pageDescription}}
+{\footnotesize\ttfamily \label{header_8php_ad99e553417ef14ff3eeffa7d69447823} 
+\$page\+Description = \$page\+Description ?? "{}Site Plein Malin"{}}
+
+\Hypertarget{header_8php_a3a19a3c439125b55fcedd6bb5dbabdcb}\index{header.php@{header.php}!\$pageTitle@{\$pageTitle}}
+\index{\$pageTitle@{\$pageTitle}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{\$pageTitle}{\$pageTitle}}
+{\footnotesize\ttfamily \label{header_8php_a3a19a3c439125b55fcedd6bb5dbabdcb} 
+\$page\+Title = \$page\+Title ?? "{}Plein Malin"{}}
+
+En-\/tete commun du site.
+
+Ce fichier initialise le theme, la langue, les liens de navigation memorises et demarre le tampon de sortie utilise pour la traduction anglaise. \Hypertarget{header_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc}\index{header.php@{header.php}!\$theme@{\$theme}}
+\index{\$theme@{\$theme}!header.php@{header.php}}
+\doxysubsubsection{\texorpdfstring{\$theme}{\$theme}}
+{\footnotesize\ttfamily \label{header_8php_a1ae541f7fe1c5e21cb4535f88ec9e9dc} 
+\$theme = isset(\$theme) \&\& in\+\_\+array(\$theme, \+["{}day"{}, "{}night"{}]\+, true) ? \$theme :\+ \doxymbox{\hyperlink{functions_8php_ad846814cbbdd645be54a7f8f3e10de77}{gerer\+\_\+theme}}()}
+
