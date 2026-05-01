@@ -23,6 +23,7 @@ $regionInfo = null;
 $apiCarburantsErreur = false;
 $choixRechercheIncomplet = !$useGeo && !$departmentMode && $department !== "" && $city === "";
 $departmentLabel = $department;
+$manualRadiusMode = false;
 
 if ($department !== "") {
 	$departmentInfo = trouver_departement($department);
@@ -60,6 +61,10 @@ if ($useGeo) {
 	$currentCity = trouver_ville($city);
 }
 
+if (!$useGeo && !$departmentMode && $currentCity !== null) {
+	$manualRadiusMode = true;
+}
+
 if ($currentCity !== null) {
 	$department = $currentCity["department_code"];
 	$departmentInfo = trouver_departement($department);
@@ -71,7 +76,8 @@ if ($currentCity !== null) {
 	} elseif ($departmentMode && $department !== "") {
 		enregistrer_derniere_recherche("departement", $department);
 	}
-	$resultatRecherche = rechercher_stations_avec_statut($currentCity, $selectedFuels, $sort, $departmentMode, $useGeo ? $geo : null, $geoRadius);
+	$origineRecherche = $useGeo ? $geo : ($manualRadiusMode ? $currentCity : null);
+	$resultatRecherche = rechercher_stations_avec_statut($currentCity, $selectedFuels, $sort, $departmentMode, $origineRecherche, $geoRadius);
 	$stations = $resultatRecherche["stations"];
 	$apiCarburantsErreur = $resultatRecherche["api_error"];
 
@@ -91,6 +97,8 @@ if ($apiCarburantsErreur) {
 	$message = "L'API officielle des carburants ne répond pas pour le moment.";
 } elseif ($useGeo && $currentCity !== null) {
 	$message = "Recherche autour de votre position approximative dans un rayon de " . $geoRadius . " km.";
+} elseif ($manualRadiusMode && $currentCity !== null) {
+	$message = "Recherche autour de " . $currentCity["city_name"] . " dans un rayon de " . $geoRadius . " km.";
 } elseif ($useGeo) {
 	$message = "Impossible de trouver votre position approximative pour le moment.";
 } elseif ($choixRechercheIncomplet) {
@@ -125,6 +133,9 @@ if ($useGeo) {
 	}
 } elseif ($currentCity !== null) {
 	$searchTargetLabel = $currentCity["city_name"];
+	if ($manualRadiusMode) {
+		$searchTargetLabel .= " dans un rayon de " . $geoRadius . " km";
+	}
 }
 
 $searchParameters = [
@@ -200,7 +211,9 @@ require __DIR__ . "/includes/header.php";
 						<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
 						<input type="hidden" name="department" value="<?= texte_securise($department) ?>" />
 						<input type="hidden" name="city" value="<?= texte_securise($city) ?>" />
-						<input type="hidden" name="geo_radius" value="<?= texte_securise((string) $geoRadius) ?>" />
+						<?php if ($departmentMode) { ?>
+							<input type="hidden" name="geo_radius" value="<?= texte_securise((string) $geoRadius) ?>" />
+						<?php } ?>
 						<?php if ($departmentMode) { ?>
 							<input type="hidden" name="department_mode" value="1" />
 						<?php } ?>
@@ -231,6 +244,18 @@ require __DIR__ . "/includes/header.php";
 										<option value="name" <?= $sort === "name" ? 'selected="selected"' : "" ?>>Nom</option>
 									</select>
 								</div>
+								<?php if (!$departmentMode) { ?>
+									<div class="field-card">
+										<label class="field-title" for="result-radius-select">Rayon</label>
+										<select id="result-radius-select" name="geo_radius">
+											<?php foreach (rayons_geo_disponibles() as $radius) { ?>
+												<option value="<?= texte_securise((string) $radius) ?>" <?= $geoRadius === $radius ? 'selected="selected"' : "" ?>>
+													<?= texte_securise((string) $radius) ?> km
+												</option>
+											<?php } ?>
+										</select>
+									</div>
+								<?php } ?>
 							</div>
 							<div class="form-actions action-buttons">
 								<button type="submit">Appliquer</button>
@@ -264,6 +289,8 @@ require __DIR__ . "/includes/header.php";
 										<li>Ville retournee par l'IP : <?= texte_securise($geo["city"]) ?></li>
 										<li>Région retournée par l'IP : <?= texte_securise($geo["region"]) ?></li>
 										<li>Source de localisation : <?= texte_securise($geo["source"]) ?></li>
+									<?php } elseif ($manualRadiusMode) { ?>
+										<li>Rayon choisi : <?= texte_securise((string) $geoRadius) ?> km</li>
 									<?php } ?>
 								</ul>
 							</div>
@@ -287,7 +314,12 @@ require __DIR__ . "/includes/header.php";
 				<?php } elseif ($apiCarburantsErreur) { ?>
 				<p class="empty-state">Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard.</p>
 				<?php } elseif ($stations === []) { ?>
-				<p class="empty-state">Aucune station trouvée avec ces critères.</p>
+				<p class="empty-state">
+					Aucune station trouvée avec ces critères.
+					<?php if ($manualRadiusMode) { ?>
+						Essayez d'augmenter le rayon de recherche.
+					<?php } ?>
+				</p>
 				<?php } else { ?>
 					<p class="small-note"><?= texte_securise((string) count($stations)) ?> station(s) trouvée(s).</p>
 					<?php if ($stationsMasquees > 0) { ?>

@@ -194,7 +194,7 @@ require __DIR__ . "/includes/header.php";
 						</div>
 					<?php } ?>
 					<div class="map-scroll">
-						<img src="image/<?= $theme === "night" ? "map-dark-optimized.jpg" : "map-light-optimized.jpg" ?>" alt="Carte interactive des régions de France"
+						<img src="image/<?= $theme === "night" ? "map(dark).jpg" : "map(light).jpg" ?>" alt="Carte interactive des régions de France"
 							usemap="#regions-map" class="map-image" width="<?= texte_securise((string) $largeurCarte) ?>" height="<?= texte_securise((string) $hauteurCarte) ?>" decoding="async" fetchpriority="high" />
 					</div>
 					<map name="regions-map">
@@ -216,7 +216,7 @@ require __DIR__ . "/includes/header.php";
 						<div class="field-card">
 							<label class="field-title" for="department-select">Département</label>
 							<span class="field-help">Choisissez un département.</span>
-							<select id="department-select" name="department" onchange="this.form.action='recherche.php#recherche'; this.form.submit();"
+							<select id="department-select" name="department" onchange="this.form.action='recherche.php#form-end'; this.form.submit();"
 								<?= $region === "" ? 'disabled="disabled"' : "" ?>>
 								<option value=""><?= $region === "" ? "Choisir d'abord une région" : "Choisir un département" ?></option>
 								<?php foreach ($departments as $unDepartment) { ?>
@@ -288,10 +288,20 @@ require __DIR__ . "/includes/header.php";
 								<p class="context-title">Lancer la recherche</p>
 								<p class="small-note">Affichez les stations selon vos critères.</p>
 							</div>
-							<div class="form-actions action-buttons">
-								<button type="submit" formaction="resultats.php#resultats">Rechercher</button>
-								<a href="recherche.php?search_mode=manual&amp;reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
+						<div class="form-actions action-buttons">
+							<div class="inline-filter">
+								<label for="manual-radius-select">Rayon</label>
+								<select id="manual-radius-select" name="geo_radius">
+									<?php foreach (rayons_geo_disponibles() as $radius) { ?>
+										<option value="<?= texte_securise((string) $radius) ?>" <?= $geoRadius === $radius ? 'selected="selected"' : "" ?>>
+											<?= texte_securise((string) $radius) ?> km
+										</option>
+									<?php } ?>
+								</select>
 							</div>
+							<button type="submit" formaction="resultats.php#resultats">Rechercher</button>
+							<a href="recherche.php?search_mode=manual&amp;reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
+						</div>
 						</div>
 				</div>
 			</form>
