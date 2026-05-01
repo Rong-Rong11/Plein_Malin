@@ -4,7 +4,6 @@ define("PM_CACHE_DIR", __DIR__ . "/../cache");
 define("PM_DATA_DIR", __DIR__ . "/../data");
 define("PM_STORAGE_DIR", __DIR__ . "/../storage");
 define("PM_CITIES_INDEX_FILE", __DIR__ . "/../data/villes_index.csv");
-define("PM_CITIES_BY_DEPARTMENT_DIR", __DIR__ . "/../data/villes_par_departement");
 
 function texte_securise(string $texte): string
 {
@@ -877,8 +876,13 @@ function villes_par_departement(string $codeDepartment): array
 	}
 
 	if (!isset($cacheDepartements[$codeDepartment])) {
-		$fichier = PM_CITIES_BY_DEPARTMENT_DIR . "/" . $codeDepartment . ".csv";
-		$cacheDepartements[$codeDepartment] = lire_csv_assoc($fichier);
+		$cacheDepartements[$codeDepartment] = [];
+
+		foreach (lire_villes() as $city) {
+			if (($city["department_code"] ?? "") === $codeDepartment) {
+				$cacheDepartements[$codeDepartment][] = $city;
+			}
+		}
 	}
 
 	return $cacheDepartements[$codeDepartment];

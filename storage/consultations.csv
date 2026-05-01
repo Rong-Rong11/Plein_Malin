@@ -1,4 +1,6 @@
 timestamp,visitor_hash,region,department,city,mode,view,fuel,station_count
+<<<<<<< HEAD
+=======
 2026-04-21T09:55:53+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
 2026-04-21T09:55:54+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
 2026-04-21T09:55:55+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
@@ -90,3 +92,4 @@ timestamp,visitor_hash,region,department,city,mode,view,fuel,station_count
 2026-04-30T19:59:12+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,,Gazole,97
 2026-04-30T19:59:12+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Paris,"Paris 04",geolocalisation,,Gazole,92
 2026-04-30T20:09:05+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,,Gazole,97
+>>>>>>> main
