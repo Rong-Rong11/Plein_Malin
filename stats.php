@@ -1,5 +1,8 @@
 <?php
 /**
+ * @file
+ * @brief Page des statistiques de consultation et de prix.
+ *
  * Page de statistiques.
  *
  * Elle lit les fichiers CSV de suivi et calcule aussi les tendances annuelles
@@ -9,18 +12,18 @@ require __DIR__ . '/includes/functions.php';
 
 preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
-$stats = calculer_statistiques();
-$maxCityCount = $stats['top_cities'] === [] ? 1 : max($stats['top_cities']);
-$maxDepartmentCount = $stats['top_departments'] === [] ? 1 : max($stats['top_departments']);
-$maxRegionCount = $stats['top_regions'] === [] ? 1 : max($stats['top_regions']);
-$maxFuelCount = $stats['top_fuels'] === [] ? 1 : max($stats['top_fuels']);
-$maxModeCount = $stats['top_modes'] === [] ? 1 : max($stats['top_modes']);
-$fuelTrends = lire_tendances_prix_officielles(null, ["Gazole", "SP95", "SP98", "E10"]);
+$statistiques = calculer_statistiques();
+$maxVilles = $statistiques['top_cities'] === [] ? 1 : max($statistiques['top_cities']);
+$maxDepartements = $statistiques['top_departments'] === [] ? 1 : max($statistiques['top_departments']);
+$maxRegions = $statistiques['top_regions'] === [] ? 1 : max($statistiques['top_regions']);
+$maxCarburants = $statistiques['top_fuels'] === [] ? 1 : max($statistiques['top_fuels']);
+$maxModes = $statistiques['top_modes'] === [] ? 1 : max($statistiques['top_modes']);
+$tendancesCarburants = lire_tendances_prix_officielles(null, PM_TREND_FUELS);
 
-$pageTitle = "Statistiques - Plein Malin";
-$pageDescription = "Page statistiques de Plein Malin.";
-$activePage = "stats";
-$footerText = "Enzo Phung | Fatma-Zhara Baarir | Statistiques générées à partir du CSV de consultations.";
+$titrePage = "Statistiques - Plein Malin";
+$descriptionPage = "Page statistiques de Plein Malin.";
+$pageActive = "stats";
+$textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Statistiques générées à partir du CSV de consultations.";
 
 require __DIR__ . "/includes/header.php";
 ?>
@@ -38,15 +41,15 @@ require __DIR__ . "/includes/header.php";
 				</p>
 				<div class="stats-inline">
 					<div class="stat-chip">
-						<strong><?= texte_securise((string) $stats['consultation_count']) ?></strong>
+						<strong><?= texte_securise((string) $statistiques['consultation_count']) ?></strong>
 						<span>recherches</span>
 					</div>
 					<div class="stat-chip">
-						<strong><?= texte_securise((string) $stats['page_visit_count']) ?></strong>
+						<strong><?= texte_securise((string) $statistiques['page_visit_count']) ?></strong>
 						<span>visites de pages</span>
 					</div>
 					<div class="stat-chip">
-						<strong><?= texte_securise((string) $stats['page_visitor_count']) ?></strong>
+						<strong><?= texte_securise((string) $statistiques['page_visitor_count']) ?></strong>
 						<span>visiteurs approx.</span>
 					</div>
 				</div>
@@ -57,17 +60,17 @@ require __DIR__ . "/includes/header.php";
 			<div class="stats-grid">
 				<article class="stats-card">
 					<h3>Top des villes consultées</h3>
-					<?php if ($stats['top_cities'] === []) { ?>
+					<?php if ($statistiques['top_cities'] === []) { ?>
 						<p class="empty-state">Aucune consultation enregistrée pour le moment.</p>
 					<?php } else { ?>
 						<div class="bar-chart">
-							<?php foreach ($stats['top_cities'] as $city => $count) { ?>
+							<?php foreach ($statistiques['top_cities'] as $ville => $nombre) { ?>
 								<div class="bar-row">
-									<span class="bar-label"><?= texte_securise($city) ?></span>
+									<span class="bar-label"><?= texte_securise($ville) ?></span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxCityCount) * 100))) ?>%"></div>
+										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($nombre / $maxVilles) * 100))) ?>%"></div>
 									</div>
-									<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
+									<strong class="bar-value"><?= texte_securise((string) $nombre) ?></strong>
 								</div>
 							<?php } ?>
 						</div>
@@ -76,17 +79,17 @@ require __DIR__ . "/includes/header.php";
 
 				<article class="stats-card">
 					<h3>Top des départements consultés</h3>
-					<?php if ($stats['top_departments'] === []) { ?>
+					<?php if ($statistiques['top_departments'] === []) { ?>
 						<p class="empty-state">Aucun département enregistré pour le moment.</p>
 					<?php } else { ?>
 						<div class="bar-chart">
-							<?php foreach ($stats['top_departments'] as $department => $count) { ?>
+							<?php foreach ($statistiques['top_departments'] as $departement => $nombre) { ?>
 								<div class="bar-row">
-									<span class="bar-label"><?= texte_securise($department) ?></span>
+									<span class="bar-label"><?= texte_securise($departement) ?></span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxDepartmentCount) * 100))) ?>%"></div>
+										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($nombre / $maxDepartements) * 100))) ?>%"></div>
 									</div>
-									<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
+									<strong class="bar-value"><?= texte_securise((string) $nombre) ?></strong>
 								</div>
 							<?php } ?>
 						</div>
@@ -95,17 +98,17 @@ require __DIR__ . "/includes/header.php";
 
 				<article class="stats-card">
 					<h3>Top des régions consultées</h3>
-					<?php if ($stats['top_regions'] === []) { ?>
+					<?php if ($statistiques['top_regions'] === []) { ?>
 						<p class="empty-state">Aucune région enregistrée pour le moment.</p>
 					<?php } else { ?>
 						<div class="bar-chart">
-							<?php foreach ($stats['top_regions'] as $region => $count) { ?>
+							<?php foreach ($statistiques['top_regions'] as $region => $nombre) { ?>
 								<div class="bar-row">
 									<span class="bar-label"><?= texte_securise($region) ?></span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxRegionCount) * 100))) ?>%"></div>
+										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($nombre / $maxRegions) * 100))) ?>%"></div>
 									</div>
-									<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
+									<strong class="bar-value"><?= texte_securise((string) $nombre) ?></strong>
 								</div>
 							<?php } ?>
 						</div>
@@ -114,17 +117,17 @@ require __DIR__ . "/includes/header.php";
 
 				<article class="stats-card">
 					<h3>Carburants les plus recherchés</h3>
-					<?php if ($stats['top_fuels'] === []) { ?>
+					<?php if ($statistiques['top_fuels'] === []) { ?>
 						<p class="empty-state">Aucun carburant enregistré pour le moment.</p>
 					<?php } else { ?>
 						<div class="bar-chart">
-							<?php foreach ($stats['top_fuels'] as $fuel => $count) { ?>
+							<?php foreach ($statistiques['top_fuels'] as $carburant => $nombre) { ?>
 								<div class="bar-row">
-									<span class="bar-label"><?= texte_securise($fuel) ?></span>
+									<span class="bar-label"><?= texte_securise($carburant) ?></span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxFuelCount) * 100))) ?>%"></div>
+										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($nombre / $maxCarburants) * 100))) ?>%"></div>
 									</div>
-									<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
+									<strong class="bar-value"><?= texte_securise((string) $nombre) ?></strong>
 								</div>
 							<?php } ?>
 						</div>
@@ -133,17 +136,17 @@ require __DIR__ . "/includes/header.php";
 
 				<article class="stats-card stats-card-wide">
 					<h3>Recherches par mode</h3>
-					<?php if ($stats['top_modes'] === []) { ?>
+					<?php if ($statistiques['top_modes'] === []) { ?>
 						<p class="empty-state">Aucun mode de recherche enregistré pour le moment.</p>
 					<?php } else { ?>
 						<div class="bar-chart">
-							<?php foreach ($stats['top_modes'] as $mode => $count) { ?>
+							<?php foreach ($statistiques['top_modes'] as $mode => $nombre) { ?>
 								<div class="bar-row">
 									<span class="bar-label"><?= texte_securise($mode) ?></span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($count / $maxModeCount) * 100))) ?>%"></div>
+										<div class="bar-fill" style="width: <?= texte_securise((string) max(10, (int) round(($nombre / $maxModes) * 100))) ?>%"></div>
 									</div>
-									<strong class="bar-value"><?= texte_securise((string) $count) ?></strong>
+									<strong class="bar-value"><?= texte_securise((string) $nombre) ?></strong>
 								</div>
 							<?php } ?>
 						</div>
@@ -156,37 +159,37 @@ require __DIR__ . "/includes/header.php";
 					<h2>Tendance annuelle des prix</h2>
 					<p class="small-note">
 					Moyennes mensuelles calculées côté serveur depuis l'archive annuelle officielle XML
-						<?= texte_securise((string) ($fuelTrends["year"] ?? date("Y"))) ?>.
+						<?= texte_securise((string) ($tendancesCarburants["year"] ?? date("Y"))) ?>.
 					</p>
 					<p class="small-note">
 						Source officielle :
-						<a href="<?= texte_securise($fuelTrends["source_url"] ?? "https://donnees.roulez-eco.fr/opendata/annee") ?>">
+						<a href="<?= texte_securise($tendancesCarburants["source_url"] ?? "https://donnees.roulez-eco.fr/opendata/annee") ?>">
 							donnees.roulez-eco.fr
 						</a>
-						<?php if (formater_date_heure($fuelTrends["cached_at"] ?? "") !== "") { ?>
-							- dernière mise à jour du cache le <?= texte_securise(formater_date_heure($fuelTrends["cached_at"])) ?>
+						<?php if (formater_date_heure($tendancesCarburants["cached_at"] ?? "") !== "") { ?>
+							- dernière mise à jour du cache le <?= texte_securise(formater_date_heure($tendancesCarburants["cached_at"])) ?>
 						<?php } ?>
 					</p>
 
-					<?php if (($fuelTrends["fuels"] ?? []) === []) { ?>
+					<?php if (($tendancesCarburants["fuels"] ?? []) === []) { ?>
 					<p class="empty-state">Tendances indisponibles pour le moment.</p>
 				<?php } else { ?>
 					<div class="trend-grid">
-						<?php foreach ($fuelTrends["fuels"] as $fuelName => $months) { ?>
+						<?php foreach ($tendancesCarburants["fuels"] as $nomCarburant => $moisDonnees) { ?>
 							<article class="trend-group">
-								<h3><?= texte_securise($fuelName) ?></h3>
-								<?php if ($months === []) { ?>
+								<h3><?= texte_securise($nomCarburant) ?></h3>
+								<?php if ($moisDonnees === []) { ?>
 								<p class="empty-state">Aucune donnée disponible.</p>
 								<?php } else { ?>
 									<?php
-									$points = points_graphique_tendance($months);
-									$graduationsPrix = graduations_prix_tendance($months);
-									$graduationsMois = graduations_mois_tendance($months);
-									$firstMonth = $months[0];
-									$lastMonth = $months[count($months) - 1];
+									$points = points_graphique_tendance($moisDonnees);
+									$graduationsPrix = graduations_prix_tendance($moisDonnees);
+									$graduationsMois = graduations_mois_tendance($moisDonnees);
+									$premierMois = $moisDonnees[0];
+									$dernierMois = $moisDonnees[count($moisDonnees) - 1];
 									?>
 									<div class="line-chart">
-										<svg viewBox="0 0 420 170" role="img" aria-label="Evolution <?= texte_securise($fuelName) ?>">
+										<svg viewBox="0 0 420 170" role="img" aria-label="Evolution <?= texte_securise($nomCarburant) ?>">
 											<?php foreach ($graduationsPrix as $graduation) { ?>
 												<line x1="<?= texte_securise((string) $graduation["x1"]) ?>" y1="<?= texte_securise((string) $graduation["y"]) ?>" x2="<?= texte_securise((string) $graduation["x2"]) ?>" y2="<?= texte_securise((string) $graduation["y"]) ?>" class="chart-grid"></line>
 												<text x="2" y="<?= texte_securise((string) ((float) $graduation["y"] + 4)) ?>" class="chart-label">
@@ -209,8 +212,8 @@ require __DIR__ . "/includes/header.php";
 											<?php } ?>
 										</svg>
 										<div class="chart-caption">
-											<span><?= texte_securise($firstMonth["month"]) ?> : <?= texte_securise(number_format((float) $firstMonth["average_price"], 3, ",", " ")) ?> EUR/L</span>
-											<span><?= texte_securise($lastMonth["month"]) ?> : <?= texte_securise(number_format((float) $lastMonth["average_price"], 3, ",", " ")) ?> EUR/L</span>
+											<span><?= texte_securise($premierMois["month"]) ?> : <?= texte_securise(number_format((float) $premierMois["average_price"], 3, ",", " ")) ?> EUR/L</span>
+											<span><?= texte_securise($dernierMois["month"]) ?> : <?= texte_securise(number_format((float) $dernierMois["average_price"], 3, ",", " ")) ?> EUR/L</span>
 										</div>
 									</div>
 								<?php } ?>

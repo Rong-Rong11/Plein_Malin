@@ -1,5 +1,8 @@
 <?php
 /**
+ * @file
+ * @brief Plan du site.
+ *
  * Page du plan du site.
  *
  * Elle regroupe les principales pages accessibles et les pages d'information.
@@ -9,10 +12,10 @@ require __DIR__ . "/includes/functions.php";
 preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 
-$pageTitle = "Plan du site - Plein Malin";
-$pageDescription = "Plan du site Plein Malin.";
-$activePage = "plan-site";
-$footerText = "Enzo Phung | Fatma-Zhara Baarir | Plan du site.";
+$titrePage = "Plan du site - Plein Malin";
+$descriptionPage = "Plan du site Plein Malin.";
+$pageActive = "plan-site";
+$textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Plan du site.";
 
 $lienRecherche = lien_recherche_memorisee();
 $lienResultats = lien_resultats_memorises();

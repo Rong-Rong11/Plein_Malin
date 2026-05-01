@@ -1,16 +1,16 @@
 var stats_8php =
 [
-    [ "$activePage", "stats_8php.html#a10dad9009ff7a9d585fe258645a0d97b", null ],
-    [ "$footerText", "stats_8php.html#a9a6371febe3a20cee96ecc33d8f076ed", null ],
-    [ "$fuelTrends", "stats_8php.html#aa62fbcdfb4de027f310c6c5ba754d29f", null ],
-    [ "$maxCityCount", "stats_8php.html#aae198bf80db896145044a0888c59c727", null ],
-    [ "$maxDepartmentCount", "stats_8php.html#a153a7b601cb67be6427ad8a3d6dcabaf", null ],
-    [ "$maxFuelCount", "stats_8php.html#a8d79b089d907047144d8172a128700bd", null ],
-    [ "$maxModeCount", "stats_8php.html#a0923e751af1ebc0063fba96b038eee0e", null ],
-    [ "$maxRegionCount", "stats_8php.html#a3f71f5d5c58c9dbd2654ab2ec8069665", null ],
-    [ "$pageDescription", "stats_8php.html#ad99e553417ef14ff3eeffa7d69447823", null ],
-    [ "$pageTitle", "stats_8php.html#a3a19a3c439125b55fcedd6bb5dbabdcb", null ],
-    [ "$stats", "stats_8php.html#ac61adefb58583938c9b820405ddfa018", null ],
+    [ "$descriptionPage", "stats_8php.html#ae4c651f001e6834dbeeafcef6b1a38ba", null ],
+    [ "$maxCarburants", "stats_8php.html#a39ed78db237a64f68a7ee057e28cbae8", null ],
+    [ "$maxDepartements", "stats_8php.html#ace88c1b53b77cfd952ba69136fd4d01d", null ],
+    [ "$maxModes", "stats_8php.html#a4fba3bf24258729646ceee4e338ee55d", null ],
+    [ "$maxRegions", "stats_8php.html#af03da82886ad96eeb5db391cf013d6df", null ],
+    [ "$maxVilles", "stats_8php.html#a4afadfae8e9cf7a7b7c7577b4c38b1e1", null ],
+    [ "$pageActive", "stats_8php.html#a009519ce23e46383b691b834acc018e3", null ],
+    [ "$statistiques", "stats_8php.html#a35692cc68b0a12ae7e9b2abc6d49a29e", null ],
+    [ "$tendancesCarburants", "stats_8php.html#aa9aa491d366200b5af504be65c6acf07", null ],
+    [ "$textePiedPage", "stats_8php.html#a12369e1a05a673479d1b6b13e1fe3c73", null ],
     [ "$theme", "stats_8php.html#a1ae541f7fe1c5e21cb4535f88ec9e9dc", null ],
-    [ "foreach", "stats_8php.html#af73f4fa3877b30162813f1f1ca90cd84", null ]
+    [ "$titrePage", "stats_8php.html#af4b879506b6ff477064447268eddbb99", null ],
+    [ "foreach", "stats_8php.html#acdfc38f3bc77c36cc8296d4ed1e25c46", null ]
 ];

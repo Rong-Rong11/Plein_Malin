@@ -1,5 +1,8 @@
 <?php
 /**
+ * @file
+ * @brief Page de presentation du projet.
+ *
  * Page "A propos".
  *
  * Elle presente le projet, ses objectifs et les choix de sobriete numerique.
@@ -9,10 +12,10 @@ require __DIR__ . "/includes/functions.php";
 preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 
-$pageTitle = "À propos - Plein Malin";
-$pageDescription = "Présentation du projet Plein Malin.";
-$activePage = "a-propos";
-$footerText = "Enzo Phung | Fatma-Zhara Baarir | À propos du projet Plein Malin.";
+$titrePage = "À propos - Plein Malin";
+$descriptionPage = "Présentation du projet Plein Malin.";
+$pageActive = "a-propos";
+$textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | À propos du projet Plein Malin.";
 
 require __DIR__ . "/includes/header.php";
 ?>

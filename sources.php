@@ -1,5 +1,8 @@
 <?php
 /**
+ * @file
+ * @brief Page des sources de donnees.
+ *
  * Page des sources.
  *
  * Elle liste les donnees locales et les services externes exploites par le site.
@@ -9,10 +12,10 @@ require __DIR__ . "/includes/functions.php";
 preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 
-$pageTitle = "Sources des données - Plein Malin";
-$pageDescription = "Sources des données utilisées par Plein Malin.";
-$activePage = "sources";
-$footerText = "Enzo Phung | Fatma-Zhara Baarir | Sources des données.";
+$titrePage = "Sources des données - Plein Malin";
+$descriptionPage = "Sources des données utilisées par Plein Malin.";
+$pageActive = "sources";
+$textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Sources des données.";
 
 require __DIR__ . "/includes/header.php";
 ?>

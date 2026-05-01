@@ -25,6 +25,8 @@
 var NAVTREE =
 [
   [ "Plein Malin", "index.html", [
+    [ "Documentation du projet Plein Malin", "index.html", "index" ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
@@ -38,7 +40,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"a-propos_8php.html"
+"a-propos_8php.html",
+"tech_8php.html#a12369e1a05a673479d1b6b13e1fe3c73"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

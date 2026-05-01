@@ -1,5 +1,32 @@
 <?php
 /**
+ * @file
+ * @brief Page d'accueil du site Plein Malin.
+ *
+ * @mainpage Documentation du projet Plein Malin
+ *
+ * Plein Malin est un site PHP permettant de rechercher des stations-service
+ * en France et de comparer les prix des carburants.
+ *
+ * @section auteurs Auteurs
+ * - Enzo Phung
+ * - Fatma-Zahra Baarir
+ *
+ * @section fonctionnalites Fonctionnalites principales
+ * - Recherche manuelle par region, departement et ville.
+ * - Recherche autour d'une position approximative par adresse IP.
+ * - Filtrage par carburant et tri des resultats.
+ * - Consultation des stations, prix, distances et liens cartographiques.
+ * - Statistiques basees sur les consultations et les visites.
+ * - Theme jour/nuit et interface francais/anglais.
+ *
+ * @section fichiers Fichiers importants
+ * - includes/functions.php : fonctions communes et logique metier.
+ * - recherche.php : formulaire et choix des criteres.
+ * - resultats.php : traitement de la recherche et affichage des stations.
+ * - stats.php : statistiques et tendances de prix.
+ * - tech.php : demonstration des formats JSON, XML, CSV et cache.
+ *
  * Page d'accueil.
  *
  * Elle prepare les liens de reprise de recherche a partir des cookies, puis
@@ -51,10 +78,10 @@ if ($typeDerniereRecherche === "" && $codeDerniereVille !== "") {
 	}
 }
 
-$pageTitle = "Plein Malin";
-$pageDescription = "Comparer les prix des carburants et trouver une station en France.";
-$activePage = "index";
-$footerText = "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026";
+$titrePage = "Plein Malin";
+$descriptionPage = "Comparer les prix des carburants et trouver une station en France.";
+$pageActive = "index";
+$textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | Projet Web 2025-2026";
 
 require __DIR__ . "/includes/header.php";
 ?>

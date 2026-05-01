@@ -1,16 +1,16 @@
 var tech_8php =
 [
-    [ "$activePage", "tech_8php.html#a10dad9009ff7a9d585fe258645a0d97b", null ],
-    [ "$data", "tech_8php.html#a6efc15b5a2314dd4b5aaa556a375c6d6", null ],
+    [ "$adresseUrl", "tech_8php.html#a2a672f7e3ffa1be084c755b5be0b9829", null ],
+    [ "$descriptionPage", "tech_8php.html#ae4c651f001e6834dbeeafcef6b1a38ba", null ],
+    [ "$donnees", "tech_8php.html#a09265cb0e0a963168f34a74bfdd08161", null ],
+    [ "$donneesGeo", "tech_8php.html#a538ff06fd3096da20d0529afe7220c6a", null ],
     [ "$film", "tech_8php.html#a697f20bb465adeab6a51e03978fda04c", null ],
-    [ "$footerText", "tech_8php.html#a9a6371febe3a20cee96ecc33d8f076ed", null ],
-    [ "$geoData", "tech_8php.html#a75f6bf1afc15e06d16b25cf2016a3c98", null ],
     [ "$json", "tech_8php.html#acedd13b51401130848ce18f4d5c52605", null ],
-    [ "$pageDescription", "tech_8php.html#ad99e553417ef14ff3eeffa7d69447823", null ],
-    [ "$pageTitle", "tech_8php.html#a3a19a3c439125b55fcedd6bb5dbabdcb", null ],
+    [ "$pageActive", "tech_8php.html#a009519ce23e46383b691b834acc018e3", null ],
     [ "$stationsXml", "tech_8php.html#a38a3fa0c8a2593274b44c8ff7d4cea4a", null ],
-    [ "$stats", "tech_8php.html#ac61adefb58583938c9b820405ddfa018", null ],
+    [ "$statistiques", "tech_8php.html#a35692cc68b0a12ae7e9b2abc6d49a29e", null ],
+    [ "$textePiedPage", "tech_8php.html#a12369e1a05a673479d1b6b13e1fe3c73", null ],
     [ "$theme", "tech_8php.html#a1ae541f7fe1c5e21cb4535f88ec9e9dc", null ],
-    [ "$url", "tech_8php.html#acf215f34a917d014776ce684a9ee8909", null ],
+    [ "$titrePage", "tech_8php.html#af4b879506b6ff477064447268eddbb99", null ],
     [ "foreach", "tech_8php.html#a0cea68bc69f913ab8c42001822382b74", null ]
 ];

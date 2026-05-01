@@ -1,6 +1,6 @@
 var footer_8php =
 [
-    [ "$footerText", "footer_8php.html#a9a6371febe3a20cee96ecc33d8f076ed", null ],
-    [ "$lienRechercheFooter", "footer_8php.html#a2c1ce75c5595db08021157bfcb913b0d", null ],
-    [ "$lienResultatsFooter", "footer_8php.html#a12aecdf7533e7d5dc334acd4bc4f2b8f", null ]
+    [ "$lienRecherchePiedPage", "footer_8php.html#aacecbd3e8e9d5d175102ac6688aae4aa", null ],
+    [ "$lienResultatsPiedPage", "footer_8php.html#afb3d39db34fa0c1284d3ea8139926e3f", null ],
+    [ "$textePiedPage", "footer_8php.html#a12369e1a05a673479d1b6b13e1fe3c73", null ]
 ];

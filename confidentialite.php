@@ -1,5 +1,8 @@
 <?php
 /**
+ * @file
+ * @brief Page de confidentialite et de donnees conservees.
+ *
  * Page confidentialite.
  *
  * Elle decrit les cookies utilises et les donnees conservees dans les fichiers
@@ -10,10 +13,10 @@ require __DIR__ . "/includes/functions.php";
 preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 
-$pageTitle = "Confidentialité - Plein Malin";
-$pageDescription = "Informations sur les cookies et les données conservées par Plein Malin.";
-$activePage = "confidentialite";
-$footerText = "Enzo Phung | Fatma-Zhara Baarir | Confidentialité.";
+$titrePage = "Confidentialité - Plein Malin";
+$descriptionPage = "Informations sur les cookies et les données conservées par Plein Malin.";
+$pageActive = "confidentialite";
+$textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Confidentialité.";
 
 require __DIR__ . "/includes/header.php";
 ?>

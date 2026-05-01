@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['message_5fresultats_0',['message_resultats',['../functions_8php.html#a85c483f46ffd92acb22872393621cdfb',1,'functions.php']]],
-  ['mode_5frecherche_1',['mode_recherche',['../functions_8php.html#a31101cfa9e70e0aca444203ff1fd28bf',1,'functions.php']]]
+  ['malin_0',['Documentation du projet Plein Malin',['../index.html',1,'']]],
+  ['message_5fresultats_1',['message_resultats',['../search_8php.html#ab1e49372b544fa5dfb3951305a200425',1,'search.php']]],
+  ['mode_5frecherche_2',['mode_recherche',['../search_8php.html#afffe79f6b8e511881b83af1bbcfbe9e2',1,'search.php']]]
 ];

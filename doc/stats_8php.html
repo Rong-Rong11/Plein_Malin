@@ -92,172 +92,165 @@ $(function(){initNavTree('stats_8php.html','',''); });
   <div class="headertitle"><div class="title">stats.php File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Page des statistiques de consultation et de prix.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a1ae541f7fe1c5e21cb4535f88ec9e9dc" id="r_a1ae541f7fe1c5e21cb4535f88ec9e9dc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1ae541f7fe1c5e21cb4535f88ec9e9dc">$theme</a> = <a class="el" href="functions_8php.html#ad846814cbbdd645be54a7f8f3e10de77">gerer_theme</a>()</td></tr>
-<tr class="memitem:ac61adefb58583938c9b820405ddfa018" id="r_ac61adefb58583938c9b820405ddfa018"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac61adefb58583938c9b820405ddfa018">$stats</a> = <a class="el" href="functions_8php.html#a5b42211615afbdf17d0a0f52232108c0">calculer_statistiques</a>()</td></tr>
-<tr class="memitem:aae198bf80db896145044a0888c59c727" id="r_aae198bf80db896145044a0888c59c727"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aae198bf80db896145044a0888c59c727">$maxCityCount</a> = $stats['top_cities'] === [] ? 1 : max($stats['top_cities'])</td></tr>
-<tr class="memitem:a153a7b601cb67be6427ad8a3d6dcabaf" id="r_a153a7b601cb67be6427ad8a3d6dcabaf"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a153a7b601cb67be6427ad8a3d6dcabaf">$maxDepartmentCount</a> = $stats['top_departments'] === [] ? 1 : max($stats['top_departments'])</td></tr>
-<tr class="memitem:a3f71f5d5c58c9dbd2654ab2ec8069665" id="r_a3f71f5d5c58c9dbd2654ab2ec8069665"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3f71f5d5c58c9dbd2654ab2ec8069665">$maxRegionCount</a> = $stats['top_regions'] === [] ? 1 : max($stats['top_regions'])</td></tr>
-<tr class="memitem:a8d79b089d907047144d8172a128700bd" id="r_a8d79b089d907047144d8172a128700bd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8d79b089d907047144d8172a128700bd">$maxFuelCount</a> = $stats['top_fuels'] === [] ? 1 : max($stats['top_fuels'])</td></tr>
-<tr class="memitem:a0923e751af1ebc0063fba96b038eee0e" id="r_a0923e751af1ebc0063fba96b038eee0e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0923e751af1ebc0063fba96b038eee0e">$maxModeCount</a> = $stats['top_modes'] === [] ? 1 : max($stats['top_modes'])</td></tr>
-<tr class="memitem:aa62fbcdfb4de027f310c6c5ba754d29f" id="r_aa62fbcdfb4de027f310c6c5ba754d29f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa62fbcdfb4de027f310c6c5ba754d29f">$fuelTrends</a> = <a class="el" href="functions_8php.html#afa484ffbce4f8f277f6b49bab618b2ef">lire_tendances_prix_officielles</a>(null, [&quot;Gazole&quot;, &quot;SP95&quot;, &quot;SP98&quot;, &quot;E10&quot;])</td></tr>
-<tr class="memitem:a3a19a3c439125b55fcedd6bb5dbabdcb" id="r_a3a19a3c439125b55fcedd6bb5dbabdcb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3a19a3c439125b55fcedd6bb5dbabdcb">$pageTitle</a> = &quot;Statistiques - Plein Malin&quot;</td></tr>
-<tr class="memitem:ad99e553417ef14ff3eeffa7d69447823" id="r_ad99e553417ef14ff3eeffa7d69447823"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad99e553417ef14ff3eeffa7d69447823">$pageDescription</a> = &quot;Page statistiques de Plein Malin.&quot;</td></tr>
-<tr class="memitem:a10dad9009ff7a9d585fe258645a0d97b" id="r_a10dad9009ff7a9d585fe258645a0d97b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a10dad9009ff7a9d585fe258645a0d97b">$activePage</a> = &quot;stats&quot;</td></tr>
-<tr class="memitem:a9a6371febe3a20cee96ecc33d8f076ed" id="r_a9a6371febe3a20cee96ecc33d8f076ed"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9a6371febe3a20cee96ecc33d8f076ed">$footerText</a> = &quot;Enzo Phung | Fatma-Zhara Baarir | Statistiques générées à partir du CSV de consultations.&quot;</td></tr>
-<tr class="memitem:af73f4fa3877b30162813f1f1ca90cd84" id="r_af73f4fa3877b30162813f1f1ca90cd84"><td class="memItemLeft"><a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>($stats['top_cities']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach( $stats[ 'top_cities'] as $city=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>($stats['top_departments']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach( $stats[ 'top_departments'] as $department=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>($stats['top_regions']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach( $stats[ 'top_regions'] as $region=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>($stats['top_fuels']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach( $stats[ 'top_fuels'] as $fuel=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>($stats['top_modes']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach( $stats[ 'top_modes'] as $mode=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>(<a class="el" href="functions_8php.html#aca0271ba759d3307cb477bd824525960">formater_date_heure</a>($fuelTrends[&quot;cached_at&quot;] ?? &quot;&quot;) !==&quot;&quot;) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>(( $fuelTrends[&quot;fuels&quot;] ??[])===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a>&#160;</td><td class="memItemRight"><a class="el" href="#af73f4fa3877b30162813f1f1ca90cd84">foreach</a> ( $fuelTrends[&quot;fuels&quot;] as $fuelName=&gt; $months) {</td></tr>
+<tr class="memitem:a1ae541f7fe1c5e21cb4535f88ec9e9dc" id="r_a1ae541f7fe1c5e21cb4535f88ec9e9dc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1ae541f7fe1c5e21cb4535f88ec9e9dc">$theme</a> = <a class="el" href="group__preferences.html#gad846814cbbdd645be54a7f8f3e10de77">gerer_theme</a>()</td></tr>
+<tr class="memitem:a35692cc68b0a12ae7e9b2abc6d49a29e" id="r_a35692cc68b0a12ae7e9b2abc6d49a29e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a35692cc68b0a12ae7e9b2abc6d49a29e">$statistiques</a> = <a class="el" href="group__statistiques.html#ga5b42211615afbdf17d0a0f52232108c0">calculer_statistiques</a>()</td></tr>
+<tr class="memitem:a4afadfae8e9cf7a7b7c7577b4c38b1e1" id="r_a4afadfae8e9cf7a7b7c7577b4c38b1e1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4afadfae8e9cf7a7b7c7577b4c38b1e1">$maxVilles</a> = $statistiques['top_cities'] === [] ? 1 : max($statistiques['top_cities'])</td></tr>
+<tr class="memitem:ace88c1b53b77cfd952ba69136fd4d01d" id="r_ace88c1b53b77cfd952ba69136fd4d01d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ace88c1b53b77cfd952ba69136fd4d01d">$maxDepartements</a> = $statistiques['top_departments'] === [] ? 1 : max($statistiques['top_departments'])</td></tr>
+<tr class="memitem:af03da82886ad96eeb5db391cf013d6df" id="r_af03da82886ad96eeb5db391cf013d6df"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af03da82886ad96eeb5db391cf013d6df">$maxRegions</a> = $statistiques['top_regions'] === [] ? 1 : max($statistiques['top_regions'])</td></tr>
+<tr class="memitem:a39ed78db237a64f68a7ee057e28cbae8" id="r_a39ed78db237a64f68a7ee057e28cbae8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a39ed78db237a64f68a7ee057e28cbae8">$maxCarburants</a> = $statistiques['top_fuels'] === [] ? 1 : max($statistiques['top_fuels'])</td></tr>
+<tr class="memitem:a4fba3bf24258729646ceee4e338ee55d" id="r_a4fba3bf24258729646ceee4e338ee55d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4fba3bf24258729646ceee4e338ee55d">$maxModes</a> = $statistiques['top_modes'] === [] ? 1 : max($statistiques['top_modes'])</td></tr>
+<tr class="memitem:aa9aa491d366200b5af504be65c6acf07" id="r_aa9aa491d366200b5af504be65c6acf07"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa9aa491d366200b5af504be65c6acf07">$tendancesCarburants</a> = <a class="el" href="group__statistiques.html#gac802d15265a7990f630322ce7b74a842">lire_tendances_prix_officielles</a>(null, <a class="el" href="config_8php.html#a00d82bf1796771e41caa2170238c1b14">PM_TREND_FUELS</a>)</td></tr>
+<tr class="memitem:af4b879506b6ff477064447268eddbb99" id="r_af4b879506b6ff477064447268eddbb99"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af4b879506b6ff477064447268eddbb99">$titrePage</a> = &quot;Statistiques - Plein Malin&quot;</td></tr>
+<tr class="memitem:ae4c651f001e6834dbeeafcef6b1a38ba" id="r_ae4c651f001e6834dbeeafcef6b1a38ba"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae4c651f001e6834dbeeafcef6b1a38ba">$descriptionPage</a> = &quot;Page statistiques de Plein Malin.&quot;</td></tr>
+<tr class="memitem:a009519ce23e46383b691b834acc018e3" id="r_a009519ce23e46383b691b834acc018e3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a009519ce23e46383b691b834acc018e3">$pageActive</a> = &quot;stats&quot;</td></tr>
+<tr class="memitem:a12369e1a05a673479d1b6b13e1fe3c73" id="r_a12369e1a05a673479d1b6b13e1fe3c73"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a12369e1a05a673479d1b6b13e1fe3c73">$textePiedPage</a> = &quot;Enzo Phung | Fatma-Zahra Baarir | Statistiques générées à partir du CSV de consultations.&quot;</td></tr>
+<tr class="memitem:acdfc38f3bc77c36cc8296d4ed1e25c46" id="r_acdfc38f3bc77c36cc8296d4ed1e25c46"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_cities']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_cities'] as $ville=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_departments']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_departments'] as $departement=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_regions']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_regions'] as $region=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_fuels']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_fuels'] as $carburant=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_modes']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_modes'] as $mode=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>(<a class="el" href="format_8php.html#aca0271ba759d3307cb477bd824525960">formater_date_heure</a>($tendancesCarburants[&quot;cached_at&quot;] ?? &quot;&quot;) !==&quot;&quot;) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>(( $tendancesCarburants[&quot;fuels&quot;] ??[])===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a>&#160;</td><td class="memItemRight"><a class="el" href="#acdfc38f3bc77c36cc8296d4ed1e25c46">foreach</a> ( $tendancesCarburants[&quot;fuels&quot;] as $nomCarburant=&gt; $moisDonnees) {</td></tr>
 </table>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a10dad9009ff7a9d585fe258645a0d97b" name="a10dad9009ff7a9d585fe258645a0d97b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10dad9009ff7a9d585fe258645a0d97b">&#9670;&#160;</a></span>$activePage</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Page des statistiques de consultation et de prix. </p>
+<p>Page de statistiques.</p>
+<p>Elle lit les fichiers CSV de suivi et calcule aussi les tendances annuelles depuis l'archive XML officielle des prix carburants. </p>
+</div><a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="ae4c651f001e6834dbeeafcef6b1a38ba" name="ae4c651f001e6834dbeeafcef6b1a38ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c651f001e6834dbeeafcef6b1a38ba">&#9670;&#160;</a></span>$descriptionPage</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$activePage = &quot;stats&quot;</td>
+          <td class="memname">$descriptionPage = &quot;Page statistiques de Plein Malin.&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9a6371febe3a20cee96ecc33d8f076ed" name="a9a6371febe3a20cee96ecc33d8f076ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a6371febe3a20cee96ecc33d8f076ed">&#9670;&#160;</a></span>$footerText</h2>
+<a id="a39ed78db237a64f68a7ee057e28cbae8" name="a39ed78db237a64f68a7ee057e28cbae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39ed78db237a64f68a7ee057e28cbae8">&#9670;&#160;</a></span>$maxCarburants</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$footerText = &quot;Enzo Phung | Fatma-Zhara Baarir | Statistiques générées à partir du CSV de consultations.&quot;</td>
+          <td class="memname">$maxCarburants = $statistiques['top_fuels'] === [] ? 1 : max($statistiques['top_fuels'])</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aa62fbcdfb4de027f310c6c5ba754d29f" name="aa62fbcdfb4de027f310c6c5ba754d29f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa62fbcdfb4de027f310c6c5ba754d29f">&#9670;&#160;</a></span>$fuelTrends</h2>
+<a id="ace88c1b53b77cfd952ba69136fd4d01d" name="ace88c1b53b77cfd952ba69136fd4d01d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace88c1b53b77cfd952ba69136fd4d01d">&#9670;&#160;</a></span>$maxDepartements</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$fuelTrends = <a class="el" href="functions_8php.html#afa484ffbce4f8f277f6b49bab618b2ef">lire_tendances_prix_officielles</a>(null, [&quot;Gazole&quot;, &quot;SP95&quot;, &quot;SP98&quot;, &quot;E10&quot;])</td>
+          <td class="memname">$maxDepartements = $statistiques['top_departments'] === [] ? 1 : max($statistiques['top_departments'])</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aae198bf80db896145044a0888c59c727" name="aae198bf80db896145044a0888c59c727"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae198bf80db896145044a0888c59c727">&#9670;&#160;</a></span>$maxCityCount</h2>
+<a id="a4fba3bf24258729646ceee4e338ee55d" name="a4fba3bf24258729646ceee4e338ee55d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fba3bf24258729646ceee4e338ee55d">&#9670;&#160;</a></span>$maxModes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$maxCityCount = $stats['top_cities'] === [] ? 1 : max($stats['top_cities'])</td>
+          <td class="memname">$maxModes = $statistiques['top_modes'] === [] ? 1 : max($statistiques['top_modes'])</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a153a7b601cb67be6427ad8a3d6dcabaf" name="a153a7b601cb67be6427ad8a3d6dcabaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a153a7b601cb67be6427ad8a3d6dcabaf">&#9670;&#160;</a></span>$maxDepartmentCount</h2>
+<a id="af03da82886ad96eeb5db391cf013d6df" name="af03da82886ad96eeb5db391cf013d6df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af03da82886ad96eeb5db391cf013d6df">&#9670;&#160;</a></span>$maxRegions</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$maxDepartmentCount = $stats['top_departments'] === [] ? 1 : max($stats['top_departments'])</td>
+          <td class="memname">$maxRegions = $statistiques['top_regions'] === [] ? 1 : max($statistiques['top_regions'])</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8d79b089d907047144d8172a128700bd" name="a8d79b089d907047144d8172a128700bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d79b089d907047144d8172a128700bd">&#9670;&#160;</a></span>$maxFuelCount</h2>
+<a id="a4afadfae8e9cf7a7b7c7577b4c38b1e1" name="a4afadfae8e9cf7a7b7c7577b4c38b1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4afadfae8e9cf7a7b7c7577b4c38b1e1">&#9670;&#160;</a></span>$maxVilles</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$maxFuelCount = $stats['top_fuels'] === [] ? 1 : max($stats['top_fuels'])</td>
+          <td class="memname">$maxVilles = $statistiques['top_cities'] === [] ? 1 : max($statistiques['top_cities'])</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a0923e751af1ebc0063fba96b038eee0e" name="a0923e751af1ebc0063fba96b038eee0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0923e751af1ebc0063fba96b038eee0e">&#9670;&#160;</a></span>$maxModeCount</h2>
+<a id="a009519ce23e46383b691b834acc018e3" name="a009519ce23e46383b691b834acc018e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a009519ce23e46383b691b834acc018e3">&#9670;&#160;</a></span>$pageActive</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$maxModeCount = $stats['top_modes'] === [] ? 1 : max($stats['top_modes'])</td>
+          <td class="memname">$pageActive = &quot;stats&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a3f71f5d5c58c9dbd2654ab2ec8069665" name="a3f71f5d5c58c9dbd2654ab2ec8069665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f71f5d5c58c9dbd2654ab2ec8069665">&#9670;&#160;</a></span>$maxRegionCount</h2>
+<a id="a35692cc68b0a12ae7e9b2abc6d49a29e" name="a35692cc68b0a12ae7e9b2abc6d49a29e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35692cc68b0a12ae7e9b2abc6d49a29e">&#9670;&#160;</a></span>$statistiques</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$maxRegionCount = $stats['top_regions'] === [] ? 1 : max($stats['top_regions'])</td>
+          <td class="memname">$statistiques = <a class="el" href="group__statistiques.html#ga5b42211615afbdf17d0a0f52232108c0">calculer_statistiques</a>()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad99e553417ef14ff3eeffa7d69447823" name="ad99e553417ef14ff3eeffa7d69447823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad99e553417ef14ff3eeffa7d69447823">&#9670;&#160;</a></span>$pageDescription</h2>
+<a id="aa9aa491d366200b5af504be65c6acf07" name="aa9aa491d366200b5af504be65c6acf07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9aa491d366200b5af504be65c6acf07">&#9670;&#160;</a></span>$tendancesCarburants</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$pageDescription = &quot;Page statistiques de Plein Malin.&quot;</td>
+          <td class="memname">$tendancesCarburants = <a class="el" href="group__statistiques.html#gac802d15265a7990f630322ce7b74a842">lire_tendances_prix_officielles</a>(null, <a class="el" href="config_8php.html#a00d82bf1796771e41caa2170238c1b14">PM_TREND_FUELS</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a3a19a3c439125b55fcedd6bb5dbabdcb" name="a3a19a3c439125b55fcedd6bb5dbabdcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a19a3c439125b55fcedd6bb5dbabdcb">&#9670;&#160;</a></span>$pageTitle</h2>
+<a id="a12369e1a05a673479d1b6b13e1fe3c73" name="a12369e1a05a673479d1b6b13e1fe3c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12369e1a05a673479d1b6b13e1fe3c73">&#9670;&#160;</a></span>$textePiedPage</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$pageTitle = &quot;Statistiques - Plein Malin&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac61adefb58583938c9b820405ddfa018" name="ac61adefb58583938c9b820405ddfa018"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac61adefb58583938c9b820405ddfa018">&#9670;&#160;</a></span>$stats</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$stats = <a class="el" href="functions_8php.html#a5b42211615afbdf17d0a0f52232108c0">calculer_statistiques</a>()</td>
+          <td class="memname">$textePiedPage = &quot;Enzo Phung | Fatma-Zahra Baarir | Statistiques générées à partir du CSV de consultations.&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -271,28 +264,42 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$theme = <a class="el" href="functions_8php.html#ad846814cbbdd645be54a7f8f3e10de77">gerer_theme</a>()</td>
+          <td class="memname">$theme = <a class="el" href="group__preferences.html#gad846814cbbdd645be54a7f8f3e10de77">gerer_theme</a>()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="af73f4fa3877b30162813f1f1ca90cd84" name="af73f4fa3877b30162813f1f1ca90cd84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af73f4fa3877b30162813f1f1ca90cd84">&#9670;&#160;</a></span>foreach</h2>
+<a id="af4b879506b6ff477064447268eddbb99" name="af4b879506b6ff477064447268eddbb99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b879506b6ff477064447268eddbb99">&#9670;&#160;</a></span>$titrePage</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>( $stats[ 'top_cities']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach($stats['top_cities'] as $city=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>( $stats[ 'top_departments']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach($stats['top_departments'] as $department=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>( $stats[ 'top_regions']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach($stats['top_regions'] as $region=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>( $stats[ 'top_fuels']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach($stats['top_fuels'] as $fuel=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>( $stats[ 'top_modes']===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach($stats['top_modes'] as $mode=&gt; $count) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>(<a class="el" href="functions_8php.html#aca0271ba759d3307cb477bd824525960">formater_date_heure</a>( $fuelTrends[&quot;cached_at&quot;] ?? &quot;&quot;) !==&quot;&quot;) <a class="el" href="index_8php.html#af7823ebb156508b3e619392b20b1e07e">if</a>(($fuelTrends[&quot;fuels&quot;] ??[])===[]) <a class="el" href="recherche_8php.html#a017cc387eb0fa270a586fba46a19e408">else</a> foreach($fuelTrends[&quot;fuels&quot;] as $fuelName=&gt; $months) </td>
+          <td class="memname">$titrePage = &quot;Statistiques - Plein Malin&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acdfc38f3bc77c36cc8296d4ed1e25c46" name="acdfc38f3bc77c36cc8296d4ed1e25c46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdfc38f3bc77c36cc8296d4ed1e25c46">&#9670;&#160;</a></span>foreach</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_cities']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_cities'] as $ville=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_departments']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_departments'] as $departement=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_regions']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_regions'] as $region=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_fuels']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_fuels'] as $carburant=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_modes']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_modes'] as $mode=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>(<a class="el" href="format_8php.html#aca0271ba759d3307cb477bd824525960">formater_date_heure</a>( $tendancesCarburants[&quot;cached_at&quot;] ?? &quot;&quot;) !==&quot;&quot;) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>(($tendancesCarburants[&quot;fuels&quot;] ??[])===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($tendancesCarburants[&quot;fuels&quot;] as $nomCarburant=&gt; $moisDonnees) </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>$fuelTrends as</em></span>[&quot;fuels&quot;], </td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>$tendancesCarburants as</em></span>[&quot;fuels&quot;], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>$months</em></span>&#160;) {</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>$moisDonnees</em></span>&#160;) {</td>
         </tr>
       </table>
 </div><div class="memdoc">

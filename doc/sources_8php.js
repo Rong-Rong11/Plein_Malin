@@ -1,8 +1,8 @@
 var sources_8php =
 [
-    [ "$activePage", "sources_8php.html#a10dad9009ff7a9d585fe258645a0d97b", null ],
-    [ "$footerText", "sources_8php.html#a9a6371febe3a20cee96ecc33d8f076ed", null ],
-    [ "$pageDescription", "sources_8php.html#ad99e553417ef14ff3eeffa7d69447823", null ],
-    [ "$pageTitle", "sources_8php.html#a3a19a3c439125b55fcedd6bb5dbabdcb", null ],
-    [ "$theme", "sources_8php.html#a1ae541f7fe1c5e21cb4535f88ec9e9dc", null ]
+    [ "$descriptionPage", "sources_8php.html#ae4c651f001e6834dbeeafcef6b1a38ba", null ],
+    [ "$pageActive", "sources_8php.html#a009519ce23e46383b691b834acc018e3", null ],
+    [ "$textePiedPage", "sources_8php.html#a12369e1a05a673479d1b6b13e1fe3c73", null ],
+    [ "$theme", "sources_8php.html#a1ae541f7fe1c5e21cb4535f88ec9e9dc", null ],
+    [ "$titrePage", "sources_8php.html#af4b879506b6ff477064447268eddbb99", null ]
 ];

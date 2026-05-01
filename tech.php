@@ -1,5 +1,8 @@
 <?php
 /**
+ * @file
+ * @brief Page technique de demonstration des formats exploites.
+ *
  * Page technique.
  *
  * Elle montre les formats et services manipules par le projet : JSON, XML,
@@ -9,20 +12,20 @@ require __DIR__ . '/includes/functions.php';
 
 preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
-$geoData = recuperer_geolocalisation();
-$stats = calculer_statistiques();
+$donneesGeo = recuperer_geolocalisation();
+$statistiques = calculer_statistiques();
 $stationsXml = lire_stations_xml_demo();
 
 // Appel de demonstration JSON conserve pour montrer l'exploitation d'une API.
-$url = "https://ghibliapi.vercel.app/films";
-$json = @file_get_contents($url);
-$data = $json !== false ? json_decode($json, true) : [];
-$film = is_array($data) && $data !== [] ? $data[array_rand($data)] : null;
+$adresseUrl = "https://ghibliapi.vercel.app/films";
+$json = @file_get_contents($adresseUrl);
+$donnees = $json !== false ? json_decode($json, true) : [];
+$film = is_array($donnees) && $donnees !== [] ? $donnees[array_rand($donnees)] : null;
 
-$pageTitle = "Page tech - Plein Malin";
-$pageDescription = "Page technique conservee pour la validation de la partie 1 du projet.";
-$activePage = "tech";
-$footerText = "Enzo Phung | Fatma-Zhara Baarir | Page technique conservee pour validation.";
+$titrePage = "Page tech - Plein Malin";
+$descriptionPage = "Page technique conservee pour la validation de la partie 1 du projet.";
+$pageActive = "tech";
+$textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Page technique conservee pour validation.";
 
 require __DIR__ . "/includes/header.php";
 ?>
@@ -82,8 +85,8 @@ require __DIR__ . "/includes/header.php";
 								(<?= texte_securise($station["cp"]) ?>)
 								<?php if ($station["prix"] !== []) { ?>
 									:
-									<?php foreach ($station["prix"] as $indexPrix => $prix) { ?>
-										<?= $indexPrix > 0 ? ", " : "" ?><?= texte_securise($prix["nom"]) ?>
+									<?php foreach ($station["prix"] as $indicePrix => $prix) { ?>
+										<?= $indicePrix > 0 ? ", " : "" ?><?= texte_securise($prix["nom"]) ?>
 										<?= texte_securise($prix["valeur"]) ?> EUR/L
 									<?php } ?>
 								<?php } ?>
@@ -97,12 +100,12 @@ require __DIR__ . "/includes/header.php";
 				<h2>Flux JSON cote serveur</h2>
 			<p>Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.</p>
 			<ul class="plain-list">
-				<li>IP detectee: <?= texte_securise($geoData['ip']) ?></li>
-				<li>Ville retournee: <?= texte_securise($geoData['city'] !== "" ? $geoData['city'] : "Non trouvee") ?></li>
-				<li>Region retournee: <?= texte_securise($geoData['region'] !== "" ? $geoData['region'] : "Non trouvee") ?></li>
-				<li>Latitude: <?= texte_securise($geoData['latitude'] !== 0.0 ? (string) $geoData['latitude'] : "Non trouvee") ?></li>
-				<li>Longitude: <?= texte_securise($geoData['longitude'] !== 0.0 ? (string) $geoData['longitude'] : "Non trouvee") ?></li>
-				<li>Source utilisee: <?= texte_securise($geoData['source']) ?></li>
+				<li>IP detectee: <?= texte_securise($donneesGeo['ip']) ?></li>
+				<li>Ville retournee: <?= texte_securise($donneesGeo['city'] !== "" ? $donneesGeo['city'] : "Non trouvee") ?></li>
+				<li>Region retournee: <?= texte_securise($donneesGeo['region'] !== "" ? $donneesGeo['region'] : "Non trouvee") ?></li>
+				<li>Latitude: <?= texte_securise($donneesGeo['latitude'] !== 0.0 ? (string) $donneesGeo['latitude'] : "Non trouvee") ?></li>
+				<li>Longitude: <?= texte_securise($donneesGeo['longitude'] !== 0.0 ? (string) $donneesGeo['longitude'] : "Non trouvee") ?></li>
+				<li>Source utilisee: <?= texte_securise($donneesGeo['source']) ?></li>
 			</ul>
 		</section>
 
@@ -134,10 +137,10 @@ require __DIR__ . "/includes/header.php";
 		<section class="info-block tech-feature">
 			<h2>Etat des statistiques</h2>
 			<ul class="plain-list">
-					<li>Consultations enregistrees: <?= texte_securise((string) $stats['consultation_count']) ?></li>
-					<li>Visites de pages: <?= texte_securise((string) $stats['page_visit_count']) ?></li>
-					<li>Visiteurs approx.: <?= texte_securise((string) $stats['page_visitor_count']) ?></li>
-					<li>Nombre de villes dans le top: <?= texte_securise((string) count($stats['top_cities'])) ?></li>
+					<li>Consultations enregistrees: <?= texte_securise((string) $statistiques['consultation_count']) ?></li>
+					<li>Visites de pages: <?= texte_securise((string) $statistiques['page_visit_count']) ?></li>
+					<li>Visiteurs approx.: <?= texte_securise((string) $statistiques['page_visitor_count']) ?></li>
+					<li>Nombre de villes dans le top: <?= texte_securise((string) count($statistiques['top_cities'])) ?></li>
 				</ul>
 		</section>
 	</section>

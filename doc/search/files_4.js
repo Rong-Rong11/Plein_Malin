@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['index_2ephp_0',['index.php',['../index_8php.html',1,'']]]
+  ['header_2ephp_0',['header.php',['../header_8php.html',1,'']]]
 ];

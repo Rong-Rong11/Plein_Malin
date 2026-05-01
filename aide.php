@@ -1,5 +1,8 @@
 <?php
 /**
+ * @file
+ * @brief Page d'aide et de questions frequentes.
+ *
  * Page d'aide.
  *
  * Elle explique le parcours de recherche, la lecture des resultats et les
@@ -10,10 +13,10 @@ require __DIR__ . "/includes/functions.php";
 preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 
-$pageTitle = "Aide - Plein Malin";
-$pageDescription = "Mode d'emploi et questions fréquentes du site Plein Malin.";
-$activePage = "aide";
-$footerText = "Enzo Phung | Fatma-Zhara Baarir | Aide et mode d'emploi.";
+$titrePage = "Aide - Plein Malin";
+$descriptionPage = "Mode d'emploi et questions fréquentes du site Plein Malin.";
+$pageActive = "aide";
+$textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Aide et mode d'emploi.";
 
 require __DIR__ . "/includes/header.php";
 ?>

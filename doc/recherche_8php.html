@@ -92,40 +92,47 @@ $(function(){initNavTree('recherche_8php.html','',''); });
   <div class="headertitle"><div class="title">recherche.php File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Formulaire de recherche des stations.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a06abc14a9cfbc625f3a74288f7383c5b" id="r_a06abc14a9cfbc625f3a74288f7383c5b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a06abc14a9cfbc625f3a74288f7383c5b">coordonnees_carte</a> (string $coords, int $largeurOriginale, int $hauteurOriginale, int $largeurAffichee, int $hauteurAffichee)</td></tr>
+<tr class="memitem:aa2de2891e07f410f522067fa78e70c67" id="r_aa2de2891e07f410f522067fa78e70c67"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa2de2891e07f410f522067fa78e70c67">coordonnees_carte</a> (string $coordonnees, int $largeurOriginale, int $hauteurOriginale, int $largeurAffichee, int $hauteurAffichee)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a1ae541f7fe1c5e21cb4535f88ec9e9dc" id="r_a1ae541f7fe1c5e21cb4535f88ec9e9dc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1ae541f7fe1c5e21cb4535f88ec9e9dc">$theme</a> = <a class="el" href="functions_8php.html#ad846814cbbdd645be54a7f8f3e10de77">gerer_theme</a>()</td></tr>
-<tr class="memitem:a8c5fd0b88967ab433f5ef561a3773578" id="r_a8c5fd0b88967ab433f5ef561a3773578"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8c5fd0b88967ab433f5ef561a3773578">$fuelLabels</a> = <a class="el" href="functions_8php.html#aff94149a115e515c90b8397b97edbbf7">liste_carburants</a>()</td></tr>
-<tr class="memitem:a6b82a7602dce2859af47b30bb039e221" id="r_a6b82a7602dce2859af47b30bb039e221"><td class="memItemLeft"><a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a>(isset($_GET[&quot;reset&quot;]))&#160;</td><td class="memItemRight"><a class="el" href="#a6b82a7602dce2859af47b30bb039e221">$region</a> = $_GET[&quot;region&quot;] ?? &quot;&quot;</td></tr>
-<tr class="memitem:af5cc7499478fa9b6d7f9670f6a8521a0" id="r_af5cc7499478fa9b6d7f9670f6a8521a0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af5cc7499478fa9b6d7f9670f6a8521a0">$department</a> = $_GET[&quot;department&quot;] ?? &quot;&quot;</td></tr>
-<tr class="memitem:a5b9ddd3e3a69d8901270064346bdef49" id="r_a5b9ddd3e3a69d8901270064346bdef49"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5b9ddd3e3a69d8901270064346bdef49">$city</a> = $_GET[&quot;city&quot;] ?? &quot;&quot;</td></tr>
-<tr class="memitem:afbc19336190c90ae2ca2036536e2bde6" id="r_afbc19336190c90ae2ca2036536e2bde6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afbc19336190c90ae2ca2036536e2bde6">$selectedFuels</a> = <a class="el" href="functions_8php.html#a72de7b0281100656fa2b5e9b061366d2">normaliser_carburants_selection</a>($_GET[&quot;fuel&quot;] ?? [])</td></tr>
-<tr class="memitem:a5f132856721e2938d79b405c2639a566" id="r_a5f132856721e2938d79b405c2639a566"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5f132856721e2938d79b405c2639a566">$sort</a> = $_GET[&quot;sort&quot;] ?? &quot;price&quot;</td></tr>
-<tr class="memitem:a22614950b8a1f853c57f285a2123100c" id="r_a22614950b8a1f853c57f285a2123100c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a22614950b8a1f853c57f285a2123100c">$geoRadius</a> = <a class="el" href="functions_8php.html#a759719dd9158dcf0073d5dd6097d8917">normaliser_rayon_geo</a>((int) ($_GET[&quot;geo_radius&quot;] ?? 10))</td></tr>
-<tr class="memitem:a9a9556e1926224c1d63810ed041c0a15" id="r_a9a9556e1926224c1d63810ed041c0a15"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9a9556e1926224c1d63810ed041c0a15">$departmentMode</a> = isset($_GET[&quot;department_mode&quot;])</td></tr>
-<tr class="memitem:a6f08622442be98b71082624babfd4140" id="r_a6f08622442be98b71082624babfd4140"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6f08622442be98b71082624babfd4140">$searchMode</a> = $_GET[&quot;search_mode&quot;] ?? &quot;&quot;</td></tr>
-<tr class="memitem:a017cc387eb0fa270a586fba46a19e408" id="r_a017cc387eb0fa270a586fba46a19e408"><td class="memItemLeft"><a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a>( $searchMode !==&quot;geo&quot; &amp;&amp;$searchMode !==&quot;manual&quot;) <a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a>($region===&quot;&quot;&#160;</td><td class="memItemRight"><a class="el" href="#a017cc387eb0fa270a586fba46a19e408">else</a> )</td></tr>
-<tr class="memitem:a7b1025fa4afbe178ba124b6fa81ef767" id="r_a7b1025fa4afbe178ba124b6fa81ef767"><td class="memItemLeft"><a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a>($city===&quot;&quot; &amp;&amp;$department !==&quot;&quot; &amp;&amp;( $parametresMemorises&#160;</td><td class="memItemRight"><a class="el" href="#a7b1025fa4afbe178ba124b6fa81ef767">$departments</a> [&quot;region&quot;] ?? &quot;&quot;)===$region &amp;&amp;( $parametresMemorises[&quot;department&quot;] ?? &quot;&quot;)===$department &amp;&amp;( $parametresMemorises[&quot;city&quot;] ?? &quot;&quot;) !==&quot;&quot; &amp;&amp;<a class="el" href="functions_8php.html#a77f0c516279fa397b7f1469383b72dcc">ville_existe_dans_departement</a>((string) $parametresMemorises[&quot;city&quot;], $department)) <a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a>(array_intersect([&quot;region&quot;, &quot;department&quot;, &quot;city&quot;, &quot;fuel&quot;, &quot;sort&quot;, &quot;geo_radius&quot;, &quot;department_mode&quot;], array_keys($_GET)) !==[]) = <a class="el" href="functions_8php.html#a0ff4394b1152d5d2447982b29138ef6d">departements_par_region</a>($region)</td></tr>
-<tr class="memitem:a5250bd3d112eebd88c609d04a2040dc5" id="r_a5250bd3d112eebd88c609d04a2040dc5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5250bd3d112eebd88c609d04a2040dc5">$cities</a> = <a class="el" href="functions_8php.html#a43286afc6075e88ebd5aaaaf932ab4a6">villes_par_departement</a>($department)</td></tr>
-<tr class="memitem:aade144e22ec5f21cb57ade32aa77dc27" id="r_aade144e22ec5f21cb57ade32aa77dc27"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aade144e22ec5f21cb57ade32aa77dc27">$regionInfo</a> = $region !== &quot;&quot; ? <a class="el" href="functions_8php.html#aa78144d470a9514c43a7cb294127c115">trouver_region</a>($region) : null</td></tr>
+<tr class="memitem:a1ae541f7fe1c5e21cb4535f88ec9e9dc" id="r_a1ae541f7fe1c5e21cb4535f88ec9e9dc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1ae541f7fe1c5e21cb4535f88ec9e9dc">$theme</a> = <a class="el" href="group__preferences.html#gad846814cbbdd645be54a7f8f3e10de77">gerer_theme</a>()</td></tr>
+<tr class="memitem:aaa66298fb01ae0ef9807250d5e82d73a" id="r_aaa66298fb01ae0ef9807250d5e82d73a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aaa66298fb01ae0ef9807250d5e82d73a">$libellesCarburants</a> = <a class="el" href="group__recherche.html#gaff94149a115e515c90b8397b97edbbf7">liste_carburants</a>()</td></tr>
+<tr class="memitem:a6b82a7602dce2859af47b30bb039e221" id="r_a6b82a7602dce2859af47b30bb039e221"><td class="memItemLeft"><a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a>(isset($_GET[&quot;reset&quot;]))&#160;</td><td class="memItemRight"><a class="el" href="#a6b82a7602dce2859af47b30bb039e221">$region</a> = $_GET[&quot;region&quot;] ?? &quot;&quot;</td></tr>
+<tr class="memitem:acd5cf407c0f2ac72cb7c517b314e2d8f" id="r_acd5cf407c0f2ac72cb7c517b314e2d8f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a> = $_GET[&quot;department&quot;] ?? &quot;&quot;</td></tr>
+<tr class="memitem:acc3746cfaca53a8d6942c6252b17d14f" id="r_acc3746cfaca53a8d6942c6252b17d14f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acc3746cfaca53a8d6942c6252b17d14f">$ville</a> = $_GET[&quot;city&quot;] ?? &quot;&quot;</td></tr>
+<tr class="memitem:ae75a28657f9a99b282ec6f46fb80e50c" id="r_ae75a28657f9a99b282ec6f46fb80e50c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae75a28657f9a99b282ec6f46fb80e50c">$carburantsSelectionnes</a> = <a class="el" href="group__recherche.html#gaac021bff4a18ab36a2eb04f4c150c9db">normaliser_carburants_selection</a>($_GET[&quot;fuel&quot;] ?? [])</td></tr>
+<tr class="memitem:a2cb0c11e1311e9cac869cce6a7194474" id="r_a2cb0c11e1311e9cac869cce6a7194474"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2cb0c11e1311e9cac869cce6a7194474">$tri</a> = $_GET[&quot;sort&quot;] ?? &quot;price&quot;</td></tr>
+<tr class="memitem:a1da2c1f7c6eeaec612e02036571e2263" id="r_a1da2c1f7c6eeaec612e02036571e2263"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1da2c1f7c6eeaec612e02036571e2263">$rayonGeo</a> = <a class="el" href="search_8php.html#ae5b96955321c9be18c191e6a50774607">normaliser_rayon_geo</a>((int) ($_GET[&quot;geo_radius&quot;] ?? <a class="el" href="config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>))</td></tr>
+<tr class="memitem:abcc3f99c180ace32cf2d1bc1cb0818a5" id="r_abcc3f99c180ace32cf2d1bc1cb0818a5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abcc3f99c180ace32cf2d1bc1cb0818a5">$modeDepartement</a> = isset($_GET[&quot;department_mode&quot;])</td></tr>
+<tr class="memitem:a3880937f77fb2a6ea95c3582cce1b6b0" id="r_a3880937f77fb2a6ea95c3582cce1b6b0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3880937f77fb2a6ea95c3582cce1b6b0">$modeRecherche</a> = $_GET[&quot;search_mode&quot;] ?? &quot;&quot;</td></tr>
+<tr class="memitem:a85294e932522d059bb4924df413e4c94" id="r_a85294e932522d059bb4924df413e4c94"><td class="memItemLeft"><a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a>( $modeRecherche !==&quot;geo&quot; &amp;&amp;$modeRecherche !==&quot;manual&quot;) <a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a>($region===&quot;&quot;&#160;</td><td class="memItemRight"><a class="el" href="#a85294e932522d059bb4924df413e4c94">else</a> )</td></tr>
+<tr class="memitem:a65975d6f5e4fdf78c76de56d79ab4ed1" id="r_a65975d6f5e4fdf78c76de56d79ab4ed1"><td class="memItemLeft"><a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a>($ville===&quot;&quot; &amp;&amp;$departement !==&quot;&quot; &amp;&amp;( $parametresMemorises&#160;</td><td class="memItemRight"><a class="el" href="#a65975d6f5e4fdf78c76de56d79ab4ed1">$departements</a> [&quot;region&quot;] ?? &quot;&quot;)===$region &amp;&amp;( $parametresMemorises[&quot;department&quot;] ?? &quot;&quot;)===$departement &amp;&amp;( $parametresMemorises[&quot;city&quot;] ?? &quot;&quot;) !==&quot;&quot; &amp;&amp;<a class="el" href="data_8php.html#a8bb852ec55a6a405acada79e5011b591">ville_existe_dans_departement</a>((string) $parametresMemorises[&quot;city&quot;], $departement)) <a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a>(array_intersect([&quot;region&quot;, &quot;department&quot;, &quot;city&quot;, &quot;fuel&quot;, &quot;sort&quot;, &quot;geo_radius&quot;, &quot;department_mode&quot;], array_keys($_GET)) !==[]) = <a class="el" href="group__donnees.html#ga0ff4394b1152d5d2447982b29138ef6d">departements_par_region</a>($region)</td></tr>
+<tr class="memitem:afdefc0303846ad7cedbfd9acb7184a7a" id="r_afdefc0303846ad7cedbfd9acb7184a7a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afdefc0303846ad7cedbfd9acb7184a7a">$villes</a> = <a class="el" href="group__donnees.html#ga3eb870b5c8b768730abec0c9bfaf1ae3">villes_par_departement</a>($departement)</td></tr>
+<tr class="memitem:a66ce3b3b9928466c0f67cfb33d49c908" id="r_a66ce3b3b9928466c0f67cfb33d49c908"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a66ce3b3b9928466c0f67cfb33d49c908">$infosRegion</a> = $region !== &quot;&quot; ? <a class="el" href="group__donnees.html#gaa78144d470a9514c43a7cb294127c115">trouver_region</a>($region) : null</td></tr>
 <tr class="memitem:af461f2bed1cdaf91c7e07a4797182ee9" id="r_af461f2bed1cdaf91c7e07a4797182ee9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af461f2bed1cdaf91c7e07a4797182ee9">$largeurCarteOriginale</a> = $theme === &quot;night&quot; ? 1536 : 1530</td></tr>
 <tr class="memitem:ab0e748cdf17e7fc11dac791726c96ebd" id="r_ab0e748cdf17e7fc11dac791726c96ebd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab0e748cdf17e7fc11dac791726c96ebd">$hauteurCarteOriginale</a> = $theme === &quot;night&quot; ? 1024 : 1028</td></tr>
 <tr class="memitem:a0948c2763b598d7a0c69ee5634f1cb75" id="r_a0948c2763b598d7a0c69ee5634f1cb75"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0948c2763b598d7a0c69ee5634f1cb75">$largeurCarte</a> = (int) round($largeurCarteOriginale / 1.35)</td></tr>
 <tr class="memitem:a8ecc83580aa71af443d81b9b65cb15bc" id="r_a8ecc83580aa71af443d81b9b65cb15bc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8ecc83580aa71af443d81b9b65cb15bc">$hauteurCarte</a> = (int) round($hauteurCarteOriginale * ($largeurCarte / $largeurCarteOriginale))</td></tr>
-<tr class="memitem:a3a19a3c439125b55fcedd6bb5dbabdcb" id="r_a3a19a3c439125b55fcedd6bb5dbabdcb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3a19a3c439125b55fcedd6bb5dbabdcb">$pageTitle</a> = &quot;Recherche - Plein Malin&quot;</td></tr>
-<tr class="memitem:ad99e553417ef14ff3eeffa7d69447823" id="r_ad99e553417ef14ff3eeffa7d69447823"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad99e553417ef14ff3eeffa7d69447823">$pageDescription</a> = &quot;Choisir une région, un département et une ville.&quot;</td></tr>
-<tr class="memitem:a10dad9009ff7a9d585fe258645a0d97b" id="r_a10dad9009ff7a9d585fe258645a0d97b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a10dad9009ff7a9d585fe258645a0d97b">$activePage</a> = &quot;recherche&quot;</td></tr>
-<tr class="memitem:a9a6371febe3a20cee96ecc33d8f076ed" id="r_a9a6371febe3a20cee96ecc33d8f076ed"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9a6371febe3a20cee96ecc33d8f076ed">$footerText</a> = &quot;Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026&quot;</td></tr>
-<tr class="memitem:aebff5a1c4038411b3f10216dbf1fb879" id="r_aebff5a1c4038411b3f10216dbf1fb879"><td class="memItemLeft">if( $searchMode===&quot;geo&quot;) <a class="el" href="#a017cc387eb0fa270a586fba46a19e408">else</a>&#160;</td><td class="memItemRight"><a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a> ( $searchMode===&quot;geo&quot;) = $searchMode === &quot;geo&quot; ? &quot; is-active&quot; : &quot;&quot;</td></tr>
+<tr class="memitem:af4b879506b6ff477064447268eddbb99" id="r_af4b879506b6ff477064447268eddbb99"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af4b879506b6ff477064447268eddbb99">$titrePage</a> = &quot;Recherche - Plein Malin&quot;</td></tr>
+<tr class="memitem:ae4c651f001e6834dbeeafcef6b1a38ba" id="r_ae4c651f001e6834dbeeafcef6b1a38ba"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae4c651f001e6834dbeeafcef6b1a38ba">$descriptionPage</a> = &quot;Choisir une région, un département et une ville.&quot;</td></tr>
+<tr class="memitem:a009519ce23e46383b691b834acc018e3" id="r_a009519ce23e46383b691b834acc018e3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a009519ce23e46383b691b834acc018e3">$pageActive</a> = &quot;recherche&quot;</td></tr>
+<tr class="memitem:a12369e1a05a673479d1b6b13e1fe3c73" id="r_a12369e1a05a673479d1b6b13e1fe3c73"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a12369e1a05a673479d1b6b13e1fe3c73">$textePiedPage</a> = &quot;Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | Projet Web 2025-2026&quot;</td></tr>
+<tr class="memitem:a540ef01325aa58ca224472e29825d493" id="r_a540ef01325aa58ca224472e29825d493"><td class="memItemLeft">if( $modeRecherche===&quot;geo&quot;) <a class="el" href="#a85294e932522d059bb4924df413e4c94">else</a>&#160;</td><td class="memItemRight"><a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a> ( $modeRecherche===&quot;geo&quot;) = $modeRecherche === &quot;geo&quot; ? &quot; is-active&quot; : &quot;&quot;</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a06abc14a9cfbc625f3a74288f7383c5b" name="a06abc14a9cfbc625f3a74288f7383c5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06abc14a9cfbc625f3a74288f7383c5b">&#9670;&#160;</a></span>coordonnees_carte()</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Formulaire de recherche des stations. </p>
+<p>Page de recherche.</p>
+<p>Elle gere deux parcours : la recherche manuelle par region/departement/ville et la recherche autour de la position approximative de l'utilisateur. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="aa2de2891e07f410f522067fa78e70c67" name="aa2de2891e07f410f522067fa78e70c67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2de2891e07f410f522067fa78e70c67">&#9670;&#160;</a></span>coordonnees_carte()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,7 +140,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">coordonnees_carte </td>
           <td>(</td>
-          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$coords</em></span>, </td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$coordonnees</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -160,7 +167,7 @@ Variables</h2></td></tr>
 <p>Adapte les coordonnees de la carte cliquable a la taille affichee.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramtype">string</td><td class="paramname">$coords</td><td>Coordonnees originales separees par des virgules. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$coordonnees</td><td>Coordonnees originales separees par des virgules. </td></tr>
     <tr><td class="paramtype">int</td><td class="paramname">$largeurOriginale</td><td>Largeur de l'image source. </td></tr>
     <tr><td class="paramtype">int</td><td class="paramname">$hauteurOriginale</td><td>Hauteur de l'image source. </td></tr>
     <tr><td class="paramtype">int</td><td class="paramname">$largeurAffichee</td><td>Largeur affichee dans la page. </td></tr>
@@ -173,126 +180,56 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a10dad9009ff7a9d585fe258645a0d97b" name="a10dad9009ff7a9d585fe258645a0d97b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10dad9009ff7a9d585fe258645a0d97b">&#9670;&#160;</a></span>$activePage</h2>
+<a id="ae75a28657f9a99b282ec6f46fb80e50c" name="ae75a28657f9a99b282ec6f46fb80e50c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae75a28657f9a99b282ec6f46fb80e50c">&#9670;&#160;</a></span>$carburantsSelectionnes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$activePage = &quot;recherche&quot;</td>
+          <td class="memname">$carburantsSelectionnes = <a class="el" href="group__recherche.html#gaac021bff4a18ab36a2eb04f4c150c9db">normaliser_carburants_selection</a>($_GET[&quot;fuel&quot;] ?? [])</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a5250bd3d112eebd88c609d04a2040dc5" name="a5250bd3d112eebd88c609d04a2040dc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5250bd3d112eebd88c609d04a2040dc5">&#9670;&#160;</a></span>$cities</h2>
+<a id="acd5cf407c0f2ac72cb7c517b314e2d8f" name="acd5cf407c0f2ac72cb7c517b314e2d8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd5cf407c0f2ac72cb7c517b314e2d8f">&#9670;&#160;</a></span>$departement</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$cities = <a class="el" href="functions_8php.html#a43286afc6075e88ebd5aaaaf932ab4a6">villes_par_departement</a>($department)</td>
+          <td class="memname">$departement = $_GET[&quot;department&quot;] ?? &quot;&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a5b9ddd3e3a69d8901270064346bdef49" name="a5b9ddd3e3a69d8901270064346bdef49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b9ddd3e3a69d8901270064346bdef49">&#9670;&#160;</a></span>$city</h2>
+<a id="a65975d6f5e4fdf78c76de56d79ab4ed1" name="a65975d6f5e4fdf78c76de56d79ab4ed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65975d6f5e4fdf78c76de56d79ab4ed1">&#9670;&#160;</a></span>$departements</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$city = $_GET[&quot;city&quot;] ?? &quot;&quot;</td>
+          <td class="memname"><a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a>( $ville===&quot;&quot; &amp;&amp; $departement !==&quot;&quot; &amp;&amp;($parametresMemorises $departements[&quot;region&quot;] ?? &quot;&quot;)===$region &amp;&amp;($parametresMemorises[&quot;department&quot;] ?? &quot;&quot;)===$departement &amp;&amp;($parametresMemorises[&quot;city&quot;] ?? &quot;&quot;) !==&quot;&quot; &amp;&amp;<a class="el" href="data_8php.html#a8bb852ec55a6a405acada79e5011b591">ville_existe_dans_departement</a>((string) $parametresMemorises[&quot;city&quot;], $departement)) <a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a> (array_intersect([&quot;region&quot;, &quot;department&quot;, &quot;city&quot;, &quot;fuel&quot;, &quot;sort&quot;, &quot;geo_radius&quot;, &quot;department_mode&quot;], array_keys( $_GET)) !==[]) = <a class="el" href="group__donnees.html#ga0ff4394b1152d5d2447982b29138ef6d">departements_par_region</a>($region)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="af5cc7499478fa9b6d7f9670f6a8521a0" name="af5cc7499478fa9b6d7f9670f6a8521a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5cc7499478fa9b6d7f9670f6a8521a0">&#9670;&#160;</a></span>$department</h2>
+<a id="ae4c651f001e6834dbeeafcef6b1a38ba" name="ae4c651f001e6834dbeeafcef6b1a38ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c651f001e6834dbeeafcef6b1a38ba">&#9670;&#160;</a></span>$descriptionPage</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$department = $_GET[&quot;department&quot;] ?? &quot;&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9a9556e1926224c1d63810ed041c0a15" name="a9a9556e1926224c1d63810ed041c0a15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a9556e1926224c1d63810ed041c0a15">&#9670;&#160;</a></span>$departmentMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$departmentMode = isset($_GET[&quot;department_mode&quot;])</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7b1025fa4afbe178ba124b6fa81ef767" name="a7b1025fa4afbe178ba124b6fa81ef767"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b1025fa4afbe178ba124b6fa81ef767">&#9670;&#160;</a></span>$departments</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a>( $city===&quot;&quot; &amp;&amp; $department !==&quot;&quot; &amp;&amp;($parametresMemorises $departments[&quot;region&quot;] ?? &quot;&quot;)===$region &amp;&amp;($parametresMemorises[&quot;department&quot;] ?? &quot;&quot;)===$department &amp;&amp;($parametresMemorises[&quot;city&quot;] ?? &quot;&quot;) !==&quot;&quot; &amp;&amp;<a class="el" href="functions_8php.html#a77f0c516279fa397b7f1469383b72dcc">ville_existe_dans_departement</a>((string) $parametresMemorises[&quot;city&quot;], $department)) <a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a> (array_intersect([&quot;region&quot;, &quot;department&quot;, &quot;city&quot;, &quot;fuel&quot;, &quot;sort&quot;, &quot;geo_radius&quot;, &quot;department_mode&quot;], array_keys( $_GET)) !==[]) = <a class="el" href="functions_8php.html#a0ff4394b1152d5d2447982b29138ef6d">departements_par_region</a>($region)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9a6371febe3a20cee96ecc33d8f076ed" name="a9a6371febe3a20cee96ecc33d8f076ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a6371febe3a20cee96ecc33d8f076ed">&#9670;&#160;</a></span>$footerText</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$footerText = &quot;Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8c5fd0b88967ab433f5ef561a3773578" name="a8c5fd0b88967ab433f5ef561a3773578"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c5fd0b88967ab433f5ef561a3773578">&#9670;&#160;</a></span>$fuelLabels</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$fuelLabels = <a class="el" href="functions_8php.html#aff94149a115e515c90b8397b97edbbf7">liste_carburants</a>()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a22614950b8a1f853c57f285a2123100c" name="a22614950b8a1f853c57f285a2123100c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22614950b8a1f853c57f285a2123100c">&#9670;&#160;</a></span>$geoRadius</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$geoRadius = <a class="el" href="functions_8php.html#a759719dd9158dcf0073d5dd6097d8917">normaliser_rayon_geo</a>((int) ($_GET[&quot;geo_radius&quot;] ?? 10))</td>
+          <td class="memname">$descriptionPage = &quot;Choisir une région, un département et une ville.&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -327,6 +264,20 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a66ce3b3b9928466c0f67cfb33d49c908" name="a66ce3b3b9928466c0f67cfb33d49c908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66ce3b3b9928466c0f67cfb33d49c908">&#9670;&#160;</a></span>$infosRegion</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$infosRegion = $region !== &quot;&quot; ? <a class="el" href="group__donnees.html#gaa78144d470a9514c43a7cb294127c115">trouver_region</a>($region) : null</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0948c2763b598d7a0c69ee5634f1cb75" name="a0948c2763b598d7a0c69ee5634f1cb75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0948c2763b598d7a0c69ee5634f1cb75">&#9670;&#160;</a></span>$largeurCarte</h2>
 
@@ -355,28 +306,70 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad99e553417ef14ff3eeffa7d69447823" name="ad99e553417ef14ff3eeffa7d69447823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad99e553417ef14ff3eeffa7d69447823">&#9670;&#160;</a></span>$pageDescription</h2>
+<a id="aaa66298fb01ae0ef9807250d5e82d73a" name="aaa66298fb01ae0ef9807250d5e82d73a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa66298fb01ae0ef9807250d5e82d73a">&#9670;&#160;</a></span>$libellesCarburants</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$pageDescription = &quot;Choisir une région, un département et une ville.&quot;</td>
+          <td class="memname">$libellesCarburants = <a class="el" href="group__recherche.html#gaff94149a115e515c90b8397b97edbbf7">liste_carburants</a>()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a3a19a3c439125b55fcedd6bb5dbabdcb" name="a3a19a3c439125b55fcedd6bb5dbabdcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a19a3c439125b55fcedd6bb5dbabdcb">&#9670;&#160;</a></span>$pageTitle</h2>
+<a id="abcc3f99c180ace32cf2d1bc1cb0818a5" name="abcc3f99c180ace32cf2d1bc1cb0818a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcc3f99c180ace32cf2d1bc1cb0818a5">&#9670;&#160;</a></span>$modeDepartement</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$pageTitle = &quot;Recherche - Plein Malin&quot;</td>
+          <td class="memname">$modeDepartement = isset($_GET[&quot;department_mode&quot;])</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3880937f77fb2a6ea95c3582cce1b6b0" name="a3880937f77fb2a6ea95c3582cce1b6b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3880937f77fb2a6ea95c3582cce1b6b0">&#9670;&#160;</a></span>$modeRecherche</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$modeRecherche = $_GET[&quot;search_mode&quot;] ?? &quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a009519ce23e46383b691b834acc018e3" name="a009519ce23e46383b691b834acc018e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a009519ce23e46383b691b834acc018e3">&#9670;&#160;</a></span>$pageActive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$pageActive = &quot;recherche&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1da2c1f7c6eeaec612e02036571e2263" name="a1da2c1f7c6eeaec612e02036571e2263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1da2c1f7c6eeaec612e02036571e2263">&#9670;&#160;</a></span>$rayonGeo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$rayonGeo = <a class="el" href="search_8php.html#ae5b96955321c9be18c191e6a50774607">normaliser_rayon_geo</a>((int) ($_GET[&quot;geo_radius&quot;] ?? <a class="el" href="config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>))</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -390,63 +383,21 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a> (isset( $_GET[&quot;reset&quot;])) $region = $_GET[&quot;region&quot;] ?? &quot;&quot;</td>
+          <td class="memname"><a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a> (isset( $_GET[&quot;reset&quot;])) $region = $_GET[&quot;region&quot;] ?? &quot;&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aade144e22ec5f21cb57ade32aa77dc27" name="aade144e22ec5f21cb57ade32aa77dc27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aade144e22ec5f21cb57ade32aa77dc27">&#9670;&#160;</a></span>$regionInfo</h2>
+<a id="a12369e1a05a673479d1b6b13e1fe3c73" name="a12369e1a05a673479d1b6b13e1fe3c73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12369e1a05a673479d1b6b13e1fe3c73">&#9670;&#160;</a></span>$textePiedPage</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$regionInfo = $region !== &quot;&quot; ? <a class="el" href="functions_8php.html#aa78144d470a9514c43a7cb294127c115">trouver_region</a>($region) : null</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6f08622442be98b71082624babfd4140" name="a6f08622442be98b71082624babfd4140"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f08622442be98b71082624babfd4140">&#9670;&#160;</a></span>$searchMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$searchMode = $_GET[&quot;search_mode&quot;] ?? &quot;&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afbc19336190c90ae2ca2036536e2bde6" name="afbc19336190c90ae2ca2036536e2bde6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbc19336190c90ae2ca2036536e2bde6">&#9670;&#160;</a></span>$selectedFuels</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$selectedFuels = <a class="el" href="functions_8php.html#a72de7b0281100656fa2b5e9b061366d2">normaliser_carburants_selection</a>($_GET[&quot;fuel&quot;] ?? [])</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5f132856721e2938d79b405c2639a566" name="a5f132856721e2938d79b405c2639a566"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f132856721e2938d79b405c2639a566">&#9670;&#160;</a></span>$sort</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">$sort = $_GET[&quot;sort&quot;] ?? &quot;price&quot;</td>
+          <td class="memname">$textePiedPage = &quot;Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | Projet Web 2025-2026&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -460,57 +411,113 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$theme = <a class="el" href="functions_8php.html#ad846814cbbdd645be54a7f8f3e10de77">gerer_theme</a>()</td>
+          <td class="memname">$theme = <a class="el" href="group__preferences.html#gad846814cbbdd645be54a7f8f3e10de77">gerer_theme</a>()</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a017cc387eb0fa270a586fba46a19e408" name="a017cc387eb0fa270a586fba46a19e408"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a017cc387eb0fa270a586fba46a19e408">&#9670;&#160;</a></span>else</h2>
+<a id="af4b879506b6ff477064447268eddbb99" name="af4b879506b6ff477064447268eddbb99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b879506b6ff477064447268eddbb99">&#9670;&#160;</a></span>$titrePage</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a>($searchMode !==&quot;geo&quot; &amp;&amp; $searchMode !==&quot;manual&quot;) <a class="el" href="#aebff5a1c4038411b3f10216dbf1fb879">if</a> ( $region===&quot;&quot; else) </td>
+          <td class="memname">$titrePage = &quot;Recherche - Plein Malin&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2cb0c11e1311e9cac869cce6a7194474" name="a2cb0c11e1311e9cac869cce6a7194474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb0c11e1311e9cac869cce6a7194474">&#9670;&#160;</a></span>$tri</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$tri = $_GET[&quot;sort&quot;] ?? &quot;price&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acc3746cfaca53a8d6942c6252b17d14f" name="acc3746cfaca53a8d6942c6252b17d14f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc3746cfaca53a8d6942c6252b17d14f">&#9670;&#160;</a></span>$ville</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$ville = $_GET[&quot;city&quot;] ?? &quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afdefc0303846ad7cedbfd9acb7184a7a" name="afdefc0303846ad7cedbfd9acb7184a7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdefc0303846ad7cedbfd9acb7184a7a">&#9670;&#160;</a></span>$villes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$villes = <a class="el" href="group__donnees.html#ga3eb870b5c8b768730abec0c9bfaf1ae3">villes_par_departement</a>($departement)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85294e932522d059bb4924df413e4c94" name="a85294e932522d059bb4924df413e4c94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85294e932522d059bb4924df413e4c94">&#9670;&#160;</a></span>else</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a>($modeRecherche !==&quot;geo&quot; &amp;&amp; $modeRecherche !==&quot;manual&quot;) <a class="el" href="#a540ef01325aa58ca224472e29825d493">if</a> ( $region===&quot;&quot; else) </td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">    <span class="keywordflow">if</span> (!<a class="code hl_function" href="functions_8php.html#a7a96f0fe05ecf288189ed5d39bd33d4a">departement_existe_dans_region</a>(<a class="code hl_variable" href="#af5cc7499478fa9b6d7f9670f6a8521a0">$department</a>, <a class="code hl_variable" href="#a6b82a7602dce2859af47b30bb039e221">$region</a>)) {</div>
-<div class="line">        <a class="code hl_variable" href="#af5cc7499478fa9b6d7f9670f6a8521a0">$department</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line">        <a class="code hl_variable" href="#a5b9ddd3e3a69d8901270064346bdef49">$city</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">    <span class="keywordflow">if</span> (!<a class="code hl_function" href="data_8php.html#ae619f867dd8f251c7df6fc54100ab9ae">departement_existe_dans_region</a>(<a class="code hl_variable" href="#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a>, <a class="code hl_variable" href="#a6b82a7602dce2859af47b30bb039e221">$region</a>)) {</div>
+<div class="line">        <a class="code hl_variable" href="#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">        <a class="code hl_variable" href="#acc3746cfaca53a8d6942c6252b17d14f">$ville</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#af5cc7499478fa9b6d7f9670f6a8521a0">$department</a> !== <span class="stringliteral">&quot;&quot;</span> &amp;&amp; !<a class="code hl_function" href="functions_8php.html#a77f0c516279fa397b7f1469383b72dcc">ville_existe_dans_departement</a>(<a class="code hl_variable" href="#a5b9ddd3e3a69d8901270064346bdef49">$city</a>, <a class="code hl_variable" href="#af5cc7499478fa9b6d7f9670f6a8521a0">$department</a>)) {</div>
-<div class="line">        <a class="code hl_variable" href="#a5b9ddd3e3a69d8901270064346bdef49">$city</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a> !== <span class="stringliteral">&quot;&quot;</span> &amp;&amp; !<a class="code hl_function" href="data_8php.html#a8bb852ec55a6a405acada79e5011b591">ville_existe_dans_departement</a>(<a class="code hl_variable" href="#acc3746cfaca53a8d6942c6252b17d14f">$ville</a>, <a class="code hl_variable" href="#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a>)) {</div>
+<div class="line">        <a class="code hl_variable" href="#acc3746cfaca53a8d6942c6252b17d14f">$ville</a> = <span class="stringliteral">&quot;&quot;</span>;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">$parametresMemorises = <a class="code hl_function" href="functions_8php.html#a263ea981be84ac8aed05ed657f3f4306">lire_parametres_derniere_recherche</a>()</div>
-<div class="ttc" id="afunctions_8php_html_a263ea981be84ac8aed05ed657f3f4306"><div class="ttname"><a href="functions_8php.html#a263ea981be84ac8aed05ed657f3f4306">lire_parametres_derniere_recherche</a></div><div class="ttdeci">lire_parametres_derniere_recherche()</div><div class="ttdef"><b>Definition</b> functions.php:874</div></div>
-<div class="ttc" id="afunctions_8php_html_a77f0c516279fa397b7f1469383b72dcc"><div class="ttname"><a href="functions_8php.html#a77f0c516279fa397b7f1469383b72dcc">ville_existe_dans_departement</a></div><div class="ttdeci">ville_existe_dans_departement(string $codeVille, string $codeDepartment)</div><div class="ttdef"><b>Definition</b> functions.php:635</div></div>
-<div class="ttc" id="afunctions_8php_html_a7a96f0fe05ecf288189ed5d39bd33d4a"><div class="ttname"><a href="functions_8php.html#a7a96f0fe05ecf288189ed5d39bd33d4a">departement_existe_dans_region</a></div><div class="ttdeci">departement_existe_dans_region(string $codeDepartment, string $codeRegion)</div><div class="ttdef"><b>Definition</b> functions.php:617</div></div>
-<div class="ttc" id="arecherche_8php_html_a5b9ddd3e3a69d8901270064346bdef49"><div class="ttname"><a href="#a5b9ddd3e3a69d8901270064346bdef49">$city</a></div><div class="ttdeci">$city</div><div class="ttdef"><b>Definition</b> recherche.php:24</div></div>
-<div class="ttc" id="arecherche_8php_html_a6b82a7602dce2859af47b30bb039e221"><div class="ttname"><a href="#a6b82a7602dce2859af47b30bb039e221">$region</a></div><div class="ttdeci">if(isset($_GET[&quot;reset&quot;])) $region</div><div class="ttdef"><b>Definition</b> recherche.php:22</div></div>
-<div class="ttc" id="arecherche_8php_html_af5cc7499478fa9b6d7f9670f6a8521a0"><div class="ttname"><a href="#af5cc7499478fa9b6d7f9670f6a8521a0">$department</a></div><div class="ttdeci">$department</div><div class="ttdef"><b>Definition</b> recherche.php:23</div></div>
+<div class="line">$parametresMemorises = <a class="code hl_function" href="group__preferences.html#ga263ea981be84ac8aed05ed657f3f4306">lire_parametres_derniere_recherche</a>()</div>
+<div class="ttc" id="adata_8php_html_a8bb852ec55a6a405acada79e5011b591"><div class="ttname"><a href="data_8php.html#a8bb852ec55a6a405acada79e5011b591">ville_existe_dans_departement</a></div><div class="ttdeci">ville_existe_dans_departement(string $codeVille, string $codeDepartement)</div><div class="ttdef"><b>Definition</b> data.php:32</div></div>
+<div class="ttc" id="adata_8php_html_ae619f867dd8f251c7df6fc54100ab9ae"><div class="ttname"><a href="data_8php.html#ae619f867dd8f251c7df6fc54100ab9ae">departement_existe_dans_region</a></div><div class="ttdeci">departement_existe_dans_region(string $codeDepartement, string $codeRegion)</div><div class="ttdef"><b>Definition</b> data.php:15</div></div>
+<div class="ttc" id="agroup__preferences_html_ga263ea981be84ac8aed05ed657f3f4306"><div class="ttname"><a href="group__preferences.html#ga263ea981be84ac8aed05ed657f3f4306">lire_parametres_derniere_recherche</a></div><div class="ttdeci">lire_parametres_derniere_recherche()</div><div class="ttdef"><b>Definition</b> preferences.php:268</div></div>
+<div class="ttc" id="arecherche_8php_html_a6b82a7602dce2859af47b30bb039e221"><div class="ttname"><a href="#a6b82a7602dce2859af47b30bb039e221">$region</a></div><div class="ttdeci">if(isset($_GET[&quot;reset&quot;])) $region</div><div class="ttdef"><b>Definition</b> recherche.php:25</div></div>
+<div class="ttc" id="arecherche_8php_html_acc3746cfaca53a8d6942c6252b17d14f"><div class="ttname"><a href="#acc3746cfaca53a8d6942c6252b17d14f">$ville</a></div><div class="ttdeci">$ville</div><div class="ttdef"><b>Definition</b> recherche.php:27</div></div>
+<div class="ttc" id="arecherche_8php_html_acd5cf407c0f2ac72cb7c517b314e2d8f"><div class="ttname"><a href="#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a></div><div class="ttdeci">$departement</div><div class="ttdef"><b>Definition</b> recherche.php:26</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aebff5a1c4038411b3f10216dbf1fb879" name="aebff5a1c4038411b3f10216dbf1fb879"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebff5a1c4038411b3f10216dbf1fb879">&#9670;&#160;</a></span>if</h2>
+<a id="a540ef01325aa58ca224472e29825d493" name="a540ef01325aa58ca224472e29825d493"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a540ef01325aa58ca224472e29825d493">&#9670;&#160;</a></span>if</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">if($searchMode===&quot;geo&quot;) <a class="el" href="#a017cc387eb0fa270a586fba46a19e408">else</a> if($searchMode===&quot;geo&quot;) </td>
+          <td class="memname">if($modeRecherche===&quot;geo&quot;) <a class="el" href="#a85294e932522d059bb4924df413e4c94">else</a> if($modeRecherche===&quot;geo&quot;) </td>
           <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>$searchMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval">==&#160;&quot;geo&quot;</span></td><td>)</td>
-          <td> = $searchMode === &quot;geo&quot; ? &quot; is-active&quot; : &quot;&quot;</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>$modeRecherche</em></span><span class="paramdefsep"> = </span><span class="paramdefval">==&#160;&quot;geo&quot;</span></td><td>)</td>
+          <td> = $modeRecherche === &quot;geo&quot; ? &quot; is-active&quot; : &quot;&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
