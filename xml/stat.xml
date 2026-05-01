@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 	<html lang="fr">
 	<head>
@@ -8,7 +7,6 @@
 		<meta name="description" content="Page statistiques de Plein Malin." />
 		<link rel="stylesheet" href="style.css" />
 			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
-			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
@@ -30,8 +28,8 @@
 				</div>
 
 			<nav class="main-nav">
-				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
-				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+				<a href="recherche.php?search_mode=manual">Recherche</a>
+				<a href="resultats.php">Résultats</a>
 				<a href="stats.php" aria-current="page">Statistiques</a>
 			</nav>
 		</header>
@@ -49,15 +47,15 @@
 				</p>
 				<div class="stats-inline">
 					<div class="stat-chip">
-						<strong>104</strong>
+						<strong>3</strong>
 						<span>recherches</span>
 					</div>
 					<div class="stat-chip">
-						<strong>169</strong>
+						<strong>166</strong>
 						<span>visites de pages</span>
 					</div>
 					<div class="stat-chip">
-						<strong>12</strong>
+						<strong>2</strong>
 						<span>visiteurs approx.</span>
 					</div>
 				</div>
@@ -70,60 +68,11 @@
 					<h3>Top des villes consultées</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
-									<span class="bar-label">Miquelon Langlade</span>
+									<span class="bar-label">Chelles</span>
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">10</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Eaubonne</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 40%"></div>
-									</div>
-									<strong class="bar-value">4</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Auxais</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 30%"></div>
-									</div>
-									<strong class="bar-value">3</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Paris 04</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 30%"></div>
-									</div>
-									<strong class="bar-value">3</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">L Abergement Clemenciat</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 20%"></div>
-									</div>
 									<strong class="bar-value">2</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Langon</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">1</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Amfreville Les Champs</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">1</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Airel</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">1</strong>
 								</div>
 													</div>
 									</article>
@@ -132,60 +81,11 @@
 					<h3>Top des départements consultés</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
-									<span class="bar-label">Seine-Saint-Denis</span>
+									<span class="bar-label">Seine-et-Marne</span>
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">31</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Val-d&#039;Oise</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 48%"></div>
-									</div>
-									<strong class="bar-value">15</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Haute-Garonne</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 48%"></div>
-									</div>
-									<strong class="bar-value">15</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Seine-et-Marne</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 42%"></div>
-									</div>
-									<strong class="bar-value">13</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Manche</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 16%"></div>
-									</div>
-									<strong class="bar-value">5</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Oise</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 13%"></div>
-									</div>
-									<strong class="bar-value">4</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Paris</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 13%"></div>
-									</div>
-									<strong class="bar-value">4</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Cote-d&#039;Or</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">2</strong>
+									<strong class="bar-value">3</strong>
 								</div>
 													</div>
 									</article>
@@ -198,49 +98,7 @@
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">63</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Occitanie</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 24%"></div>
-									</div>
-									<strong class="bar-value">15</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Normandie</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 13%"></div>
-									</div>
-									<strong class="bar-value">8</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Hauts-de-France</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">4</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Bourgogne-Franche-Comte</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">2</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Bretagne</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">1</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">Centre-Val de Loire</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">1</strong>
+									<strong class="bar-value">3</strong>
 								</div>
 													</div>
 									</article>
@@ -253,42 +111,7 @@
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">103</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">E85</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 39%"></div>
-									</div>
-									<strong class="bar-value">40</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">SP98</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 11%"></div>
-									</div>
-									<strong class="bar-value">11</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">SP95-E10</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">6</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">SP95</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">4</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">GPLc</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 10%"></div>
-									</div>
-									<strong class="bar-value">4</strong>
+									<strong class="bar-value">3</strong>
 								</div>
 													</div>
 									</article>
@@ -297,25 +120,18 @@
 					<h3>Recherches par mode</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
-									<span class="bar-label">departement</span>
+									<span class="bar-label">ville</span>
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">79</strong>
+									<strong class="bar-value">2</strong>
 								</div>
 															<div class="bar-row">
-									<span class="bar-label">ville</span>
+									<span class="bar-label">departement</span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: 16%"></div>
+										<div class="bar-fill" style="width: 50%"></div>
 									</div>
-									<strong class="bar-value">13</strong>
-								</div>
-															<div class="bar-row">
-									<span class="bar-label">geolocalisation</span>
-									<div class="bar-track">
-										<div class="bar-fill" style="width: 15%"></div>
-									</div>
-									<strong class="bar-value">12</strong>
+									<strong class="bar-value">1</strong>
 								</div>
 													</div>
 									</article>
@@ -333,7 +149,7 @@
 						<a href="https://donnees.roulez-eco.fr/opendata/annee/2026">
 							donnees.roulez-eco.fr
 						</a>
-													- dernière mise à jour du cache le 30/04/2026 20:16											</p>
+													- dernière mise à jour du cache le 30/04/2026 18:16											</p>
 
 										<div class="trend-grid">
 													<article class="trend-group">
@@ -504,27 +320,28 @@
 							</section>
 		</main>
 
-		<footer class="site-footer">
-			<div class="footer-nav-block">
-				<div class="footer-links footer-links-main">
-					<a href="index.php">Accueil</a>
-					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
-					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
-					<a href="stats.php">Statistiques</a>
-				</div>
-				<div class="footer-links footer-links-info">
-					<a href="a-propos.php">À propos</a>
-					<a href="aide.php">Aide</a>
-					<a href="sources.php">Sources des données</a>
-					<a href="confidentialite.php">Confidentialité</a>
-					<a href="plan-site.php">Plan du site</a>
-					<a href="tech.php">Page tech</a>
-				</div>
-			</div>
-			<p>Enzo Phung | Fatma-Zahra Baarir | Statistiques générées à partir du CSV de consultations.</p>
-		</footer>
-		<a href="#top" class="back-top">
-			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
-		</a>
-	</body>
-	</html>
+<footer class="site-footer">
+	<div class="footer-nav-block">
+		<div class="footer-links footer-links-main">
+			<a href="index.php">Accueil</a>
+			<a href="recherche.php?search_mode=manual">Recherche</a>
+			<a href="resultats.php">Résultats</a>
+			<a href="stats.php">Statistiques</a>
+		</div>
+		<div class="footer-links footer-links-info">
+			<a href="a-propos.php">À propos</a>
+			<a href="aide.php">Aide</a>
+			<a href="sources.php">Sources des données</a>
+			<a href="confidentialite.php">Confidentialité</a>
+			<a href="plan-site.php">Plan du site</a>
+			<a href="tech.php">Page tech</a>
+		</div>
+	</div>
+	<p>Enzo Phung | Fatma-Zahra Baarir | Statistiques générées à partir du CSV de consultations.</p>
+</footer>
+<a href="#top" class="back-top">
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+</a>
+</body>
+
+</html>

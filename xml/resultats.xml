@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 	<html lang="fr">
 	<head>
@@ -8,7 +7,6 @@
 		<meta name="description" content="Résultats des stations-service et des prix." />
 		<link rel="stylesheet" href="style.css" />
 			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
-			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
@@ -19,19 +17,19 @@
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
 					<div class="theme-switch">
-						<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;theme=night" class="theme-link">
+						<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10&amp;theme=night" class="theme-link">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
 						</a>
-						<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;lang=en" class="theme-link">
+						<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10&amp;lang=en" class="theme-link">
 							<span>English</span>
 						</a>
 					</div>
 				</div>
 
 			<nav class="main-nav">
-				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
-				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats" aria-current="page">Résultats</a>
+				<a href="recherche.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;search_mode=manual">Recherche</a>
+				<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10#resultats" aria-current="page">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
@@ -49,10 +47,8 @@
 					<form action="resultats.php#resultats" method="get" class="results-refine-form search-form search-form-structured">
 						<input type="hidden" name="region" value="11" />
 						<input type="hidden" name="department" value="77" />
-						<input type="hidden" name="city" value="" />
-						<input type="hidden" name="geo_radius" value="10" />
-													<input type="hidden" name="department_mode" value="1" />
-																		<div class="search-section search-plain">
+						<input type="hidden" name="city" value="77108" />
+																								<div class="search-section search-plain">
 							<div class="field-card field-card-wide">
 								<span class="field-title">Carburants</span>
 								<span class="field-help">Gazole par défaut si rien n'est coché.</span>
@@ -99,7 +95,27 @@
 										<option value="name" >Nom</option>
 									</select>
 								</div>
-							</div>
+																	<div class="field-card">
+										<label class="field-title" for="result-radius-select">Rayon</label>
+										<select id="result-radius-select" name="geo_radius">
+																							<option value="5" >
+													5 km
+												</option>
+																							<option value="10" selected="selected">
+													10 km
+												</option>
+																							<option value="15" >
+													15 km
+												</option>
+																							<option value="20" >
+													20 km
+												</option>
+																							<option value="30" >
+													30 km
+												</option>
+																					</select>
+									</div>
+															</div>
 							<div class="form-actions action-buttons">
 								<button type="submit">Appliquer</button>
 							</div>
@@ -111,14 +127,18 @@
 							<div class="search-details-box">
 								<h2>Recherche actuelle</h2>
 								<ul class="plain-list">
-									<li>Mode : Département</li>
+									<li>Mode : Ville</li>
 									<li>Carburants choisis : Gazole</li>
 									<li>Tri choisi : Prix croissant</li>
-									<li>Stations trouvées : 97</li>
-									<li>Périmètre : tout le département Seine-et-Marne (77)</li>
+									<li>Stations trouvées : 72</li>
+									<li>Périmètre : Chelles dans un rayon de 10 km</li>
 									<li>Région : Ile-de-France</li>
 									<li>Département : Seine-et-Marne (77)</li>
-																																			</ul>
+																			<li>Ville de référence : Chelles</li>
+																												<li>Code ville : 77108</li>
+										<li>Code postal : 77500</li>
+																												<li>Rayon choisi : 10 km</li>
+																	</ul>
 							</div>
 						</details>
 					</div>
@@ -128,11 +148,10 @@
 		<section class="results-panel" id="resultats">
 			<h2>Résultats</h2>
 				<p class="small-note">
-					Recherche dans tout le département sélectionné.											<strong>tout le département Seine-et-Marne (77)</strong>
-										</p>
-									<p class="small-note">97 station(s) trouvée(s).</p>
+					Recherche autour de Chelles dans un rayon de 10 km.										</p>
+									<p class="small-note">72 station(s) trouvée(s).</p>
 											<p class="small-note">
-							Pour limiter le poids de la page et réduire sa complexité, seules les 15							premières stations sont affichées sur 97 trouvées. Elles correspondent aux résultats
+							Pour limiter le poids de la page et réduire sa complexité, seules les 15							premières stations sont affichées sur 72 trouvées. Elles correspondent aux résultats
 							les moins chers.
 						</p>
 										<p class="small-note">
@@ -142,375 +161,376 @@
 
 											<div class="stats-inline result-summary">
 							<div class="stat-chip">
-								<strong>2,162 EUR/L</strong>
+								<strong>2,090 EUR/L</strong>
 								<span>prix moyen trouvé sur les stations affichées</span>
 							</div>
-							<a class="stat-chip best-price-link" href="#station-77160003">
-								<strong>2,141 EUR/L</strong>
-								<span>meilleur prix affiché - Station 77160003</span>
+							<a class="stat-chip best-price-link" href="#station-77340007">
+								<strong>2,090 EUR/L</strong>
+								<span>meilleur prix affiché - Station 77340007</span>
 								<small>Cliquer pour voir la station</small>
 							</a>
 						</div>
 					
 					<div class="cards">
-																				<article class="station-card" id="station-77160003">
+																				<article class="station-card" id="station-77340007">
 							<div class="station-top">
 								<div>
-										<h3>Station 77160003</h3>
-									<p>15 Avenue du Maréchal de Lattre de Tassigny,  Provins</p>
+										<h3>Station 77340007</h3>
+									<p>N104 LA FRANCILIENNE - AIRE PRE DE L&#039;AULNES ET DE LA GDE MAR,  Émerainville</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,141 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 59,7 km
-									| flux api json																			| prix mis à jour le 30/04/2026 12:39																		</p>
+									Distance : 7,9 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.559&amp;mlon=3.309#map=16/48.559/3.309" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.816&amp;mlon=2.623#map=16/48.816/2.623" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77130005">
+																				<article class="station-card" id="station-93330006">
 							<div class="station-top">
 								<div>
-										<h3>Station 77130005</h3>
-									<p>Avenue du 8 Mai 1945,  Varennes-sur-Seine</p>
+										<h3>Station 93330006</h3>
+									<p>29-33 BLD DU MARECHAL FOCH,  Neuilly-sur-Marne</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,149 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 27,7 km
-									| flux api json																			| prix mis à jour le 27/04/2026 11:00																		</p>
+									Distance : 6,1 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.37&amp;mlon=2.939#map=16/48.37/2.939" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.855&amp;mlon=2.525#map=16/48.855/2.525" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77130006">
+																				<article class="station-card" id="station-93110005">
 							<div class="station-top">
 								<div>
-										<h3>Station 77130006</h3>
-									<p>BOULEVARD DIDEROT,  Montereau-Fault-Yonne</p>
+										<h3>Station 93110005</h3>
+									<p>12/14 BD.GABRIEL PERI - TOTAL,  Rosny-sous-Bois</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,150 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 29,1 km
-									| flux api json																			| prix mis à jour le 28/04/2026 09:09																		</p>
+									Distance : 8,3 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.3985391824&amp;mlon=2.95158027595#map=16/48.3985391824/2.95158027595" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.878&amp;mlon=2.482#map=16/48.878/2.482" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77508002">
+																				<article class="station-card" id="station-93330005">
 							<div class="station-top">
 								<div>
-										<h3>Station 77508002</h3>
-									<p>Route Nationale 3,  Claye-Souilly</p>
+										<h3>Station 93330005</h3>
+									<p>9 TER BD MARECHAL FOCH,  Neuilly-sur-Marne</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,158 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 66,7 km
-									| flux api json																			| prix mis à jour le 30/04/2026 16:29																		</p>
+									Distance : 6,4 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.944253&amp;mlon=2.660456#map=16/48.944253/2.660456" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.85427&amp;mlon=2.52019#map=16/48.85427/2.52019" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77124002">
+																				<article class="station-card" id="station-93160009">
 							<div class="station-top">
 								<div>
-										<h3>Station 77124002</h3>
-									<p>11 av Roland Moréno,  Chauconin-Neufmontiers</p>
+										<h3>Station 93160009</h3>
+									<p>104/106 AV MEDERIC,  Noisy-le-Grand</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,158 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 71,7 km
-									| flux api json																			| prix mis à jour le 30/04/2026 18:22																		</p>
+									Distance : 6,5 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.962&amp;mlon=2.862#map=16/48.962/2.862" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.829&amp;mlon=2.569#map=16/48.829/2.569" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77346001">
+																				<article class="station-card" id="station-93290006">
 							<div class="station-top">
 								<div>
-										<h3>Station 77346001</h3>
-									<p>RN 4 77346 Pontault-Combault,  Pontault-Combault</p>
+										<h3>Station 93290006</h3>
+									<p>62-68 ROUTE DES PETITS PONTS,  Tremblay-en-France</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,162 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 47,7 km
-									| flux api json																			| prix mis à jour le 30/04/2026 00:48																		</p>
+									Distance : 9,1 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.776&amp;mlon=2.605#map=16/48.776/2.605" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.964&amp;mlon=2.564#map=16/48.964/2.564" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77330003">
+																				<article class="station-card" id="station-93320002">
 							<div class="station-top">
 								<div>
-										<h3>Station 77330003</h3>
-									<p>84 Rue François de Tessan,  Ozoir-la-Ferrière</p>
+										<h3>Station 93320002</h3>
+									<p>262 AVENUE ARISTIDE BRIAND,  Les Pavillons-sous-Bois</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,162 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 46,6 km
-									| flux api json																			| prix mis à jour le 30/04/2026 12:02																		</p>
+									Distance : 6,9 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:05																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.757&amp;mlon=2.7#map=16/48.757/2.7" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.91&amp;mlon=2.51#map=16/48.91/2.51" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77520002">
+																				<article class="station-card" id="station-77410009">
 							<div class="station-top">
 								<div>
-										<h3>Station 77520002</h3>
-									<p>2 RUE MONTPENSIER,  Donnemarie-Dontilly</p>
+										<h3>Station 77410009</h3>
+									<p>AUTOROUTE N104 - AIRE DE VILLEVAUDÉ,  Villevaudé</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,165 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 44,7 km
-									| flux api json																			| prix mis à jour le 30/04/2026 18:37																		</p>
+									Distance : 4,0 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.476368&amp;mlon=3.139413#map=16/48.476368/3.139413" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.905&amp;mlon=2.641#map=16/48.905/2.641" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77164002">
+																				<article class="station-card" id="station-77186001">
 							<div class="station-top">
 								<div>
-										<h3>Station 77164002</h3>
-									<p>ZAC DES HAUTS DE FERRIERES - PARC DES MERLETTES,  Ferrières-en-Brie</p>
+										<h3>Station 77186001</h3>
+									<p>4 Avenue Pierre Mendès France,  Noisiel</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,167 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 54,3 km
-									| flux api json																			| prix mis à jour le 30/04/2026 15:54																		</p>
+									Distance : 5,2 km
+									| flux api json																			| prix mis à jour le 01/05/2026 09:35																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.827475189366&amp;mlon=2.7031953919577#map=16/48.827475189366/2.7031953919577" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.841&amp;mlon=2.62#map=16/48.841/2.62" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77000014">
+																				<article class="station-card" id="station-77400011">
 							<div class="station-top">
 								<div>
-										<h3>Station 77000014</h3>
-									<p>27 ROUTE DE MONTEREAU,  Vaux-le-Pénil</p>
+										<h3>Station 77400011</h3>
+									<p>RN 34,  Lagny-sur-Marne</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,169 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 23,1 km
-									| flux api json																			| prix mis à jour le 30/04/2026 12:50																		</p>
+									Distance : 9,8 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.541&amp;mlon=2.68#map=16/48.541/2.68" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.877&amp;mlon=2.729#map=16/48.877/2.729" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77650001">
+																				<article class="station-card" id="station-94130003">
 							<div class="station-top">
 								<div>
-										<h3>Station 77650001</h3>
-									<p>RUE DE LA CROIX BROUILLARD,  Longueville</p>
+										<h3>Station 94130003</h3>
+									<p>128, BOULEVARD DE STRASBOURG,  Nogent-sur-Marne</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,169 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 52,9 km
-									| flux api json																			| prix mis à jour le 30/04/2026 16:33																		</p>
+									Distance : 9,2 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.521&amp;mlon=3.233#map=16/48.521/3.233" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.843&amp;mlon=2.486#map=16/48.843/2.486" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77100016">
+																				<article class="station-card" id="station-93420007">
 							<div class="station-top">
 								<div>
-										<h3>Station 77100016</h3>
-									<p>30 MAIL DE LA GRANDE HAIE,  Mareuil-lès-Meaux</p>
+										<h3>Station 93420007</h3>
+									<p>BD ROBERT BALLANGER D115,  Villepinte</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,169 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 69,8 km
-									| flux api json																			| prix mis à jour le 30/04/2026 13:07																		</p>
+									Distance : 9,0 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.94&amp;mlon=2.878#map=16/48.94/2.878" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.953965389285&amp;mlon=2.533686306402#map=16/48.953965389285/2.533686306402" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77480002">
+																				<article class="station-card" id="station-93160008">
 							<div class="station-top">
 								<div>
-										<h3>Station 77480002</h3>
-									<p>82 AVENUE DE LA LIBERATION,  Bray-sur-Seine</p>
+										<h3>Station 93160008</h3>
+									<p>Rue du Centre Centre Reg Mont D&#039;Est,  Noisy-le-Grand</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,169 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 50,5 km
-									| flux api json																			| prix mis à jour le 29/04/2026 17:09																		</p>
+									Distance : 6,2 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.414&amp;mlon=3.242#map=16/48.414/3.242" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.838125330121&amp;mlon=2.547563329687#map=16/48.838125330121/2.547563329687" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77190004">
+																				<article class="station-card" id="station-77340006">
 							<div class="station-top">
 								<div>
-										<h3>Station 77190004</h3>
-									<p>544 Avenue André Ampère,  Dammarie-les-Lys</p>
+										<h3>Station 77340006</h3>
+									<p>6 A 10 AV CHARLES ROUXEL,  Pontault-Combault</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,170 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 18,2 km
-									| flux api json																			| prix mis à jour le 30/04/2026 19:09																		</p>
+									Distance : 9,6 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.509&amp;mlon=2.604#map=16/48.509/2.604" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.79836&amp;mlon=2.60505#map=16/48.79836/2.60505" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-77160002">
+																				<article class="station-card" id="station-93100014">
 							<div class="station-top">
 								<div>
-										<h3>Station 77160002</h3>
-									<p>Avenue de la Voulzie,  Provins</p>
+										<h3>Station 93100014</h3>
+									<p>48-54 BOULEVARD THEOPHILE SUEUR,  Montreuil</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
 													<span>Gazole</span>
-													<strong>2,170 EUR/L</strong>
+													<strong>2,090 EUR/L</strong>
 												</div>
 																					</div>
 							</div>
 
 								<p class="meta-line">
-									Distance : 58,0 km
-									| flux api json																			| prix mis à jour le 30/04/2026 11:57																		</p>
+									Distance : 9,3 km
+									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
 
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.548&amp;mlon=3.292#map=16/48.548/3.292" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.86885&amp;mlon=2.47055#map=16/48.86885/2.47055" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
 											</div>
 					<div class="form-actions bottom-actions">
-						<a class="cta-link" href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#recherche">Retour à la recherche</a>
+						<a class="cta-link" href="recherche.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10#recherche">Retour à la recherche</a>
 					</div>
 							</section>
 	</main>
 
-		<footer class="site-footer">
-			<div class="footer-nav-block">
-				<div class="footer-links footer-links-main">
-					<a href="index.php">Accueil</a>
-					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
-					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
-					<a href="stats.php">Statistiques</a>
-				</div>
-				<div class="footer-links footer-links-info">
-					<a href="a-propos.php">À propos</a>
-					<a href="aide.php">Aide</a>
-					<a href="sources.php">Sources des données</a>
-					<a href="confidentialite.php">Confidentialité</a>
-					<a href="plan-site.php">Plan du site</a>
-					<a href="tech.php">Page tech</a>
-				</div>
-			</div>
-			<p>Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | Projet Web 2025-2026</p>
-		</footer>
-		<a href="#top" class="back-top">
-			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
-		</a>
-	</body>
-	</html>
+<footer class="site-footer">
+	<div class="footer-nav-block">
+		<div class="footer-links footer-links-main">
+			<a href="index.php">Accueil</a>
+			<a href="recherche.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;search_mode=manual">Recherche</a>
+			<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10#resultats">Résultats</a>
+			<a href="stats.php">Statistiques</a>
+		</div>
+		<div class="footer-links footer-links-info">
+			<a href="a-propos.php">À propos</a>
+			<a href="aide.php">Aide</a>
+			<a href="sources.php">Sources des données</a>
+			<a href="confidentialite.php">Confidentialité</a>
+			<a href="plan-site.php">Plan du site</a>
+			<a href="tech.php">Page tech</a>
+		</div>
+	</div>
+	<p>Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | Projet Web 2025-2026</p>
+</footer>
+<a href="#top" class="back-top">
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+</a>
+</body>
+
+</html>

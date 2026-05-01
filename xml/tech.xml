@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 	<html lang="fr">
 	<head>
@@ -8,7 +7,6 @@
 		<meta name="description" content="Page technique conservee pour la validation de la partie 1 du projet." />
 		<link rel="stylesheet" href="style.css" />
 			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
-			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
@@ -30,8 +28,8 @@
 				</div>
 
 			<nav class="main-nav">
-				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
-				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+				<a href="recherche.php?search_mode=manual">Recherche</a>
+				<a href="resultats.php">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
@@ -56,76 +54,35 @@
 		<section class="info-block tech-feature">
 				<h2>API Ghibli</h2>
 							<h3 class="tech-subtitle">
-					The Tale of the Princess Kaguya				</h3>
+					Earwig and the Witch				</h3>
 				<h3 class="tech-original-title" lang="ja">
-					かぐや姫の物語				</h3>
+					アーヤと魔女				</h3>
 				<p class="meta-line">
-					2013				</p>
+					2021				</p>
 				<p class="tech-copy" lang="en">
-					A bamboo cutter named Sanuki no Miyatsuko discovers a miniature girl inside a glowing bamboo shoot. Believing her to be a divine presence, he and his wife decide to raise her as their own, calling her &#039;Princess&#039;.				</p>
+					An orphan girl, Earwig, is adopted by a witch and comes home to a spooky house filled with mystery and magic.				</p>
 				<div class="tech-media">
-					<img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/mWRQNlWXYYfd2z4FRm99MsgHgiA.jpg" width="200" alt="" />
-					<img class="tech-banner" src="https://image.tmdb.org/t/p/original/lMaWlYThCSnsmW3usxWTpSuyZp1.jpg" width="400" alt="" />
+					<img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sJhFtY3eHuvvACaPpxpzdCLQqpQ.jpg" width="200" alt="" />
+					<img class="tech-banner" src="https://www.themoviedb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg" width="400" alt="" />
 				</div>
 					</section>
 
 		<section class="info-block tech-feature">
 				<h2>Flux XML carburants</h2>
 				<p>Lecture de <code>data/sample_fuel_prices.xml</code> avec <code>simplexml_load_file()</code>.</p>
-									<ul class="plain-list">
-													<li>
-								<strong>TotalEnergies Paris Est</strong>
-								- Paris								(75012)
-																	:
-																			Gazole										1.829 EUR/L
-																			, SP95										1.934 EUR/L
-																			, E10										1.892 EUR/L
-																								</li>
-													<li>
-								<strong>Esso Nanterre Centre</strong>
-								- Nanterre								(92000)
-																	:
-																			Gazole										1.799 EUR/L
-																			, SP98										1.971 EUR/L
-																			, E10										1.871 EUR/L
-																								</li>
-													<li>
-								<strong>Carrefour Meaux</strong>
-								- Meaux								(77100)
-																	:
-																			Gazole										1.769 EUR/L
-																			, SP95										1.879 EUR/L
-																			, E85										0.889 EUR/L
-																								</li>
-													<li>
-								<strong>Avia Prado</strong>
-								- Marseille								(13008)
-																	:
-																			Gazole										1.759 EUR/L
-																			, SP95										1.869 EUR/L
-																			, GPLc										0.989 EUR/L
-																								</li>
-													<li>
-								<strong>Intermarche Aix</strong>
-								- Aix-en-Provence								(13100)
-																	:
-																			Gazole										1.739 EUR/L
-																			, SP98										1.918 EUR/L
-																			, E10										1.851 EUR/L
-																								</li>
-											</ul>
+									<p class="empty-state">Aucune donnee XML disponible.</p>
 						</section>
 
 		<section class="info-block tech-feature">
 				<h2>Flux JSON cote serveur</h2>
 			<p>Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.</p>
 			<ul class="plain-list">
-				<li>IP detectee: 2001:861:3245:9d0:8840:1e74:ada2:2a41</li>
-				<li>Ville retournee: Ermont</li>
-				<li>Region retournee: Île-de-France</li>
-				<li>Latitude: 48.9948</li>
-				<li>Longitude: 2.257</li>
-				<li>Source utilisee: api json</li>
+				<li>IP detectee: 127.0.0.1</li>
+				<li>Ville retournee: Non trouvee</li>
+				<li>Region retournee: Non trouvee</li>
+				<li>Latitude: Non trouvee</li>
+				<li>Longitude: Non trouvee</li>
+				<li>Source utilisee: indisponible</li>
 			</ul>
 		</section>
 
@@ -157,36 +114,37 @@
 		<section class="info-block tech-feature">
 			<h2>Etat des statistiques</h2>
 			<ul class="plain-list">
-					<li>Consultations enregistrees: 104</li>
-					<li>Visites de pages: 175</li>
-					<li>Visiteurs approx.: 12</li>
-					<li>Nombre de villes dans le top: 8</li>
+					<li>Consultations enregistrees: 3</li>
+					<li>Visites de pages: 172</li>
+					<li>Visiteurs approx.: 2</li>
+					<li>Nombre de villes dans le top: 1</li>
 				</ul>
 		</section>
 	</section>
 </main>
 
-		<footer class="site-footer">
-			<div class="footer-nav-block">
-				<div class="footer-links footer-links-main">
-					<a href="index.php">Accueil</a>
-					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
-					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
-					<a href="stats.php">Statistiques</a>
-				</div>
-				<div class="footer-links footer-links-info">
-					<a href="a-propos.php">À propos</a>
-					<a href="aide.php">Aide</a>
-					<a href="sources.php">Sources des données</a>
-					<a href="confidentialite.php">Confidentialité</a>
-					<a href="plan-site.php">Plan du site</a>
-					<a href="tech.php">Page tech</a>
-				</div>
-			</div>
-			<p>Enzo Phung | Fatma-Zahra Baarir | Page technique conservee pour validation.</p>
-		</footer>
-		<a href="#top" class="back-top">
-			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
-		</a>
-	</body>
-	</html>
+<footer class="site-footer">
+	<div class="footer-nav-block">
+		<div class="footer-links footer-links-main">
+			<a href="index.php">Accueil</a>
+			<a href="recherche.php?search_mode=manual">Recherche</a>
+			<a href="resultats.php">Résultats</a>
+			<a href="stats.php">Statistiques</a>
+		</div>
+		<div class="footer-links footer-links-info">
+			<a href="a-propos.php">À propos</a>
+			<a href="aide.php">Aide</a>
+			<a href="sources.php">Sources des données</a>
+			<a href="confidentialite.php">Confidentialité</a>
+			<a href="plan-site.php">Plan du site</a>
+			<a href="tech.php">Page tech</a>
+		</div>
+	</div>
+	<p>Enzo Phung | Fatma-Zahra Baarir | Page technique conservee pour validation.</p>
+</footer>
+<a href="#top" class="back-top">
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+</a>
+</body>
+
+</html>
