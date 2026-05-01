@@ -103,25 +103,6 @@ require __DIR__ . "/includes/header.php";
 			<p class="lead">
 				Choisissez votre région, puis précisez le département et la ville dans le formulaire.
 			</p>
-<<<<<<< HEAD
-			<img src="image/<?= $theme === "night" ? "map(dark).jpg" : "map(light).jpg" ?>" alt="Carte des regions de France" usemap="#regions-map" class="map-image" width="<?= $largeurCarte ?>" height="<?= $hauteurCarte ?>">
-			<map name="regions-map">
-				<area shape="rect" coords="252,314,423,380" href="recherche.php?region=53#recherche" alt="Bretagne" title="Bretagne">
-				<area shape="rect" coords="481,232,642,295" href="recherche.php?region=28#recherche" alt="Normandie" title="Normandie">
-				<area shape="rect" coords="749,83,917,179" href="recherche.php?region=32#recherche" alt="Hauts-de-France" title="Hauts-de-France">
-				<area shape="rect" coords="982,248,1168,320" href="recherche.php?region=44#recherche" alt="Grand Est" title="Grand Est">
-				<area shape="rect" coords="405,409,625,485" href="recherche.php?region=52#recherche" alt="Pays de la Loire" title="Pays de la Loire">
-				<area shape="rect" coords="654,387,860,487" href="recherche.php?region=24#recherche" alt="Centre-Val de Loire" title="Centre-Val de Loire">
-				<area shape="rect" coords="747,228,874,328" href="recherche.php?region=11#recherche" alt="Ile-de-France" title="Ile-de-France">
-				<area shape="rect" coords="902,423,1117,542" href="recherche.php?region=27#recherche" alt="Bourgogne-Franche-Comte" title="Bourgogne-Franche-Comte">
-				<area shape="rect" coords="543,636,729,733" href="recherche.php?region=75#recherche" alt="Nouvelle-Aquitaine" title="Nouvelle-Aquitaine">
-				<area shape="rect" coords="653,837,848,905" href="recherche.php?region=76#recherche" alt="Occitanie" title="Occitanie">
-				<area shape="rect" coords="831,617,1048,719" href="recherche.php?region=84#recherche" alt="Auvergne-Rhone-Alpes" title="Auvergne-Rhone-Alpes">
-				<area shape="rect" coords="989,781,1183,880" href="recherche.php?region=93#recherche" alt="Provence-Alpes-Cote d'Azur" title="Provence-Alpes-Cote d'Azur">
-				<area shape="rect" coords="1277,898,1384,955" href="recherche.php?region=94#recherche" alt="Corse" title="Corse">
-			</map>
-		</section>
-=======
 		<?php } ?>
 		<div class="search-mode-switch">
 			<form action="recherche.php#recherche" method="get" class="mode-switch-form">
@@ -134,7 +115,6 @@ require __DIR__ . "/includes/header.php";
 			</form>
 		</div>
 	</section>
->>>>>>> main
 
 	<section class="panel" id="recherche">
 		<h2>Formulaire</h2>

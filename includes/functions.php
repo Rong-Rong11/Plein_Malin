@@ -1023,19 +1023,6 @@ function recuperer_geolocalisation(): array
 {
 	$ip = recuperer_ip_visiteur();
 
-	if ($ip === "127.0.0.1" || $ip === "::1") {
-		$local = json_decode((string) file_get_contents(PM_DATA_DIR . "/sample_ip_geo.json"), true);
-
-		return [
-			"source" => "echantillon local",
-			"ip" => $ip,
-			"city" => (string) ($local["city"] ?? "Paris"),
-			"region" => (string) ($local["region"] ?? "Ile-de-France"),
-			"latitude" => (float) ($local["latitude"] ?? 48.8566),
-			"longitude" => (float) ($local["longitude"] ?? 2.3522),
-		];
-	}
-
 	$contenu = lire_api_avec_cache("https://ipapi.co/" . rawurlencode($ip) . "/json/", "geo_" . md5($ip));
 
 	if ($contenu !== null) {
@@ -1052,15 +1039,13 @@ function recuperer_geolocalisation(): array
 		}
 	}
 
-	$local = json_decode((string) file_get_contents(PM_DATA_DIR . "/sample_ip_geo.json"), true);
-
 	return [
-		"source" => "echantillon local",
+		"source" => "indisponible",
 		"ip" => $ip,
-		"city" => (string) ($local["city"] ?? "Paris"),
-		"region" => (string) ($local["region"] ?? "Ile-de-France"),
-		"latitude" => (float) ($local["latitude"] ?? 48.8566),
-		"longitude" => (float) ($local["longitude"] ?? 2.3522),
+		"city" => "",
+		"region" => "",
+		"latitude" => 0.0,
+		"longitude" => 0.0,
 	];
 }
 

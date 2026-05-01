@@ -35,7 +35,9 @@ if ($department !== "") {
 
 if ($useGeo) {
 	$geo = recuperer_geolocalisation();
-	$currentCity = trouver_ville_plus_proche((float) $geo["latitude"], (float) $geo["longitude"]);
+	if ((float) ($geo["latitude"] ?? 0) !== 0.0 || (float) ($geo["longitude"] ?? 0) !== 0.0) {
+		$currentCity = trouver_ville_plus_proche((float) $geo["latitude"], (float) $geo["longitude"]);
+	}
 } elseif ($departmentMode && $department !== "") {
 	if ($departmentInfo !== null) {
 		$region = $departmentInfo["region_code"] ?? $region;
@@ -89,6 +91,8 @@ if ($apiCarburantsErreur) {
 	$message = "L'API officielle des carburants ne répond pas pour le moment.";
 } elseif ($useGeo && $currentCity !== null) {
 	$message = "Recherche autour de votre position approximative dans un rayon de " . $geoRadius . " km.";
+} elseif ($useGeo) {
+	$message = "Impossible de trouver votre position approximative pour le moment.";
 } elseif ($choixRechercheIncomplet) {
 	$message = "Vous avez choisi le département " . $departmentLabel . ". Sélectionnez une ville ou cochez \"Tout le département\" pour lancer la recherche.";
 }

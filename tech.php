@@ -91,10 +91,10 @@ require __DIR__ . "/includes/header.php";
 			<p>Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.</p>
 			<ul class="plain-list">
 				<li>IP detectee: <?= texte_securise($geoData['ip']) ?></li>
-				<li>Ville retournee: <?= texte_securise($geoData['city']) ?></li>
-				<li>Region retournee: <?= texte_securise($geoData['region']) ?></li>
-				<li>Latitude: <?= texte_securise((string) $geoData['latitude']) ?></li>
-				<li>Longitude: <?= texte_securise((string) $geoData['longitude']) ?></li>
+				<li>Ville retournee: <?= texte_securise($geoData['city'] !== "" ? $geoData['city'] : "Non trouvee") ?></li>
+				<li>Region retournee: <?= texte_securise($geoData['region'] !== "" ? $geoData['region'] : "Non trouvee") ?></li>
+				<li>Latitude: <?= texte_securise($geoData['latitude'] !== 0.0 ? (string) $geoData['latitude'] : "Non trouvee") ?></li>
+				<li>Longitude: <?= texte_securise($geoData['longitude'] !== 0.0 ? (string) $geoData['longitude'] : "Non trouvee") ?></li>
 				<li>Source utilisee: <?= texte_securise($geoData['source']) ?></li>
 			</ul>
 		</section>
