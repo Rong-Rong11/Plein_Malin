@@ -1,1 +1,95 @@
 timestamp,visitor_hash,region,department,city,mode,view,fuel,station_count
+<<<<<<< HEAD
+=======
+2026-04-21T09:55:53+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
+2026-04-21T09:55:54+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
+2026-04-21T09:55:55+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
+2026-04-21T09:55:56+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
+2026-04-21T09:55:57+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"L Abergement Clemenciat",ville,summary,Gazole,0
+2026-04-21T09:55:58+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"L Abergement Clemenciat",ville,summary,Gazole,0
+2026-04-23T11:32:19+00:00,363baea9cba210afac6d7a556fca596e30c46333,Bretagne,Ille-et-Vilaine,Langon,ville,summary,Gazole,0
+2026-04-23T11:37:56+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,Eaubonne,ville,summary,Gazole,2
+2026-04-23T16:36:48+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,Eaubonne,ville,summary,Gazole,2
+2026-04-28T13:55:43+00:00,363baea9cba210afac6d7a556fca596e30c46333,Normandie,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
+2026-04-28T14:13:48+00:00,363baea9cba210afac6d7a556fca596e30c46333,Normandie,Eure,"Amfreville Les Champs",ville,summary,Gazole,0
+2026-04-28T14:13:57+00:00,363baea9cba210afac6d7a556fca596e30c46333,Normandie,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
+2026-04-28T14:14:44+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Departement Val-d'Oise",departement,summary,"Gazole, SP95-E10",97
+2026-04-28T14:32:08+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
+2026-04-28T14:32:27+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,"Gazole, SP98",0
+2026-04-28T14:33:35+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",geolocalisation,summary,Gazole,0
+2026-04-28T14:45:18+00:00,363baea9cba210afac6d7a556fca596e30c46333,,,"Miquelon Langlade",ville,summary,Gazole,0
+2026-04-28T14:45:37+00:00,363baea9cba210afac6d7a556fca596e30c46333,Hauts-de-France,Oise,"Departement Oise",departement,summary,Gazole,98
+2026-04-28T14:45:47+00:00,363baea9cba210afac6d7a556fca596e30c46333,Hauts-de-France,Oise,"Departement Oise",departement,summary,Gazole,98
+2026-04-28T14:48:17+00:00,363baea9cba210afac6d7a556fca596e30c46333,Hauts-de-France,Oise,"Departement Oise",departement,summary,Gazole,98
+2026-04-28T14:49:03+00:00,363baea9cba210afac6d7a556fca596e30c46333,Hauts-de-France,Oise,"Departement Oise",departement,summary,Gazole,98
+2026-04-28T14:52:50+00:00,363baea9cba210afac6d7a556fca596e30c46333,Normandie,Manche,"Departement Manche",departement,summary,Gazole,97
+2026-04-28T15:05:20+00:00,363baea9cba210afac6d7a556fca596e30c46333,Bourgogne-Franche-Comte,Cote-d'Or,"Departement Cote-d'Or",departement,summary,"SP95-E10, E85",42
+2026-04-28T15:11:51+00:00,363baea9cba210afac6d7a556fca596e30c46333,Bourgogne-Franche-Comte,Cote-d'Or,"Departement Cote-d'Or",departement,summary,Gazole,55
+2026-04-28T15:12:45+00:00,363baea9cba210afac6d7a556fca596e30c46333,Normandie,Manche,Airel,ville,summary,Gazole,0
+2026-04-28T15:12:57+00:00,363baea9cba210afac6d7a556fca596e30c46333,Normandie,Manche,Auxais,ville,summary,Gazole,0
+2026-04-28T15:12:57+00:00,363baea9cba210afac6d7a556fca596e30c46333,Normandie,Manche,Auxais,ville,summary,Gazole,0
+2026-04-28T15:13:02+00:00,363baea9cba210afac6d7a556fca596e30c46333,Normandie,Manche,Auxais,ville,summary,Gazole,0
+2026-04-28T15:13:24+00:00,363baea9cba210afac6d7a556fca596e30c46333,"Centre-Val de Loire",Indre,"Departement Indre",departement,summary,Gazole,47
+2026-04-28T15:19:37+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T15:19:39+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T15:22:46+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T16:02:43+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T16:04:41+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:18:29+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:18:47+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:20:31+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:20:43+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:23:11+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Departement Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:31:23+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,summary,Gazole,99
+2026-04-28T18:31:46+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,summary,"Gazole, SP98, E85",99
+2026-04-28T18:32:34+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,summary,"Gazole, SP98, E85",99
+2026-04-28T18:32:39+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,detailed,"Gazole, SP98, E85",99
+2026-04-29T07:48:10+00:00,363baea9cba210afac6d7a556fca596e30c46333,Occitanie,Haute-Garonne,"Département Haute-Garonne",departement,detailed,"Gazole, SP98, E85",98
+2026-04-29T07:49:08+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,summary,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
+2026-04-29T07:49:12+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,detailed,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
+2026-04-29T08:00:27+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,detailed,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
+2026-04-29T08:36:14+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,detailed,"Gazole, SP95, SP98, SP95-E10, E85, GPLc",97
+2026-04-29T08:38:38+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Paris,"Département Paris",departement,summary,Gazole,40
+2026-04-29T08:52:07+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Paris,"Paris 04",geolocalisation,summary,Gazole,91
+2026-04-29T08:57:25+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,summary,"Gazole, E85",78
+2026-04-29T08:57:30+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,summary,"Gazole, E85",78
+2026-04-29T08:57:37+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:40+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:41+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:42+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:43+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:44+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:45+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:47+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:48+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:49+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:50+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:51+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:52+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:53+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:54+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:55+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:56+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:57+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:57+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:57:59+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:00+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:01+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:02+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:03+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:04+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:04+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:06+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:07+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:58:09+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Seine-Saint-Denis,"Département Seine-Saint-Denis",departement,detailed,"Gazole, E85",78
+2026-04-29T08:59:10+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,Eaubonne,ville,summary,"Gazole, SP98",2
+2026-04-29T08:59:50+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,Eaubonne,ville,summary,"Gazole, SP98",2
+2026-04-30T19:44:57+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,,Gazole,97
+2026-04-30T19:56:58+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,,Gazole,97
+2026-04-30T19:58:04+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,,Gazole,0
+2026-04-30T19:58:04+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Paris,"Paris 04",geolocalisation,,Gazole,0
+2026-04-30T19:59:03+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,,Gazole,97
+2026-04-30T19:59:12+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,,Gazole,97
+2026-04-30T19:59:12+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Paris,"Paris 04",geolocalisation,,Gazole,92
+2026-04-30T20:09:05+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,,Gazole,97
+>>>>>>> main

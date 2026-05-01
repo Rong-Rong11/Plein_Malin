@@ -1,18 +1,34 @@
 <?php
 $footerText = $footerText ?? "Enzo Phung | Fatma-Zhara Baarir | CY Cergy Paris Universite | Projet Web 2025-2026";
+$lienRechercheFooter = lien_recherche_memorisee();
+$lienResultatsFooter = lien_resultats_memorises();
 ?>
-	<footer class="site-footer">
-		<div class="footer-links">
-			<a href="index.php">Accueil</a>
-			<a href="recherche.php#recherche">Recherche</a>
-			<a href="resultats.php">Resultats</a>
-			<a href="stats.php">Statistiques</a>
-			<a href="tech.php">Page tech</a>
-			<a href="#top" class="back-top">
-				<img src="image/back_top.png" alt="Retour en haut">
-			</a>
-		</div>
-		<p><?= texte_securise($footerText) ?></p>
-	</footer>
-</body>
-</html>
+		<footer class="site-footer">
+			<div class="footer-nav-block">
+				<div class="footer-links footer-links-main">
+					<a href="index.php">Accueil</a>
+					<a href="<?= texte_securise($lienRechercheFooter) ?>">Recherche</a>
+					<a href="<?= texte_securise($lienResultatsFooter) ?>">Résultats</a>
+					<a href="stats.php">Statistiques</a>
+				</div>
+				<div class="footer-links footer-links-info">
+					<a href="a-propos.php">À propos</a>
+					<a href="aide.php">Aide</a>
+					<a href="sources.php">Sources des données</a>
+					<a href="confidentialite.php">Confidentialité</a>
+					<a href="plan-site.php">Plan du site</a>
+					<a href="tech.php">Page tech</a>
+				</div>
+			</div>
+			<p><?= texte_securise($footerText) ?></p>
+		</footer>
+		<a href="#top" class="back-top">
+			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+		</a>
+	</body>
+	</html>
+<?php
+if (ob_get_level() > 0) {
+	ob_end_flush();
+}
+?>

@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+	<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Statistiques - Plein Malin</title>
+		<meta name="description" content="Page statistiques de Plein Malin." />
+		<link rel="stylesheet" href="style.css" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="alternate icon" href="image/favicon.ico" type="image/x-icon" />
+	</head>
+	<body class="theme-day">
+		<div id="top"></div>
+
+		<header class="site-header">
+			<div class="brand-row">
+				<a class="brand-link" href="index.php">
+					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
+				</a>
+					<div class="theme-switch">
+						<a href="stats.php?theme=night" class="theme-link">
+							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
+							<span>Mode nuit</span>
+						</a>
+						<a href="stats.php?lang=en" class="theme-link">
+							<span>English</span>
+						</a>
+					</div>
+				</div>
+
+			<nav class="main-nav">
+				<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
+				<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+				<a href="stats.php" aria-current="page">Statistiques</a>
+			</nav>
+		</header>
+	<main class="page-shell">
+		<section class="panel">
+			<p class="eyebrow">Rubrique statistiques</p>
+			<h1>Consultations Plein Malin</h1>
+				<p class="lead">
+					Les recherches correspondent aux consultations avec critères. Les visites comptent aussi
+					les pages vues sans lancement de recherche.
+				</p>
+				<p class="small-note">
+					Une recherche est enregistrée quand une page de résultats est produite ; une visite de page
+					est comptée à chaque affichage d'une page du site, même sans recherche.
+				</p>
+				<div class="stats-inline">
+					<div class="stat-chip">
+						<strong>104</strong>
+						<span>recherches</span>
+					</div>
+					<div class="stat-chip">
+						<strong>169</strong>
+						<span>visites de pages</span>
+					</div>
+					<div class="stat-chip">
+						<strong>12</strong>
+						<span>visiteurs approx.</span>
+					</div>
+				</div>
+		</section>
+
+		<section class="panel">
+			<h2>Graphiques des consultations</h2>
+			<div class="stats-grid">
+				<article class="stats-card">
+					<h3>Top des villes consultées</h3>
+											<div class="bar-chart">
+															<div class="bar-row">
+									<span class="bar-label">Miquelon Langlade</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 100%"></div>
+									</div>
+									<strong class="bar-value">10</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Eaubonne</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 40%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Auxais</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 30%"></div>
+									</div>
+									<strong class="bar-value">3</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Paris 04</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 30%"></div>
+									</div>
+									<strong class="bar-value">3</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">L Abergement Clemenciat</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 20%"></div>
+									</div>
+									<strong class="bar-value">2</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Langon</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Amfreville Les Champs</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Airel</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
+								</div>
+													</div>
+									</article>
+
+				<article class="stats-card">
+					<h3>Top des départements consultés</h3>
+											<div class="bar-chart">
+															<div class="bar-row">
+									<span class="bar-label">Seine-Saint-Denis</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 100%"></div>
+									</div>
+									<strong class="bar-value">31</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Val-d&#039;Oise</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 48%"></div>
+									</div>
+									<strong class="bar-value">15</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Haute-Garonne</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 48%"></div>
+									</div>
+									<strong class="bar-value">15</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Seine-et-Marne</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 42%"></div>
+									</div>
+									<strong class="bar-value">13</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Manche</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 16%"></div>
+									</div>
+									<strong class="bar-value">5</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Oise</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 13%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Paris</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 13%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Cote-d&#039;Or</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">2</strong>
+								</div>
+													</div>
+									</article>
+
+				<article class="stats-card">
+					<h3>Top des régions consultées</h3>
+											<div class="bar-chart">
+															<div class="bar-row">
+									<span class="bar-label">Ile-de-France</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 100%"></div>
+									</div>
+									<strong class="bar-value">63</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Occitanie</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 24%"></div>
+									</div>
+									<strong class="bar-value">15</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Normandie</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 13%"></div>
+									</div>
+									<strong class="bar-value">8</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Hauts-de-France</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Bourgogne-Franche-Comte</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">2</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Bretagne</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Centre-Val de Loire</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">1</strong>
+								</div>
+													</div>
+									</article>
+
+				<article class="stats-card">
+					<h3>Carburants les plus recherchés</h3>
+											<div class="bar-chart">
+															<div class="bar-row">
+									<span class="bar-label">Gazole</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 100%"></div>
+									</div>
+									<strong class="bar-value">103</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">E85</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 39%"></div>
+									</div>
+									<strong class="bar-value">40</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">SP98</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 11%"></div>
+									</div>
+									<strong class="bar-value">11</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">SP95-E10</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">6</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">SP95</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">GPLc</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 10%"></div>
+									</div>
+									<strong class="bar-value">4</strong>
+								</div>
+													</div>
+									</article>
+
+				<article class="stats-card stats-card-wide">
+					<h3>Recherches par mode</h3>
+											<div class="bar-chart">
+															<div class="bar-row">
+									<span class="bar-label">departement</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 100%"></div>
+									</div>
+									<strong class="bar-value">79</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">ville</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 16%"></div>
+									</div>
+									<strong class="bar-value">13</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">geolocalisation</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 15%"></div>
+									</div>
+									<strong class="bar-value">12</strong>
+								</div>
+													</div>
+									</article>
+			</div>
+		</section>
+
+				<section class="panel">
+					<h2>Tendance annuelle des prix</h2>
+					<p class="small-note">
+					Moyennes mensuelles calculées côté serveur depuis l'archive annuelle officielle XML
+						2026.
+					</p>
+					<p class="small-note">
+						Source officielle :
+						<a href="https://donnees.roulez-eco.fr/opendata/annee/2026">
+							donnees.roulez-eco.fr
+						</a>
+													- dernière mise à jour du cache le 30/04/2026 20:16											</p>
+
+										<div class="trend-grid">
+													<article class="trend-group">
+								<h3>Gazole</h3>
+																										<div class="line-chart">
+										<svg viewBox="0 0 420 170" role="img" aria-label="Evolution Gazole">
+																							<line x1="16" y1="154" x2="404" y2="154" class="chart-grid"></line>
+												<text x="2" y="158" class="chart-label">
+													1,66												</text>
+																							<line x1="16" y1="119.5" x2="404" y2="119.5" class="chart-grid"></line>
+												<text x="2" y="123.5" class="chart-label">
+													1,81												</text>
+																							<line x1="16" y1="85" x2="404" y2="85" class="chart-grid"></line>
+												<text x="2" y="89" class="chart-label">
+													1,96												</text>
+																							<line x1="16" y1="50.5" x2="404" y2="50.5" class="chart-grid"></line>
+												<text x="2" y="54.5" class="chart-label">
+													2,10												</text>
+																							<line x1="16" y1="16" x2="404" y2="16" class="chart-grid"></line>
+												<text x="2" y="20" class="chart-label">
+													2,25												</text>
+																						<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
+											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
+																							<polyline points="16,154 145.3,145.3 274.7,60.7 404,16" class="chart-line"></polyline>
+																																						<circle cx="16" cy="154" r="4" class="chart-point"></circle>
+																																						<circle cx="145.3" cy="145.3" r="4" class="chart-point"></circle>
+																																						<circle cx="274.7" cy="60.7" r="4" class="chart-point"></circle>
+																																						<circle cx="404" cy="16" r="4" class="chart-point"></circle>
+																																														<text x="16" y="168" class="chart-label chart-month">
+													01												</text>
+																							<text x="145.3" y="168" class="chart-label chart-month">
+													02												</text>
+																							<text x="274.7" y="168" class="chart-label chart-month">
+													03												</text>
+																							<text x="404" y="168" class="chart-label chart-month">
+													04												</text>
+																					</svg>
+										<div class="chart-caption">
+											<span>2026-01 : 1,663 EUR/L</span>
+											<span>2026-04 : 2,249 EUR/L</span>
+										</div>
+									</div>
+															</article>
+													<article class="trend-group">
+								<h3>SP95</h3>
+																										<div class="line-chart">
+										<svg viewBox="0 0 420 170" role="img" aria-label="Evolution SP95">
+																							<line x1="16" y1="154" x2="404" y2="154" class="chart-grid"></line>
+												<text x="2" y="158" class="chart-label">
+													1,72												</text>
+																							<line x1="16" y1="119.5" x2="404" y2="119.5" class="chart-grid"></line>
+												<text x="2" y="123.5" class="chart-label">
+													1,80												</text>
+																							<line x1="16" y1="85" x2="404" y2="85" class="chart-grid"></line>
+												<text x="2" y="89" class="chart-label">
+													1,87												</text>
+																							<line x1="16" y1="50.5" x2="404" y2="50.5" class="chart-grid"></line>
+												<text x="2" y="54.5" class="chart-label">
+													1,95												</text>
+																							<line x1="16" y1="16" x2="404" y2="16" class="chart-grid"></line>
+												<text x="2" y="20" class="chart-label">
+													2,03												</text>
+																						<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
+											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
+																							<polyline points="16,154 145.3,146.2 274.7,64 404,16" class="chart-line"></polyline>
+																																						<circle cx="16" cy="154" r="4" class="chart-point"></circle>
+																																						<circle cx="145.3" cy="146.2" r="4" class="chart-point"></circle>
+																																						<circle cx="274.7" cy="64" r="4" class="chart-point"></circle>
+																																						<circle cx="404" cy="16" r="4" class="chart-point"></circle>
+																																														<text x="16" y="168" class="chart-label chart-month">
+													01												</text>
+																							<text x="145.3" y="168" class="chart-label chart-month">
+													02												</text>
+																							<text x="274.7" y="168" class="chart-label chart-month">
+													03												</text>
+																							<text x="404" y="168" class="chart-label chart-month">
+													04												</text>
+																					</svg>
+										<div class="chart-caption">
+											<span>2026-01 : 1,715 EUR/L</span>
+											<span>2026-04 : 2,034 EUR/L</span>
+										</div>
+									</div>
+															</article>
+													<article class="trend-group">
+								<h3>SP98</h3>
+																										<div class="line-chart">
+										<svg viewBox="0 0 420 170" role="img" aria-label="Evolution SP98">
+																							<line x1="16" y1="154" x2="404" y2="154" class="chart-grid"></line>
+												<text x="2" y="158" class="chart-label">
+													1,80												</text>
+																							<line x1="16" y1="119.5" x2="404" y2="119.5" class="chart-grid"></line>
+												<text x="2" y="123.5" class="chart-label">
+													1,87												</text>
+																							<line x1="16" y1="85" x2="404" y2="85" class="chart-grid"></line>
+												<text x="2" y="89" class="chart-label">
+													1,94												</text>
+																							<line x1="16" y1="50.5" x2="404" y2="50.5" class="chart-grid"></line>
+												<text x="2" y="54.5" class="chart-label">
+													2,01												</text>
+																							<line x1="16" y1="16" x2="404" y2="16" class="chart-grid"></line>
+												<text x="2" y="20" class="chart-label">
+													2,08												</text>
+																						<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
+											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
+																							<polyline points="16,154 145.3,144.5 274.7,59.7 404,16" class="chart-line"></polyline>
+																																						<circle cx="16" cy="154" r="4" class="chart-point"></circle>
+																																						<circle cx="145.3" cy="144.5" r="4" class="chart-point"></circle>
+																																						<circle cx="274.7" cy="59.7" r="4" class="chart-point"></circle>
+																																						<circle cx="404" cy="16" r="4" class="chart-point"></circle>
+																																														<text x="16" y="168" class="chart-label chart-month">
+													01												</text>
+																							<text x="145.3" y="168" class="chart-label chart-month">
+													02												</text>
+																							<text x="274.7" y="168" class="chart-label chart-month">
+													03												</text>
+																							<text x="404" y="168" class="chart-label chart-month">
+													04												</text>
+																					</svg>
+										<div class="chart-caption">
+											<span>2026-01 : 1,801 EUR/L</span>
+											<span>2026-04 : 2,076 EUR/L</span>
+										</div>
+									</div>
+															</article>
+													<article class="trend-group">
+								<h3>E10</h3>
+																										<div class="line-chart">
+										<svg viewBox="0 0 420 170" role="img" aria-label="Evolution E10">
+																							<line x1="16" y1="154" x2="404" y2="154" class="chart-grid"></line>
+												<text x="2" y="158" class="chart-label">
+													1,70												</text>
+																							<line x1="16" y1="119.5" x2="404" y2="119.5" class="chart-grid"></line>
+												<text x="2" y="123.5" class="chart-label">
+													1,77												</text>
+																							<line x1="16" y1="85" x2="404" y2="85" class="chart-grid"></line>
+												<text x="2" y="89" class="chart-label">
+													1,85												</text>
+																							<line x1="16" y1="50.5" x2="404" y2="50.5" class="chart-grid"></line>
+												<text x="2" y="54.5" class="chart-label">
+													1,92												</text>
+																							<line x1="16" y1="16" x2="404" y2="16" class="chart-grid"></line>
+												<text x="2" y="20" class="chart-label">
+													1,99												</text>
+																						<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
+											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
+																							<polyline points="16,154 145.3,148 274.7,59.4 404,16" class="chart-line"></polyline>
+																																						<circle cx="16" cy="154" r="4" class="chart-point"></circle>
+																																						<circle cx="145.3" cy="148" r="4" class="chart-point"></circle>
+																																						<circle cx="274.7" cy="59.4" r="4" class="chart-point"></circle>
+																																						<circle cx="404" cy="16" r="4" class="chart-point"></circle>
+																																														<text x="16" y="168" class="chart-label chart-month">
+													01												</text>
+																							<text x="145.3" y="168" class="chart-label chart-month">
+													02												</text>
+																							<text x="274.7" y="168" class="chart-label chart-month">
+													03												</text>
+																							<text x="404" y="168" class="chart-label chart-month">
+													04												</text>
+																					</svg>
+										<div class="chart-caption">
+											<span>2026-01 : 1,695 EUR/L</span>
+											<span>2026-04 : 1,994 EUR/L</span>
+										</div>
+									</div>
+															</article>
+											</div>
+							</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="footer-nav-block">
+				<div class="footer-links footer-links-main">
+					<a href="index.php">Accueil</a>
+					<a href="recherche.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1&amp;search_mode=manual">Recherche</a>
+					<a href="resultats.php?region=11&amp;department=77&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;department_mode=1#resultats">Résultats</a>
+					<a href="stats.php">Statistiques</a>
+				</div>
+				<div class="footer-links footer-links-info">
+					<a href="a-propos.php">À propos</a>
+					<a href="aide.php">Aide</a>
+					<a href="sources.php">Sources des données</a>
+					<a href="confidentialite.php">Confidentialité</a>
+					<a href="plan-site.php">Plan du site</a>
+					<a href="tech.php">Page tech</a>
+				</div>
+			</div>
+			<p>Enzo Phung | Fatma-Zhara Baarir | Statistiques générées à partir du CSV de consultations.</p>
+		</footer>
+		<a href="#top" class="back-top">
+			<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+		</a>
+	</body>
+	</html>
