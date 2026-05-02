@@ -90,18 +90,23 @@ require __DIR__ . "/includes/header.php";
 		<div class="hero-copy">
 			<p class="eyebrow">Prix des carburants</p>
 			<h1>Trouvez une station plus facilement</h1>
-			<p class="lead">
-				Plein Malin aide à comparer rapidement les prix du carburant en France.
-				Le site propose une recherche manuelle par région, département et ville,
-				mais aussi une recherche autour de votre position approximative.
-			</p>
-			<p class="small-note">
-				L'objectif est de garder une interface simple : choisir un périmètre,
-				sélectionner un ou plusieurs carburants, puis consulter des résultats
-				lisibles sans surcharge inutile.
-			</p>
-			<div class="form-actions">
-				<a class="cta-link" href="recherche.php?search_mode=manual">Rechercher une station</a>
+			<div class="home-hero-content">
+				<div class="home-hero-text">
+					<p class="lead">
+						Plein Malin aide à comparer rapidement les prix du carburant en France.
+						Le site propose une recherche manuelle par région, département et ville,
+						mais aussi une recherche autour de votre position approximative.
+					</p>
+					<p class="small-note">
+						L'objectif est de garder une interface simple : choisir un périmètre,
+						sélectionner un ou plusieurs carburants, puis consulter des résultats
+						lisibles sans surcharge inutile.
+					</p>
+					<div class="form-actions">
+						<a class="cta-link" href="recherche.php?search_mode=manual">Rechercher une station</a>
+					</div>
+				</div>
+				<img class="home-hero-image" src="image/image-accueil.png" alt="Illustration de recherche de carburant Plein Malin" width="520" height="360" decoding="async" fetchpriority="high" />
 			</div>
 
 			<?php if ($typeDerniereRecherche !== "") { ?>
@@ -143,6 +148,7 @@ require __DIR__ . "/includes/header.php";
 		<h2>Informations utiles</h2>
 		<div class="home-columns">
 			<article>
+				<span class="home-feature-icon home-feature-icon-search" aria-hidden="true"></span>
 				<h3>Recherche guidée</h3>
 				<p>
 					La recherche suit l'ordre région, département puis ville pour rester
@@ -150,6 +156,7 @@ require __DIR__ . "/includes/header.php";
 				</p>
 			</article>
 			<article>
+				<span class="home-feature-icon home-feature-icon-results" aria-hidden="true"></span>
 				<h3>Résultats lisibles</h3>
 				<p>
 					Chaque station affiche son adresse, ses prix et les informations
@@ -157,6 +164,7 @@ require __DIR__ . "/includes/header.php";
 				</p>
 			</article>
 			<article>
+				<span class="home-feature-icon home-feature-icon-stats" aria-hidden="true"></span>
 				<h3>Statistiques</h3>
 				<p>
 					Une page dédiée résume les recherches effectuées, les visites et les

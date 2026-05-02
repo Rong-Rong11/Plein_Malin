@@ -6,46 +6,6 @@
  */
 
 /**
- * @file
- * @brief Fonctions communes et logique metier du site Plein Malin.
- *
- * Ce fichier regroupe les traitements partages par les pages : securisation
- * HTML, cookies, lecture CSV, appels API, recherche de stations, statistiques,
- * graphiques SVG et lecture XML.
- */
-
-/**
- * @defgroup securite Securite et initialisation
- * Fonctions liees a la preparation du site, aux chemins et a la securisation HTML.
- */
-
-/**
- * @defgroup preferences Preferences utilisateur
- * Gestion du theme, de la langue et des cookies de navigation.
- */
-
-/**
- * @defgroup donnees Donnees locales
- * Lecture des fichiers CSV de regions, departements et villes.
- */
-
-/**
- * @defgroup recherche Recherche de carburants
- * Normalisation des criteres, appels API et filtrage des stations.
- */
-
-/**
- * @defgroup statistiques Statistiques et graphiques
- * Enregistrement des consultations, calcul des statistiques et tendances de prix.
- */
-
-/**
- * Chargement de la configuration et des traductions communes.
- */
-require_once __DIR__ . "/config.php";
-require_once __DIR__ . "/translations.php";
-
-/**
  * Echappe une chaine avant affichage dans le HTML.
  *
  * @param string $texte Texte potentiellement fourni par une source externe.

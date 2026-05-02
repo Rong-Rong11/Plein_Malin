@@ -33,11 +33,11 @@
  * Enregistrement des consultations, calcul des statistiques et tendances de prix.
  */
 
-require_once __DIR__ . "/config.php";
-require_once __DIR__ . "/security.php";
-require_once __DIR__ . "/translations.php";
-require_once __DIR__ . "/data.php";
-require_once __DIR__ . "/format.php";
-require_once __DIR__ . "/search.php";
-require_once __DIR__ . "/preferences.php";
-require_once __DIR__ . "/stats.php";
+require_once __DIR__ . "/fonctions-config.php";
+require_once __DIR__ . "/fonctions-securite.php";
+require_once __DIR__ . "/fonctions-traductions.php";
+require_once __DIR__ . "/fonctions-donnees.php";
+require_once __DIR__ . "/fonctions-format.php";
+require_once __DIR__ . "/fonctions-recherche.php";
+require_once __DIR__ . "/fonctions-preferences.php";
+require_once __DIR__ . "/fonctions-stats.php";

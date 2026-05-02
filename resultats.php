@@ -417,7 +417,33 @@ require __DIR__ . "/includes/header.php";
 										</div>
 							</div>
 
-								<?php if ($vue === "detailed") { ?>
+								<?php if ($vue === "summary") { ?>
+									<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
+												| flux <?= texte_securise($station["source"]) ?>
+												<?php if (formater_date_heure($station["main_updated_at"] ?? "") !== "") { ?>
+													| prix mis à jour le <?= texte_securise(formater_date_heure($station["main_updated_at"])) ?>
+												<?php } ?>
+											</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+												<?php if ($servicesStation !== []) { ?>
+													<div class="services-list">
+														<?php foreach ($servicesStation as $serviceStation) { ?>
+															<span class="badge service-badge"><?= texte_securise($serviceStation) ?></span>
+														<?php } ?>
+													</div>
+												<?php } else { ?>
+													<p class="small-note">Aucun service indique.</p>
+												<?php } ?>
+											</div>
+										</div>
+									</details>
+								<?php } else { ?>
 									<p class="meta-line">
 										Distance : <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
 										| flux <?= texte_securise($station["source"]) ?>

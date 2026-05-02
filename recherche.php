@@ -330,10 +330,6 @@ require __DIR__ . "/includes/header.php";
 						</div>
 
 						<div class="action-panel" id="form-end">
-							<div class="action-copy">
-								<p class="context-title">Lancer la recherche</p>
-								<p class="small-note">Affichez les stations selon vos critères.</p>
-							</div>
 						<div class="form-actions action-buttons">
 							<div class="inline-filter">
 								<label for="manual-radius-select">Rayon</label>

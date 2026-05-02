@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['index_2ephp_0',['index.php',['../index_8php.html',1,'']]]
+  ['plan_2dsite_2ephp_0',['plan-site.php',['../plan-site_8php.html',1,'']]]
 ];

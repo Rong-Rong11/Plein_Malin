@@ -38,20 +38,20 @@ Le site propose aussi une page de resultats, des statistiques de consultation, d
 
 Les pages du site chargent `includes/functions.php`, qui sert de point d'entree commun et inclut les modules suivants :
 
-- `includes/config.php` : constantes, chemins, durees de cache et valeurs par defaut
-- `includes/security.php` : securisation HTML, initialisation des dossiers et chemin des cookies
-- `includes/preferences.php` : theme, langue, cookies de derniere recherche et liens memorises
-- `includes/translations.php` : traduction de l'interface francais / anglais
-- `includes/data.php` : lecture des fichiers CSV et XML locaux
-- `includes/search.php` : recherche de stations, API carburants, geolocalisation et distances
-- `includes/stats.php` : enregistrement des consultations, statistiques et tendances de prix
-- `includes/format.php` : formatage des prix et des dates
+- `includes/fonctions-config.php` : constantes, chemins, durees de cache et valeurs par defaut
+- `includes/fonctions-securite.php` : securisation HTML, initialisation des dossiers et chemin des cookies
+- `includes/fonctions-preferences.php` : theme, langue, cookies de derniere recherche et liens memorises
+- `includes/fonctions-traductions.php` : traduction de l'interface francais / anglais
+- `includes/fonctions-donnees.php` : lecture des fichiers CSV et XML locaux
+- `includes/fonctions-recherche.php` : recherche de stations, API carburants, geolocalisation et distances
+- `includes/fonctions-stats.php` : enregistrement des consultations, statistiques et tendances de prix
+- `includes/fonctions-format.php` : formatage des prix et des dates
 - `includes/header.php` : en-tete commun
 - `includes/footer.php` : pied de page commun
 
 ## Constantes importantes
 
-Les principales constantes sont definies dans `includes/config.php` :
+Les principales constantes sont definies dans `includes/fonctions-config.php` :
 
 - `PM_DEFAULT_FUEL` : carburant utilise par defaut, `Gazole`
 - `PM_DEFAULT_RADIUS` : rayon de recherche par defaut, `10` km

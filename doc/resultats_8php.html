@@ -102,7 +102,7 @@ Variables</h2></td></tr>
 <tr class="memitem:ae75a28657f9a99b282ec6f46fb80e50c" id="r_ae75a28657f9a99b282ec6f46fb80e50c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae75a28657f9a99b282ec6f46fb80e50c">$carburantsSelectionnes</a> = <a class="el" href="group__recherche.html#gaac021bff4a18ab36a2eb04f4c150c9db">normaliser_carburants_selection</a>($_GET[&quot;fuel&quot;] ?? [])</td></tr>
 <tr class="memitem:acd403f21721a7b74fca1454b14fa1bd3" id="r_acd403f21721a7b74fca1454b14fa1bd3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acd403f21721a7b74fca1454b14fa1bd3">$vue</a> = ($_GET[&quot;view&quot;] ?? &quot;summary&quot;) === &quot;detailed&quot; ? &quot;detailed&quot; : &quot;summary&quot;</td></tr>
 <tr class="memitem:a2cb0c11e1311e9cac869cce6a7194474" id="r_a2cb0c11e1311e9cac869cce6a7194474"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2cb0c11e1311e9cac869cce6a7194474">$tri</a> = $_GET[&quot;sort&quot;] ?? &quot;price&quot;</td></tr>
-<tr class="memitem:a1da2c1f7c6eeaec612e02036571e2263" id="r_a1da2c1f7c6eeaec612e02036571e2263"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1da2c1f7c6eeaec612e02036571e2263">$rayonGeo</a> = <a class="el" href="search_8php.html#ae5b96955321c9be18c191e6a50774607">normaliser_rayon_geo</a>((int) ($_GET[&quot;geo_radius&quot;] ?? <a class="el" href="config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>))</td></tr>
+<tr class="memitem:a1da2c1f7c6eeaec612e02036571e2263" id="r_a1da2c1f7c6eeaec612e02036571e2263"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1da2c1f7c6eeaec612e02036571e2263">$rayonGeo</a> = <a class="el" href="fonctions-recherche_8php.html#ae5b96955321c9be18c191e6a50774607">normaliser_rayon_geo</a>((int) ($_GET[&quot;geo_radius&quot;] ?? <a class="el" href="fonctions-config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>))</td></tr>
 <tr class="memitem:abcc3f99c180ace32cf2d1bc1cb0818a5" id="r_abcc3f99c180ace32cf2d1bc1cb0818a5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abcc3f99c180ace32cf2d1bc1cb0818a5">$modeDepartement</a> = isset($_GET[&quot;department_mode&quot;])</td></tr>
 <tr class="memitem:a7752a05da0fded6b721cecd6a569f3d1" id="r_a7752a05da0fded6b721cecd6a569f3d1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7752a05da0fded6b721cecd6a569f3d1">$utiliserGeo</a> = isset($_GET[&quot;use_geo&quot;])</td></tr>
 <tr class="memitem:a8e0b4669db3780ee9a03b34083febc7a" id="r_a8e0b4669db3780ee9a03b34083febc7a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8e0b4669db3780ee9a03b34083febc7a">$region</a> = $_GET[&quot;region&quot;] ?? &quot;&quot;</td></tr>
@@ -126,7 +126,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a4047b3df1c7afeb640ff2d1f03a54931" id="r_a4047b3df1c7afeb640ff2d1f03a54931"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($utiliserGeo) elseif( $modeDepartement) elseif($villeCourante !==null)&#160;</td><td class="memItemRight"><a class="el" href="#a4047b3df1c7afeb640ff2d1f03a54931">$parametresRecherche</a></td></tr>
 <tr class="memitem:acceede7347cbc2b57deb1bedbdc1cd86" id="r_acceede7347cbc2b57deb1bedbdc1cd86"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $modeDepartement) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($utiliserGeo)&#160;</td><td class="memItemRight"><a class="el" href="#acceede7347cbc2b57deb1bedbdc1cd86">$prixMoyenRecherche</a> = null</td></tr>
 <tr class="memitem:a8c61a7ff5551b983591a0a4a57261f44" id="r_a8c61a7ff5551b983591a0a4a57261f44"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8c61a7ff5551b983591a0a4a57261f44">$meilleureStation</a> = null</td></tr>
-<tr class="memitem:a8456fd3ffc0fcabe239a1416b9aec4cd" id="r_a8456fd3ffc0fcabe239a1416b9aec4cd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8456fd3ffc0fcabe239a1416b9aec4cd">$limiteStationsAffichees</a> = <a class="el" href="config_8php.html#aebe516d22e8c5318aa2c91accaf7fc6b">PM_MAX_STATIONS_DISPLAYED</a></td></tr>
+<tr class="memitem:a8456fd3ffc0fcabe239a1416b9aec4cd" id="r_a8456fd3ffc0fcabe239a1416b9aec4cd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8456fd3ffc0fcabe239a1416b9aec4cd">$limiteStationsAffichees</a> = <a class="el" href="fonctions-config_8php.html#aebe516d22e8c5318aa2c91accaf7fc6b">PM_MAX_STATIONS_DISPLAYED</a></td></tr>
 <tr class="memitem:a75258ca4764118e96a16a8e39bebf463" id="r_a75258ca4764118e96a16a8e39bebf463"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a75258ca4764118e96a16a8e39bebf463">$stationsAffichees</a> = array_slice($stations, 0, $limiteStationsAffichees)</td></tr>
 <tr class="memitem:a45a220641907f3fb3c109af13d8c39ba" id="r_a45a220641907f3fb3c109af13d8c39ba"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a45a220641907f3fb3c109af13d8c39ba">$stationsMasquees</a> = max(0, count($stations) - count($stationsAffichees))</td></tr>
 <tr class="memitem:a4c2cc1db1e01788e142fc2bc344c0cf5" id="r_a4c2cc1db1e01788e142fc2bc344c0cf5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4c2cc1db1e01788e142fc2bc344c0cf5">$prixRecherche</a> = array_column($stationsAffichees, &quot;main_price&quot;)</td></tr>
@@ -358,7 +358,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$limiteStationsAffichees = <a class="el" href="config_8php.html#aebe516d22e8c5318aa2c91accaf7fc6b">PM_MAX_STATIONS_DISPLAYED</a></td>
+          <td class="memname">$limiteStationsAffichees = <a class="el" href="fonctions-config_8php.html#aebe516d22e8c5318aa2c91accaf7fc6b">PM_MAX_STATIONS_DISPLAYED</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -500,7 +500,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">$rayonGeo = <a class="el" href="search_8php.html#ae5b96955321c9be18c191e6a50774607">normaliser_rayon_geo</a>((int) ($_GET[&quot;geo_radius&quot;] ?? <a class="el" href="config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>))</td>
+          <td class="memname">$rayonGeo = <a class="el" href="fonctions-recherche_8php.html#ae5b96955321c9be18c191e6a50774607">normaliser_rayon_geo</a>((int) ($_GET[&quot;geo_radius&quot;] ?? <a class="el" href="fonctions-config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>))</td>
         </tr>
       </table>
 </div><div class="memdoc">
