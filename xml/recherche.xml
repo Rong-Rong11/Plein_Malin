@@ -1710,6 +1710,14 @@
 							</div>
 
 							<div class="field-card field-card-soft">
+								<label class="field-title" for="view-select">Vue</label>
+								<select id="view-select" name="view">
+									<option value="summary" selected="selected">Synthèse</option>
+									<option value="detailed" >Détaillée</option>
+								</select>
+							</div>
+
+							<div class="field-card field-card-soft">
 								<span class="field-title" id="department-mode-title">Mode département</span>
 								<span class="field-help">Rechercher dans tout le département.</span>
 								<span class="fuel-choice">

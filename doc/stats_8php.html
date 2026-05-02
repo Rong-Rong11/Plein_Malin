@@ -110,7 +110,6 @@ Variables</h2></td></tr>
 <tr class="memitem:ae4c651f001e6834dbeeafcef6b1a38ba" id="r_ae4c651f001e6834dbeeafcef6b1a38ba"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae4c651f001e6834dbeeafcef6b1a38ba">$descriptionPage</a> = &quot;Page statistiques de Plein Malin.&quot;</td></tr>
 <tr class="memitem:a009519ce23e46383b691b834acc018e3" id="r_a009519ce23e46383b691b834acc018e3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a009519ce23e46383b691b834acc018e3">$pageActive</a> = &quot;stats&quot;</td></tr>
 <tr class="memitem:a12369e1a05a673479d1b6b13e1fe3c73" id="r_a12369e1a05a673479d1b6b13e1fe3c73"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a12369e1a05a673479d1b6b13e1fe3c73">$textePiedPage</a> = &quot;Enzo Phung | Fatma-Zahra Baarir | Statistiques générées à partir du CSV de consultations.&quot;</td></tr>
-<tr class="memitem:acdfc38f3bc77c36cc8296d4ed1e25c46" id="r_acdfc38f3bc77c36cc8296d4ed1e25c46"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_cities']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_cities'] as $ville=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_departments']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_departments'] as $departement=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_regions']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_regions'] as $region=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_fuels']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_fuels'] as $carburant=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($statistiques['top_modes']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach( $statistiques[ 'top_modes'] as $mode=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>(<a class="el" href="format_8php.html#aca0271ba759d3307cb477bd824525960">formater_date_heure</a>($tendancesCarburants[&quot;cached_at&quot;] ?? &quot;&quot;) !==&quot;&quot;) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>(( $tendancesCarburants[&quot;fuels&quot;] ??[])===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a>&#160;</td><td class="memItemRight"><a class="el" href="#acdfc38f3bc77c36cc8296d4ed1e25c46">foreach</a> ( $tendancesCarburants[&quot;fuels&quot;] as $nomCarburant=&gt; $moisDonnees) {</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Page des statistiques de consultation et de prix. </p>
@@ -279,27 +278,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">$titrePage = &quot;Statistiques - Plein Malin&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acdfc38f3bc77c36cc8296d4ed1e25c46" name="acdfc38f3bc77c36cc8296d4ed1e25c46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdfc38f3bc77c36cc8296d4ed1e25c46">&#9670;&#160;</a></span>foreach</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_cities']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_cities'] as $ville=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_departments']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_departments'] as $departement=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_regions']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_regions'] as $region=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_fuels']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_fuels'] as $carburant=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $statistiques[ 'top_modes']===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($statistiques['top_modes'] as $mode=&gt; $nombre) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>(<a class="el" href="format_8php.html#aca0271ba759d3307cb477bd824525960">formater_date_heure</a>( $tendancesCarburants[&quot;cached_at&quot;] ?? &quot;&quot;) !==&quot;&quot;) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>(($tendancesCarburants[&quot;fuels&quot;] ??[])===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach($tendancesCarburants[&quot;fuels&quot;] as $nomCarburant=&gt; $moisDonnees) </td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>$tendancesCarburants as</em></span>[&quot;fuels&quot;], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>$moisDonnees</em></span>&#160;) {</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -100,6 +100,7 @@ $(function(){initNavTree('resultats_8php.html','',''); });
 Variables</h2></td></tr>
 <tr class="memitem:a1ae541f7fe1c5e21cb4535f88ec9e9dc" id="r_a1ae541f7fe1c5e21cb4535f88ec9e9dc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1ae541f7fe1c5e21cb4535f88ec9e9dc">$theme</a> = <a class="el" href="group__preferences.html#gad846814cbbdd645be54a7f8f3e10de77">gerer_theme</a>()</td></tr>
 <tr class="memitem:ae75a28657f9a99b282ec6f46fb80e50c" id="r_ae75a28657f9a99b282ec6f46fb80e50c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae75a28657f9a99b282ec6f46fb80e50c">$carburantsSelectionnes</a> = <a class="el" href="group__recherche.html#gaac021bff4a18ab36a2eb04f4c150c9db">normaliser_carburants_selection</a>($_GET[&quot;fuel&quot;] ?? [])</td></tr>
+<tr class="memitem:acd403f21721a7b74fca1454b14fa1bd3" id="r_acd403f21721a7b74fca1454b14fa1bd3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acd403f21721a7b74fca1454b14fa1bd3">$vue</a> = ($_GET[&quot;view&quot;] ?? &quot;summary&quot;) === &quot;detailed&quot; ? &quot;detailed&quot; : &quot;summary&quot;</td></tr>
 <tr class="memitem:a2cb0c11e1311e9cac869cce6a7194474" id="r_a2cb0c11e1311e9cac869cce6a7194474"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2cb0c11e1311e9cac869cce6a7194474">$tri</a> = $_GET[&quot;sort&quot;] ?? &quot;price&quot;</td></tr>
 <tr class="memitem:a1da2c1f7c6eeaec612e02036571e2263" id="r_a1da2c1f7c6eeaec612e02036571e2263"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1da2c1f7c6eeaec612e02036571e2263">$rayonGeo</a> = <a class="el" href="search_8php.html#ae5b96955321c9be18c191e6a50774607">normaliser_rayon_geo</a>((int) ($_GET[&quot;geo_radius&quot;] ?? <a class="el" href="config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>))</td></tr>
 <tr class="memitem:abcc3f99c180ace32cf2d1bc1cb0818a5" id="r_abcc3f99c180ace32cf2d1bc1cb0818a5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abcc3f99c180ace32cf2d1bc1cb0818a5">$modeDepartement</a> = isset($_GET[&quot;department_mode&quot;])</td></tr>
@@ -119,7 +120,8 @@ Variables</h2></td></tr>
 <tr class="memitem:aafe1e137810a5a3a8621dc8af99b9644" id="r_aafe1e137810a5a3a8621dc8af99b9644"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aafe1e137810a5a3a8621dc8af99b9644">$modeRayonManuel</a> = false</td></tr>
 <tr class="memitem:ad6a733a69d03341a5dc3ae3f118fbd23" id="r_ad6a733a69d03341a5dc3ae3f118fbd23"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($apiCarburantsErreur) elseif( $utiliserGeo &amp;&amp;$villeCourante !==null) elseif($modeRayonManuel &amp;&amp; $villeCourante !==null) elseif( $utiliserGeo) elseif($choixRechercheIncomplet&#160;</td><td class="memItemRight"><a class="el" href="#ad6a733a69d03341a5dc3ae3f118fbd23">$libelleModeRecherche</a> ) = &quot;Ville&quot;</td></tr>
 <tr class="memitem:a0c1aab77f10c08d8bd2da090acc87e38" id="r_a0c1aab77f10c08d8bd2da090acc87e38"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $utiliserGeo) elseif($modeDepartement)&#160;</td><td class="memItemRight"><a class="el" href="#a0c1aab77f10c08d8bd2da090acc87e38">$libelleTri</a> = &quot;Prix croissant&quot;</td></tr>
-<tr class="memitem:ab7d5788e8ba368fb596a5238ec122695" id="r_ab7d5788e8ba368fb596a5238ec122695"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($tri===&quot;price_desc&quot;) elseif( $tri===&quot;distance&quot;) elseif($tri===&quot;name&quot;)&#160;</td><td class="memItemRight"><a class="el" href="#ab7d5788e8ba368fb596a5238ec122695">$libelleCarburantsSelectionnes</a> = <a class="el" href="group__recherche.html#ga9d23f643f7b803304784a68a5814cada">texte_carburants_selectionnes</a>($carburantsSelectionnes)</td></tr>
+<tr class="memitem:a03c13d72ec4ba081cd4d4c95539f67c2" id="r_a03c13d72ec4ba081cd4d4c95539f67c2"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($tri===&quot;price_desc&quot;) elseif( $tri===&quot;distance&quot;) elseif($tri===&quot;name&quot;)&#160;</td><td class="memItemRight"><a class="el" href="#a03c13d72ec4ba081cd4d4c95539f67c2">$libelleVue</a> = $vue === &quot;detailed&quot; ? &quot;Détaillée&quot; : &quot;Synthèse&quot;</td></tr>
+<tr class="memitem:af74c26781ae800679247d84ac5e4d9ea" id="r_af74c26781ae800679247d84ac5e4d9ea"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af74c26781ae800679247d84ac5e4d9ea">$libelleCarburantsSelectionnes</a> = <a class="el" href="group__recherche.html#ga9d23f643f7b803304784a68a5814cada">texte_carburants_selectionnes</a>($carburantsSelectionnes)</td></tr>
 <tr class="memitem:a3bb653ee6c17f628f1fe41d3a37686ea" id="r_a3bb653ee6c17f628f1fe41d3a37686ea"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3bb653ee6c17f628f1fe41d3a37686ea">$libelleCibleRecherche</a> = &quot;Non défini&quot;</td></tr>
 <tr class="memitem:a4047b3df1c7afeb640ff2d1f03a54931" id="r_a4047b3df1c7afeb640ff2d1f03a54931"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($utiliserGeo) elseif( $modeDepartement) elseif($villeCourante !==null)&#160;</td><td class="memItemRight"><a class="el" href="#a4047b3df1c7afeb640ff2d1f03a54931">$parametresRecherche</a></td></tr>
 <tr class="memitem:acceede7347cbc2b57deb1bedbdc1cd86" id="r_acceede7347cbc2b57deb1bedbdc1cd86"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $modeDepartement) <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($utiliserGeo)&#160;</td><td class="memItemRight"><a class="el" href="#acceede7347cbc2b57deb1bedbdc1cd86">$prixMoyenRecherche</a> = null</td></tr>
@@ -137,7 +139,7 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Page d'affichage et de filtrage des resultats. </p>
 <p>Page de resultats.</p>
-<p>Elle reconstitue le contexte de recherche, appelle l'API carburants via les fonctions metier, affiche les stations et enregistre la consultation. </p>
+<p>Elle reconstitue le contexte de recherche, appelle l'API carburants via les fonctions metier, affiche les stations, propose une vue synthese ou detaillee et enregistre la consultation. </p>
 </div><a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
 <a id="ad55eac29aa8ea852b10cad468e66276e" name="ad55eac29aa8ea852b10cad468e66276e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad55eac29aa8ea852b10cad468e66276e">&#9670;&#160;</a></span>$apiCarburantsErreur</h2>
@@ -251,14 +253,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ab7d5788e8ba368fb596a5238ec122695" name="ab7d5788e8ba368fb596a5238ec122695"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7d5788e8ba368fb596a5238ec122695">&#9670;&#160;</a></span>$libelleCarburantsSelectionnes</h2>
+<a id="af74c26781ae800679247d84ac5e4d9ea" name="af74c26781ae800679247d84ac5e4d9ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af74c26781ae800679247d84ac5e4d9ea">&#9670;&#160;</a></span>$libelleCarburantsSelectionnes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $tri===&quot;price_desc&quot;) elseif($tri===&quot;distance&quot;) elseif ( $tri===&quot;name&quot;) $libelleCarburantsSelectionnes = <a class="el" href="group__recherche.html#ga9d23f643f7b803304784a68a5814cada">texte_carburants_selectionnes</a>($carburantsSelectionnes)</td>
+          <td class="memname">$libelleCarburantsSelectionnes = <a class="el" href="group__recherche.html#ga9d23f643f7b803304784a68a5814cada">texte_carburants_selectionnes</a>($carburantsSelectionnes)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -315,6 +317,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($utiliserGeo) elseif ( $modeDepartement) $libelleTri = &quot;Prix croissant&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03c13d72ec4ba081cd4d4c95539f67c2" name="a03c13d72ec4ba081cd4d4c95539f67c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c13d72ec4ba081cd4d4c95539f67c2">&#9670;&#160;</a></span>$libelleVue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $tri===&quot;price_desc&quot;) elseif($tri===&quot;distance&quot;) elseif ( $tri===&quot;name&quot;) $libelleVue = $vue === &quot;detailed&quot; ? &quot;Détaillée&quot; : &quot;Synthèse&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -435,15 +451,17 @@ Variables</h2></td></tr>
 <div class="line">    <span class="stringliteral">&quot;department&quot;</span> =&gt; <a class="code hl_variable" href="recherche_8php.html#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a>,</div>
 <div class="line">    <span class="stringliteral">&quot;city&quot;</span> =&gt; <a class="code hl_variable" href="recherche_8php.html#acc3746cfaca53a8d6942c6252b17d14f">$ville</a>,</div>
 <div class="line">    <span class="stringliteral">&quot;fuel&quot;</span> =&gt; <a class="code hl_variable" href="recherche_8php.html#ae75a28657f9a99b282ec6f46fb80e50c">$carburantsSelectionnes</a>,</div>
+<div class="line">    <span class="stringliteral">&quot;view&quot;</span> =&gt; <a class="code hl_variable" href="recherche_8php.html#acd403f21721a7b74fca1454b14fa1bd3">$vue</a>,</div>
 <div class="line">    <span class="stringliteral">&quot;sort&quot;</span> =&gt; <a class="code hl_variable" href="recherche_8php.html#a2cb0c11e1311e9cac869cce6a7194474">$tri</a>,</div>
 <div class="line">    <span class="stringliteral">&quot;geo_radius&quot;</span> =&gt; <a class="code hl_variable" href="recherche_8php.html#a1da2c1f7c6eeaec612e02036571e2263">$rayonGeo</a>,</div>
 <div class="line">]</div>
-<div class="ttc" id="arecherche_8php_html_a1da2c1f7c6eeaec612e02036571e2263"><div class="ttname"><a href="recherche_8php.html#a1da2c1f7c6eeaec612e02036571e2263">$rayonGeo</a></div><div class="ttdeci">$rayonGeo</div><div class="ttdef"><b>Definition</b> recherche.php:30</div></div>
-<div class="ttc" id="arecherche_8php_html_a2cb0c11e1311e9cac869cce6a7194474"><div class="ttname"><a href="recherche_8php.html#a2cb0c11e1311e9cac869cce6a7194474">$tri</a></div><div class="ttdeci">$tri</div><div class="ttdef"><b>Definition</b> recherche.php:29</div></div>
-<div class="ttc" id="arecherche_8php_html_a6b82a7602dce2859af47b30bb039e221"><div class="ttname"><a href="recherche_8php.html#a6b82a7602dce2859af47b30bb039e221">$region</a></div><div class="ttdeci">if(isset($_GET[&quot;reset&quot;])) $region</div><div class="ttdef"><b>Definition</b> recherche.php:25</div></div>
-<div class="ttc" id="arecherche_8php_html_acc3746cfaca53a8d6942c6252b17d14f"><div class="ttname"><a href="recherche_8php.html#acc3746cfaca53a8d6942c6252b17d14f">$ville</a></div><div class="ttdeci">$ville</div><div class="ttdef"><b>Definition</b> recherche.php:27</div></div>
-<div class="ttc" id="arecherche_8php_html_acd5cf407c0f2ac72cb7c517b314e2d8f"><div class="ttname"><a href="recherche_8php.html#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a></div><div class="ttdeci">$departement</div><div class="ttdef"><b>Definition</b> recherche.php:26</div></div>
-<div class="ttc" id="arecherche_8php_html_ae75a28657f9a99b282ec6f46fb80e50c"><div class="ttname"><a href="recherche_8php.html#ae75a28657f9a99b282ec6f46fb80e50c">$carburantsSelectionnes</a></div><div class="ttdeci">$carburantsSelectionnes</div><div class="ttdef"><b>Definition</b> recherche.php:28</div></div>
+<div class="ttc" id="arecherche_8php_html_a1da2c1f7c6eeaec612e02036571e2263"><div class="ttname"><a href="recherche_8php.html#a1da2c1f7c6eeaec612e02036571e2263">$rayonGeo</a></div><div class="ttdeci">$rayonGeo</div><div class="ttdef"><b>Definition</b> recherche.php:33</div></div>
+<div class="ttc" id="arecherche_8php_html_a2cb0c11e1311e9cac869cce6a7194474"><div class="ttname"><a href="recherche_8php.html#a2cb0c11e1311e9cac869cce6a7194474">$tri</a></div><div class="ttdeci">$tri</div><div class="ttdef"><b>Definition</b> recherche.php:32</div></div>
+<div class="ttc" id="arecherche_8php_html_a6b82a7602dce2859af47b30bb039e221"><div class="ttname"><a href="recherche_8php.html#a6b82a7602dce2859af47b30bb039e221">$region</a></div><div class="ttdeci">if(isset($_GET[&quot;reset&quot;])) $region</div><div class="ttdef"><b>Definition</b> recherche.php:26</div></div>
+<div class="ttc" id="arecherche_8php_html_acc3746cfaca53a8d6942c6252b17d14f"><div class="ttname"><a href="recherche_8php.html#acc3746cfaca53a8d6942c6252b17d14f">$ville</a></div><div class="ttdeci">$ville</div><div class="ttdef"><b>Definition</b> recherche.php:28</div></div>
+<div class="ttc" id="arecherche_8php_html_acd403f21721a7b74fca1454b14fa1bd3"><div class="ttname"><a href="recherche_8php.html#acd403f21721a7b74fca1454b14fa1bd3">$vue</a></div><div class="ttdeci">$vue</div><div class="ttdef"><b>Definition</b> recherche.php:31</div></div>
+<div class="ttc" id="arecherche_8php_html_acd5cf407c0f2ac72cb7c517b314e2d8f"><div class="ttname"><a href="recherche_8php.html#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a></div><div class="ttdeci">$departement</div><div class="ttdef"><b>Definition</b> recherche.php:27</div></div>
+<div class="ttc" id="arecherche_8php_html_ae75a28657f9a99b282ec6f46fb80e50c"><div class="ttname"><a href="recherche_8php.html#ae75a28657f9a99b282ec6f46fb80e50c">$carburantsSelectionnes</a></div><div class="ttdeci">$carburantsSelectionnes</div><div class="ttdef"><b>Definition</b> recherche.php:29</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -637,6 +655,20 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">$villeCourante = null</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd403f21721a7b74fca1454b14fa1bd3" name="acd403f21721a7b74fca1454b14fa1bd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd403f21721a7b74fca1454b14fa1bd3">&#9670;&#160;</a></span>$vue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$vue = ($_GET[&quot;view&quot;] ?? &quot;summary&quot;) === &quot;detailed&quot; ? &quot;detailed&quot; : &quot;summary&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -95,7 +95,9 @@ $(function(){initNavTree('group__statistiques.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ga67c411fdd1c00eee6b60b50b02bb6c0f" id="r_ga67c411fdd1c00eee6b60b50b02bb6c0f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga67c411fdd1c00eee6b60b50b02bb6c0f">calculer_tendances_prix_annuelles</a> (int $annee, array $carburants)</td></tr>
 <tr class="memitem:gac802d15265a7990f630322ce7b74a842" id="r_gac802d15265a7990f630322ce7b74a842"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gac802d15265a7990f630322ce7b74a842">lire_tendances_prix_officielles</a> (?int $annee=null, ?array $carburants=null)</td></tr>
+<tr class="memitem:ga7695a5870df73db841e2b20f55baa8fc" id="r_ga7695a5870df73db841e2b20f55baa8fc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga7695a5870df73db841e2b20f55baa8fc">formater_mois_tendance</a> (string $mois)</td></tr>
 <tr class="memitem:gad62aadb86cccba03cb41f9f66b6712da" id="r_gad62aadb86cccba03cb41f9f66b6712da"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gad62aadb86cccba03cb41f9f66b6712da">points_graphique_tendance</a> (array $moisDonnees, int $largeur=420, int $hauteur=170)</td></tr>
 <tr class="memitem:gaa5325e8cb2f4af7308339270b56390fe" id="r_gaa5325e8cb2f4af7308339270b56390fe"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gaa5325e8cb2f4af7308339270b56390fe">graduations_prix_tendance</a> (array $moisDonnees, int $largeur=420, int $hauteur=170, int $nombre=4)</td></tr>
 <tr class="memitem:gaae7823debdb6caf5d9c5345d9ae63d46" id="r_gaae7823debdb6caf5d9c5345d9ae63d46"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gaae7823debdb6caf5d9c5345d9ae63d46">graduations_mois_tendance</a> (array $moisDonnees, int $largeur=420)</td></tr>
@@ -122,6 +124,36 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Calcule les statistiques affichees a partir des fichiers CSV locaux.</p>
 <dl class="section return"><dt>Returns</dt><dd>array Tops des villes, departements, regions, carburants, modes et compteurs. </dd></dl>
+
+</div>
+</div>
+<a id="ga67c411fdd1c00eee6b60b50b02bb6c0f" name="ga67c411fdd1c00eee6b60b50b02bb6c0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga67c411fdd1c00eee6b60b50b02bb6c0f">&#9670;&#160;</a></span>calculer_tendances_prix_annuelles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">calculer_tendances_prix_annuelles </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$annee</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$carburants</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Lit l'archive XML officielle d'une annee et calcule les moyennes mensuelles.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">int</td><td class="paramname">$annee</td><td>Annee a analyser. </td></tr>
+    <tr><td class="paramtype">string[]</td><td class="paramname">$carburants</td><td>Carburants a agreger. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Donnees mensuelles et moyenne annuelle pour chaque carburant. </dd></dl>
 
 </div>
 </div>
@@ -166,6 +198,31 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Enregistre une visite de page pour les statistiques globales.</p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="ga7695a5870df73db841e2b20f55baa8fc" name="ga7695a5870df73db841e2b20f55baa8fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7695a5870df73db841e2b20f55baa8fc">&#9670;&#160;</a></span>formater_mois_tendance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">formater_mois_tendance </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$mois</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Formate un mois technique YYYY-MM en libelle lisible.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$mois</td><td>Mois au format YYYY-MM. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Libelle de mois court en francais. </dd></dl>
 
 </div>
 </div>
@@ -259,7 +316,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Calcule les moyennes mensuelles depuis l'archive annuelle officielle XML.</p>
+<p>Calcule les moyennes mensuelles de l'annee courante et ajoute une reference annuelle.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramtype">int&#160;|&#160;null</td><td class="paramname">$annee</td><td>Annee a analyser, annee courante par defaut. </td></tr>
@@ -267,7 +324,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>array Donnees de tendance pretes pour la page statistiques. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>array Donnees de tendance pretes pour la page statistiques, avec reference_averages pour l'annee precedente. </dd></dl>
 
 </div>
 </div>

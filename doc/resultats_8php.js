@@ -8,11 +8,12 @@ var resultats_8php =
     [ "$geolocalisation", "resultats_8php.html#a768386cd17750b5607a21877e2d0abf4", null ],
     [ "$infosDepartement", "resultats_8php.html#ac71a871aedb4042e3899ecb32c64ba86", null ],
     [ "$infosRegion", "resultats_8php.html#a66ce3b3b9928466c0f67cfb33d49c908", null ],
-    [ "$libelleCarburantsSelectionnes", "resultats_8php.html#ab7d5788e8ba368fb596a5238ec122695", null ],
+    [ "$libelleCarburantsSelectionnes", "resultats_8php.html#af74c26781ae800679247d84ac5e4d9ea", null ],
     [ "$libelleCibleRecherche", "resultats_8php.html#a3bb653ee6c17f628f1fe41d3a37686ea", null ],
     [ "$libelleDepartement", "resultats_8php.html#ac41a6256ec2df0ea274b62bb2ea67074", null ],
     [ "$libelleModeRecherche", "resultats_8php.html#ad6a733a69d03341a5dc3ae3f118fbd23", null ],
     [ "$libelleTri", "resultats_8php.html#a0c1aab77f10c08d8bd2da090acc87e38", null ],
+    [ "$libelleVue", "resultats_8php.html#a03c13d72ec4ba081cd4d4c95539f67c2", null ],
     [ "$lienRecherche", "resultats_8php.html#a7afd8fe458a495040c4d9d655c5bfa50", null ],
     [ "$limiteStationsAffichees", "resultats_8php.html#a8456fd3ffc0fcabe239a1416b9aec4cd", null ],
     [ "$meilleureStation", "resultats_8php.html#a8c61a7ff5551b983591a0a4a57261f44", null ],
@@ -34,5 +35,6 @@ var resultats_8php =
     [ "$tri", "resultats_8php.html#a2cb0c11e1311e9cac869cce6a7194474", null ],
     [ "$utiliserGeo", "resultats_8php.html#a7752a05da0fded6b721cecd6a569f3d1", null ],
     [ "$ville", "resultats_8php.html#acc3746cfaca53a8d6942c6252b17d14f", null ],
-    [ "$villeCourante", "resultats_8php.html#ae9431325ed5fb1caf9528f81580dc357", null ]
+    [ "$villeCourante", "resultats_8php.html#ae9431325ed5fb1caf9528f81580dc357", null ],
+    [ "$vue", "resultats_8php.html#acd403f21721a7b74fca1454b14fa1bd3", null ]
 ];

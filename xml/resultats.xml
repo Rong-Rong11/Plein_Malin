@@ -115,7 +115,14 @@
 												</option>
 																					</select>
 									</div>
-															</div>
+																<div class="field-card">
+									<label class="field-title" for="result-view-select">Vue</label>
+									<select id="result-view-select" name="view">
+										<option value="summary" selected="selected">Synthèse</option>
+										<option value="detailed" >Détaillée</option>
+									</select>
+								</div>
+							</div>
 							<div class="form-actions action-buttons">
 								<button type="submit">Appliquer</button>
 							</div>
@@ -130,6 +137,7 @@
 									<li>Mode : Ville</li>
 									<li>Carburants choisis : Gazole</li>
 									<li>Tri choisi : Prix croissant</li>
+									<li>Vue choisie : Synthèse</li>
 									<li>Stations trouvées : 72</li>
 									<li>Périmètre : Chelles dans un rayon de 10 km</li>
 									<li>Région : Ile-de-France</li>
@@ -164,168 +172,14 @@
 								<strong>2,090 EUR/L</strong>
 								<span>prix moyen trouvé sur les stations affichées</span>
 							</div>
-							<a class="stat-chip best-price-link" href="#station-77340007">
+							<a class="stat-chip best-price-link" href="#station-77410009">
 								<strong>2,090 EUR/L</strong>
-								<span>meilleur prix affiché - Station 77340007</span>
+								<span>meilleur prix affiché - Station 77410009</span>
 								<small>Cliquer pour voir la station</small>
 							</a>
 						</div>
 					
 					<div class="cards">
-																				<article class="station-card" id="station-77340007">
-							<div class="station-top">
-								<div>
-										<h3>Station 77340007</h3>
-									<p>N104 LA FRANCILIENNE - AIRE PRE DE L&#039;AULNES ET DE LA GDE MAR,  Émerainville</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,090 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 7,9 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
-								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.816&amp;mlon=2.623#map=16/48.816/2.623" target="_blank" rel="noopener">Voir sur une carte</a>
-																	</div>
-							</article>
-																				<article class="station-card" id="station-93330006">
-							<div class="station-top">
-								<div>
-										<h3>Station 93330006</h3>
-									<p>29-33 BLD DU MARECHAL FOCH,  Neuilly-sur-Marne</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,090 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 6,1 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
-								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.855&amp;mlon=2.525#map=16/48.855/2.525" target="_blank" rel="noopener">Voir sur une carte</a>
-																	</div>
-							</article>
-																				<article class="station-card" id="station-93110005">
-							<div class="station-top">
-								<div>
-										<h3>Station 93110005</h3>
-									<p>12/14 BD.GABRIEL PERI - TOTAL,  Rosny-sous-Bois</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,090 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 8,3 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
-								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.878&amp;mlon=2.482#map=16/48.878/2.482" target="_blank" rel="noopener">Voir sur une carte</a>
-																	</div>
-							</article>
-																				<article class="station-card" id="station-93330005">
-							<div class="station-top">
-								<div>
-										<h3>Station 93330005</h3>
-									<p>9 TER BD MARECHAL FOCH,  Neuilly-sur-Marne</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,090 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 6,4 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
-								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.85427&amp;mlon=2.52019#map=16/48.85427/2.52019" target="_blank" rel="noopener">Voir sur une carte</a>
-																	</div>
-							</article>
-																				<article class="station-card" id="station-93160009">
-							<div class="station-top">
-								<div>
-										<h3>Station 93160009</h3>
-									<p>104/106 AV MEDERIC,  Noisy-le-Grand</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,090 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 6,5 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
-								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.829&amp;mlon=2.569#map=16/48.829/2.569" target="_blank" rel="noopener">Voir sur une carte</a>
-																	</div>
-							</article>
-																				<article class="station-card" id="station-93290006">
-							<div class="station-top">
-								<div>
-										<h3>Station 93290006</h3>
-									<p>62-68 ROUTE DES PETITS PONTS,  Tremblay-en-France</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,090 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 9,1 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
-								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.964&amp;mlon=2.564#map=16/48.964/2.564" target="_blank" rel="noopener">Voir sur une carte</a>
-																	</div>
-							</article>
-																				<article class="station-card" id="station-93320002">
-							<div class="station-top">
-								<div>
-										<h3>Station 93320002</h3>
-									<p>262 AVENUE ARISTIDE BRIAND,  Les Pavillons-sous-Bois</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,090 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 6,9 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:05																		</p>
-
-								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.91&amp;mlon=2.51#map=16/48.91/2.51" target="_blank" rel="noopener">Voir sur une carte</a>
-																	</div>
-							</article>
 																				<article class="station-card" id="station-77410009">
 							<div class="station-top">
 								<div>
@@ -340,12 +194,9 @@
 																					</div>
 							</div>
 
-								<p class="meta-line">
-									Distance : 4,0 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
+								
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.905&amp;mlon=2.641#map=16/48.905/2.641" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.905&amp;mlon=2.641#map=16/48.905/2.641" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
 																				<article class="station-card" id="station-77186001">
@@ -362,12 +213,66 @@
 																					</div>
 							</div>
 
-								<p class="meta-line">
-									Distance : 5,2 km
-									| flux api json																			| prix mis à jour le 01/05/2026 09:35																		</p>
-
+								
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.841&amp;mlon=2.62#map=16/48.841/2.62" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.841&amp;mlon=2.62#map=16/48.841/2.62" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77340005">
+							<div class="station-top">
+								<div>
+										<h3>Station 77340005</h3>
+									<p>CHEMIN DÉPARTEMENTAL 51 - RUE DES BERCHÈRES,  Pontault-Combault</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,090 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.793&amp;mlon=2.619#map=16/48.793/2.619" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-93160009">
+							<div class="station-top">
+								<div>
+										<h3>Station 93160009</h3>
+									<p>104/106 AV MEDERIC,  Noisy-le-Grand</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,090 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.829&amp;mlon=2.569#map=16/48.829/2.569" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-93330005">
+							<div class="station-top">
+								<div>
+										<h3>Station 93330005</h3>
+									<p>9 TER BD MARECHAL FOCH,  Neuilly-sur-Marne</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,090 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.85427&amp;mlon=2.52019#map=16/48.85427/2.52019" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
 																				<article class="station-card" id="station-77400011">
@@ -384,56 +289,9 @@
 																					</div>
 							</div>
 
-								<p class="meta-line">
-									Distance : 9,8 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
+								
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.877&amp;mlon=2.729#map=16/48.877/2.729" target="_blank" rel="noopener">Voir sur une carte</a>
-																	</div>
-							</article>
-																				<article class="station-card" id="station-94130003">
-							<div class="station-top">
-								<div>
-										<h3>Station 94130003</h3>
-									<p>128, BOULEVARD DE STRASBOURG,  Nogent-sur-Marne</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,090 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 9,2 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
-								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.843&amp;mlon=2.486#map=16/48.843/2.486" target="_blank" rel="noopener">Voir sur une carte</a>
-																	</div>
-							</article>
-																				<article class="station-card" id="station-93420007">
-							<div class="station-top">
-								<div>
-										<h3>Station 93420007</h3>
-									<p>BD ROBERT BALLANGER D115,  Villepinte</p>
-									</div>
-										<div class="price-box">
-																							<div class="price-line">
-													<span>Gazole</span>
-													<strong>2,090 EUR/L</strong>
-												</div>
-																					</div>
-							</div>
-
-								<p class="meta-line">
-									Distance : 9,0 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
-								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.953965389285&amp;mlon=2.533686306402#map=16/48.953965389285/2.533686306402" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.877&amp;mlon=2.729#map=16/48.877/2.729" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
 																				<article class="station-card" id="station-93160008">
@@ -450,12 +308,104 @@
 																					</div>
 							</div>
 
-								<p class="meta-line">
-									Distance : 6,2 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
+								
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.838125330121&amp;mlon=2.547563329687#map=16/48.838125330121/2.547563329687" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.838125330121&amp;mlon=2.547563329687#map=16/48.838125330121/2.547563329687" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-94500011">
+							<div class="station-top">
+								<div>
+										<h3>Station 94500011</h3>
+									<p>114 AV. DU GENERAL DE GAULLE,  Champigny-sur-Marne</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,090 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.823&amp;mlon=2.495#map=16/48.823/2.495" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-94430007">
+							<div class="station-top">
+								<div>
+										<h3>Station 94430007</h3>
+									<p>79 RUE DES FUSILLES DE CHATEAUBR,  Chennevières-sur-Marne</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,090 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.799&amp;mlon=2.543#map=16/48.799/2.543" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-93420007">
+							<div class="station-top">
+								<div>
+										<h3>Station 93420007</h3>
+									<p>BD ROBERT BALLANGER D115,  Villepinte</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,090 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.953965389285&amp;mlon=2.533686306402#map=16/48.953965389285/2.533686306402" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-93290006">
+							<div class="station-top">
+								<div>
+										<h3>Station 93290006</h3>
+									<p>62-68 ROUTE DES PETITS PONTS,  Tremblay-en-France</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,090 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.964&amp;mlon=2.564#map=16/48.964/2.564" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-93320002">
+							<div class="station-top">
+								<div>
+										<h3>Station 93320002</h3>
+									<p>262 AVENUE ARISTIDE BRIAND,  Les Pavillons-sous-Bois</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,090 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.91&amp;mlon=2.51#map=16/48.91/2.51" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
 																				<article class="station-card" id="station-77340006">
@@ -472,19 +422,16 @@
 																					</div>
 							</div>
 
-								<p class="meta-line">
-									Distance : 9,6 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
+								
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.79836&amp;mlon=2.60505#map=16/48.79836/2.60505" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.79836&amp;mlon=2.60505#map=16/48.79836/2.60505" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
-																				<article class="station-card" id="station-93100014">
+																				<article class="station-card" id="station-93110005">
 							<div class="station-top">
 								<div>
-										<h3>Station 93100014</h3>
-									<p>48-54 BOULEVARD THEOPHILE SUEUR,  Montreuil</p>
+										<h3>Station 93110005</h3>
+									<p>12/14 BD.GABRIEL PERI - TOTAL,  Rosny-sous-Bois</p>
 									</div>
 										<div class="price-box">
 																							<div class="price-line">
@@ -494,17 +441,33 @@
 																					</div>
 							</div>
 
-								<p class="meta-line">
-									Distance : 9,3 km
-									| flux api json																			| prix mis à jour le 01/05/2026 10:00																		</p>
-
+								
 								<div class="form-actions station-actions">
-																			<a class="secondary-btn" href="https://www.openstreetmap.org/?mlat=48.86885&amp;mlon=2.47055#map=16/48.86885/2.47055" target="_blank" rel="noopener">Voir sur une carte</a>
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.878&amp;mlon=2.482#map=16/48.878/2.482" target="_blank" rel="noopener">Voir sur une carte</a>
+																	</div>
+							</article>
+																				<article class="station-card" id="station-77410001">
+							<div class="station-top">
+								<div>
+										<h3>Station 77410001</h3>
+									<p>CHEMIN DE COMPANS,  Claye-Souilly</p>
+									</div>
+										<div class="price-box">
+																							<div class="price-line">
+													<span>Gazole</span>
+													<strong>2,090 EUR/L</strong>
+												</div>
+																					</div>
+							</div>
+
+								
+								<div class="form-actions station-actions">
+																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.952&amp;mlon=2.666#map=16/48.952/2.666" target="_blank" rel="noopener">Voir sur une carte</a>
 																	</div>
 							</article>
 											</div>
 					<div class="form-actions bottom-actions">
-						<a class="cta-link" href="recherche.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10#recherche">Retour à la recherche</a>
+						<a class="cta-link" href="recherche.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10#recherche">Retour à la recherche</a>
 					</div>
 							</section>
 	</main>

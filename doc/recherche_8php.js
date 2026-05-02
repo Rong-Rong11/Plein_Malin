@@ -3,7 +3,7 @@ var recherche_8php =
     [ "coordonnees_carte", "recherche_8php.html#aa2de2891e07f410f522067fa78e70c67", null ],
     [ "$carburantsSelectionnes", "recherche_8php.html#ae75a28657f9a99b282ec6f46fb80e50c", null ],
     [ "$departement", "recherche_8php.html#acd5cf407c0f2ac72cb7c517b314e2d8f", null ],
-    [ "$departements", "recherche_8php.html#a65975d6f5e4fdf78c76de56d79ab4ed1", null ],
+    [ "$departements", "recherche_8php.html#a5c5c37c23fa1c1e78cbe52018efbab3a", null ],
     [ "$descriptionPage", "recherche_8php.html#ae4c651f001e6834dbeeafcef6b1a38ba", null ],
     [ "$hauteurCarte", "recherche_8php.html#a8ecc83580aa71af443d81b9b65cb15bc", null ],
     [ "$hauteurCarteOriginale", "recherche_8php.html#ab0e748cdf17e7fc11dac791726c96ebd", null ],
@@ -22,6 +22,7 @@ var recherche_8php =
     [ "$tri", "recherche_8php.html#a2cb0c11e1311e9cac869cce6a7194474", null ],
     [ "$ville", "recherche_8php.html#acc3746cfaca53a8d6942c6252b17d14f", null ],
     [ "$villes", "recherche_8php.html#afdefc0303846ad7cedbfd9acb7184a7a", null ],
+    [ "$vue", "recherche_8php.html#acd403f21721a7b74fca1454b14fa1bd3", null ],
     [ "else", "recherche_8php.html#a85294e932522d059bb4924df413e4c94", null ],
     [ "if", "recherche_8php.html#a540ef01325aa58ca224472e29825d493", null ]
 ];

@@ -54,16 +54,31 @@
 		<section class="info-block tech-feature">
 				<h2>API Ghibli</h2>
 							<h3 class="tech-subtitle">
-					Earwig and the Witch				</h3>
+					Grave of the Fireflies				</h3>
 				<h3 class="tech-original-title" lang="ja">
-					アーヤと魔女				</h3>
+					火垂るの墓				</h3>
 				<p class="meta-line">
-					2021				</p>
+					1988				</p>
 				<p class="tech-copy" lang="en">
-					An orphan girl, Earwig, is adopted by a witch and comes home to a spooky house filled with mystery and magic.				</p>
+					In the latter part of World War II, a boy and his sister, orphaned when their mother is killed in the firebombing of Tokyo, are left to survive on their own in what remains of civilian life in Japan. The plot follows this boy and his sister as they do their best to survive in the Japanese countryside, battling hunger, prejudice, and pride in their own quiet, personal battle.				</p>
 				<div class="tech-media">
-					<img src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sJhFtY3eHuvvACaPpxpzdCLQqpQ.jpg" width="200" alt="" />
-					<img class="tech-banner" src="https://www.themoviedb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg" width="400" alt="" />
+					<figure class="tech-figure">
+						<img
+							src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/qG3RYlIVpTYclR9TYIsy8p7m7AT.jpg"
+							width="200"
+							alt="Affiche du film Grave of the Fireflies"
+						/>
+						<figcaption>Affiche du film</figcaption>
+					</figure>
+					<figure class="tech-figure tech-figure-wide">
+						<img
+							class="tech-banner"
+							src="https://image.tmdb.org/t/p/original/vkZSd0Lp8iCVBGpFH9L7LzLusjS.jpg"
+							width="400"
+							alt="Bannière du film Grave of the Fireflies"
+						/>
+						<figcaption>Bannière du film</figcaption>
+					</figure>
 				</div>
 					</section>
 
@@ -114,8 +129,8 @@
 		<section class="info-block tech-feature">
 			<h2>Etat des statistiques</h2>
 			<ul class="plain-list">
-					<li>Consultations enregistrees: 3</li>
-					<li>Visites de pages: 172</li>
+					<li>Consultations enregistrees: 4</li>
+					<li>Visites de pages: 182</li>
 					<li>Visiteurs approx.: 2</li>
 					<li>Nombre de villes dans le top: 1</li>
 				</ul>

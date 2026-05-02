@@ -98,6 +98,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaff94149a115e515c90b8397b97edbbf7" id="r_gaff94149a115e515c90b8397b97edbbf7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gaff94149a115e515c90b8397b97edbbf7">liste_carburants</a> ()</td></tr>
 <tr class="memitem:gaac021bff4a18ab36a2eb04f4c150c9db" id="r_gaac021bff4a18ab36a2eb04f4c150c9db"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gaac021bff4a18ab36a2eb04f4c150c9db">normaliser_carburants_selection</a> ($entreeCarburants)</td></tr>
 <tr class="memitem:ga9d23f643f7b803304784a68a5814cada" id="r_ga9d23f643f7b803304784a68a5814cada"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga9d23f643f7b803304784a68a5814cada">texte_carburants_selectionnes</a> (array $typesCarburants)</td></tr>
+<tr class="memitem:ga61aa93aa69bedcb98ec3e9fe2ebc5cd4" id="r_ga61aa93aa69bedcb98ec3e9fe2ebc5cd4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga61aa93aa69bedcb98ec3e9fe2ebc5cd4">normaliser_libelle_service_station</a> (string $service)</td></tr>
+<tr class="memitem:ga393822843623cd9389532cc0676195ea" id="r_ga393822843623cd9389532cc0676195ea"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga393822843623cd9389532cc0676195ea">services_station_affichables</a> (array $services)</td></tr>
+<tr class="memitem:ga9af7f3720aa1401f5ffaacd97f3d495a" id="r_ga9af7f3720aa1401f5ffaacd97f3d495a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga9af7f3720aa1401f5ffaacd97f3d495a">station_a_une_pompe_a_air</a> (array $services)</td></tr>
 <tr class="memitem:ga72bf9e3624890850c803b326849db5a7" id="r_ga72bf9e3624890850c803b326849db5a7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga72bf9e3624890850c803b326849db5a7">lire_api_avec_cache</a> (string $adresseUrl, string $nomCache)</td></tr>
 <tr class="memitem:gad977d93dda1c7cab398ddd386a16c1c7" id="r_gad977d93dda1c7cab398ddd386a16c1c7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gad977d93dda1c7cab398ddd386a16c1c7">recuperer_ip_visiteur</a> ()</td></tr>
 <tr class="memitem:gaa7b38ef75972b9003c6e64a0c9fa1672" id="r_gaa7b38ef75972b9003c6e64a0c9fa1672"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gaa7b38ef75972b9003c6e64a0c9fa1672">recuperer_geolocalisation</a> ()</td></tr>
@@ -267,6 +270,31 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ga61aa93aa69bedcb98ec3e9fe2ebc5cd4" name="ga61aa93aa69bedcb98ec3e9fe2ebc5cd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga61aa93aa69bedcb98ec3e9fe2ebc5cd4">&#9670;&#160;</a></span>normaliser_libelle_service_station()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">normaliser_libelle_service_station </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$service</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rend certains libelles de services plus lisibles.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$service</td><td>Libelle brut venant de l'API. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Libelle formate pour l'affichage. </dd></dl>
+
+</div>
+</div>
 <a id="ga00a233060442fddd2a122e0a93676afd" name="ga00a233060442fddd2a122e0a93676afd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga00a233060442fddd2a122e0a93676afd">&#9670;&#160;</a></span>rechercher_stations_avec_statut()</h2>
 
@@ -356,6 +384,56 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Recupere l'adresse IP du visiteur en tenant compte d'un eventuel proxy.</p>
 <dl class="section return"><dt>Returns</dt><dd>string Adresse IP detectee ou localhost par defaut. </dd></dl>
+
+</div>
+</div>
+<a id="ga393822843623cd9389532cc0676195ea" name="ga393822843623cd9389532cc0676195ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga393822843623cd9389532cc0676195ea">&#9670;&#160;</a></span>services_station_affichables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">services_station_affichables </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$services</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare la liste des services a afficher sur une carte station.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$services</td><td>Liste brute issue de l'API. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string[] Services dedoublonnes et tries. </dd></dl>
+
+</div>
+</div>
+<a id="ga9af7f3720aa1401f5ffaacd97f3d495a" name="ga9af7f3720aa1401f5ffaacd97f3d495a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9af7f3720aa1401f5ffaacd97f3d495a">&#9670;&#160;</a></span>station_a_une_pompe_a_air()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">station_a_une_pompe_a_air </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$services</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indique si la station propose un service de gonflage.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$services</td><td>Liste brute issue de l'API. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool Vrai si une pompe a air est detectee. </dd></dl>
 
 </div>
 </div>

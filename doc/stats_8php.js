@@ -11,6 +11,5 @@ var stats_8php =
     [ "$tendancesCarburants", "stats_8php.html#aa9aa491d366200b5af504be65c6acf07", null ],
     [ "$textePiedPage", "stats_8php.html#a12369e1a05a673479d1b6b13e1fe3c73", null ],
     [ "$theme", "stats_8php.html#a1ae541f7fe1c5e21cb4535f88ec9e9dc", null ],
-    [ "$titrePage", "stats_8php.html#af4b879506b6ff477064447268eddbb99", null ],
-    [ "foreach", "stats_8php.html#acdfc38f3bc77c36cc8296d4ed1e25c46", null ]
+    [ "$titrePage", "stats_8php.html#af4b879506b6ff477064447268eddbb99", null ]
 ];
