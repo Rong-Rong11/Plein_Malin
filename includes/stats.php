@@ -167,11 +167,12 @@ function calculer_tendances_prix_annuelles(int $annee, array $carburants): array
 }
 
 /**
- * Calcule les moyennes mensuelles depuis l'archive annuelle officielle XML.
+ * Calcule les moyennes mensuelles de l'annee courante et ajoute une reference annuelle.
  *
  * @param int|null $annee Annee a analyser, annee courante par defaut.
  * @param string[] $carburants Carburants a agreger.
- * @return array Donnees de tendance pretes pour la page statistiques.
+ * @return array Donnees de tendance pretes pour la page statistiques, avec
+ *               reference_averages pour l'annee precedente.
  *
  * @ingroup statistiques
  */
@@ -235,6 +236,8 @@ function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants 
  *
  * @param string $mois Mois au format YYYY-MM.
  * @return string Libelle de mois court en francais.
+ *
+ * @ingroup statistiques
  */
 function formater_mois_tendance(string $mois): string
 {

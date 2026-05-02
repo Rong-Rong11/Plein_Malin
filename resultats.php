@@ -6,7 +6,8 @@
  * Page de resultats.
  *
  * Elle reconstitue le contexte de recherche, appelle l'API carburants via les
- * fonctions metier, affiche les stations et enregistre la consultation.
+ * fonctions metier, affiche les stations, propose une vue synthese ou detaillee
+ * et enregistre la consultation.
  */
 require __DIR__ . "/includes/functions.php";
 
@@ -14,6 +15,7 @@ preparer_dossiers_et_fichiers();
 
 $theme = gerer_theme();
 $carburantsSelectionnes = normaliser_carburants_selection($_GET["fuel"] ?? []);
+// La vue personnalise l'affichage des cartes station : synthese ou detaillee.
 $vue = ($_GET["view"] ?? "summary") === "detailed" ? "detailed" : "summary";
 $tri = $_GET["sort"] ?? "price";
 $rayonGeo = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? PM_DEFAULT_RADIUS));

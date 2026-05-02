@@ -6,7 +6,8 @@
  * Page de recherche.
  *
  * Elle gere deux parcours : la recherche manuelle par region/departement/ville
- * et la recherche autour de la position approximative de l'utilisateur.
+ * et la recherche autour de la position approximative de l'utilisateur, avec
+ * memorisation de la vue synthese ou detaillee choisie.
  */
 require __DIR__ . "/includes/functions.php";
 
@@ -26,6 +27,7 @@ $region = $_GET["region"] ?? "";
 $departement = $_GET["department"] ?? "";
 $ville = $_GET["city"] ?? "";
 $carburantsSelectionnes = normaliser_carburants_selection($_GET["fuel"] ?? []);
+// Cette preference sera transmise a la page resultats et memorisee dans le cookie.
 $vue = ($_GET["view"] ?? "summary") === "detailed" ? "detailed" : "summary";
 $tri = $_GET["sort"] ?? "price";
 $rayonGeo = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? PM_DEFAULT_RADIUS));

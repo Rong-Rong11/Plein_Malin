@@ -6,7 +6,8 @@
  * Page technique.
  *
  * Elle montre les formats et services manipules par le projet : JSON, XML,
- * CSV, cookies, cache et API externes.
+ * CSV, cookies, cache et API externes, ainsi qu'un exemple d'images annotees
+ * avec legendes pour l'API Ghibli.
  */
 require __DIR__ . '/includes/functions.php';
 

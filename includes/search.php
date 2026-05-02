@@ -190,6 +190,8 @@ function texte_carburants_selectionnes(array $typesCarburants): string
  *
  * @param string $service Libelle brut venant de l'API.
  * @return string Libelle formate pour l'affichage.
+ *
+ * @ingroup recherche
  */
 function normaliser_libelle_service_station(string $service): string
 {
@@ -222,6 +224,8 @@ function normaliser_libelle_service_station(string $service): string
  *
  * @param array $services Liste brute issue de l'API.
  * @return string[] Services dedoublonnes et tries.
+ *
+ * @ingroup recherche
  */
 function services_station_affichables(array $services): array
 {
@@ -247,6 +251,8 @@ function services_station_affichables(array $services): array
  *
  * @param array $services Liste brute issue de l'API.
  * @return bool Vrai si une pompe a air est detectee.
+ *
+ * @ingroup recherche
  */
 function station_a_une_pompe_a_air(array $services): bool
 {
