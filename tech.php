@@ -65,8 +65,23 @@ require __DIR__ . "/includes/header.php";
 					<?= texte_securise((string) $film['description']) ?>
 				</p>
 				<div class="tech-media">
-					<img src="<?= texte_securise((string) $film['image']) ?>" width="200" alt="" />
-					<img class="tech-banner" src="<?= texte_securise((string) $film['movie_banner']) ?>" width="400" alt="" />
+					<figure class="tech-figure">
+						<img
+							src="<?= texte_securise((string) $film['image']) ?>"
+							width="200"
+							alt="Affiche du film <?= texte_securise((string) $film['title']) ?>"
+						/>
+						<figcaption>Affiche du film</figcaption>
+					</figure>
+					<figure class="tech-figure tech-figure-wide">
+						<img
+							class="tech-banner"
+							src="<?= texte_securise((string) $film['movie_banner']) ?>"
+							width="400"
+							alt="Bannière du film <?= texte_securise((string) $film['title']) ?>"
+						/>
+						<figcaption>Bannière du film</figcaption>
+					</figure>
 				</div>
 			<?php } ?>
 		</section>

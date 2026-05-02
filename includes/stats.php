@@ -6,33 +6,19 @@
  */
 
 /**
- * Calcule les moyennes mensuelles depuis l'archive annuelle officielle XML.
+ * Lit l'archive XML officielle d'une annee et calcule les moyennes mensuelles.
  *
- * @param int|null $annee Annee a analyser, annee courante par defaut.
+ * @param int $annee Annee a analyser.
  * @param string[] $carburants Carburants a agreger.
- * @return array Donnees de tendance pretes pour la page statistiques.
+ * @return array Donnees mensuelles et moyenne annuelle pour chaque carburant.
  *
  * @ingroup statistiques
  */
-function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants = null): array
+function calculer_tendances_prix_annuelles(int $annee, array $carburants): array
 {
-	$annee = $annee ?? (int) date("Y");
-	$carburants = $carburants ?? PM_TREND_FUELS;
-	$cleCarburants = md5(implode("|", $carburants));
-	$fichierCacheResultats = PM_CACHE_DIR . "/fuel_trends_" . $annee . "_" . $cleCarburants . ".json";
+	$fichierZip = PM_CACHE_DIR . "/fuel_history_" . $annee . ".zip";
 	$dureeCache = PM_FUEL_TRENDS_CACHE_DURATION;
 
-	$cache = lire_cache_api($fichierCacheResultats);
-	if ($cache !== null && time() - (int) $cache["time"] < $dureeCache) {
-		$donnees = json_decode((string) $cache["body"], true);
-		if (is_array($donnees)) {
-			$donnees["source_url"] = $donnees["source_url"] ?? "https://donnees.roulez-eco.fr/opendata/annee/" . $annee;
-			$donnees["cached_at"] = date("c", (int) $cache["time"]);
-			return $donnees;
-		}
-	}
-
-	$fichierZip = PM_CACHE_DIR . "/fuel_history_" . $annee . ".zip";
 	if (!file_exists($fichierZip) || time() - filemtime($fichierZip) > $dureeCache) {
 		$adresseUrl = "https://donnees.roulez-eco.fr/opendata/annee/" . $annee;
 		$contexte = stream_context_create([
@@ -50,8 +36,10 @@ function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants 
 		if ($contenu === false || $contenu === "") {
 			return [
 				"source" => "archive officielle indisponible",
+				"source_url" => $adresseUrl,
 				"year" => $annee,
 				"fuels" => [],
+				"annual_averages" => [],
 			];
 		}
 
@@ -62,8 +50,10 @@ function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants 
 	if ($zip->open($fichierZip) !== true) {
 		return [
 			"source" => "archive officielle illisible",
+			"source_url" => "https://donnees.roulez-eco.fr/opendata/annee/" . $annee,
 			"year" => $annee,
 			"fuels" => [],
+			"annual_averages" => [],
 		];
 	}
 
@@ -80,8 +70,10 @@ function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants 
 	if ($nomXml === "") {
 		return [
 			"source" => "archive officielle sans XML",
+			"source_url" => "https://donnees.roulez-eco.fr/opendata/annee/" . $annee,
 			"year" => $annee,
 			"fuels" => [],
+			"annual_averages" => [],
 		];
 	}
 
@@ -95,8 +87,10 @@ function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants 
 	if (!$lecteur->open($cheminZip)) {
 		return [
 			"source" => "archive officielle non ouverte",
+			"source_url" => "https://donnees.roulez-eco.fr/opendata/annee/" . $annee,
 			"year" => $annee,
 			"fuels" => [],
+			"annual_averages" => [],
 		];
 	}
 
@@ -131,27 +125,101 @@ function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants 
 	$lecteur->close();
 
 	$tendances = [];
+	$moyennesAnnuelles = [];
+
 	foreach ($agregats as $carburant => $moisAgreges) {
 		ksort($moisAgreges);
 		$tendances[$carburant] = [];
+		$sommeAnnuelle = 0.0;
+		$nombreAnnuel = 0;
 
 		foreach ($moisAgreges as $mois => $agregat) {
-			if ($agregat["count"] > 0) {
-				$tendances[$carburant][] = [
-					"month" => $mois,
-					"average_price" => round($agregat["sum"] / $agregat["count"], 3),
-					"price_count" => $agregat["count"],
-				];
+			if ($agregat["count"] <= 0) {
+				continue;
 			}
+
+			$moyenneMois = round($agregat["sum"] / $agregat["count"], 3);
+			$tendances[$carburant][] = [
+				"month" => $mois,
+				"average_price" => $moyenneMois,
+				"price_count" => $agregat["count"],
+			];
+
+			$sommeAnnuelle += $agregat["sum"];
+			$nombreAnnuel += $agregat["count"];
+		}
+
+		if ($nombreAnnuel > 0) {
+			$moyennesAnnuelles[$carburant] = [
+				"average_price" => round($sommeAnnuelle / $nombreAnnuel, 3),
+				"price_count" => $nombreAnnuel,
+			];
 		}
 	}
 
-	$resultat = [
+	return [
 		"source" => "archive annuelle officielle XML",
 		"source_url" => "https://donnees.roulez-eco.fr/opendata/annee/" . $annee,
 		"year" => $annee,
-		"cached_at" => date("c"),
 		"fuels" => $tendances,
+		"annual_averages" => $moyennesAnnuelles,
+	];
+}
+
+/**
+ * Calcule les moyennes mensuelles depuis l'archive annuelle officielle XML.
+ *
+ * @param int|null $annee Annee a analyser, annee courante par defaut.
+ * @param string[] $carburants Carburants a agreger.
+ * @return array Donnees de tendance pretes pour la page statistiques.
+ *
+ * @ingroup statistiques
+ */
+function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants = null): array
+{
+	$annee = $annee ?? (int) date("Y");
+	$carburants = $carburants ?? PM_TREND_FUELS;
+	$cleCarburants = md5(implode("|", $carburants));
+	$fichierCacheResultats = PM_CACHE_DIR . "/fuel_trends_" . $annee . "_" . $cleCarburants . ".json";
+	$dureeCache = PM_FUEL_TRENDS_CACHE_DURATION;
+
+	$cache = lire_cache_api($fichierCacheResultats);
+	if ($cache !== null && time() - (int) $cache["time"] < $dureeCache) {
+		$donnees = json_decode((string) $cache["body"], true);
+		if (is_array($donnees)) {
+			$donnees["source_url"] = $donnees["source_url"] ?? "https://donnees.roulez-eco.fr/opendata/annee/" . $annee;
+			$donnees["cached_at"] = date("c", (int) $cache["time"]);
+			$donnees["reference_year"] = $donnees["reference_year"] ?? max(0, $annee - 1);
+			$donnees["reference_averages"] = is_array($donnees["reference_averages"] ?? null) ? $donnees["reference_averages"] : [];
+			return $donnees;
+		}
+	}
+
+	$resultatCourant = calculer_tendances_prix_annuelles($annee, $carburants);
+	if (($resultatCourant["fuels"] ?? []) === []) {
+		return [
+			"source" => $resultatCourant["source"] ?? "archive officielle indisponible",
+			"source_url" => $resultatCourant["source_url"] ?? "https://donnees.roulez-eco.fr/opendata/annee/" . $annee,
+			"year" => $annee,
+			"fuels" => [],
+			"reference_year" => max(0, $annee - 1),
+			"reference_averages" => [],
+		];
+	}
+
+	$anneeReference = max(0, $annee - 1);
+	$resultatReference = $anneeReference > 0
+		? calculer_tendances_prix_annuelles($anneeReference, $carburants)
+		: ["annual_averages" => []];
+
+	$resultat = [
+		"source" => $resultatCourant["source"],
+		"source_url" => $resultatCourant["source_url"],
+		"year" => $annee,
+		"cached_at" => date("c"),
+		"fuels" => $resultatCourant["fuels"],
+		"reference_year" => $anneeReference,
+		"reference_averages" => $resultatReference["annual_averages"] ?? [],
 	];
 
 	file_put_contents($fichierCacheResultats, json_encode([
@@ -160,6 +228,39 @@ function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants 
 	], JSON_PRETTY_PRINT));
 
 	return $resultat;
+}
+
+/**
+ * Formate un mois technique YYYY-MM en libelle lisible.
+ *
+ * @param string $mois Mois au format YYYY-MM.
+ * @return string Libelle de mois court en francais.
+ */
+function formater_mois_tendance(string $mois): string
+{
+	$moisNoms = [
+		"01" => "Janvier",
+		"02" => "Février",
+		"03" => "Mars",
+		"04" => "Avril",
+		"05" => "Mai",
+		"06" => "Juin",
+		"07" => "Juillet",
+		"08" => "Août",
+		"09" => "Septembre",
+		"10" => "Octobre",
+		"11" => "Novembre",
+		"12" => "Décembre",
+	];
+
+	$annee = substr($mois, 0, 4);
+	$numeroMois = substr($mois, 5, 2);
+
+	if (!isset($moisNoms[$numeroMois])) {
+		return $mois;
+	}
+
+	return $moisNoms[$numeroMois] . " " . $annee;
 }
 /**
  * Transforme une serie mensuelle en points SVG pour une courbe.

@@ -159,7 +159,8 @@ require __DIR__ . "/includes/header.php";
 					<h2>Tendance annuelle des prix</h2>
 					<p class="small-note">
 					Moyennes mensuelles calculées côté serveur depuis l'archive annuelle officielle XML
-						<?= texte_securise((string) ($tendancesCarburants["year"] ?? date("Y"))) ?>.
+						<?= texte_securise((string) ($tendancesCarburants["year"] ?? date("Y"))) ?>,
+						avec une moyenne annuelle de référence sur <?= texte_securise((string) ($tendancesCarburants["reference_year"] ?? ((int) date("Y") - 1))) ?>.
 					</p>
 					<p class="small-note">
 						Source officielle :
@@ -181,41 +182,43 @@ require __DIR__ . "/includes/header.php";
 								<?php if ($moisDonnees === []) { ?>
 								<p class="empty-state">Aucune donnée disponible.</p>
 								<?php } else { ?>
-									<?php
-									$points = points_graphique_tendance($moisDonnees);
-									$graduationsPrix = graduations_prix_tendance($moisDonnees);
-									$graduationsMois = graduations_mois_tendance($moisDonnees);
-									$premierMois = $moisDonnees[0];
-									$dernierMois = $moisDonnees[count($moisDonnees) - 1];
-									?>
-									<div class="line-chart">
-										<svg viewBox="0 0 420 170" role="img" aria-label="Evolution <?= texte_securise($nomCarburant) ?>">
-											<?php foreach ($graduationsPrix as $graduation) { ?>
-												<line x1="<?= texte_securise((string) $graduation["x1"]) ?>" y1="<?= texte_securise((string) $graduation["y"]) ?>" x2="<?= texte_securise((string) $graduation["x2"]) ?>" y2="<?= texte_securise((string) $graduation["y"]) ?>" class="chart-grid"></line>
-												<text x="2" y="<?= texte_securise((string) ((float) $graduation["y"] + 4)) ?>" class="chart-label">
-													<?= texte_securise(number_format((float) $graduation["value"], 2, ",", " ")) ?>
-												</text>
-											<?php } ?>
-											<line x1="16" y1="154" x2="404" y2="154" class="chart-axis"></line>
-											<line x1="16" y1="16" x2="16" y2="154" class="chart-axis"></line>
-											<?php if ($points !== "") { ?>
-												<polyline points="<?= texte_securise($points) ?>" class="chart-line"></polyline>
-												<?php foreach (explode(" ", $points) as $point) { ?>
-													<?php [$x, $y] = explode(",", $point); ?>
-													<circle cx="<?= texte_securise($x) ?>" cy="<?= texte_securise($y) ?>" r="4" class="chart-point"></circle>
+									<?php $moyenneReference = $tendancesCarburants["reference_averages"][$nomCarburant] ?? null; ?>
+									<p class="small-note">Tableau mensuel des prix</p>
+									<div class="trend-table-wrap">
+										<table class="trend-table">
+											<thead>
+												<tr>
+													<th>Mois</th>
+													<th>Prix moyen</th>
+													<th>Relevés</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php foreach ($moisDonnees as $moisDonnee) { ?>
+													<tr>
+														<td><?= texte_securise(formater_mois_tendance((string) $moisDonnee["month"])) ?></td>
+														<td><?= texte_securise(number_format((float) $moisDonnee["average_price"], 3, ",", " ")) ?> EUR/L</td>
+														<td><?= texte_securise((string) $moisDonnee["price_count"]) ?></td>
+													</tr>
 												<?php } ?>
+											</tbody>
+											<?php if (is_array($moyenneReference)) { ?>
+												<tfoot>
+													<tr>
+														<td>Moyenne annuelle de référence <?= texte_securise((string) ($tendancesCarburants["reference_year"] ?? "")) ?></td>
+														<td><?= texte_securise(number_format((float) $moyenneReference["average_price"], 3, ",", " ")) ?> EUR/L</td>
+														<td><?= texte_securise((string) $moyenneReference["price_count"]) ?> relevés</td>
+													</tr>
+												</tfoot>
 											<?php } ?>
-											<?php foreach ($graduationsMois as $graduation) { ?>
-												<text x="<?= texte_securise((string) $graduation["x"]) ?>" y="168" class="chart-label chart-month">
-													<?= texte_securise($graduation["label"]) ?>
-												</text>
-											<?php } ?>
-										</svg>
-										<div class="chart-caption">
-											<span><?= texte_securise($premierMois["month"]) ?> : <?= texte_securise(number_format((float) $premierMois["average_price"], 3, ",", " ")) ?> EUR/L</span>
-											<span><?= texte_securise($dernierMois["month"]) ?> : <?= texte_securise(number_format((float) $dernierMois["average_price"], 3, ",", " ")) ?> EUR/L</span>
-										</div>
+										</table>
 									</div>
+									<?php if (is_array($moyenneReference)) { ?>
+										<p class="chart-caption">
+											Moyenne annuelle de référence <?= texte_securise((string) ($tendancesCarburants["reference_year"] ?? "")) ?>
+											de l'archive complète : <?= texte_securise(number_format((float) $moyenneReference["average_price"], 3, ",", " ")) ?> EUR/L
+										</p>
+									<?php } ?>
 								<?php } ?>
 							</article>
 						<?php } ?>

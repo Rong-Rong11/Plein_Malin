@@ -184,6 +184,85 @@ function texte_carburants_selectionnes(array $typesCarburants): string
 
 	return implode(", ", $noms);
 }
+
+/**
+ * Rend certains libelles de services plus lisibles.
+ *
+ * @param string $service Libelle brut venant de l'API.
+ * @return string Libelle formate pour l'affichage.
+ */
+function normaliser_libelle_service_station(string $service): string
+{
+	$serviceNettoye = trim($service);
+
+	if ($serviceNettoye === "") {
+		return "";
+	}
+
+	$correspondances = [
+		"Automate CB 24/24" => "Automate CB 24/24",
+		"Automate CB" => "Automate CB",
+		"DAB" => "Distributeur de billets",
+		"Gonflage" => "Pompe à air",
+		"Station de gonflage" => "Pompe à air",
+		"Lavage automatique" => "Lavage automatique",
+		"Lavage manuel" => "Lavage manuel",
+		"Toilettes publiques" => "Toilettes",
+	];
+
+	if (isset($correspondances[$serviceNettoye])) {
+		return $correspondances[$serviceNettoye];
+	}
+
+	return $serviceNettoye;
+}
+
+/**
+ * Prepare la liste des services a afficher sur une carte station.
+ *
+ * @param array $services Liste brute issue de l'API.
+ * @return string[] Services dedoublonnes et tries.
+ */
+function services_station_affichables(array $services): array
+{
+	$servicesAffichables = [];
+
+	foreach ($services as $service) {
+		if (is_string($service)) {
+			$serviceFormate = normaliser_libelle_service_station($service);
+			if ($serviceFormate !== "") {
+				$servicesAffichables[] = $serviceFormate;
+			}
+		}
+	}
+
+	$servicesAffichables = array_values(array_unique($servicesAffichables));
+	sort($servicesAffichables, SORT_NATURAL | SORT_FLAG_CASE);
+
+	return $servicesAffichables;
+}
+
+/**
+ * Indique si la station propose un service de gonflage.
+ *
+ * @param array $services Liste brute issue de l'API.
+ * @return bool Vrai si une pompe a air est detectee.
+ */
+function station_a_une_pompe_a_air(array $services): bool
+{
+	foreach ($services as $service) {
+		if (!is_string($service)) {
+			continue;
+		}
+
+		$serviceNormalise = strtolower(trim($service));
+		if ($serviceNormalise !== "" && (str_contains($serviceNormalise, "gonflage") || str_contains($serviceNormalise, "air"))) {
+			return true;
+		}
+	}
+
+	return false;
+}
 /**
  * Lit un fichier de cache JSON produit par les appels API.
  *
@@ -506,8 +585,30 @@ function lire_stations_api(?array $ville, bool $modeDepartement = false, ?array 
 
 		$services = [];
 		foreach ($ligne as $cle => $valeur) {
-			if (str_starts_with((string) $cle, "services_") && is_string($valeur) && trim($valeur) !== "") {
-				$services[] = trim($valeur);
+			if (str_starts_with((string) $cle, "services")) {
+				if (is_string($valeur) && trim($valeur) !== "") {
+					$servicesJson = json_decode($valeur, true);
+					if (is_array($servicesJson) && isset($servicesJson["service"])) {
+						$listeServices = $servicesJson["service"];
+						if (is_string($listeServices) && trim($listeServices) !== "") {
+							$services[] = trim($listeServices);
+						} elseif (is_array($listeServices)) {
+							foreach ($listeServices as $service) {
+								if (is_string($service) && trim($service) !== "") {
+									$services[] = trim($service);
+								}
+							}
+						}
+					} else {
+						$services[] = trim($valeur);
+					}
+				} elseif (is_array($valeur)) {
+					foreach ($valeur as $service) {
+						if (is_string($service) && trim($service) !== "") {
+							$services[] = trim($service);
+						}
+					}
+				}
 			}
 		}
 

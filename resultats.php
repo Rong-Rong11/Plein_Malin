@@ -14,6 +14,7 @@ preparer_dossiers_et_fichiers();
 
 $theme = gerer_theme();
 $carburantsSelectionnes = normaliser_carburants_selection($_GET["fuel"] ?? []);
+$vue = ($_GET["view"] ?? "summary") === "detailed" ? "detailed" : "summary";
 $tri = $_GET["sort"] ?? "price";
 $rayonGeo = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? PM_DEFAULT_RADIUS));
 $modeDepartement = isset($_GET["department_mode"]);
@@ -93,16 +94,16 @@ if ($villeCourante !== null) {
 	$stations = $resultatRecherche["stations"];
 	$apiCarburantsErreur = $resultatRecherche["api_error"];
 
-	enregistrer_consultation([
-		"region" => $infosRegion["region_name"] ?? "",
-		"department" => $infosDepartement["department_name"] ?? "",
-		"city" => $modeDepartement ? "Département " . ($infosDepartement["department_name"] ?? $departement) : $villeCourante["city_name"],
-		"mode" => mode_recherche($utiliserGeo, $modeDepartement),
-		"view" => "",
-		"fuel" => texte_carburants_selectionnes($carburantsSelectionnes),
-		"station_count" => count($stations),
-	]);
-}
+		enregistrer_consultation([
+			"region" => $infosRegion["region_name"] ?? "",
+			"department" => $infosDepartement["department_name"] ?? "",
+			"city" => $modeDepartement ? "Département " . ($infosDepartement["department_name"] ?? $departement) : $villeCourante["city_name"],
+			"mode" => mode_recherche($utiliserGeo, $modeDepartement),
+			"view" => $vue,
+			"fuel" => texte_carburants_selectionnes($carburantsSelectionnes),
+			"station_count" => count($stations),
+		]);
+	}
 
 // Les libelles suivants alimentent le panneau "Detail" de la recherche.
 $message = message_resultats($villeCourante, $utiliserGeo, $modeDepartement, $stations);
@@ -134,6 +135,8 @@ if ($tri === "price_desc") {
 	$libelleTri = "Nom";
 }
 
+$libelleVue = $vue === "detailed" ? "Détaillée" : "Synthèse";
+
 $libelleCarburantsSelectionnes = texte_carburants_selectionnes($carburantsSelectionnes);
 $libelleCibleRecherche = "Non défini";
 
@@ -156,6 +159,7 @@ $parametresRecherche = [
 	"department" => $departement,
 	"city" => $ville,
 	"fuel" => $carburantsSelectionnes,
+	"view" => $vue,
 	"sort" => $tri,
 	"geo_radius" => $rayonGeo,
 ];
@@ -270,6 +274,13 @@ require __DIR__ . "/includes/header.php";
 										</select>
 									</div>
 								<?php } ?>
+								<div class="field-card">
+									<label class="field-title" for="result-view-select">Vue</label>
+									<select id="result-view-select" name="view">
+										<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
+										<option value="detailed" <?= $vue === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
+									</select>
+								</div>
 							</div>
 							<div class="form-actions action-buttons">
 								<button type="submit">Appliquer</button>
@@ -285,6 +296,7 @@ require __DIR__ . "/includes/header.php";
 									<li>Mode : <?= texte_securise($libelleModeRecherche) ?></li>
 									<li>Carburants choisis : <?= texte_securise($libelleCarburantsSelectionnes) ?></li>
 									<li>Tri choisi : <?= texte_securise($libelleTri) ?></li>
+									<li>Vue choisie : <?= texte_securise($libelleVue) ?></li>
 									<li>Stations trouvées : <?= texte_securise((string) count($stations)) ?></li>
 									<li>Périmètre : <?= texte_securise($libelleCibleRecherche) ?></li>
 									<li>Région : <?= texte_securise($infosRegion["region_name"] ?? "Non définie") ?></li>
@@ -354,7 +366,7 @@ require __DIR__ . "/includes/header.php";
 								<strong><?= texte_securise(formater_prix($prixMoyenRecherche)) ?></strong>
 								<span>prix moyen trouvé sur les stations affichées</span>
 							</div>
-							<a class="stat-chip best-price-link" href="#station-<?= texte_securise(rawurlencode((string) $meilleureStation["id"])) ?>">
+							<a class="stat-chip best-price-link" href="#station-<?= texte_securise((string) $meilleureStation["id"]) ?>">
 								<strong><?= texte_securise(formater_prix((float) $meilleureStation["main_price"])) ?></strong>
 								<span>meilleur prix affiché - <?= texte_securise($meilleureStation["name"]) ?></span>
 								<small>Cliquer pour voir la station</small>
@@ -365,11 +377,8 @@ require __DIR__ . "/includes/header.php";
 					<div class="cards">
 						<?php foreach ($stationsAffichees as $station) { ?>
 							<?php
-									$ancreStation = rawurlencode((string) $station["id"]);
+								$ancreStation = (string) $station["id"];
 								$nomStationAffiche = (string) $station["name"];
-								if ($station["address"] !== "") {
-									$nomStationAffiche = trim(str_replace(" - " . $station["address"], "", $nomStationAffiche));
-								}
 								$prixCarburantsSelectionnes = [];
 								foreach ($carburantsSelectionnes as $carburantSelectionne) {
 									if (isset($station["prices"][$carburantSelectionne])) {
@@ -381,13 +390,14 @@ require __DIR__ . "/includes/header.php";
 								$lienCarteStation = "";
 								if ($latitudeStation !== 0.0 || $longitudeStation !== 0.0) {
 									$lienCarteStation = "https://www.openstreetmap.org/?mlat="
-										. rawurlencode((string) $latitudeStation)
-										. "&mlon=" . rawurlencode((string) $longitudeStation)
+										. (string) $latitudeStation
+										. "&mlon=" . (string) $longitudeStation
 										. "#map=16/"
-										. rawurlencode((string) $latitudeStation)
+										. (string) $latitudeStation
 										. "/"
-										. rawurlencode((string) $longitudeStation);
+										. (string) $longitudeStation;
 								}
+								$servicesStation = services_station_affichables($station["services"] ?? []);
 								?>
 							<article class="station-card" id="station-<?= texte_securise($ancreStation) ?>">
 							<div class="station-top">
@@ -405,17 +415,32 @@ require __DIR__ . "/includes/header.php";
 										</div>
 							</div>
 
-								<p class="meta-line">
-									Distance : <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
-									| flux <?= texte_securise($station["source"]) ?>
-									<?php if (formater_date_heure($station["main_updated_at"] ?? "") !== "") { ?>
-										| prix mis à jour le <?= texte_securise(formater_date_heure($station["main_updated_at"])) ?>
-									<?php } ?>
-									</p>
+								<?php if ($vue === "detailed") { ?>
+									<p class="meta-line">
+										Distance : <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
+										| flux <?= texte_securise($station["source"]) ?>
+										<?php if (formater_date_heure($station["main_updated_at"] ?? "") !== "") { ?>
+											| prix mis à jour le <?= texte_securise(formater_date_heure($station["main_updated_at"])) ?>
+										<?php } ?>
+										</p>
+
+									<div class="services-block">
+										<p class="services-title">Services disponibles</p>
+										<?php if ($servicesStation !== []) { ?>
+											<div class="services-list">
+												<?php foreach ($servicesStation as $serviceStation) { ?>
+													<span class="badge service-badge"><?= texte_securise($serviceStation) ?></span>
+												<?php } ?>
+											</div>
+										<?php } else { ?>
+											<p class="small-note">Aucun service indique.</p>
+										<?php } ?>
+									</div>
+								<?php } ?>
 
 								<div class="form-actions station-actions">
 									<?php if ($lienCarteStation !== "") { ?>
-										<a class="secondary-btn" href="<?= texte_securise($lienCarteStation) ?>" target="_blank" rel="noopener">Voir sur une carte</a>
+										<a class="secondary-btn map-link-btn" href="<?= texte_securise($lienCarteStation) ?>" target="_blank" rel="noopener">Voir sur une carte</a>
 									<?php } ?>
 								</div>
 							</article>

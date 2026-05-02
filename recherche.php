@@ -26,6 +26,7 @@ $region = $_GET["region"] ?? "";
 $departement = $_GET["department"] ?? "";
 $ville = $_GET["city"] ?? "";
 $carburantsSelectionnes = normaliser_carburants_selection($_GET["fuel"] ?? []);
+$vue = ($_GET["view"] ?? "summary") === "detailed" ? "detailed" : "summary";
 $tri = $_GET["sort"] ?? "price";
 $rayonGeo = normaliser_rayon_geo((int) ($_GET["geo_radius"] ?? PM_DEFAULT_RADIUS));
 $modeDepartement = isset($_GET["department_mode"]);
@@ -62,12 +63,17 @@ if (
 	$ville = (string) $parametresMemorises["city"];
 }
 
-if (array_intersect(["region", "department", "city", "fuel", "sort", "geo_radius", "department_mode"], array_keys($_GET)) !== []) {
+if (!isset($_GET["view"]) && isset($parametresMemorises["view"])) {
+	$vue = $parametresMemorises["view"] === "detailed" ? "detailed" : "summary";
+}
+
+if (array_intersect(["region", "department", "city", "fuel", "view", "sort", "geo_radius", "department_mode"], array_keys($_GET)) !== []) {
 	enregistrer_parametres_derniere_recherche([
 		"region" => $region,
 		"department" => $departement,
 		"city" => $ville,
 		"fuel" => $carburantsSelectionnes,
+		"view" => $vue,
 		"sort" => $tri,
 		"geo_radius" => $rayonGeo,
 		"department_mode" => $modeDepartement ? "1" : null,
@@ -166,6 +172,14 @@ require __DIR__ . "/includes/header.php";
 								<option value="price_desc" <?= $tri === "price_desc" ? 'selected="selected"' : "" ?>>Prix décroissant</option>
 								<option value="distance" <?= $tri === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
 								<option value="name" <?= $tri === "name" ? 'selected="selected"' : "" ?>>Nom</option>
+							</select>
+						</div>
+
+						<div class="field-card field-card-soft">
+							<label class="field-title" for="geo-view-select">Vue</label>
+							<select id="geo-view-select" name="view">
+								<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
+								<option value="detailed" <?= $vue === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
 							</select>
 						</div>
 					</div>
@@ -290,6 +304,14 @@ require __DIR__ . "/includes/header.php";
 									<option value="price_desc" <?= $tri === "price_desc" ? 'selected="selected"' : "" ?>>Prix décroissant</option>
 									<option value="distance" <?= $tri === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
 									<option value="name" <?= $tri === "name" ? 'selected="selected"' : "" ?>>Nom</option>
+								</select>
+							</div>
+
+							<div class="field-card field-card-soft">
+								<label class="field-title" for="view-select">Vue</label>
+								<select id="view-select" name="view">
+									<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
+									<option value="detailed" <?= $vue === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
 								</select>
 							</div>
 

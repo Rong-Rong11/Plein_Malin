@@ -899,6 +899,18 @@ body.theme-night .search-form button[type="submit"]:not(.secondary-btn) {
 	font-weight: 700;
 }
 
+.map-link-btn {
+	background: #d6612b;
+	color: #ffffff;
+	border-color: #b84d1c;
+}
+
+body.theme-night .map-link-btn {
+	background: #ffb276;
+	color: #111820;
+	border-color: #ff9d5c;
+}
+
 .geo-note {
 	margin-left: 2px;
 }
@@ -1002,13 +1014,27 @@ body.theme-night .search-form button[type="submit"]:not(.secondary-btn) {
 	margin-top: 18px;
 }
 
+.tech-figure {
+	margin: 0;
+}
+
 .tech-media img {
 	border: 1px solid #d5c5ab;
+}
+
+.tech-figure figcaption {
+	margin-top: 8px;
+	font-size: 0.9rem;
+	color: #58616a;
 }
 
 .tech-banner {
 	width: 100%;
 	max-width: 520px;
+}
+
+body.theme-night .tech-figure figcaption {
+	color: #d9dee4;
 }
 
 .results-panel {
@@ -1086,6 +1112,27 @@ body.theme-night .result-summary .best-price-link {
 	margin-top: 12px;
 }
 
+.services-block {
+	margin-top: 14px;
+	padding-top: 14px;
+	border-top: 1px solid color-mix(in srgb, #d6612b 18%, #d5c5ab 82%);
+}
+
+.services-title,
+.services-status {
+	margin: 0 0 10px;
+}
+
+.services-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.service-badge {
+	font-weight: 600;
+}
+
 .geo-note {
 	align-self: center;
 }
@@ -1144,6 +1191,10 @@ body.theme-night .station-card p,
 body.theme-night .station-card .small-note,
 body.theme-night .station-card .meta-line {
 	color: #d9dee4;
+}
+
+body.theme-night .services-block {
+	border-top-color: #33404c;
 }
 
 .bar-chart {
@@ -1212,54 +1263,57 @@ body.theme-night .trend-group h3 {
 	color: #ffbf8f;
 }
 
-.line-chart svg {
+.trend-table-wrap {
+	overflow-x: auto;
+}
+
+.trend-table {
 	width: 100%;
-	height: auto;
-	border-radius: 10px;
-	background: color-mix(in srgb, #fffdf9 58%, #f7f4ee 42%);
+	border-collapse: collapse;
+	border: 1px solid #d5c5ab;
+	background: color-mix(in srgb, #fffdf9 70%, #f7f4ee 30%);
 }
 
-.chart-axis {
-	stroke: #d5c5ab;
-	stroke-width: 2;
+.trend-table th,
+.trend-table td {
+	padding: 10px 12px;
+	border-bottom: 1px solid color-mix(in srgb, #d5c5ab 72%, transparent 28%);
+	text-align: left;
 }
 
-.chart-grid {
-	stroke: #d5c5ab;
-	stroke-width: 1;
-	opacity: 0.45;
+.trend-table th {
+	background: color-mix(in srgb, #ece4d6 78%, #fffdf9 22%);
+	color: #9a3b10;
 }
 
-.chart-label {
-	fill: #58616a;
-	font-size: 10px;
-}
-
-.chart-month {
-	text-anchor: middle;
-}
-
-.chart-line {
-	fill: none;
-	stroke: #d6612b;
-	stroke-width: 4;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-}
-
-.chart-point {
-	fill: #d6612b;
-	stroke: #fffdf9;
-	stroke-width: 2;
+.trend-table tfoot td {
+	font-weight: 700;
+	background: color-mix(in srgb, #f3eadc 80%, #fffdf9 20%);
 }
 
 .chart-caption {
-	display: flex;
-	justify-content: space-between;
-	gap: 12px;
 	margin-top: 10px;
 	color: #58616a;
 	font-size: 0.9rem;
+}
+
+body.theme-night .trend-table {
+	border-color: #3b4955;
+	background: #1d252d;
+}
+
+body.theme-night .trend-table th,
+body.theme-night .trend-table td {
+	border-bottom-color: #33404c;
+}
+
+body.theme-night .trend-table th {
+	background: #26303a;
+	color: #ffbf8f;
+}
+
+body.theme-night .trend-table tfoot td {
+	background: #24303b;
 }
 
 .bar-row {
