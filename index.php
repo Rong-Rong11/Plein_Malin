@@ -151,7 +151,6 @@ require __DIR__ . "/includes/header.php";
 		<h2>Informations utiles</h2>
 		<div class="home-columns">
 			<article>
-				<img class="home-feature-icon" src="image/icone-carte.png" alt="" width="42" height="42" loading="lazy" decoding="async" />
 				<h3>Recherche guidée</h3>
 				<p>
 					La recherche suit l'ordre région, département puis ville pour rester
@@ -159,7 +158,6 @@ require __DIR__ . "/includes/header.php";
 				</p>
 			</article>
 			<article>
-				<img class="home-feature-icon" src="image/icone-resultat.png" alt="" width="42" height="42" loading="lazy" decoding="async" />
 				<h3>Résultats lisibles</h3>
 				<p>
 					Chaque station affiche son adresse, ses prix et les informations
@@ -167,7 +165,6 @@ require __DIR__ . "/includes/header.php";
 				</p>
 			</article>
 			<article>
-				<img class="home-feature-icon" src="image/icone-statistique.png" alt="" width="42" height="42" loading="lazy" decoding="async" />
 				<h3>Statistiques</h3>
 				<p>
 					Une page dédiée résume les recherches effectuées, les visites et les

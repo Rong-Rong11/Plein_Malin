@@ -546,14 +546,6 @@ body.theme-night .home-hero-visual {
 	border-top: 2px solid color-mix(in srgb, #d6612b 40%, #d5c5ab 60%);
 }
 
-.home-feature-icon {
-	display: block;
-	width: 42px;
-	height: 42px;
-	margin-bottom: 12px;
-	object-fit: contain;
-}
-
 .home-columns h3 {
 	margin: 0 0 10px;
 	font-size: 1.15rem;
