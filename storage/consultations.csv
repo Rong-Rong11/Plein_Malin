@@ -9,3 +9,4 @@ timestamp,visitor_hash,region,department,city,mode,view,fuel,station_count
 2026-05-02T13:13:26+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,summary,Gazole,95
 2026-05-02T13:17:43+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,summary,Gazole,95
 2026-05-02T13:22:42+00:00,363baea9cba210afac6d7a556fca596e30c46333,Ile-de-France,Val-d'Oise,"Département Val-d'Oise",departement,summary,Gazole,95
+2026-05-02T13:25:09+00:00,4b84b15bff6ee5796152495a230e45e3d7e947d9,Ile-de-France,Seine-et-Marne,Chelles,ville,summary,Gazole,72

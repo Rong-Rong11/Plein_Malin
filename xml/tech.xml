@@ -54,28 +54,28 @@
 		<section class="info-block tech-feature">
 				<h2>API Ghibli</h2>
 							<h3 class="tech-subtitle">
-					Grave of the Fireflies				</h3>
+					Princess Mononoke				</h3>
 				<h3 class="tech-original-title" lang="ja">
-					火垂るの墓				</h3>
+					もののけ姫				</h3>
 				<p class="meta-line">
-					1988				</p>
+					1997				</p>
 				<p class="tech-copy" lang="en">
-					In the latter part of World War II, a boy and his sister, orphaned when their mother is killed in the firebombing of Tokyo, are left to survive on their own in what remains of civilian life in Japan. The plot follows this boy and his sister as they do their best to survive in the Japanese countryside, battling hunger, prejudice, and pride in their own quiet, personal battle.				</p>
+					Ashitaka, a prince of the disappearing Ainu tribe, is cursed by a demonized boar god and must journey to the west to find a cure. Along the way, he encounters San, a young human woman fighting to protect the forest, and Lady Eboshi, who is trying to destroy it. Ashitaka must find a way to bring balance to this conflict.				</p>
 				<div class="tech-media">
 					<figure class="tech-figure">
 						<img
-							src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/qG3RYlIVpTYclR9TYIsy8p7m7AT.jpg"
+							src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/jHWmNr7m544fJ8eItsfNk8fs2Ed.jpg"
 							width="200"
-							alt="Affiche du film Grave of the Fireflies"
+							alt="Affiche du film Princess Mononoke"
 						/>
 						<figcaption>Affiche du film</figcaption>
 					</figure>
 					<figure class="tech-figure tech-figure-wide">
 						<img
 							class="tech-banner"
-							src="https://image.tmdb.org/t/p/original/vkZSd0Lp8iCVBGpFH9L7LzLusjS.jpg"
+							src="https://image.tmdb.org/t/p/original/6pTqSq0zYIWCsucJys8q5L92kUY.jpg"
 							width="400"
-							alt="Bannière du film Grave of the Fireflies"
+							alt="Bannière du film Princess Mononoke"
 						/>
 						<figcaption>Bannière du film</figcaption>
 					</figure>
@@ -129,8 +129,8 @@
 		<section class="info-block tech-feature">
 			<h2>Etat des statistiques</h2>
 			<ul class="plain-list">
-					<li>Consultations enregistrees: 4</li>
-					<li>Visites de pages: 182</li>
+					<li>Consultations enregistrees: 11</li>
+					<li>Visites de pages: 223</li>
 					<li>Visiteurs approx.: 2</li>
 					<li>Nombre de villes dans le top: 1</li>
 				</ul>
@@ -142,9 +142,6 @@
 	<div class="footer-nav-block">
 		<div class="footer-links footer-links-main">
 			<a href="index.php">Accueil</a>
-			<a href="recherche.php?search_mode=manual">Recherche</a>
-			<a href="resultats.php">Résultats</a>
-			<a href="stats.php">Statistiques</a>
 		</div>
 		<div class="footer-links footer-links-info">
 			<a href="a-propos.php">À propos</a>

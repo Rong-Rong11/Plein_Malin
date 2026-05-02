@@ -47,11 +47,11 @@
 				</p>
 				<div class="stats-inline">
 					<div class="stat-chip">
-						<strong>4</strong>
+						<strong>11</strong>
 						<span>recherches</span>
 					</div>
 					<div class="stat-chip">
-						<strong>176</strong>
+						<strong>217</strong>
 						<span>visites de pages</span>
 					</div>
 					<div class="stat-chip">
@@ -72,7 +72,7 @@
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">3</strong>
+									<strong class="bar-value">5</strong>
 								</div>
 													</div>
 									</article>
@@ -85,7 +85,14 @@
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">4</strong>
+									<strong class="bar-value">6</strong>
+								</div>
+															<div class="bar-row">
+									<span class="bar-label">Val-d&#039;Oise</span>
+									<div class="bar-track">
+										<div class="bar-fill" style="width: 83%"></div>
+									</div>
+									<strong class="bar-value">5</strong>
 								</div>
 													</div>
 									</article>
@@ -98,7 +105,7 @@
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">4</strong>
+									<strong class="bar-value">11</strong>
 								</div>
 													</div>
 									</article>
@@ -111,7 +118,7 @@
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">4</strong>
+									<strong class="bar-value">11</strong>
 								</div>
 													</div>
 									</article>
@@ -120,18 +127,18 @@
 					<h3>Recherches par mode</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
-									<span class="bar-label">ville</span>
+									<span class="bar-label">departement</span>
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">3</strong>
+									<strong class="bar-value">6</strong>
 								</div>
 															<div class="bar-row">
-									<span class="bar-label">departement</span>
+									<span class="bar-label">ville</span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: 33%"></div>
+										<div class="bar-fill" style="width: 83%"></div>
 									</div>
-									<strong class="bar-value">1</strong>
+									<strong class="bar-value">5</strong>
 								</div>
 													</div>
 									</article>
@@ -349,9 +356,6 @@
 	<div class="footer-nav-block">
 		<div class="footer-links footer-links-main">
 			<a href="index.php">Accueil</a>
-			<a href="recherche.php?search_mode=manual">Recherche</a>
-			<a href="resultats.php">Résultats</a>
-			<a href="stats.php">Statistiques</a>
 		</div>
 		<div class="footer-links footer-links-info">
 			<a href="a-propos.php">À propos</a>

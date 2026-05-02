@@ -17,11 +17,11 @@
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
 					<div class="theme-switch">
-						<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10&amp;theme=night" class="theme-link">
+						<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10&amp;view=summary&amp;theme=night" class="theme-link">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
 						</a>
-						<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10&amp;lang=en" class="theme-link">
+						<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;sort=price&amp;geo_radius=10&amp;view=summary&amp;lang=en" class="theme-link">
 							<span>English</span>
 						</a>
 					</div>
@@ -194,6 +194,33 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 4,0 km
+												| flux api json																									| prix mis à jour le 02/05/2026 09:00																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Automate CB 24/24</span>
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">Douches</span>
+																													<span class="badge service-badge">Espace bébé</span>
+																													<span class="badge service-badge">Piste poids lourds</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Restauration sur place</span>
+																													<span class="badge service-badge">Restauration à emporter</span>
+																													<span class="badge service-badge">Toilettes</span>
+																													<span class="badge service-badge">Vente d&#039;additifs carburants</span>
+																													<span class="badge service-badge">Wifi</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.905&amp;mlon=2.641#map=16/48.905/2.641" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -213,6 +240,31 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 5,2 km
+												| flux api json																									| prix mis à jour le 02/05/2026 07:35																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Automate CB 24/24</span>
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Location de véhicule</span>
+																													<span class="badge service-badge">Piste poids lourds</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Services réparation / entretien</span>
+																													<span class="badge service-badge">Vente d&#039;additifs carburants</span>
+																													<span class="badge service-badge">Vente de gaz domestique (Butane, Propane)</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.841&amp;mlon=2.62#map=16/48.841/2.62" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -232,6 +284,31 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 10,3 km
+												| flux api json																									| prix mis à jour le 02/05/2026 09:00																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Automate CB 24/24</span>
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Douches</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Restauration sur place</span>
+																													<span class="badge service-badge">Restauration à emporter</span>
+																													<span class="badge service-badge">Toilettes</span>
+																													<span class="badge service-badge">Vente d&#039;additifs carburants</span>
+																													<span class="badge service-badge">Wifi</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.793&amp;mlon=2.619#map=16/48.793/2.619" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -251,6 +328,29 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 6,5 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Piste poids lourds</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Relais colis</span>
+																													<span class="badge service-badge">Vente d&#039;additifs carburants</span>
+																													<span class="badge service-badge">Wifi</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.829&amp;mlon=2.569#map=16/48.829/2.569" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -270,6 +370,19 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 6,4 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<p class="small-note">Aucun service indique.</p>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.85427&amp;mlon=2.52019#map=16/48.85427/2.52019" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -289,6 +402,29 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 9,8 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Automate CB 24/24</span>
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Piste poids lourds</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Vente de gaz domestique (Butane, Propane)</span>
+																													<span class="badge service-badge">Wifi</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.877&amp;mlon=2.729#map=16/48.877/2.729" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -308,6 +444,29 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 6,2 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Lavage manuel</span>
+																													<span class="badge service-badge">Location de véhicule</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Toilettes</span>
+																													<span class="badge service-badge">Vente de gaz domestique (Butane, Propane)</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.838125330121&amp;mlon=2.547563329687#map=16/48.838125330121/2.547563329687" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -327,6 +486,27 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 10,0 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Automate CB 24/24</span>
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Vente de gaz domestique (Butane, Propane)</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.823&amp;mlon=2.495#map=16/48.823/2.495" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -346,6 +526,27 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 10,2 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Services réparation / entretien</span>
+																													<span class="badge service-badge">Vente de gaz domestique (Butane, Propane)</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.799&amp;mlon=2.543#map=16/48.799/2.543" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -365,6 +566,28 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 9,0 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">DAB (Distributeur automatique de billets)</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Lavage manuel</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Vente de gaz domestique (Butane, Propane)</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.953965389285&amp;mlon=2.533686306402#map=16/48.953965389285/2.533686306402" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -384,6 +607,26 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 9,1 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Bornes électriques</span>
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Vente d&#039;additifs carburants</span>
+																													<span class="badge service-badge">Vente de gaz domestique (Butane, Propane)</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.964&amp;mlon=2.564#map=16/48.964/2.564" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -403,6 +646,25 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 6,9 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Lavage manuel</span>
+																													<span class="badge service-badge">Vente de gaz domestique (Butane, Propane)</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.91&amp;mlon=2.51#map=16/48.91/2.51" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -422,6 +684,19 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 9,6 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<p class="small-note">Aucun service indique.</p>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.79836&amp;mlon=2.60505#map=16/48.79836/2.60505" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -441,6 +716,29 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 8,3 km
+												| flux api json																									| prix mis à jour le 02/05/2026 00:01																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Restauration à emporter</span>
+																													<span class="badge service-badge">Vente d&#039;additifs carburants</span>
+																													<span class="badge service-badge">Vente de gaz domestique (Butane, Propane)</span>
+																													<span class="badge service-badge">Wifi</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.878&amp;mlon=2.482#map=16/48.878/2.482" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -460,6 +758,30 @@
 																					</div>
 							</div>
 
+																	<details class="station-detail-disclosure">
+										<summary class="secondary-btn detail-toggle station-detail-summary">Voir les détails</summary>
+										<div class="station-detail-content">
+											<p class="meta-line">
+												Distance : 9,1 km
+												| flux api json																									| prix mis à jour le 01/05/2026 07:57																							</p>
+
+											<div class="services-block">
+												<p class="services-title">Services disponibles</p>
+																									<div class="services-list">
+																													<span class="badge service-badge">Automate CB 24/24</span>
+																													<span class="badge service-badge">Boutique alimentaire</span>
+																													<span class="badge service-badge">Boutique non alimentaire</span>
+																													<span class="badge service-badge">Carburant additivé</span>
+																													<span class="badge service-badge">Lavage automatique</span>
+																													<span class="badge service-badge">Lavage manuel</span>
+																													<span class="badge service-badge">Piste poids lourds</span>
+																													<span class="badge service-badge">Pompe à air</span>
+																													<span class="badge service-badge">Services réparation / entretien</span>
+																													<span class="badge service-badge">Vente d&#039;additifs carburants</span>
+																											</div>
+																							</div>
+										</div>
+									</details>
 								
 								<div class="form-actions station-actions">
 																			<a class="secondary-btn map-link-btn" href="https://www.openstreetmap.org/?mlat=48.952&amp;mlon=2.666#map=16/48.952/2.666" target="_blank" rel="noopener">Voir sur une carte</a>
@@ -476,9 +798,6 @@
 	<div class="footer-nav-block">
 		<div class="footer-links footer-links-main">
 			<a href="index.php">Accueil</a>
-			<a href="recherche.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;search_mode=manual">Recherche</a>
-			<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10#resultats">Résultats</a>
-			<a href="stats.php">Statistiques</a>
 		</div>
 		<div class="footer-links footer-links-info">
 			<a href="a-propos.php">À propos</a>

@@ -74,9 +74,6 @@
 	<div class="footer-nav-block">
 		<div class="footer-links footer-links-main">
 			<a href="index.php">Accueil</a>
-			<a href="recherche.php?search_mode=manual">Recherche</a>
-			<a href="resultats.php">Résultats</a>
-			<a href="stats.php">Statistiques</a>
 		</div>
 		<div class="footer-links footer-links-info">
 			<a href="a-propos.php">À propos</a>

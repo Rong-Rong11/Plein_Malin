@@ -1729,10 +1729,6 @@
 						</div>
 
 						<div class="action-panel" id="form-end">
-							<div class="action-copy">
-								<p class="context-title">Lancer la recherche</p>
-								<p class="small-note">Affichez les stations selon vos critères.</p>
-							</div>
 						<div class="form-actions action-buttons">
 							<div class="inline-filter">
 								<label for="manual-radius-select">Rayon</label>
@@ -1767,9 +1763,6 @@
 	<div class="footer-nav-block">
 		<div class="footer-links footer-links-main">
 			<a href="index.php">Accueil</a>
-			<a href="recherche.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;search_mode=manual">Recherche</a>
-			<a href="resultats.php?region=11&amp;department=77&amp;city=77108&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10#resultats">Résultats</a>
-			<a href="stats.php">Statistiques</a>
 		</div>
 		<div class="footer-links footer-links-info">
 			<a href="a-propos.php">À propos</a>
