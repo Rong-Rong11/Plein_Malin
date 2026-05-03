@@ -33,7 +33,5 @@ $textePiedPage = $textePiedPage ?? "Enzo Phung | Fatma-Zahra Baarir | CY Cergy P
 
 </html>
 <?php
-if (ob_get_level() > 0) {
-	ob_end_flush();
-}
+fermer_tampon_sortie_si_actif();
 ?>

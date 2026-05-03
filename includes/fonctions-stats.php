@@ -14,6 +14,81 @@
  *
  * @ingroup statistiques
  */
+function trier_tableau_par_cle(array $valeurs): array
+{
+	$clesTriees = [];
+
+	foreach ($valeurs as $cle => $_valeur) {
+		$position = count($clesTriees);
+
+		while ($position > 0 && strcmp((string) $clesTriees[$position - 1], (string) $cle) > 0) {
+			$clesTriees[$position] = $clesTriees[$position - 1];
+			$position--;
+		}
+
+		$clesTriees[$position] = $cle;
+	}
+
+	$resultat = [];
+	foreach ($clesTriees as $cle) {
+		$resultat[$cle] = $valeurs[$cle];
+	}
+
+	return $resultat;
+}
+
+/**
+ * Trie un classement associatif par valeur decroissante puis par cle.
+ *
+ * @param array<string,int> $valeurs Classement a trier.
+ * @return array<string,int> Classement trie.
+ *
+ * @ingroup statistiques
+ */
+function trier_classement_decroissant(array $valeurs): array
+{
+	$entreesTriees = [];
+
+	foreach ($valeurs as $cle => $valeur) {
+		$entree = [
+			"key" => (string) $cle,
+			"value" => (int) $valeur,
+		];
+		$position = count($entreesTriees);
+
+		while ($position > 0) {
+			$precedente = $entreesTriees[$position - 1];
+			$doitMonter = $entree["value"] > $precedente["value"];
+			$egalite = $entree["value"] === $precedente["value"];
+
+			if (!$doitMonter && !($egalite && strcmp($entree["key"], $precedente["key"]) < 0)) {
+				break;
+			}
+
+			$entreesTriees[$position] = $precedente;
+			$position--;
+		}
+
+		$entreesTriees[$position] = $entree;
+	}
+
+	$resultat = [];
+	foreach ($entreesTriees as $entreeTriee) {
+		$resultat[$entreeTriee["key"]] = $entreeTriee["value"];
+	}
+
+	return $resultat;
+}
+
+/**
+ * Lit l'archive XML officielle d'une annee et calcule les moyennes mensuelles.
+ *
+ * @param int $annee Annee a analyser.
+ * @param string[] $carburants Carburants a agreger.
+ * @return array Donnees mensuelles et moyenne annuelle pour chaque carburant.
+ *
+ * @ingroup statistiques
+ */
 function calculer_tendances_prix_annuelles(int $annee, array $carburants): array
 {
 	$fichierZip = PM_CACHE_DIR . "/fuel_history_" . $annee . ".zip";
@@ -128,7 +203,7 @@ function calculer_tendances_prix_annuelles(int $annee, array $carburants): array
 	$moyennesAnnuelles = [];
 
 	foreach ($agregats as $carburant => $moisAgreges) {
-		ksort($moisAgreges);
+		$moisAgreges = trier_tableau_par_cle($moisAgreges);
 		$tendances[$carburant] = [];
 		$sommeAnnuelle = 0.0;
 		$nombreAnnuel = 0;
@@ -180,7 +255,7 @@ function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants 
 {
 	$annee = $annee ?? (int) date("Y");
 	$carburants = $carburants ?? PM_TREND_FUELS;
-	$cleCarburants = md5(implode("|", $carburants));
+	$cleCarburants = construire_cle_cache("fuel_trends", implode("|", $carburants));
 	$fichierCacheResultats = PM_CACHE_DIR . "/fuel_trends_" . $annee . "_" . $cleCarburants . ".json";
 	$dureeCache = PM_FUEL_TRENDS_CACHE_DURATION;
 
@@ -520,11 +595,11 @@ function calculer_statistiques(): array
 		}
 	}
 
-	arsort($classementVilles);
-	arsort($classementDepartements);
-	arsort($classementRegions);
-	arsort($classementCarburants);
-	arsort($classementModes);
+	$classementVilles = trier_classement_decroissant($classementVilles);
+	$classementDepartements = trier_classement_decroissant($classementDepartements);
+	$classementRegions = trier_classement_decroissant($classementRegions);
+	$classementCarburants = trier_classement_decroissant($classementCarburants);
+	$classementModes = trier_classement_decroissant($classementModes);
 
 	return [
 		"top_cities" => array_slice($classementVilles, 0, 8, true),
