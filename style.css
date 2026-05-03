@@ -997,7 +997,7 @@ body.theme-night .map-link-btn {
 }
 
 .tech-page .tech-hero {
-	padding-top: 0;
+	padding-top: clamp(18px, 3vw, 28px);
 }
 
 .tech-page .tech-hero h1,
