@@ -98,19 +98,622 @@ $(function(){initNavTree('fonctions-stats_8php.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ade3798acc77705cc6fe6c3958afa0128" id="r_ade3798acc77705cc6fe6c3958afa0128"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ade3798acc77705cc6fe6c3958afa0128">reponse_tendances_vide</a> (string $source, string $sourceUrl, int $annee)</td></tr>
+<tr class="memitem:adafbb2348b876227c6b7edf0da77d8ab" id="r_adafbb2348b876227c6b7edf0da77d8ab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#adafbb2348b876227c6b7edf0da77d8ab">preparer_archive_prix_annuelle</a> (string $fichierZip, string $adresseUrl)</td></tr>
+<tr class="memitem:a2648e0c0bc2abb4aad3aa429426a07ec" id="r_a2648e0c0bc2abb4aad3aa429426a07ec"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2648e0c0bc2abb4aad3aa429426a07ec">trouver_xml_dans_archive</a> (string $fichierZip)</td></tr>
+<tr class="memitem:aef62687ad1e50aa3e4c6917a8ed06934" id="r_aef62687ad1e50aa3e4c6917a8ed06934"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aef62687ad1e50aa3e4c6917a8ed06934">initialiser_agregats_carburants</a> (array $carburants)</td></tr>
+<tr class="memitem:a1d4808051206adce0346a0f64487e24f" id="r_a1d4808051206adce0346a0f64487e24f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1d4808051206adce0346a0f64487e24f">ajouter_prix_agregat_mensuel</a> (array $agregats, string $nomCarburant, string $mois, float $valeur)</td></tr>
+<tr class="memitem:a22e2115128bbc7d7ea76195b7a1e60be" id="r_a22e2115128bbc7d7ea76195b7a1e60be"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a22e2115128bbc7d7ea76195b7a1e60be">remplir_agregats_depuis_xml</a> (string $fichierZip, string $nomXml, array $agregats)</td></tr>
+<tr class="memitem:a2e35f29195181eb23e6c983d70add9aa" id="r_a2e35f29195181eb23e6c983d70add9aa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2e35f29195181eb23e6c983d70add9aa">trier_mois_agreges</a> (array $moisAgreges)</td></tr>
+<tr class="memitem:acf8badcd4560215b8c200fa5eda377de" id="r_acf8badcd4560215b8c200fa5eda377de"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acf8badcd4560215b8c200fa5eda377de">calculer_tendances_depuis_agregats</a> (array $agregats)</td></tr>
 <tr class="memitem:ga67c411fdd1c00eee6b60b50b02bb6c0f" id="r_ga67c411fdd1c00eee6b60b50b02bb6c0f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__statistiques.html#ga67c411fdd1c00eee6b60b50b02bb6c0f">calculer_tendances_prix_annuelles</a> (int $annee, array $carburants)</td></tr>
+<tr class="memitem:a2631ac1dd59af627c05e240e96d9703e" id="r_a2631ac1dd59af627c05e240e96d9703e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2631ac1dd59af627c05e240e96d9703e">choisir_annee_tendances</a> (?int $annee)</td></tr>
+<tr class="memitem:a3c59b4f7f92d845a20ac5d5c06d42450" id="r_a3c59b4f7f92d845a20ac5d5c06d42450"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3c59b4f7f92d845a20ac5d5c06d42450">choisir_carburants_tendances</a> (?array $carburants)</td></tr>
+<tr class="memitem:a4ab772622487fa7c48a89df7ba77b638" id="r_a4ab772622487fa7c48a89df7ba77b638"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4ab772622487fa7c48a89df7ba77b638">cle_cache_carburants_tendances</a> (array $carburants)</td></tr>
+<tr class="memitem:a72aca68f039176e2c9af1fa368b0b331" id="r_a72aca68f039176e2c9af1fa368b0b331"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a72aca68f039176e2c9af1fa368b0b331">completer_donnees_cache_tendances</a> (array $donnees, array $cache, int $annee)</td></tr>
+<tr class="memitem:af2bb3e46fa4c45cc1f61b068e902783c" id="r_af2bb3e46fa4c45cc1f61b068e902783c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af2bb3e46fa4c45cc1f61b068e902783c">lire_cache_tendances_prix</a> (string $fichierCacheResultats, int $annee)</td></tr>
+<tr class="memitem:a45bfaa8cae526338da85ce0a2cd0b5f3" id="r_a45bfaa8cae526338da85ce0a2cd0b5f3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a45bfaa8cae526338da85ce0a2cd0b5f3">ecrire_cache_tendances_prix</a> (string $fichierCacheResultats, array $resultat)</td></tr>
+<tr class="memitem:ad99f50d065348a96c787224168fa9c4f" id="r_ad99f50d065348a96c787224168fa9c4f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad99f50d065348a96c787224168fa9c4f">reponse_tendances_indisponibles</a> (array $resultatCourant, int $annee)</td></tr>
 <tr class="memitem:gac802d15265a7990f630322ce7b74a842" id="r_gac802d15265a7990f630322ce7b74a842"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__statistiques.html#gac802d15265a7990f630322ce7b74a842">lire_tendances_prix_officielles</a> (?int $annee=null, ?array $carburants=null)</td></tr>
 <tr class="memitem:ga7695a5870df73db841e2b20f55baa8fc" id="r_ga7695a5870df73db841e2b20f55baa8fc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__statistiques.html#ga7695a5870df73db841e2b20f55baa8fc">formater_mois_tendance</a> (string $mois)</td></tr>
-<tr class="memitem:gad62aadb86cccba03cb41f9f66b6712da" id="r_gad62aadb86cccba03cb41f9f66b6712da"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__statistiques.html#gad62aadb86cccba03cb41f9f66b6712da">points_graphique_tendance</a> (array $moisDonnees, int $largeur=420, int $hauteur=170)</td></tr>
-<tr class="memitem:gaa5325e8cb2f4af7308339270b56390fe" id="r_gaa5325e8cb2f4af7308339270b56390fe"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__statistiques.html#gaa5325e8cb2f4af7308339270b56390fe">graduations_prix_tendance</a> (array $moisDonnees, int $largeur=420, int $hauteur=170, int $nombre=4)</td></tr>
-<tr class="memitem:gaae7823debdb6caf5d9c5345d9ae63d46" id="r_gaae7823debdb6caf5d9c5345d9ae63d46"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__statistiques.html#gaae7823debdb6caf5d9c5345d9ae63d46">graduations_mois_tendance</a> (array $moisDonnees, int $largeur=420)</td></tr>
+<tr class="memitem:a151cc4b9cef99243633e60a3fc1ae8b3" id="r_a151cc4b9cef99243633e60a3fc1ae8b3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a151cc4b9cef99243633e60a3fc1ae8b3">empreinte_statistique</a> (string $texte)</td></tr>
 <tr class="memitem:ga4bb5e92f5b7611482f99ca78f9e5647a" id="r_ga4bb5e92f5b7611482f99ca78f9e5647a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__statistiques.html#ga4bb5e92f5b7611482f99ca78f9e5647a">enregistrer_consultation</a> (array $infos)</td></tr>
 <tr class="memitem:ga89d91551844fe377317f527620eae87a" id="r_ga89d91551844fe377317f527620eae87a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__statistiques.html#ga89d91551844fe377317f527620eae87a">enregistrer_visite_page</a> ()</td></tr>
+<tr class="memitem:a1e54641c281a40cc635f49effd8ab7c2" id="r_a1e54641c281a40cc635f49effd8ab7c2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1e54641c281a40cc635f49effd8ab7c2">ajouter_compteur_statistique</a> (array $classement, string $cle)</td></tr>
+<tr class="memitem:a337da31accca97a2d46aea9facbc92b2" id="r_a337da31accca97a2d46aea9facbc92b2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a337da31accca97a2d46aea9facbc92b2">trier_classement_statistique</a> (array $classement)</td></tr>
+<tr class="memitem:a63514de51113000096a93146df9104ab" id="r_a63514de51113000096a93146df9104ab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a63514de51113000096a93146df9104ab">limiter_classement_statistique</a> (array $classement, int $limite)</td></tr>
+<tr class="memitem:a8912613f5cb758b98e3210a4b038a1e6" id="r_a8912613f5cb758b98e3210a4b038a1e6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8912613f5cb758b98e3210a4b038a1e6">top_classement_statistique</a> (array $classement, int $limite)</td></tr>
 <tr class="memitem:ga5b42211615afbdf17d0a0f52232108c0" id="r_ga5b42211615afbdf17d0a0f52232108c0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__statistiques.html#ga5b42211615afbdf17d0a0f52232108c0">calculer_statistiques</a> ()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Statistiques, suivi des consultations et graphiques. </p>
-</div></div><!-- contents -->
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a1e54641c281a40cc635f49effd8ab7c2" name="a1e54641c281a40cc635f49effd8ab7c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e54641c281a40cc635f49effd8ab7c2">&#9670;&#160;</a></span>ajouter_compteur_statistique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ajouter_compteur_statistique </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$classement</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$cle</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ajoute une occurrence dans un classement.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$classement</td><td>Classement a mettre a jour. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$cle</td><td>Valeur a compter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Classement mis a jour. </dd></dl>
+
+</div>
+</div>
+<a id="a1d4808051206adce0346a0f64487e24f" name="a1d4808051206adce0346a0f64487e24f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d4808051206adce0346a0f64487e24f">&#9670;&#160;</a></span>ajouter_prix_agregat_mensuel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ajouter_prix_agregat_mensuel </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$agregats</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$nomCarburant</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$mois</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>$valeur</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ajoute un prix dans les agregats mensuels.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$agregats</td><td>Agregats en cours. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$nomCarburant</td><td>Carburant concerne. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$mois</td><td>Mois au format YYYY-MM. </td></tr>
+    <tr><td class="paramtype">float</td><td class="paramname">$valeur</td><td>Prix a ajouter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Agregats mis a jour. </dd></dl>
+
+</div>
+</div>
+<a id="acf8badcd4560215b8c200fa5eda377de" name="acf8badcd4560215b8c200fa5eda377de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf8badcd4560215b8c200fa5eda377de">&#9670;&#160;</a></span>calculer_tendances_depuis_agregats()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">calculer_tendances_depuis_agregats </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$agregats</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Calcule les tendances mensuelles et moyennes annuelles depuis les agregats.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$agregats</td><td>Agregats par carburant et par mois. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Tendances et moyennes annuelles. </dd></dl>
+
+</div>
+</div>
+<a id="a2631ac1dd59af627c05e240e96d9703e" name="a2631ac1dd59af627c05e240e96d9703e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2631ac1dd59af627c05e240e96d9703e">&#9670;&#160;</a></span>choisir_annee_tendances()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">choisir_annee_tendances </td>
+          <td>(</td>
+          <td class="paramtype">?int</td>          <td class="paramname"><span class="paramname"><em>$annee</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Choisit l'annee a utiliser pour les tendances.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">int&#160;|&#160;null</td><td class="paramname">$annee</td><td>Annee demandee. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int Annee retenue. </dd></dl>
+
+</div>
+</div>
+<a id="a3c59b4f7f92d845a20ac5d5c06d42450" name="a3c59b4f7f92d845a20ac5d5c06d42450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c59b4f7f92d845a20ac5d5c06d42450">&#9670;&#160;</a></span>choisir_carburants_tendances()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">choisir_carburants_tendances </td>
+          <td>(</td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$carburants</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Choisit les carburants a utiliser pour les tendances.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname">$carburants</td><td>Carburants demandes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Carburants retenus. </dd></dl>
+
+</div>
+</div>
+<a id="a4ab772622487fa7c48a89df7ba77b638" name="a4ab772622487fa7c48a89df7ba77b638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ab772622487fa7c48a89df7ba77b638">&#9670;&#160;</a></span>cle_cache_carburants_tendances()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">cle_cache_carburants_tendances </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$carburants</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Construit une cle lisible pour le cache des carburants.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string[]</td><td class="paramname">$carburants</td><td>Carburants demandes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Cle de cache. </dd></dl>
+
+</div>
+</div>
+<a id="a72aca68f039176e2c9af1fa368b0b331" name="a72aca68f039176e2c9af1fa368b0b331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72aca68f039176e2c9af1fa368b0b331">&#9670;&#160;</a></span>completer_donnees_cache_tendances()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">completer_donnees_cache_tendances </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$donnees</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$cache</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$annee</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Complete les donnees lues depuis le cache de tendances.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname"><a class="el" href="tech_8php.html#a09265cb0e0a963168f34a74bfdd08161">$donnees</a></td><td>Donnees decodees. </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$cache</td><td>Cache brut contenant time/body. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$annee</td><td>Annee demandee. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Donnees completees. </dd></dl>
+
+</div>
+</div>
+<a id="a45bfaa8cae526338da85ce0a2cd0b5f3" name="a45bfaa8cae526338da85ce0a2cd0b5f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45bfaa8cae526338da85ce0a2cd0b5f3">&#9670;&#160;</a></span>ecrire_cache_tendances_prix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ecrire_cache_tendances_prix </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$fichierCacheResultats</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$resultat</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ecrit les resultats de tendances dans le cache.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$fichierCacheResultats</td><td>Chemin du cache. </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$resultat</td><td>Donnees a stocker. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a151cc4b9cef99243633e60a3fc1ae8b3" name="a151cc4b9cef99243633e60a3fc1ae8b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a151cc4b9cef99243633e60a3fc1ae8b3">&#9670;&#160;</a></span>empreinte_statistique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">empreinte_statistique </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$texte</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Cree une empreinte simple a partir d'un texte.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$texte</td><td>Texte a transformer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Empreinte non reversible pour les statistiques. </dd></dl>
+
+</div>
+</div>
+<a id="aef62687ad1e50aa3e4c6917a8ed06934" name="aef62687ad1e50aa3e4c6917a8ed06934"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef62687ad1e50aa3e4c6917a8ed06934">&#9670;&#160;</a></span>initialiser_agregats_carburants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">initialiser_agregats_carburants </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$carburants</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare le tableau d'agregats pour les carburants demandes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string[]</td><td class="paramname">$carburants</td><td>Carburants a agreger. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Agregats vides par carburant. </dd></dl>
+
+</div>
+</div>
+<a id="a63514de51113000096a93146df9104ab" name="a63514de51113000096a93146df9104ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63514de51113000096a93146df9104ab">&#9670;&#160;</a></span>limiter_classement_statistique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">limiter_classement_statistique </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$classement</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$limite</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Garde les premieres entrees d'un classement.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$classement</td><td>Classement deja trie. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$limite</td><td>Nombre maximum d'entrees. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Classement limite. </dd></dl>
+
+</div>
+</div>
+<a id="af2bb3e46fa4c45cc1f61b068e902783c" name="af2bb3e46fa4c45cc1f61b068e902783c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2bb3e46fa4c45cc1f61b068e902783c">&#9670;&#160;</a></span>lire_cache_tendances_prix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lire_cache_tendances_prix </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$fichierCacheResultats</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$annee</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Lit le cache des tendances s'il est encore valide.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$fichierCacheResultats</td><td>Chemin du cache. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$annee</td><td>Annee demandee. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array|null Donnees de cache valides, ou null. </dd></dl>
+
+</div>
+</div>
+<a id="adafbb2348b876227c6b7edf0da77d8ab" name="adafbb2348b876227c6b7edf0da77d8ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adafbb2348b876227c6b7edf0da77d8ab">&#9670;&#160;</a></span>preparer_archive_prix_annuelle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">preparer_archive_prix_annuelle </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$fichierZip</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$adresseUrl</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare l'archive officielle en cache.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$fichierZip</td><td>Chemin local du fichier ZIP. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname"><a class="el" href="tech_8php.html#a2a672f7e3ffa1be084c755b5be0b9829">$adresseUrl</a></td><td>Adresse officielle a telecharger. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool True si l'archive est disponible localement. </dd></dl>
+
+</div>
+</div>
+<a id="a22e2115128bbc7d7ea76195b7a1e60be" name="a22e2115128bbc7d7ea76195b7a1e60be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22e2115128bbc7d7ea76195b7a1e60be">&#9670;&#160;</a></span>remplir_agregats_depuis_xml()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">remplir_agregats_depuis_xml </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$fichierZip</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$nomXml</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$agregats</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Lit le XML de l'archive et remplit les agregats.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$fichierZip</td><td>Chemin du fichier ZIP. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$nomXml</td><td>Nom du XML dans l'archive. </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$agregats</td><td>Agregats a remplir. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array|null Agregats remplis, ou null si le XML ne s'ouvre pas. </dd></dl>
+
+</div>
+</div>
+<a id="ad99f50d065348a96c787224168fa9c4f" name="ad99f50d065348a96c787224168fa9c4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad99f50d065348a96c787224168fa9c4f">&#9670;&#160;</a></span>reponse_tendances_indisponibles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">reponse_tendances_indisponibles </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$resultatCourant</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$annee</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Retourne une reponse de tendances indisponibles.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$resultatCourant</td><td>Resultat annuel obtenu. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$annee</td><td>Annee demandee. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Reponse vide pour l'interface. </dd></dl>
+
+</div>
+</div>
+<a id="ade3798acc77705cc6fe6c3958afa0128" name="ade3798acc77705cc6fe6c3958afa0128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade3798acc77705cc6fe6c3958afa0128">&#9670;&#160;</a></span>reponse_tendances_vide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">reponse_tendances_vide </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$sourceUrl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$annee</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Retourne une reponse vide pour les tendances de prix.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$source</td><td>Message expliquant pourquoi les donnees sont absentes. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$sourceUrl</td><td>Adresse de la source officielle. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$annee</td><td>Annee demandee. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Reponse vide standardisee. </dd></dl>
+
+</div>
+</div>
+<a id="a8912613f5cb758b98e3210a4b038a1e6" name="a8912613f5cb758b98e3210a4b038a1e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8912613f5cb758b98e3210a4b038a1e6">&#9670;&#160;</a></span>top_classement_statistique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">top_classement_statistique </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$classement</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$limite</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trie puis limite un classement statistique.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$classement</td><td>Classement complet. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$limite</td><td>Nombre maximum d'entrees. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Top du classement. </dd></dl>
+
+</div>
+</div>
+<a id="a337da31accca97a2d46aea9facbc92b2" name="a337da31accca97a2d46aea9facbc92b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a337da31accca97a2d46aea9facbc92b2">&#9670;&#160;</a></span>trier_classement_statistique()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">trier_classement_statistique </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$classement</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trie un classement du plus grand compteur au plus petit.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$classement</td><td>Classement a trier. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Classement trie. </dd></dl>
+
+</div>
+</div>
+<a id="a2e35f29195181eb23e6c983d70add9aa" name="a2e35f29195181eb23e6c983d70add9aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e35f29195181eb23e6c983d70add9aa">&#9670;&#160;</a></span>trier_mois_agreges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">trier_mois_agreges </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$moisAgreges</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trie manuellement des mois au format YYYY-MM.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$moisAgreges</td><td>Agregats indexes par mois. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string[] Mois tries. </dd></dl>
+
+</div>
+</div>
+<a id="a2648e0c0bc2abb4aad3aa429426a07ec" name="a2648e0c0bc2abb4aad3aa429426a07ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2648e0c0bc2abb4aad3aa429426a07ec">&#9670;&#160;</a></span>trouver_xml_dans_archive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">trouver_xml_dans_archive </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$fichierZip</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trouve le premier fichier XML dans une archive ZIP.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$fichierZip</td><td>Chemin du fichier ZIP. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Nom du fichier XML dans l'archive, ou chaine vide. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

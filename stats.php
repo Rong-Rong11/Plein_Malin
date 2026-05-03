@@ -29,39 +29,39 @@ require __DIR__ . "/includes/header.php";
 ?>
 	<main class="page-shell">
 		<section class="panel">
-			<p class="eyebrow">Rubrique statistiques</p>
-			<h1>Consultations Plein Malin</h1>
+			<p class="eyebrow"><?= texte_securise("Rubrique statistiques") ?></p>
+			<h1><?= texte_securise("Consultations Plein Malin") ?></h1>
 				<p class="lead">
-					Les recherches correspondent aux consultations avec critères. Les visites comptent aussi
-					les pages vues sans lancement de recherche.
+					<?= texte_securise("Les recherches correspondent aux consultations avec critères. Les visites comptent aussi") ?>
+					<?= texte_securise("les pages vues sans lancement de recherche.") ?>
 				</p>
 				<p class="small-note">
-					Une recherche est enregistrée quand une page de résultats est produite ; une visite de page
-					est comptée à chaque affichage d'une page du site, même sans recherche.
+					<?= texte_securise("Une recherche est enregistrée quand une page de résultats est produite ; une visite de page") ?>
+					<?= texte_securise("est comptée à chaque affichage d'une page du site, même sans recherche.") ?>
 				</p>
 				<div class="stats-inline">
 					<div class="stat-chip">
 						<strong><?= texte_securise((string) $statistiques['consultation_count']) ?></strong>
-						<span>recherches</span>
+						<span><?= texte_securise("recherches") ?></span>
 					</div>
 					<div class="stat-chip">
 						<strong><?= texte_securise((string) $statistiques['page_visit_count']) ?></strong>
-						<span>visites de pages</span>
+						<span><?= texte_securise("visites de pages") ?></span>
 					</div>
 					<div class="stat-chip">
 						<strong><?= texte_securise((string) $statistiques['page_visitor_count']) ?></strong>
-						<span>visiteurs approx.</span>
+						<span><?= texte_securise("visiteurs approx.") ?></span>
 					</div>
 				</div>
 		</section>
 
 		<section class="panel">
-			<h2>Graphiques des consultations</h2>
+			<h2><?= texte_securise("Graphiques des consultations") ?></h2>
 			<div class="stats-grid">
 				<article class="stats-card">
-					<h3>Top des villes consultées</h3>
+					<h3><?= texte_securise("Top des villes consultées") ?></h3>
 					<?php if ($statistiques['top_cities'] === []) { ?>
-						<p class="empty-state">Aucune consultation enregistrée pour le moment.</p>
+						<p class="empty-state"><?= texte_securise("Aucune consultation enregistrée pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_cities'] as $ville => $nombre) { ?>
@@ -78,9 +78,9 @@ require __DIR__ . "/includes/header.php";
 				</article>
 
 				<article class="stats-card">
-					<h3>Top des départements consultés</h3>
+					<h3><?= texte_securise("Top des départements consultés") ?></h3>
 					<?php if ($statistiques['top_departments'] === []) { ?>
-						<p class="empty-state">Aucun département enregistré pour le moment.</p>
+						<p class="empty-state"><?= texte_securise("Aucun département enregistré pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_departments'] as $departement => $nombre) { ?>
@@ -97,9 +97,9 @@ require __DIR__ . "/includes/header.php";
 				</article>
 
 				<article class="stats-card">
-					<h3>Top des régions consultées</h3>
+					<h3><?= texte_securise("Top des régions consultées") ?></h3>
 					<?php if ($statistiques['top_regions'] === []) { ?>
-						<p class="empty-state">Aucune région enregistrée pour le moment.</p>
+						<p class="empty-state"><?= texte_securise("Aucune région enregistrée pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_regions'] as $region => $nombre) { ?>
@@ -116,9 +116,9 @@ require __DIR__ . "/includes/header.php";
 				</article>
 
 				<article class="stats-card">
-					<h3>Carburants les plus recherchés</h3>
+					<h3><?= texte_securise("Carburants les plus recherchés") ?></h3>
 					<?php if ($statistiques['top_fuels'] === []) { ?>
-						<p class="empty-state">Aucun carburant enregistré pour le moment.</p>
+						<p class="empty-state"><?= texte_securise("Aucun carburant enregistré pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_fuels'] as $carburant => $nombre) { ?>
@@ -135,9 +135,9 @@ require __DIR__ . "/includes/header.php";
 				</article>
 
 				<article class="stats-card stats-card-wide">
-					<h3>Recherches par mode</h3>
+					<h3><?= texte_securise("Recherches par mode") ?></h3>
 					<?php if ($statistiques['top_modes'] === []) { ?>
-						<p class="empty-state">Aucun mode de recherche enregistré pour le moment.</p>
+						<p class="empty-state"><?= texte_securise("Aucun mode de recherche enregistré pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_modes'] as $mode => $nombre) { ?>
@@ -156,41 +156,41 @@ require __DIR__ . "/includes/header.php";
 		</section>
 
 				<section class="panel">
-					<h2>Tendance annuelle des prix</h2>
+					<h2><?= texte_securise("Tendance annuelle des prix") ?></h2>
 					<p class="small-note">
-					Moyennes mensuelles calculées côté serveur depuis l'archive annuelle officielle XML
+					<?= texte_securise("Moyennes mensuelles calculées côté serveur depuis l'archive annuelle officielle XML") ?>
 						<?= texte_securise((string) ($tendancesCarburants["year"] ?? date("Y"))) ?>,
-						avec une moyenne annuelle de référence sur <?= texte_securise((string) ($tendancesCarburants["reference_year"] ?? ((int) date("Y") - 1))) ?>.
+						<?= texte_securise("avec une moyenne annuelle de référence sur") ?> <?= texte_securise((string) ($tendancesCarburants["reference_year"] ?? ((int) date("Y") - 1))) ?>.
 					</p>
 					<p class="small-note">
-						Source officielle :
+						<?= texte_securise("Source officielle") ?> :
 						<a href="<?= texte_securise($tendancesCarburants["source_url"] ?? "https://donnees.roulez-eco.fr/opendata/annee") ?>">
 							donnees.roulez-eco.fr
 						</a>
 						<?php if (formater_date_heure($tendancesCarburants["cached_at"] ?? "") !== "") { ?>
-							- dernière mise à jour du cache le <?= texte_securise(formater_date_heure($tendancesCarburants["cached_at"])) ?>
+							- <?= texte_securise("dernière mise à jour du cache le") ?> <?= texte_securise(formater_date_heure($tendancesCarburants["cached_at"])) ?>
 						<?php } ?>
 					</p>
 
 					<?php if (($tendancesCarburants["fuels"] ?? []) === []) { ?>
-					<p class="empty-state">Tendances indisponibles pour le moment.</p>
+					<p class="empty-state"><?= texte_securise("Tendances indisponibles pour le moment.") ?></p>
 				<?php } else { ?>
 					<div class="trend-grid">
 						<?php foreach ($tendancesCarburants["fuels"] as $nomCarburant => $moisDonnees) { ?>
 							<article class="trend-group">
 								<h3><?= texte_securise($nomCarburant) ?></h3>
 								<?php if ($moisDonnees === []) { ?>
-								<p class="empty-state">Aucune donnée disponible.</p>
+								<p class="empty-state"><?= texte_securise("Aucune donnée disponible.") ?></p>
 								<?php } else { ?>
 									<?php $moyenneReference = $tendancesCarburants["reference_averages"][$nomCarburant] ?? null; ?>
-									<p class="small-note">Tableau mensuel des prix</p>
+									<p class="small-note"><?= texte_securise("Tableau mensuel des prix") ?></p>
 									<div class="trend-table-wrap">
 										<table class="trend-table">
 											<thead>
 												<tr>
-													<th>Mois</th>
-													<th>Prix moyen</th>
-													<th>Relevés</th>
+													<th><?= texte_securise("Mois") ?></th>
+													<th><?= texte_securise("Prix moyen") ?></th>
+													<th><?= texte_securise("Relevés") ?></th>
 												</tr>
 											</thead>
 											<tbody>
@@ -205,9 +205,9 @@ require __DIR__ . "/includes/header.php";
 											<?php if (is_array($moyenneReference)) { ?>
 												<tfoot>
 													<tr>
-														<td>Moyenne annuelle de référence <?= texte_securise((string) ($tendancesCarburants["reference_year"] ?? "")) ?></td>
+														<td><?= texte_securise("Moyenne annuelle de référence") ?> <?= texte_securise((string) ($tendancesCarburants["reference_year"] ?? "")) ?></td>
 														<td><?= texte_securise(number_format((float) $moyenneReference["average_price"], 3, ",", " ")) ?> EUR/L</td>
-														<td><?= texte_securise((string) $moyenneReference["price_count"]) ?> relevés</td>
+														<td><?= texte_securise((string) $moyenneReference["price_count"]) ?> <?= texte_securise("relevés") ?></td>
 													</tr>
 												</tfoot>
 											<?php } ?>
@@ -215,8 +215,8 @@ require __DIR__ . "/includes/header.php";
 									</div>
 									<?php if (is_array($moyenneReference)) { ?>
 										<p class="chart-caption">
-											Moyenne annuelle de référence <?= texte_securise((string) ($tendancesCarburants["reference_year"] ?? "")) ?>
-											de l'archive complète : <?= texte_securise(number_format((float) $moyenneReference["average_price"], 3, ",", " ")) ?> EUR/L
+											<?= texte_securise("Moyenne annuelle de référence") ?> <?= texte_securise((string) ($tendancesCarburants["reference_year"] ?? "")) ?>
+											<?= texte_securise("de l'archive complète") ?> : <?= texte_securise(number_format((float) $moyenneReference["average_price"], 3, ",", " ")) ?> EUR/L
 										</p>
 									<?php } ?>
 								<?php } ?>

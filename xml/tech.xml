@@ -37,9 +37,7 @@
 	<section class="panel tech-hero">
 		<h1>Page tech</h1>
 		<p class="lead">
-			Cette page reste accessible depuis le footer pour montrer l'avancement initial
-			et la logique technique reutilisee dans Plein Malin.
-		</p>
+			Cette page reste accessible depuis le footer pour montrer l&#039;avancement initial			et la logique technique reutilisee dans Plein Malin.		</p>
 		<section class="info-block tech-summary">
 			<h2>Synthese technique du projet</h2>
 			<ul class="plain-list">
@@ -54,28 +52,28 @@
 		<section class="info-block tech-feature">
 				<h2>API Ghibli</h2>
 							<h3 class="tech-subtitle">
-					The Red Turtle				</h3>
+					Earwig and the Witch				</h3>
 				<h3 class="tech-original-title" lang="ja">
-					レッドタートル ある島の物語				</h3>
+					アーヤと魔女				</h3>
 				<p class="meta-line">
-					2016				</p>
+					2021				</p>
 				<p class="tech-copy" lang="en">
-					A man set adrift by a storm wakes up on a beach. He discovers that he is on a deserted island with plenty of fresh water, fruit and a dense bamboo forest. He builds a raft from bamboo and attempts to sail away, but his raft is destroyed by an unseen monster in the sea, forcing him back to the island. He tries again with another, larger raft, but is again foiled by the creature. A third attempt again ends with the raft destroyed, but this time he is confronted by a giant red turtle, which stares at him, and forces him back to the island.				</p>
+					An orphan girl, Earwig, is adopted by a witch and comes home to a spooky house filled with mystery and magic.				</p>
 				<div class="tech-media">
 					<figure class="tech-figure">
 						<img
-							src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/wOBU3SLjQ9358Km9YWYasPZyebp.jpg"
+							src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sJhFtY3eHuvvACaPpxpzdCLQqpQ.jpg"
 							width="200"
-							alt="Affiche du film The Red Turtle"
+							alt="Affiche du film Earwig and the Witch"
 						/>
 						<figcaption>Affiche du film</figcaption>
 					</figure>
 					<figure class="tech-figure tech-figure-wide">
 						<img
 							class="tech-banner"
-							src="https://image.tmdb.org/t/p/original/kjXdW5H3myRBmTMYgKayjphr2FA.jpg"
+							src="https://www.themoviedb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg"
 							width="400"
-							alt="Bannière du film The Red Turtle"
+							alt="Bannière du film Earwig and the Witch"
 						/>
 						<figcaption>Bannière du film</figcaption>
 					</figure>
@@ -97,16 +95,14 @@
 				<li>Region retournee: Non trouvee</li>
 				<li>Latitude: Non trouvee</li>
 				<li>Longitude: Non trouvee</li>
-				<li>Source utilisee: indisponible</li>
+				<li>Source utilisee: adresse locale</li>
 			</ul>
 		</section>
 
 		<section class="info-block tech-feature">
 			<h2>Flux carburants cote serveur</h2>
 			<p>
-				Les stations-service sont recherchees depuis l'API JSON officielle du
-				gouvernement avec un filtre sur le departement et la ville.
-			</p>
+				Les stations-service sont recherchees depuis l&#039;API JSON officielle du				gouvernement avec un filtre sur le departement et la ville.			</p>
 			<ul class="plain-list">
 				<li>Requete HTTP cote serveur en PHP</li>
 				<li>Reponse JSON transformee en tableaux PHP</li>
@@ -121,7 +117,7 @@
 				<li>Cookie <code>last_visited_city</code>: derniere ville</li>
 					<li>Cookie <code>last_search_params</code>: derniere recherche complete</li>
 					<li>Cookie <code>theme</code>: jour ou nuit</li>
-					<li>Cookie <code>lang</code>: langue d'affichage</li>
+					<li>Cookie <code>lang</code>: langue d&#039;affichage</li>
 					<li>Cache JSON: reponses externes et fallback sur cache expire</li>
 				</ul>
 		</section>
@@ -129,9 +125,9 @@
 		<section class="info-block tech-feature">
 			<h2>Etat des statistiques</h2>
 			<ul class="plain-list">
-					<li>Consultations enregistrees: 11</li>
-					<li>Visites de pages: 234</li>
-					<li>Visiteurs approx.: 2</li>
+					<li>Consultations enregistrees: 13</li>
+					<li>Visites de pages: 282</li>
+					<li>Visiteurs approx.: 4</li>
 					<li>Nombre de villes dans le top: 1</li>
 				</ul>
 		</section>
@@ -155,7 +151,8 @@
 	<p>Enzo Phung | Fatma-Zahra Baarir | Page technique conservee pour validation.</p>
 </footer>
 <a href="#top" class="back-top">
-	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64"
+		loading="lazy" decoding="async" />
 </a>
 </body>
 

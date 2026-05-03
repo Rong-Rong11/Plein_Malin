@@ -38,8 +38,7 @@
 		<p class="eyebrow">Recherche principale</p>
 		<h1>Rechercher une station</h1>
 					<p class="lead">
-				Choisissez votre région, puis précisez le département et la ville dans le formulaire.
-			</p>
+				Choisissez votre région, puis précisez le département et la ville dans le formulaire.			</p>
 				<div class="search-mode-switch">
 			<form action="recherche.php#recherche" method="get" class="mode-switch-form">
 				<input type="hidden" name="search_mode" value="manual" />
@@ -59,7 +58,7 @@
 				<input type="hidden" name="region" value="" />
 
 				<div class="search-section search-context">
-					<p class="section-label">1. Région et localisation</p>
+					<p class="section-label">1. Région</p>
 											<div class="context-card">
 							<div>
 								<p class="context-title">Aucune région sélectionnée</p>
@@ -67,7 +66,7 @@
 							</div>
 						</div>
 										<div class="map-scroll">
-						<img src="image/map(light).jpg" alt="Carte interactive des régions de France"
+						<img src="image/map(light).jpg" alt="Carte des régions"
 							usemap="#regions-map" class="map-image" width="1133" height="761" decoding="async" fetchpriority="high" />
 					</div>
 					<map name="regions-map">
@@ -91,7 +90,7 @@
 							<span class="field-help">Choisissez un département.</span>
 							<select id="department-select" name="department" onchange="this.form.action='recherche.php#form-end'; this.form.submit();"
 								disabled="disabled">
-								<option value="">Choisir d'abord une région</option>
+								<option value="">Choisir d&#039;abord une région</option>
 																	<option value="01"
 										>
 										Ain										(01)
@@ -503,7 +502,7 @@
 							<label class="field-title" for="city-select">Ville</label>
 							<span class="field-help">Choisissez une ville.</span>
 							<select id="city-select" name="city" disabled="disabled">
-								<option value="">Choisir d'abord un département</option>
+								<option value="">Choisir d&#039;abord un département</option>
 															</select>
 						</div>
 					</div>
@@ -626,7 +625,8 @@
 	<p>Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | Projet Web 2025-2026</p>
 </footer>
 <a href="#top" class="back-top">
-	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64"
+		loading="lazy" decoding="async" />
 </a>
 </body>
 

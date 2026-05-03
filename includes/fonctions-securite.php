@@ -15,6 +15,10 @@
  */
 function texte_securise(string $texte): string
 {
+	if (function_exists("traduire_texte")) {
+		$texte = traduire_texte($texte);
+	}
+
 	return htmlspecialchars($texte, ENT_QUOTES, "UTF-8");
 }
 /**

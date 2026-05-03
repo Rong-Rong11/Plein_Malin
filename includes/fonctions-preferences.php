@@ -67,11 +67,21 @@ function nom_theme(string $theme): string
  */
 function lien_bascule_theme(string $theme): string
 {
-	$themeCible = $theme === "night" ? "day" : "night";
+	if ($theme === "night") {
+		$themeCible = "day";
+	} else {
+		$themeCible = "night";
+	}
+
 	$parametres = $_GET;
 	$parametres["theme"] = $themeCible;
 	$requete = http_build_query($parametres);
-	$nomScript = basename($_SERVER["PHP_SELF"] ?? "index.php");
+
+	if (isset($_SERVER["PHP_SELF"])) {
+		$nomScript = basename($_SERVER["PHP_SELF"]);
+	} else {
+		$nomScript = "index.php";
+	}
 
 	if ($requete === "") {
 		return $nomScript;
@@ -157,20 +167,30 @@ function libelle_bascule_langue(string $langue): string
  */
 function enregistrer_derniere_recherche(string $type, string $code): void
 {
-	if (!in_array($type, ["ville", "departement"], true) || $code === "") {
+	$typesValides = ["ville", "departement"];
+
+	if (!in_array($type, $typesValides, true)) {
 		return;
 	}
 
-	$valeur = json_encode([
+	if ($code === "") {
+		return;
+	}
+
+	$recherche = [
 		"type" => $type,
 		"code" => $code,
 		"date" => date("c"),
-	]);
+	];
 
-	if ($valeur !== false) {
-		setcookie("last_search", $valeur, time() + PM_COOKIE_DURATION, chemin_cookie());
-		$_COOKIE["last_search"] = $valeur;
+	$valeurCookie = json_encode($recherche);
+
+	if ($valeurCookie === false) {
+		return;
 	}
+
+	setcookie("last_search", $valeurCookie, time() + PM_COOKIE_DURATION, chemin_cookie());
+	$_COOKIE["last_search"] = $valeurCookie;
 }
 /**
  * Lit et valide le cookie de derniere recherche.
@@ -183,7 +203,7 @@ function lire_derniere_recherche(): array
 		return [];
 	}
 
-	$recherche = json_decode((string) $_COOKIE["last_search"], true);
+	$recherche = json_decode($_COOKIE["last_search"], true);
 
 	if (
 		!is_array($recherche)
@@ -207,14 +227,58 @@ function lire_derniere_recherche(): array
  */
 function normaliser_parametres_recherche(array $parametres): array
 {
+	if (isset($parametres["region"])) {
+		$region = $parametres["region"];
+	} else {
+		$region = "";
+	}
+
+	if (isset($parametres["department"])) {
+		$department = $parametres["department"];
+	} else {
+		$department = "";
+	}
+
+	if (isset($parametres["city"])) {
+		$city = $parametres["city"];
+	} else {
+		$city = "";
+	}
+
+	if (isset($parametres["fuel"])) {
+		$fuel = normaliser_carburants_selection($parametres["fuel"]);
+	} else {
+		$fuel = normaliser_carburants_selection([]);
+	}
+
+	if (isset($parametres["view"]) && $parametres["view"] === "detailed") {
+		$view = "detailed";
+	} else {
+		$view = "summary";
+	}
+
+	$trisValides = ["price", "price_desc", "distance", "name"];
+
+	if (isset($parametres["sort"]) && in_array($parametres["sort"], $trisValides, true)) {
+		$sort = $parametres["sort"];
+	} else {
+		$sort = "price";
+	}
+
+	if (isset($parametres["geo_radius"])) {
+		$geoRadius = normaliser_rayon_geo((int) $parametres["geo_radius"]);
+	} else {
+		$geoRadius = normaliser_rayon_geo(PM_DEFAULT_RADIUS);
+	}
+
 	$resultat = [
-		"region" => isset($parametres["region"]) ? (string) $parametres["region"] : "",
-		"department" => isset($parametres["department"]) ? (string) $parametres["department"] : "",
-		"city" => isset($parametres["city"]) ? (string) $parametres["city"] : "",
-		"fuel" => normaliser_carburants_selection($parametres["fuel"] ?? []),
-		"view" => ($parametres["view"] ?? "summary") === "detailed" ? "detailed" : "summary",
-		"sort" => in_array(($parametres["sort"] ?? "price"), ["price", "price_desc", "distance", "name"], true) ? (string) $parametres["sort"] : "price",
-		"geo_radius" => normaliser_rayon_geo((int) ($parametres["geo_radius"] ?? PM_DEFAULT_RADIUS)),
+		"region" => $region,
+		"department" => $department,
+		"city" => $city,
+		"fuel" => $fuel,
+		"view" => $view,
+		"sort" => $sort,
+		"geo_radius" => $geoRadius,
 	];
 
 	if (isset($parametres["department_mode"])) {
@@ -240,23 +304,37 @@ function enregistrer_parametres_derniere_recherche(array $parametres): void
 	$parametres = normaliser_parametres_recherche($parametres);
 	$anciensParametres = lire_parametres_derniere_recherche();
 
+	$villeNouvelleVide = $parametres["city"] === "";
+	$modeDepartementActif = isset($parametres["department_mode"]);
+	$modeGeoActif = isset($parametres["use_geo"]);
+
+	$ancienneVille = $anciensParametres["city"] ?? "";
+	$ancienneRegion = $anciensParametres["region"] ?? "";
+	$ancienDepartement = $anciensParametres["department"] ?? "";
+
+	$memeRegion = $ancienneRegion === $parametres["region"];
+	$memeDepartement = $ancienDepartement === $parametres["department"];
+
 	if (
-		$parametres["city"] === ""
-		&& !isset($parametres["department_mode"], $parametres["use_geo"])
-		&& ($anciensParametres["city"] ?? "") !== ""
-		&& ($anciensParametres["region"] ?? "") === $parametres["region"]
-		&& ($anciensParametres["department"] ?? "") === $parametres["department"]
+		$villeNouvelleVide
+		&& !$modeDepartementActif
+		&& !$modeGeoActif
+		&& $ancienneVille !== ""
+		&& $memeRegion
+		&& $memeDepartement
 	) {
-		$parametres["city"] = $anciensParametres["city"];
+		$parametres["city"] = $ancienneVille;
 	}
 
 	$parametres["date"] = date("c");
-	$valeur = json_encode($parametres);
+	$valeurCookie = json_encode($parametres);
 
-	if ($valeur !== false) {
-		setcookie("last_search_params", $valeur, time() + PM_COOKIE_DURATION, chemin_cookie());
-		$_COOKIE["last_search_params"] = $valeur;
+	if ($valeurCookie === false) {
+		return;
 	}
+
+	setcookie("last_search_params", $valeurCookie, time() + PM_COOKIE_DURATION, chemin_cookie());
+	$_COOKIE["last_search_params"] = $valeurCookie;
 }
 /**
  * Lit les criteres de la derniere recherche complete.
@@ -271,7 +349,7 @@ function lire_parametres_derniere_recherche(): array
 		return [];
 	}
 
-	$parametres = json_decode((string) $_COOKIE["last_search_params"], true);
+	$parametres = json_decode($_COOKIE["last_search_params"], true);
 
 	if (!is_array($parametres)) {
 		setcookie("last_search_params", "", time() - 3600, chemin_cookie());
@@ -351,7 +429,7 @@ function enregistrer_derniere_ville(string $codeVille): void
 function lire_derniere_ville(): string
 {
 	if (isset($_COOKIE["last_visited_city"])) {
-		return (string) $_COOKIE["last_visited_city"];
+		return $_COOKIE["last_visited_city"];
 	}
 
 	return "";

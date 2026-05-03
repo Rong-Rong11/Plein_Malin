@@ -1,12 +1,29 @@
 var fonctions_stats_8php =
 [
+    [ "ajouter_compteur_statistique", "fonctions-stats_8php.html#a1e54641c281a40cc635f49effd8ab7c2", null ],
+    [ "ajouter_prix_agregat_mensuel", "fonctions-stats_8php.html#a1d4808051206adce0346a0f64487e24f", null ],
     [ "calculer_statistiques", "group__statistiques.html#ga5b42211615afbdf17d0a0f52232108c0", null ],
+    [ "calculer_tendances_depuis_agregats", "fonctions-stats_8php.html#acf8badcd4560215b8c200fa5eda377de", null ],
     [ "calculer_tendances_prix_annuelles", "group__statistiques.html#ga67c411fdd1c00eee6b60b50b02bb6c0f", null ],
+    [ "choisir_annee_tendances", "fonctions-stats_8php.html#a2631ac1dd59af627c05e240e96d9703e", null ],
+    [ "choisir_carburants_tendances", "fonctions-stats_8php.html#a3c59b4f7f92d845a20ac5d5c06d42450", null ],
+    [ "cle_cache_carburants_tendances", "fonctions-stats_8php.html#a4ab772622487fa7c48a89df7ba77b638", null ],
+    [ "completer_donnees_cache_tendances", "fonctions-stats_8php.html#a72aca68f039176e2c9af1fa368b0b331", null ],
+    [ "ecrire_cache_tendances_prix", "fonctions-stats_8php.html#a45bfaa8cae526338da85ce0a2cd0b5f3", null ],
+    [ "empreinte_statistique", "fonctions-stats_8php.html#a151cc4b9cef99243633e60a3fc1ae8b3", null ],
     [ "enregistrer_consultation", "group__statistiques.html#ga4bb5e92f5b7611482f99ca78f9e5647a", null ],
     [ "enregistrer_visite_page", "group__statistiques.html#ga89d91551844fe377317f527620eae87a", null ],
     [ "formater_mois_tendance", "group__statistiques.html#ga7695a5870df73db841e2b20f55baa8fc", null ],
-    [ "graduations_mois_tendance", "group__statistiques.html#gaae7823debdb6caf5d9c5345d9ae63d46", null ],
-    [ "graduations_prix_tendance", "group__statistiques.html#gaa5325e8cb2f4af7308339270b56390fe", null ],
+    [ "initialiser_agregats_carburants", "fonctions-stats_8php.html#aef62687ad1e50aa3e4c6917a8ed06934", null ],
+    [ "limiter_classement_statistique", "fonctions-stats_8php.html#a63514de51113000096a93146df9104ab", null ],
+    [ "lire_cache_tendances_prix", "fonctions-stats_8php.html#af2bb3e46fa4c45cc1f61b068e902783c", null ],
     [ "lire_tendances_prix_officielles", "group__statistiques.html#gac802d15265a7990f630322ce7b74a842", null ],
-    [ "points_graphique_tendance", "group__statistiques.html#gad62aadb86cccba03cb41f9f66b6712da", null ]
+    [ "preparer_archive_prix_annuelle", "fonctions-stats_8php.html#adafbb2348b876227c6b7edf0da77d8ab", null ],
+    [ "remplir_agregats_depuis_xml", "fonctions-stats_8php.html#a22e2115128bbc7d7ea76195b7a1e60be", null ],
+    [ "reponse_tendances_indisponibles", "fonctions-stats_8php.html#ad99f50d065348a96c787224168fa9c4f", null ],
+    [ "reponse_tendances_vide", "fonctions-stats_8php.html#ade3798acc77705cc6fe6c3958afa0128", null ],
+    [ "top_classement_statistique", "fonctions-stats_8php.html#a8912613f5cb758b98e3210a4b038a1e6", null ],
+    [ "trier_classement_statistique", "fonctions-stats_8php.html#a337da31accca97a2d46aea9facbc92b2", null ],
+    [ "trier_mois_agreges", "fonctions-stats_8php.html#a2e35f29195181eb23e6c983d70add9aa", null ],
+    [ "trouver_xml_dans_archive", "fonctions-stats_8php.html#a2648e0c0bc2abb4aad3aa429426a07ec", null ]
 ];

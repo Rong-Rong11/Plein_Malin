@@ -38,14 +38,12 @@
 		<p class="eyebrow">Confidentialité</p>
 		<h1>Confidentialité</h1>
 		<p class="lead">
-			Le site utilise quelques mécanismes de mémorisation pour améliorer l'expérience utilisateur
-			et produire les statistiques demandées dans le projet.
-		</p>
+			Le site utilise quelques mécanismes de mémorisation pour améliorer l&#039;expérience utilisateur			et produire les statistiques demandées dans le projet.		</p>
 		<section class="info-block">
 			<h2>Cookies utilisés</h2>
 		<ul class="plain-list">
 			<li><code>theme</code> : mémorise le choix du mode jour ou nuit.</li>
-			<li><code>lang</code> : mémorise la langue d'affichage.</li>
+			<li><code>lang</code> : mémorise la langue d&#039;affichage.</li>
 			<li><code>last_visited_city</code> : mémorise la dernière ville consultée.</li>
 			<li><code>last_search</code> et <code>last_search_params</code> : mémorisent la dernière recherche.</li>
 		</ul>
@@ -63,9 +61,7 @@
 		<section class="info-block">
 			<h2>Géolocalisation</h2>
 		<p class="small-note">
-			La recherche autour de moi utilise une position estimée à partir de l'adresse IP.
-			Cette position est approximative et peut être différente de la position réelle de l'utilisateur.
-		</p>
+			La recherche autour de moi utilise une position estimée à partir de l&#039;adresse IP.			Cette position est approximative et peut être différente de la position réelle de l&#039;utilisateur.		</p>
 		</section>
 	</section>
 </main>
@@ -87,7 +83,8 @@
 	<p>Enzo Phung | Fatma-Zahra Baarir | Confidentialité.</p>
 </footer>
 <a href="#top" class="back-top">
-	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64"
+		loading="lazy" decoding="async" />
 </a>
 </body>
 

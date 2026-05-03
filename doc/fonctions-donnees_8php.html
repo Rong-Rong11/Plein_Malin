@@ -108,12 +108,43 @@ Functions</h2></td></tr>
 <tr class="memitem:ga3b9bd8bb861a8fa42c514f0207354290" id="r_ga3b9bd8bb861a8fa42c514f0207354290"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__donnees.html#ga3b9bd8bb861a8fa42c514f0207354290">trouver_departement</a> (string $code)</td></tr>
 <tr class="memitem:ga6d98e07b5ac9bc64c1ca1bcacd52b37c" id="r_ga6d98e07b5ac9bc64c1ca1bcacd52b37c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__donnees.html#ga6d98e07b5ac9bc64c1ca1bcacd52b37c">trouver_ville</a> (string $code)</td></tr>
 <tr class="memitem:ga0ff4394b1152d5d2447982b29138ef6d" id="r_ga0ff4394b1152d5d2447982b29138ef6d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__donnees.html#ga0ff4394b1152d5d2447982b29138ef6d">departements_par_region</a> (string $codeRegion)</td></tr>
+<tr class="memitem:a1e8ba83defe74acc245a9454b765dba9" id="r_a1e8ba83defe74acc245a9454b765dba9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1e8ba83defe74acc245a9454b765dba9">comparer_departements_par_nom</a> (array $departementA, array $departementB)</td></tr>
 <tr class="memitem:ga3eb870b5c8b768730abec0c9bfaf1ae3" id="r_ga3eb870b5c8b768730abec0c9bfaf1ae3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__donnees.html#ga3eb870b5c8b768730abec0c9bfaf1ae3">villes_par_departement</a> (string $codeDepartement)</td></tr>
 <tr class="memitem:gae805df52e7ff1c3a432b792f86ecc0a2" id="r_gae805df52e7ff1c3a432b792f86ecc0a2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__donnees.html#gae805df52e7ff1c3a432b792f86ecc0a2">lire_stations_xml_demo</a> ()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lecture et recherche dans les donnees locales CSV/XML. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a1e8ba83defe74acc245a9454b765dba9" name="a1e8ba83defe74acc245a9454b765dba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e8ba83defe74acc245a9454b765dba9">&#9670;&#160;</a></span>comparer_departements_par_nom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">comparer_departements_par_nom </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$departementA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$departementB</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compare deux departements par leur nom pour les trier.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$departementA</td><td>Premier departement a comparer. </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$departementB</td><td>Deuxieme departement a comparer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int Resultat de comparaison alphabetique. </dd></dl>
+
+</div>
+</div>
 <a id="ae619f867dd8f251c7df6fc54100ab9ae" name="ae619f867dd8f251c7df6fc54100ab9ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae619f867dd8f251c7df6fc54100ab9ae">&#9670;&#160;</a></span>departement_existe_dans_region()</h2>
 

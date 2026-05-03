@@ -38,8 +38,7 @@
 				<p class="eyebrow">Résultats</p>
 				<h1>Stations pour Gazole</h1>
 					<p class="lead">
-						Consultez les stations trouvées puis revenez à la recherche si besoin.
-					</p>
+						Consultez les stations trouvées puis revenez à la recherche si besoin.					</p>
 										<div class="form-actions">
 						<a class="cta-link" href="recherche.php?search_mode=manual">Recherche manuelle</a>
 					</div>
@@ -51,7 +50,7 @@
 																								<div class="search-section search-plain">
 							<div class="field-card field-card-wide">
 								<span class="field-title">Carburants</span>
-								<span class="field-help">Gazole par défaut si rien n'est coché.</span>
+								<span class="field-help">Gazole par défaut si rien n&#039;est coché.</span>
 								<span class="fuel-choice-list">
 																			<label class="fuel-choice">
 											<input type="checkbox" id="result-fuel-gazole" name="fuel[]" value="Gazole"
@@ -176,7 +175,8 @@
 	<p>Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | Projet Web 2025-2026</p>
 </footer>
 <a href="#top" class="back-top">
-	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64"
+		loading="lazy" decoding="async" />
 </a>
 </body>
 

@@ -138,6 +138,7 @@ function traductions_recherche(): array
 		"Prix décroissant" => "Highest price",
 		"Prix decroissant" => "Highest price",
 		"Distance" => "Distance",
+		"Nom" => "Name",
 		"Nom</option>" => "Name</option>",
 		"Mode département" => "Department mode",
 		"Afficher les stations du département choisi." => "Show stations in the selected department.",
@@ -191,6 +192,8 @@ function traductions_resultats(): array
 		"Région retournée par l'IP" => "Region returned by IP",
 		"Source de localisation" => "Location source",
 		"Position estimée à partir de l'adresse IP." => "Position estimated from the IP address.",
+		"Vous êtes approximativement à" => "You are approximately in",
+		"d'après une position estimée à partir de l'adresse IP." => "according to a position estimated from the IP address.",
 		"Aucune recherche lancée." => "No search launched.",
 		"Aucune recherche lancee." => "No search launched.",
 		"Recherche autour de votre position approximative." => "Search around your approximate position.",
@@ -201,6 +204,8 @@ function traductions_resultats(): array
 		"Aucune station trouvée dans la ville sélectionnée." => "No station found in the selected city.",
 		"Aucune station trouvee dans la ville selectionnee." => "No station found in the selected city.",
 		"Aucune station trouvée avec ces critères." => "No station found with these criteria.",
+		"Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard." => "Unable to display stations: the official fuel API is not responding. Please try again later.",
+		"Vous pouvez aussi augmenter le rayon de recherche." => "You can also increase the search radius.",
 		"station(s) trouvée(s)." => "station(s) found.",
 		"prix moyen trouvé" => "average price found",
 		"meilleur prix trouvé" => "best price found",
@@ -272,6 +277,7 @@ function traductions_statistiques(): array
 		"Relevés" => "Records",
 		"Moyenne annuelle de référence" => "Reference yearly average",
 		"archive complète" => "complete archive",
+		"de l'archive complète" => "from the complete archive",
 		"Source officielle" => "Official source",
 		"dernière mise à jour du cache le" => "cache last updated on",
 		"Statistiques générées à partir du CSV de consultations." => "Statistics generated from the consultations CSV.",
@@ -304,11 +310,14 @@ function traductions_technique(): array
 	return [
 		"Page technique conservee pour la validation de la partie 1 du projet." => "Technical page kept for validation of part 1 of the project.",
 		"Page technique conservee pour validation." => "Technical page kept for validation.",
+		"API Ghibli" => "Ghibli API",
 		"Cette page reste accessible depuis le footer pour montrer l'avancement initial" => "This page remains accessible from the footer to show the initial progress",
 		"et la logique technique reutilisee dans Plein Malin." => "and the technical logic reused in Plein Malin.",
 		"Synthese technique du projet" => "Project technical summary",
 		"geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP." => "IP geolocation and the official fuel price API, processed server-side in PHP.",
 		"lecture de <code>data/sample_fuel_prices.xml</code> et archive annuelle officielle pour les tendances de prix." => "reading <code>data/sample_fuel_prices.xml</code> and the official annual archive for price trends.",
+		"lecture de" => "reading",
+		"et archive annuelle officielle pour les tendances de prix." => "and the official annual archive for price trends.",
 		"regions, departements, villes, consultations et page visits." => "regions, departments, cities, searches and page visits.",
 		"regions, departements, villes, consultations et visites de pages." => "regions, departments, cities, searches and page visits.",
 		"theme jour/nuit, langue, derniere recherche et derniere ville consultee." => "day/night theme, language, last search and last viewed city.",
@@ -320,6 +329,8 @@ function traductions_technique(): array
 		"Bannière du film " => "Film banner ",
 		"Flux XML carburants" => "Fuel XML feed",
 		"Lecture de <code>data/sample_fuel_prices.xml</code> avec <code>simplexml_load_file()</code>." => "Reading <code>data/sample_fuel_prices.xml</code> with <code>simplexml_load_file()</code>.",
+		"Lecture de" => "Reading",
+		"avec" => "with",
 		"Aucune donnee XML disponible." => "No XML data available.",
 		"Flux JSON cote serveur" => "Server-side JSON feed",
 		"Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON." => "Approximate IP geolocation obtained in PHP with a JSON file cache.",
@@ -343,6 +354,10 @@ function traductions_technique(): array
 		"Cookie <code>last_search_params</code>: derniere recherche complete" => "Cookie <code>last_search_params</code>: complete last search",
 		"Cookie <code>theme</code>: jour ou nuit" => "Cookie <code>theme</code>: day or night",
 		"Cookie <code>lang</code>: langue d'affichage" => "Cookie <code>lang</code>: display language",
+		"derniere ville" => "last city",
+		"derniere recherche complete" => "complete last search",
+		"jour ou nuit" => "day or night",
+		"langue d'affichage" => "display language",
 		"Cache JSON: reponses externes et fallback sur cache expire" => "JSON cache: external responses and fallback on expired cache",
 	];
 }
@@ -436,6 +451,7 @@ function traductions_pages_info(): array
 		"La recherche autour de moi utilise une position estimée à partir de l'adresse IP." => "The near me search uses a position estimated from the IP address.",
 		"Cette position est approximative et peut être différente de la position réelle de l'utilisateur." => "This position is approximate and may differ from the user's real position.",
 		"Plan du site" => "Site map",
+		"Navigation" => "Navigation",
 		"Plan du site Plein Malin." => "Plein Malin site map.",
 		"Retrouvez ici les pages principales du site et les pages d'information du projet." => "Find the main site pages and project information pages here.",
 		"Schéma de navigation" => "Navigation diagram",
@@ -486,6 +502,25 @@ function traductions_interface(): array
 		traductions_technique(),
 		traductions_pages_info()
 	);
+}
+/**
+ * Traduit un texte directement lorsque la langue anglaise est active.
+ *
+ * @param string $texte Texte a traduire.
+ * @param string|null $langue Langue active, ou langue globale par defaut.
+ * @return string Texte traduit ou laisse intact.
+ */
+function traduire_texte(string $texte, ?string $langue = null): string
+{
+	if ($langue === null) {
+		$langue = $GLOBALS["langue"] ?? "fr";
+	}
+
+	if ($langue !== "en") {
+		return $texte;
+	}
+
+	return strtr($texte, traductions_interface());
 }
 
 /**

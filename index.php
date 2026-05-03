@@ -88,42 +88,42 @@ require __DIR__ . "/includes/header.php";
 <main class="page-shell home-page">
 	<section class="hero home-hero">
 		<div class="hero-copy">
-			<p class="eyebrow">Prix des carburants</p>
-			<h1>Trouvez une station plus facilement</h1>
+			<p class="eyebrow"><?= texte_securise("Prix des carburants") ?></p>
+			<h1><?= texte_securise("Trouvez une station plus facilement") ?></h1>
 			<div class="home-hero-content">
 				<div class="home-hero-text">
 					<p class="lead">
-						Plein Malin aide à comparer rapidement les prix du carburant en France.
-						Le site propose une recherche manuelle par région, département et ville,
-						mais aussi une recherche autour de votre position approximative.
+						<?= texte_securise("Plein Malin aide à comparer rapidement les prix du carburant en France.") ?>
+						<?= texte_securise("Le site propose une recherche manuelle par région, département et ville,") ?>
+						<?= texte_securise("mais aussi une recherche autour de votre position approximative.") ?>
 					</p>
 					<p class="small-note">
-						L'objectif est de garder une interface simple : choisir un périmètre,
-						sélectionner un ou plusieurs carburants, puis consulter des résultats
-						lisibles sans surcharge inutile.
+						<?= texte_securise("L'objectif est de garder une interface simple : choisir un périmètre,") ?>
+						<?= texte_securise("sélectionner un ou plusieurs carburants, puis consulter des résultats") ?>
+						<?= texte_securise("lisibles sans surcharge inutile.") ?>
 					</p>
 					<div class="form-actions">
-						<a class="cta-link" href="recherche.php?search_mode=manual">Rechercher une station</a>
+						<a class="cta-link" href="recherche.php?search_mode=manual"><?= texte_securise("Rechercher une station") ?></a>
 					</div>
 				</div>
 				<div class="home-hero-visual">
-					<img class="home-hero-image home-hero-image-light" src="image/image-accueil(light).png" alt="Illustration de recherche de carburant Plein Malin" width="888" height="898" decoding="async" fetchpriority="high" />
-					<img class="home-hero-image home-hero-image-dark" src="image/image-accueil(dark).png" alt="Illustration de recherche de carburant Plein Malin" width="1604" height="1616" decoding="async" fetchpriority="high" />
+					<img class="home-hero-image home-hero-image-light" src="image/image-accueil(light).png" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="888" height="898" decoding="async" fetchpriority="high" />
+					<img class="home-hero-image home-hero-image-dark" src="image/image-accueil(dark).png" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="1604" height="1616" decoding="async" fetchpriority="high" />
 				</div>
 			</div>
 
 			<?php if ($typeDerniereRecherche !== "") { ?>
 				<div class="home-last-search-inline">
-					<h2>Dernière recherche</h2>
+					<h2><?= texte_securise("Dernière recherche") ?></h2>
 					<p>
 						<?= texte_securise($typeDerniereRecherche) ?> :
 						<strong><?= texte_securise($libelleDerniereRecherche) ?></strong>
 					</p>
 					<?php if ($dateDerniereRecherche !== "") { ?>
-						<p class="small-note">Dernière recherche le <?= texte_securise($dateDerniereRecherche) ?></p>
+						<p class="small-note"><?= texte_securise("Dernière recherche le") ?> <?= texte_securise($dateDerniereRecherche) ?></p>
 					<?php } ?>
 					<div class="form-actions">
-						<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>">Reprendre cette recherche</a>
+						<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>"><?= texte_securise("Reprendre cette recherche") ?></a>
 					</div>
 				</div>
 			<?php } ?>
@@ -131,44 +131,44 @@ require __DIR__ . "/includes/header.php";
 	</section>
 
 	<section class="panel home-intro">
-		<h2>Comment fonctionne le site</h2>
+		<h2><?= texte_securise("Comment fonctionne le site") ?></h2>
 		<p>
-			La recherche principale suit un parcours guidé : vous choisissez d'abord
-			une région, puis un département, puis une ville. Ce fonctionnement permet
-			d'encadrer la recherche et de garder une navigation compréhensible.
+			<?= texte_securise("La recherche principale suit un parcours guidé : vous choisissez d'abord") ?>
+			<?= texte_securise("une région, puis un département, puis une ville. Ce fonctionnement permet") ?>
+			<?= texte_securise("d'encadrer la recherche et de garder une navigation compréhensible.") ?>
 		</p>
 		<p>
-			Si vous voulez aller plus vite, le mode <strong>Autour de moi</strong>
-			utilise une estimation de position basée sur l'adresse IP pour proposer
-			des stations proches dans un rayon choisi.
+			<?= texte_securise("Si vous voulez aller plus vite, le mode") ?> <strong><?= texte_securise("Autour de moi") ?></strong>
+			<?= texte_securise("utilise une estimation de position basée sur l'adresse IP pour proposer") ?>
+			<?= texte_securise("des stations proches dans un rayon choisi.") ?>
 		</p>
 		<p>
-			Les résultats affichent les stations trouvées, les prix disponibles pour
-			les carburants sélectionnés et un accès direct à une carte quand les
-			coordonnées sont connues.
+			<?= texte_securise("Les résultats affichent les stations trouvées, les prix disponibles pour") ?>
+			<?= texte_securise("les carburants sélectionnés et un accès direct à une carte quand les") ?>
+			<?= texte_securise("coordonnées sont connues.") ?>
 		</p>
 
-		<h2>Informations utiles</h2>
+		<h2><?= texte_securise("Informations utiles") ?></h2>
 		<div class="home-columns">
 			<article>
-				<h3>Recherche guidée</h3>
+				<h3><?= texte_securise("Recherche guidée") ?></h3>
 				<p>
-					La recherche suit l'ordre région, département puis ville pour rester
-					simple et éviter les choix incohérents.
+					<?= texte_securise("La recherche suit l'ordre région, département puis ville pour rester") ?>
+					<?= texte_securise("simple et éviter les choix incohérents.") ?>
 				</p>
 			</article>
 			<article>
-				<h3>Résultats lisibles</h3>
+				<h3><?= texte_securise("Résultats lisibles") ?></h3>
 				<p>
-					Chaque station affiche son adresse, ses prix et les informations
-					utiles pour comparer rapidement plusieurs points de vente.
+					<?= texte_securise("Chaque station affiche son adresse, ses prix et les informations") ?>
+					<?= texte_securise("utiles pour comparer rapidement plusieurs points de vente.") ?>
 				</p>
 			</article>
 			<article>
-				<h3>Statistiques</h3>
+				<h3><?= texte_securise("Statistiques") ?></h3>
 				<p>
-					Une page dédiée résume les recherches effectuées, les visites et les
-					tendances de prix observées dans les données disponibles.
+					<?= texte_securise("Une page dédiée résume les recherches effectuées, les visites et les") ?>
+					<?= texte_securise("tendances de prix observées dans les données disponibles.") ?>
 				</p>
 			</article>
 		</div>

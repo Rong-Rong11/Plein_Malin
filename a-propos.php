@@ -21,40 +21,40 @@ require __DIR__ . "/includes/header.php";
 ?>
 <main class="page-shell info-page">
 	<section class="panel">
-		<p class="eyebrow">À propos</p>
-		<h1>À propos de Plein Malin</h1>
+		<p class="eyebrow"><?= texte_securise("À propos") ?></p>
+		<h1><?= texte_securise("À propos de Plein Malin") ?></h1>
 		<p class="lead">
-			Plein Malin est un site réalisé dans le cadre du projet de développement web.
-			Il permet de rechercher des stations-service en France et de comparer les prix des carburants.
+			<?= texte_securise("Plein Malin est un site réalisé dans le cadre du projet de développement web.") ?>
+			<?= texte_securise("Il permet de rechercher des stations-service en France et de comparer les prix des carburants.") ?>
 		</p>
 		<section class="info-block">
-			<h2>Objectif du site</h2>
+			<h2><?= texte_securise("Objectif du site") ?></h2>
 		<ul class="plain-list">
-			<li>Choisir une région depuis une carte interactive.</li>
-			<li>Sélectionner un département et une ville.</li>
-			<li>Afficher les stations disponibles et les prix des carburants.</li>
-			<li>Consulter des statistiques sur les recherches effectuées.</li>
+			<li><?= texte_securise("Choisir une région depuis une carte interactive.") ?></li>
+			<li><?= texte_securise("Sélectionner un département et une ville.") ?></li>
+			<li><?= texte_securise("Afficher les stations disponibles et les prix des carburants.") ?></li>
+			<li><?= texte_securise("Consulter des statistiques sur les recherches effectuées.") ?></li>
 		</ul>
 		</section>
 
 		<section class="info-block">
-			<h2>Fonctionnalités principales</h2>
+			<h2><?= texte_securise("Fonctionnalités principales") ?></h2>
 		<ul class="plain-list">
-			<li>Recherche par ville, par département ou autour d'une position estimée.</li>
-			<li>Choix de plusieurs carburants.</li>
-			<li>Mode jour/nuit mémorisé avec un cookie.</li>
-			<li>Affichage en français ou en anglais.</li>
-			<li>Stockage serveur des consultations dans un fichier CSV.</li>
+			<li><?= texte_securise("Recherche par ville, par département ou autour d'une position estimée.") ?></li>
+			<li><?= texte_securise("Choix de plusieurs carburants.") ?></li>
+			<li><?= texte_securise("Mode jour/nuit mémorisé avec un cookie.") ?></li>
+			<li><?= texte_securise("Affichage en français ou en anglais.") ?></li>
+			<li><?= texte_securise("Stockage serveur des consultations dans un fichier CSV.") ?></li>
 		</ul>
 		</section>
 
 		<section class="info-block">
-			<h2>Sobriété numérique</h2>
+			<h2><?= texte_securise("Sobriété numérique") ?></h2>
 		<ul class="plain-list">
-			<li>Les images de la carte et du bouton retour en haut sont compressées pour réduire le poids des pages.</li>
-			<li>Les réponses des API sont mises en cache côté serveur afin d'éviter des requêtes répétées.</li>
-			<li>La page de résultats affiche uniquement les premières stations utiles pour limiter la quantité de contenu chargé.</li>
-			<li>Le site utilise très peu de JavaScript et privilégie des fichiers simples comme CSV, JSON et XML.</li>
+			<li><?= texte_securise("Les images de la carte et du bouton retour en haut sont compressées pour réduire le poids des pages.") ?></li>
+			<li><?= texte_securise("Les réponses des API sont mises en cache côté serveur afin d'éviter des requêtes répétées.") ?></li>
+			<li><?= texte_securise("La page de résultats affiche uniquement les premières stations utiles pour limiter la quantité de contenu chargé.") ?></li>
+			<li><?= texte_securise("Le site utilise très peu de JavaScript et privilégie des fichiers simples comme CSV, JSON et XML.") ?></li>
 		</ul>
 		</section>
 	</section>

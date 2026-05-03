@@ -38,24 +38,20 @@
 			<p class="eyebrow">Rubrique statistiques</p>
 			<h1>Consultations Plein Malin</h1>
 				<p class="lead">
-					Les recherches correspondent aux consultations avec critères. Les visites comptent aussi
-					les pages vues sans lancement de recherche.
-				</p>
+					Les recherches correspondent aux consultations avec critères. Les visites comptent aussi					les pages vues sans lancement de recherche.				</p>
 				<p class="small-note">
-					Une recherche est enregistrée quand une page de résultats est produite ; une visite de page
-					est comptée à chaque affichage d'une page du site, même sans recherche.
-				</p>
+					Une recherche est enregistrée quand une page de résultats est produite ; une visite de page					est comptée à chaque affichage d&#039;une page du site, même sans recherche.				</p>
 				<div class="stats-inline">
 					<div class="stat-chip">
-						<strong>11</strong>
+						<strong>13</strong>
 						<span>recherches</span>
 					</div>
 					<div class="stat-chip">
-						<strong>227</strong>
+						<strong>274</strong>
 						<span>visites de pages</span>
 					</div>
 					<div class="stat-chip">
-						<strong>2</strong>
+						<strong>3</strong>
 						<span>visiteurs approx.</span>
 					</div>
 				</div>
@@ -81,18 +77,18 @@
 					<h3>Top des départements consultés</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
-									<span class="bar-label">Seine-et-Marne</span>
+									<span class="bar-label">Val-d&#039;Oise</span>
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">6</strong>
+									<strong class="bar-value">7</strong>
 								</div>
 															<div class="bar-row">
-									<span class="bar-label">Val-d&#039;Oise</span>
+									<span class="bar-label">Seine-et-Marne</span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: 83%"></div>
+										<div class="bar-fill" style="width: 86%"></div>
 									</div>
-									<strong class="bar-value">5</strong>
+									<strong class="bar-value">6</strong>
 								</div>
 													</div>
 									</article>
@@ -105,7 +101,7 @@
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">11</strong>
+									<strong class="bar-value">13</strong>
 								</div>
 													</div>
 									</article>
@@ -118,7 +114,7 @@
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">11</strong>
+									<strong class="bar-value">13</strong>
 								</div>
 													</div>
 									</article>
@@ -131,12 +127,12 @@
 									<div class="bar-track">
 										<div class="bar-fill" style="width: 100%"></div>
 									</div>
-									<strong class="bar-value">6</strong>
+									<strong class="bar-value">8</strong>
 								</div>
 															<div class="bar-row">
 									<span class="bar-label">ville</span>
 									<div class="bar-track">
-										<div class="bar-fill" style="width: 83%"></div>
+										<div class="bar-fill" style="width: 63%"></div>
 									</div>
 									<strong class="bar-value">5</strong>
 								</div>
@@ -148,8 +144,7 @@
 				<section class="panel">
 					<h2>Tendance annuelle des prix</h2>
 					<p class="small-note">
-					Moyennes mensuelles calculées côté serveur depuis l'archive annuelle officielle XML
-						2026,
+					Moyennes mensuelles calculées côté serveur depuis l&#039;archive annuelle officielle XML						2026,
 						avec une moyenne annuelle de référence sur 2025.
 					</p>
 					<p class="small-note">
@@ -157,7 +152,7 @@
 						<a href="https://donnees.roulez-eco.fr/opendata/annee/2026">
 							donnees.roulez-eco.fr
 						</a>
-													- dernière mise à jour du cache le 02/05/2026 07:51											</p>
+													- dernière mise à jour du cache le 03/05/2026 20:01											</p>
 
 										<div class="trend-grid">
 													<article class="trend-group">
@@ -176,22 +171,27 @@
 																									<tr>
 														<td>Janvier 2026</td>
 														<td>1,663 EUR/L</td>
-														<td>123565</td>
+														<td>123010</td>
 													</tr>
 																									<tr>
 														<td>Février 2026</td>
 														<td>1,700 EUR/L</td>
-														<td>114187</td>
+														<td>113753</td>
 													</tr>
 																									<tr>
 														<td>Mars 2026</td>
-														<td>2,059 EUR/L</td>
-														<td>165969</td>
+														<td>2,058 EUR/L</td>
+														<td>165314</td>
 													</tr>
 																									<tr>
 														<td>Avril 2026</td>
-														<td>2,249 EUR/L</td>
-														<td>134043</td>
+														<td>2,247 EUR/L</td>
+														<td>138986</td>
+													</tr>
+																									<tr>
+														<td>Mai 2026</td>
+														<td>2,156 EUR/L</td>
+														<td>8726</td>
 													</tr>
 																							</tbody>
 																							<tfoot>
@@ -204,7 +204,7 @@
 																					</table>
 									</div>
 																			<p class="chart-caption">
-											Moyenne annuelle de référence 2025											de l'archive complète : 1,648 EUR/L
+											Moyenne annuelle de référence 2025											de l&#039;archive complète : 1,648 EUR/L
 										</p>
 																								</article>
 													<article class="trend-group">
@@ -223,22 +223,27 @@
 																									<tr>
 														<td>Janvier 2026</td>
 														<td>1,715 EUR/L</td>
-														<td>21683</td>
+														<td>21684</td>
 													</tr>
 																									<tr>
 														<td>Février 2026</td>
 														<td>1,733 EUR/L</td>
-														<td>20973</td>
+														<td>20976</td>
 													</tr>
 																									<tr>
 														<td>Mars 2026</td>
 														<td>1,923 EUR/L</td>
-														<td>33758</td>
+														<td>33762</td>
 													</tr>
 																									<tr>
 														<td>Avril 2026</td>
-														<td>2,034 EUR/L</td>
-														<td>24865</td>
+														<td>2,035 EUR/L</td>
+														<td>26139</td>
+													</tr>
+																									<tr>
+														<td>Mai 2026</td>
+														<td>2,053 EUR/L</td>
+														<td>877</td>
 													</tr>
 																							</tbody>
 																							<tfoot>
@@ -251,7 +256,7 @@
 																					</table>
 									</div>
 																			<p class="chart-caption">
-											Moyenne annuelle de référence 2025											de l'archive complète : 1,727 EUR/L
+											Moyenne annuelle de référence 2025											de l&#039;archive complète : 1,727 EUR/L
 										</p>
 																								</article>
 													<article class="trend-group">
@@ -270,22 +275,27 @@
 																									<tr>
 														<td>Janvier 2026</td>
 														<td>1,801 EUR/L</td>
-														<td>104804</td>
+														<td>104334</td>
 													</tr>
 																									<tr>
 														<td>Février 2026</td>
-														<td>1,820 EUR/L</td>
-														<td>99910</td>
+														<td>1,819 EUR/L</td>
+														<td>99539</td>
 													</tr>
 																									<tr>
 														<td>Mars 2026</td>
 														<td>1,989 EUR/L</td>
-														<td>136308</td>
+														<td>135745</td>
 													</tr>
 																									<tr>
 														<td>Avril 2026</td>
 														<td>2,076 EUR/L</td>
-														<td>103611</td>
+														<td>107703</td>
+													</tr>
+																									<tr>
+														<td>Mai 2026</td>
+														<td>2,067 EUR/L</td>
+														<td>6235</td>
 													</tr>
 																							</tbody>
 																							<tfoot>
@@ -298,7 +308,7 @@
 																					</table>
 									</div>
 																			<p class="chart-caption">
-											Moyenne annuelle de référence 2025											de l'archive complète : 1,817 EUR/L
+											Moyenne annuelle de référence 2025											de l&#039;archive complète : 1,817 EUR/L
 										</p>
 																								</article>
 													<article class="trend-group">
@@ -317,22 +327,27 @@
 																									<tr>
 														<td>Janvier 2026</td>
 														<td>1,695 EUR/L</td>
-														<td>108546</td>
+														<td>107996</td>
 													</tr>
 																									<tr>
 														<td>Février 2026</td>
 														<td>1,708 EUR/L</td>
-														<td>103651</td>
+														<td>103221</td>
 													</tr>
 																									<tr>
 														<td>Mars 2026</td>
-														<td>1,900 EUR/L</td>
-														<td>142374</td>
+														<td>1,899 EUR/L</td>
+														<td>141706</td>
 													</tr>
 																									<tr>
 														<td>Avril 2026</td>
-														<td>1,994 EUR/L</td>
-														<td>112851</td>
+														<td>1,995 EUR/L</td>
+														<td>117179</td>
+													</tr>
+																									<tr>
+														<td>Mai 2026</td>
+														<td>2,015 EUR/L</td>
+														<td>7644</td>
 													</tr>
 																							</tbody>
 																							<tfoot>
@@ -345,7 +360,7 @@
 																					</table>
 									</div>
 																			<p class="chart-caption">
-											Moyenne annuelle de référence 2025											de l'archive complète : 1,713 EUR/L
+											Moyenne annuelle de référence 2025											de l&#039;archive complète : 1,713 EUR/L
 										</p>
 																								</article>
 											</div>
@@ -369,7 +384,8 @@
 	<p>Enzo Phung | Fatma-Zahra Baarir | Statistiques générées à partir du CSV de consultations.</p>
 </footer>
 <a href="#top" class="back-top">
-	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64"
+		loading="lazy" decoding="async" />
 </a>
 </body>
 

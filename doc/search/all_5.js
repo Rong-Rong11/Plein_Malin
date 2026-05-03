@@ -11,7 +11,7 @@ var searchData=
   ['fonctions_2dstats_2ephp_8',['fonctions-stats.php',['../fonctions-stats_8php.html',1,'']]],
   ['fonctions_2dtraductions_2ephp_9',['fonctions-traductions.php',['../fonctions-traductions_8php.html',1,'']]],
   ['footer_2ephp_10',['footer.php',['../footer_8php.html',1,'']]],
-  ['foreach_11',['foreach',['../tech_8php.html#a0cea68bc69f913ab8c42001822382b74',1,'tech.php']]],
+  ['foreach_11',['foreach',['../recherche_8php.html#a9b1f124835a02ccde3d32ae397ff69b2',1,'foreach:&#160;recherche.php'],['../resultats_8php.html#aad12e4977cc3e78f411738118b8539f8',1,'foreach:&#160;resultats.php'],['../stats_8php.html#acdfc38f3bc77c36cc8296d4ed1e25c46',1,'foreach:&#160;stats.php'],['../tech_8php.html#a0cea68bc69f913ab8c42001822382b74',1,'foreach:&#160;tech.php']]],
   ['formater_5fdate_5fheure_12',['formater_date_heure',['../fonctions-format_8php.html#aca0271ba759d3307cb477bd824525960',1,'fonctions-format.php']]],
   ['formater_5fmois_5ftendance_13',['formater_mois_tendance',['../group__statistiques.html#ga7695a5870df73db841e2b20f55baa8fc',1,'fonctions-stats.php']]],
   ['formater_5fprix_14',['formater_prix',['../fonctions-format_8php.html#abd228aa966fdecf27ec4dc61beb3a30c',1,'fonctions-format.php']]],

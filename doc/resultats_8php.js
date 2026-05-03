@@ -36,5 +36,6 @@ var resultats_8php =
     [ "$utiliserGeo", "resultats_8php.html#a7752a05da0fded6b721cecd6a569f3d1", null ],
     [ "$ville", "resultats_8php.html#acc3746cfaca53a8d6942c6252b17d14f", null ],
     [ "$villeCourante", "resultats_8php.html#ae9431325ed5fb1caf9528f81580dc357", null ],
-    [ "$vue", "resultats_8php.html#acd403f21721a7b74fca1454b14fa1bd3", null ]
+    [ "$vue", "resultats_8php.html#acd403f21721a7b74fca1454b14fa1bd3", null ],
+    [ "foreach", "resultats_8php.html#aad12e4977cc3e78f411738118b8539f8", null ]
 ];
