@@ -39,9 +39,9 @@ Le site propose aussi une page de resultats, des statistiques de consultation, d
 Les pages du site chargent `includes/functions.php`, qui sert de point d'entree commun et inclut les modules suivants :
 
 - `includes/fonctions-config.php` : constantes, chemins, durees de cache et valeurs par defaut
-- `includes/fonctions-securite.php` : securisation HTML, initialisation des dossiers et chemin des cookies
+- `includes/fonctions-securite.php` : securisation HTML, traduction directe des textes affiches, initialisation des dossiers et chemin des cookies
 - `includes/fonctions-preferences.php` : theme, langue, cookies de derniere recherche et liens memorises
-- `includes/fonctions-traductions.php` : traduction de l'interface francais / anglais
+- `includes/fonctions-traductions.php` : tables de traduction francais / anglais et traduction texte par texte
 - `includes/fonctions-donnees.php` : lecture des fichiers CSV et XML locaux
 - `includes/fonctions-recherche.php` : recherche de stations, API carburants, geolocalisation et distances
 - `includes/fonctions-stats.php` : enregistrement des consultations, statistiques et tendances de prix
@@ -75,6 +75,7 @@ Les principales constantes sont definies dans `includes/fonctions-config.php` :
 - Fichiers CSV locaux pour les regions, departements et villes
 - API officielle des prix des carburants
 - Geolocalisation approximative par adresse IP
+- En developpement local, les adresses `127.0.0.1` et `::1` ne declenchent pas d'appel externe de geolocalisation
 - Archive annuelle XML officielle pour les tendances de prix
 - Fichiers CSV locaux pour les consultations et les visites
 - Cache local pour limiter les appels aux services externes
@@ -92,6 +93,18 @@ Les principales constantes sont definies dans `includes/fonctions-config.php` :
 - Tendance annuelle des prix des carburants
 - Mode jour / nuit
 - Interface en francais et en anglais
+
+## Traduction de l'interface
+
+La traduction ne repose pas sur un tampon de sortie PHP. Les textes visibles sont traduits au moment de l'affichage avec `texte_securise()`, qui appelle la table de traduction lorsque la langue active est l'anglais.
+
+Consequence importante : un texte ecrit directement dans le HTML ne sera pas traduit automatiquement. Pour qu'un texte soit traduisible, il doit etre affiche avec une forme comme :
+
+```php
+<?= texte_securise("Rechercher une station") ?>
+```
+
+Les textes qui contiennent volontairement du HTML, par exemple des balises `<code>`, peuvent utiliser `traduire_texte()` quand il ne faut pas echapper les balises.
 
 ## Documentation Doxygen
 
@@ -127,12 +140,30 @@ Commande utile :
 xmllint --noout xml/*.xml
 ```
 
+Pour verifier une page PHP, il faut d'abord la servir avec PHP, ouvrir la page dans le navigateur, puis utiliser le code source genere. Exemple avec le serveur local :
+
+```bash
+php -S 127.0.0.1:8080
+```
+
+Puis ouvrir `http://127.0.0.1:8080/index.php`, afficher le code source genere dans le navigateur, l'enregistrer dans `xml/index.xml`, puis lancer :
+
+```bash
+xmllint --noout xml/index.xml
+```
+
 ## Commandes de verification
 
 Verifier la syntaxe PHP :
 
 ```bash
-php -l *.php includes/*.php
+find . -path './doc' -prune -o -name '*.php' -print | while read fichier; do php -l "$fichier" || exit 1; done
+```
+
+Verifier les XML sauvegardes :
+
+```bash
+xmllint --noout xml/*.xml
 ```
 
 Generer la documentation :
