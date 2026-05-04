@@ -1,0 +1,4 @@
+{
+    "time": 1777811510,
+    "body": "{\n    \"ip\": \"::1\",\n    \"error\": true,\n    \"reason\": \"Reserved IP Address\",\n    \"reserved\": true,\n    \"version\": \"IPv6\"\n}"
+}

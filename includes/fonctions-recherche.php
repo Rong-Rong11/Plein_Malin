@@ -485,20 +485,22 @@ function recuperer_geolocalisation(): array
 		];
 	}
 
-	$nomCache = nom_cache_depuis_texte("geo_", $ip);
+	$nomCache = nom_cache_depuis_texte("geo_ipinfo_", $ip);
 
-	$contenu = lire_api_avec_cache("https://ipapi.co/" . rawurlencode($ip) . "/json/", $nomCache);
+	$contenu = lire_api_avec_cache("https://ipinfo.io/" . rawurlencode($ip) . "/geo", $nomCache);
 
 	if ($contenu !== null) {
 		$json = json_decode($contenu, true);
-		if (is_array($json) && isset($json["latitude"], $json["longitude"])) {
+		$coordonnees = is_array($json) ? explode(",", (string) ($json["loc"] ?? "")) : [];
+
+		if (is_array($json) && count($coordonnees) === 2) {
 			return [
-				"source" => "api json",
+				"source" => "ipinfo.io json",
 				"ip" => $ip,
 				"city" => (string) ($json["city"] ?? ""),
 				"region" => (string) ($json["region"] ?? ""),
-				"latitude" => (float) $json["latitude"],
-				"longitude" => (float) $json["longitude"],
+				"latitude" => (float) trim($coordonnees[0]),
+				"longitude" => (float) trim($coordonnees[1]),
 			];
 		}
 	}

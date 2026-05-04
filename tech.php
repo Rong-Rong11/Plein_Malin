@@ -30,16 +30,16 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Page technique conservee pou
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page-shell tech-page info-page">
-	<section class="panel tech-hero">
+<main class="page-conteneur page-tech page-info">
+	<section class="panneau intro-tech">
 		<h1><?= texte_securise("Page tech") ?></h1>
-		<p class="lead">
+		<p class="accroche">
 			<?= texte_securise("Cette page reste accessible depuis le footer pour montrer l'avancement initial") ?>
 			<?= texte_securise("et la logique technique reutilisee dans Plein Malin.") ?>
 		</p>
-		<section class="info-block tech-summary">
+		<section class="bloc-info resume-tech">
 			<h2><?= texte_securise("Synthese technique du projet") ?></h2>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 				<li><strong>JSON</strong> : <?= texte_securise("geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.") ?></li>
 				<li><strong>XML</strong> : <?= texte_securise("lecture de") ?> <code>data/sample_fuel_prices.xml</code> <?= texte_securise("et archive annuelle officielle pour les tendances de prix.") ?></li>
 				<li><strong>CSV</strong> : <?= texte_securise("regions, departements, villes, consultations et visites de pages.") ?></li>
@@ -48,25 +48,25 @@ require __DIR__ . "/includes/header.php";
 			</ul>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 				<h2><?= texte_securise("API Ghibli") ?></h2>
 			<?php if ($film === null) { ?>
-				<p class="empty-state"><?= texte_securise("API Ghibli indisponible pour le moment.") ?></p>
+				<p class="message-vide"><?= texte_securise("API Ghibli indisponible pour le moment.") ?></p>
 			<?php } else { ?>
-				<h3 class="tech-subtitle">
+				<h3 class="sous-titre-tech">
 					<?= texte_securise((string) $film['title']) ?>
 				</h3>
-				<h3 class="tech-original-title" lang="ja">
+				<h3 class="titre-original-tech" lang="ja">
 					<?= texte_securise((string) $film['original_title']) ?>
 				</h3>
-				<p class="meta-line">
+				<p class="ligne-meta">
 					<?= texte_securise((string) $film['release_date']) ?>
 				</p>
-				<p class="tech-copy" lang="en">
+				<p class="texte-tech" lang="en">
 					<?= texte_securise((string) $film['description']) ?>
 				</p>
-				<div class="tech-media">
-					<figure class="tech-figure">
+				<div class="medias-tech">
+					<figure class="figure-tech">
 						<img
 							src="<?= texte_securise((string) $film['image']) ?>"
 							width="200"
@@ -74,9 +74,9 @@ require __DIR__ . "/includes/header.php";
 						/>
 						<figcaption><?= texte_securise("Affiche du film") ?></figcaption>
 					</figure>
-					<figure class="tech-figure tech-figure-wide">
+					<figure class="figure-tech figure-tech-large">
 						<img
-							class="tech-banner"
+							class="banniere-tech"
 							src="<?= texte_securise((string) $film['movie_banner']) ?>"
 							width="400"
 							alt="<?= texte_securise("Bannière du film") ?> <?= texte_securise((string) $film['title']) ?>"
@@ -87,13 +87,13 @@ require __DIR__ . "/includes/header.php";
 			<?php } ?>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 				<h2><?= texte_securise("Flux XML carburants") ?></h2>
 				<p><?= texte_securise("Lecture de") ?> <code>data/sample_fuel_prices.xml</code> <?= texte_securise("avec") ?> <code>simplexml_load_file()</code>.</p>
 				<?php if ($stationsXml === []) { ?>
-					<p class="empty-state"><?= texte_securise("Aucune donnee XML disponible.") ?></p>
+					<p class="message-vide"><?= texte_securise("Aucune donnee XML disponible.") ?></p>
 				<?php } else { ?>
-					<ul class="plain-list">
+					<ul class="liste-simple">
 						<?php foreach (array_slice($stationsXml, 0, 5) as $station) { ?>
 							<li>
 								<strong><?= texte_securise($station["enseigne"]) ?></strong>
@@ -112,10 +112,10 @@ require __DIR__ . "/includes/header.php";
 				<?php } ?>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 				<h2><?= texte_securise("Flux JSON cote serveur") ?></h2>
 			<p><?= texte_securise("Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.") ?></p>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 				<li><?= texte_securise("IP detectee") ?>: <?= texte_securise($donneesGeo['ip']) ?></li>
 				<li><?= texte_securise("Ville retournee") ?>: <?= texte_securise($donneesGeo['city'] !== "" ? $donneesGeo['city'] : "Non trouvee") ?></li>
 				<li><?= texte_securise("Region retournee") ?>: <?= texte_securise($donneesGeo['region'] !== "" ? $donneesGeo['region'] : "Non trouvee") ?></li>
@@ -125,22 +125,22 @@ require __DIR__ . "/includes/header.php";
 			</ul>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 			<h2><?= texte_securise("Flux carburants cote serveur") ?></h2>
 			<p>
 				<?= texte_securise("Les stations-service sont recherchees depuis l'API JSON officielle du") ?>
 				<?= texte_securise("gouvernement avec un filtre sur le departement et la ville.") ?>
 			</p>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 				<li><?= texte_securise("Requete HTTP cote serveur en PHP") ?></li>
 				<li><?= texte_securise("Reponse JSON transformee en tableaux PHP") ?></li>
 				<li><?= texte_securise("Reutilisation dans la page resultats pour les prix, distances et liens de carte") ?></li>
 			</ul>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 			<h2><?= texte_securise("Stockages attendus") ?></h2>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 				<li><?= texte_securise("CSV serveur: historique des consultations") ?></li>
 				<li>Cookie <code>last_visited_city</code>: <?= texte_securise("derniere ville") ?></li>
 					<li>Cookie <code>last_search_params</code>: <?= texte_securise("derniere recherche complete") ?></li>
@@ -150,9 +150,9 @@ require __DIR__ . "/includes/header.php";
 				</ul>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 			<h2><?= texte_securise("Etat des statistiques") ?></h2>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 					<li><?= texte_securise("Consultations enregistrees") ?>: <?= texte_securise((string) $statistiques['consultation_count']) ?></li>
 					<li><?= texte_securise("Visites de pages") ?>: <?= texte_securise((string) $statistiques['page_visit_count']) ?></li>
 					<li><?= texte_securise("Visiteurs approx.") ?>: <?= texte_securise((string) $statistiques['page_visitor_count']) ?></li>

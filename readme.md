@@ -42,12 +42,19 @@ Les pages du site chargent `includes/functions.php`, qui sert de point d'entree 
 - `includes/fonctions-securite.php` : securisation HTML, traduction directe des textes affiches, initialisation des dossiers et chemin des cookies
 - `includes/fonctions-preferences.php` : theme, langue, cookies de derniere recherche et liens memorises
 - `includes/fonctions-traductions.php` : tables de traduction francais / anglais et traduction texte par texte
-- `includes/fonctions-donnees.php` : lecture des fichiers CSV et XML locaux
-- `includes/fonctions-recherche.php` : recherche de stations, API carburants, geolocalisation et distances
+- `includes/fonctions-donnees.php` : lecture des fichiers CSV locaux et extraction du flux XML officiel
+- `includes/fonctions-recherche.php` : recherche de stations, API carburants, geolocalisation IP avec `ipinfo.io` et distances
 - `includes/fonctions-stats.php` : enregistrement des consultations, statistiques et tendances de prix
 - `includes/fonctions-format.php` : formatage des prix et des dates
 - `includes/header.php` : en-tete commun
 - `includes/footer.php` : pied de page commun
+
+## Feuilles de style
+
+- `style.css` : style principal du site et mode jour
+- `style-alt.css` : surcharge du mode nuit, chargee seulement quand le theme actif est `night`
+
+Les classes CSS ont ete renommees avec des noms plus lisibles en francais, par exemple `page-conteneur`, `panneau`, `formulaire-recherche`, `bloc-champ`, `choix-carburant`, `bouton-secondaire`, `message-vide`, `carte-station` et `carte-stats`.
 
 ## Constantes importantes
 
@@ -74,9 +81,9 @@ Les principales constantes sont definies dans `includes/fonctions-config.php` :
 
 - Fichiers CSV locaux pour les regions, departements et villes
 - API officielle des prix des carburants
-- Geolocalisation approximative par adresse IP
+- Geolocalisation approximative par adresse IP avec `ipinfo.io`
 - En developpement local, les adresses `127.0.0.1` et `::1` ne declenchent pas d'appel externe de geolocalisation
-- Archive annuelle XML officielle pour les tendances de prix
+- Archive annuelle XML officielle `donnees.roulez-eco.fr` pour les tendances de prix et la demonstration XML de la page technique
 - Fichiers CSV locaux pour les consultations et les visites
 - Cache local pour limiter les appels aux services externes
 
@@ -93,6 +100,16 @@ Les principales constantes sont definies dans `includes/fonctions-config.php` :
 - Tendance annuelle des prix des carburants
 - Mode jour / nuit
 - Interface en francais et en anglais
+
+## Page technique
+
+La page `tech.php` conserve les exemples demandes pour la validation technique :
+
+- appel JSON a l'API Ghibli avec choix aleatoire d'un film
+- affichage du titre, du titre original, de l'annee, de la description et de deux images avec legendes
+- geolocalisation approximative cote serveur via un flux JSON `ipinfo.io`
+- lecture du flux XML officiel des carburants depuis l'archive annuelle `donnees.roulez-eco.fr`
+- affichage resume des derniers prix par carburant pour eviter de lister tout l'historique annuel
 
 ## Traduction de l'interface
 

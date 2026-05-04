@@ -6,41 +6,41 @@
 		<title>Page tech - Plein Malin</title>
 		<meta name="description" content="Page technique conservee pour la validation de la partie 1 du projet." />
 		<link rel="stylesheet" href="style.css" />
-			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+					<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
-		<header class="site-header">
-			<div class="brand-row">
-				<a class="brand-link" href="index.php">
+		<header class="entete-site">
+			<div class="ligne-marque">
+				<a class="lien-marque" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
 					<div class="theme-switch">
-						<a href="tech.php?theme=night" class="theme-link">
+						<a href="tech.php?theme=night" class="lien-theme">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
 						</a>
-						<a href="tech.php?lang=en" class="theme-link">
+						<a href="tech.php?lang=en" class="lien-theme">
 							<span>English</span>
 						</a>
 					</div>
 				</div>
 
-			<nav class="main-nav">
+			<nav class="navigation-principale">
 				<a href="recherche.php?search_mode=manual">Recherche</a>
 				<a href="resultats.php">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-<main class="page-shell tech-page info-page">
-	<section class="panel tech-hero">
+<main class="page-conteneur page-tech page-info">
+	<section class="panel intro-tech">
 		<h1>Page tech</h1>
-		<p class="lead">
+		<p class="accroche">
 			Cette page reste accessible depuis le footer pour montrer l&#039;avancement initial			et la logique technique reutilisee dans Plein Malin.		</p>
-		<section class="info-block tech-summary">
+		<section class="bloc-info resume-tech">
 			<h2>Synthese technique du projet</h2>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 				<li><strong>JSON</strong> : geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.</li>
 				<li><strong>XML</strong> : lecture de <code>data/sample_fuel_prices.xml</code> et archive annuelle officielle pour les tendances de prix.</li>
 				<li><strong>CSV</strong> : regions, departements, villes, consultations et visites de pages.</li>
@@ -49,47 +49,47 @@
 			</ul>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 				<h2>API Ghibli</h2>
-							<h3 class="tech-subtitle">
-					Earwig and the Witch				</h3>
-				<h3 class="tech-original-title" lang="ja">
-					アーヤと魔女				</h3>
-				<p class="meta-line">
-					2021				</p>
-				<p class="tech-copy" lang="en">
-					An orphan girl, Earwig, is adopted by a witch and comes home to a spooky house filled with mystery and magic.				</p>
-				<div class="tech-media">
-					<figure class="tech-figure">
+							<h3 class="sous-titre-tech">
+					The Tale of the Princess Kaguya				</h3>
+				<h3 class="titre-original-tech" lang="ja">
+					かぐや姫の物語				</h3>
+				<p class="ligne-meta">
+					2013				</p>
+				<p class="texte-tech" lang="en">
+					A bamboo cutter named Sanuki no Miyatsuko discovers a miniature girl inside a glowing bamboo shoot. Believing her to be a divine presence, he and his wife decide to raise her as their own, calling her &#039;Princess&#039;.				</p>
+				<div class="medias-tech">
+					<figure class="figure-tech">
 						<img
-							src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sJhFtY3eHuvvACaPpxpzdCLQqpQ.jpg"
+							src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/mWRQNlWXYYfd2z4FRm99MsgHgiA.jpg"
 							width="200"
-							alt="Affiche du film Earwig and the Witch"
+							alt="Affiche du film The Tale of the Princess Kaguya"
 						/>
 						<figcaption>Affiche du film</figcaption>
 					</figure>
-					<figure class="tech-figure tech-figure-wide">
+					<figure class="figure-tech figure-tech-large">
 						<img
-							class="tech-banner"
-							src="https://www.themoviedb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg"
+							class="banniere-tech"
+							src="https://image.tmdb.org/t/p/original/lMaWlYThCSnsmW3usxWTpSuyZp1.jpg"
 							width="400"
-							alt="Bannière du film Earwig and the Witch"
+							alt="Bannière du film The Tale of the Princess Kaguya"
 						/>
 						<figcaption>Bannière du film</figcaption>
 					</figure>
 				</div>
 					</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 				<h2>Flux XML carburants</h2>
 				<p>Lecture de <code>data/sample_fuel_prices.xml</code> avec <code>simplexml_load_file()</code>.</p>
-									<p class="empty-state">Aucune donnee XML disponible.</p>
+									<p class="message-vide">Aucune donnee XML disponible.</p>
 						</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 				<h2>Flux JSON cote serveur</h2>
 			<p>Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.</p>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 				<li>IP detectee: 127.0.0.1</li>
 				<li>Ville retournee: Non trouvee</li>
 				<li>Region retournee: Non trouvee</li>
@@ -99,20 +99,20 @@
 			</ul>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 			<h2>Flux carburants cote serveur</h2>
 			<p>
 				Les stations-service sont recherchees depuis l&#039;API JSON officielle du				gouvernement avec un filtre sur le departement et la ville.			</p>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 				<li>Requete HTTP cote serveur en PHP</li>
 				<li>Reponse JSON transformee en tableaux PHP</li>
 				<li>Reutilisation dans la page resultats pour les prix, distances et liens de carte</li>
 			</ul>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 			<h2>Stockages attendus</h2>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 				<li>CSV serveur: historique des consultations</li>
 				<li>Cookie <code>last_visited_city</code>: derniere ville</li>
 					<li>Cookie <code>last_search_params</code>: derniere recherche complete</li>
@@ -122,11 +122,11 @@
 				</ul>
 		</section>
 
-		<section class="info-block tech-feature">
+		<section class="bloc-info bloc-tech">
 			<h2>Etat des statistiques</h2>
-			<ul class="plain-list">
+			<ul class="liste-simple">
 					<li>Consultations enregistrees: 13</li>
-					<li>Visites de pages: 282</li>
+					<li>Visites de pages: 298</li>
 					<li>Visiteurs approx.: 4</li>
 					<li>Nombre de villes dans le top: 1</li>
 				</ul>
@@ -134,7 +134,7 @@
 	</section>
 </main>
 
-<footer class="site-footer">
+<footer class="pied-site">
 	<div class="footer-nav-block">
 		<div class="footer-links footer-links-main">
 			<a href="index.php">Accueil</a>

@@ -6,58 +6,58 @@
 		<title>Plein Malin</title>
 		<meta name="description" content="Comparer les prix des carburants et trouver une station en France." />
 		<link rel="stylesheet" href="style.css" />
-			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+					<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
-		<header class="site-header">
-			<div class="brand-row">
-				<a class="brand-link" href="index.php">
+		<header class="entete-site">
+			<div class="ligne-marque">
+				<a class="lien-marque" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
 					<div class="theme-switch">
-						<a href="index.php?theme=night" class="theme-link">
+						<a href="index.php?theme=night" class="lien-theme">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
 						</a>
-						<a href="index.php?lang=en" class="theme-link">
+						<a href="index.php?lang=en" class="lien-theme">
 							<span>English</span>
 						</a>
 					</div>
 				</div>
 
-			<nav class="main-nav">
+			<nav class="navigation-principale">
 				<a href="recherche.php?search_mode=manual">Recherche</a>
 				<a href="resultats.php">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-<main class="page-shell home-page">
+<main class="page-conteneur page-accueil">
 	<section class="hero home-hero">
 		<div class="hero-copy">
-			<p class="eyebrow">Prix des carburants</p>
+			<p class="surtitre">Prix des carburants</p>
 			<h1>Trouvez une station plus facilement</h1>
 			<div class="home-hero-content">
-				<div class="home-hero-text">
-					<p class="lead">
+				<div class="texte-hero-accueil">
+					<p class="accroche">
 						Plein Malin aide à comparer rapidement les prix du carburant en France.						Le site propose une recherche manuelle par région, département et ville,						mais aussi une recherche autour de votre position approximative.					</p>
-					<p class="small-note">
+					<p class="note-discrete">
 						L&#039;objectif est de garder une interface simple : choisir un périmètre,						sélectionner un ou plusieurs carburants, puis consulter des résultats						lisibles sans surcharge inutile.					</p>
-					<div class="form-actions">
+					<div class="actions-formulaire">
 						<a class="cta-link" href="recherche.php?search_mode=manual">Rechercher une station</a>
 					</div>
 				</div>
-				<div class="home-hero-visual">
-					<img class="home-hero-image home-hero-image-light" src="image/image-accueil(light).png" alt="Illustration de recherche de carburant Plein Malin" width="888" height="898" decoding="async" fetchpriority="high" />
-					<img class="home-hero-image home-hero-image-dark" src="image/image-accueil(dark).png" alt="Illustration de recherche de carburant Plein Malin" width="1604" height="1616" decoding="async" fetchpriority="high" />
+				<div class="visuel-accueil">
+					<img class="home-hero-image image-accueil-jour" src="image/image-accueil(light).png" alt="Illustration de recherche de carburant Plein Malin" width="888" height="898" decoding="async" fetchpriority="high" />
+					<img class="home-hero-image image-accueil-nuit" src="image/image-accueil(dark).png" alt="Illustration de recherche de carburant Plein Malin" width="1604" height="1616" decoding="async" fetchpriority="high" />
 				</div>
 			</div>
 
 					</div>
 	</section>
 
-	<section class="panel home-intro">
+	<section class="panel intro-accueil">
 		<h2>Comment fonctionne le site</h2>
 		<p>
 			La recherche principale suit un parcours guidé : vous choisissez d&#039;abord			une région, puis un département, puis une ville. Ce fonctionnement permet			d&#039;encadrer la recherche et de garder une navigation compréhensible.		</p>
@@ -68,7 +68,7 @@
 			Les résultats affichent les stations trouvées, les prix disponibles pour			les carburants sélectionnés et un accès direct à une carte quand les			coordonnées sont connues.		</p>
 
 		<h2>Informations utiles</h2>
-		<div class="home-columns">
+		<div class="colonnes-accueil">
 			<article>
 				<h3>Recherche guidée</h3>
 				<p>
@@ -88,7 +88,7 @@
 	</section>
 </main>
 
-<footer class="site-footer">
+<footer class="pied-site">
 	<div class="footer-nav-block">
 		<div class="footer-links footer-links-main">
 			<a href="index.php">Accueil</a>

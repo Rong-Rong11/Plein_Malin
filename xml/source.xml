@@ -6,59 +6,59 @@
 		<title>Sources des données - Plein Malin</title>
 		<meta name="description" content="Sources des données utilisées par Plein Malin." />
 		<link rel="stylesheet" href="style.css" />
-			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+					<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
-		<header class="site-header">
-			<div class="brand-row">
-				<a class="brand-link" href="index.php">
+		<header class="entete-site">
+			<div class="ligne-marque">
+				<a class="lien-marque" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
 					<div class="theme-switch">
-						<a href="sources.php?theme=night" class="theme-link">
+						<a href="sources.php?theme=night" class="lien-theme">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
 						</a>
-						<a href="sources.php?lang=en" class="theme-link">
+						<a href="sources.php?lang=en" class="lien-theme">
 							<span>English</span>
 						</a>
 					</div>
 				</div>
 
-			<nav class="main-nav">
+			<nav class="navigation-principale">
 				<a href="recherche.php?search_mode=manual">Recherche</a>
 				<a href="resultats.php">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-<main class="page-shell info-page">
+<main class="page-conteneur page-info">
 	<section class="panel">
-		<p class="eyebrow">Données</p>
+		<p class="surtitre">Données</p>
 		<h1>Sources des données</h1>
-		<p class="lead">
+		<p class="accroche">
 			Cette page résume les sources et fichiers utilisés par le site pour répondre aux consignes du projet.		</p>
-		<section class="info-block">
+		<section class="bloc-info">
 			<h2>Données statiques</h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li>Régions, départements et villes : fichiers CSV locaux placés dans le dossier <code>data</code>.</li>
 			<li>Ces fichiers servent à alimenter les listes de sélection du formulaire de recherche.</li>
 		</ul>
 		</section>
 
-		<section class="info-block">
+		<section class="bloc-info">
 			<h2>Données dynamiques</h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li>Prix des carburants : API officielle des prix des carburants, interrogée côté serveur en PHP.</li>
 			<li>Géolocalisation : position estimée à partir de l&#039;adresse IP de l&#039;utilisateur.</li>
 			<li>Tendances : archive annuelle XML officielle de <code>donnees.roulez-eco.fr</code>.</li>
 		</ul>
 		</section>
 
-		<section class="info-block">
+		<section class="bloc-info">
 			<h2>Limites des données</h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li>Les prix affichés dépendent de la dernière mise à jour disponible dans l&#039;API officielle.</li>
 			<li>Si l&#039;API officielle ne répond pas, le site affiche un message d&#039;erreur au lieu d&#039;annoncer simplement zéro station.</li>
 			<li>La géolocalisation par adresse IP est approximative : elle peut indiquer une ville proche, pas une adresse exacte.</li>
@@ -67,9 +67,9 @@
 		</ul>
 		</section>
 
-		<section class="info-block">
+		<section class="bloc-info">
 			<h2>Formats exploités</h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li><strong>CSV</strong> : données locales et historique des consultations.</li>
 			<li><strong>JSON</strong> : réponses de l&#039;API carburants et cache serveur.</li>
 			<li><strong>XML</strong> : lecture d&#039;un fichier de démonstration et archive annuelle des tendances.</li>
@@ -79,7 +79,7 @@
 	</section>
 </main>
 
-<footer class="site-footer">
+<footer class="pied-site">
 	<div class="footer-nav-block">
 		<div class="footer-links footer-links-main">
 			<a href="index.php">Accueil</a>

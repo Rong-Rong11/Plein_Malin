@@ -6,78 +6,78 @@
 		<title>Résultats - Plein Malin</title>
 		<meta name="description" content="Résultats des stations-service et des prix." />
 		<link rel="stylesheet" href="style.css" />
-			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+					<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
-		<header class="site-header">
-			<div class="brand-row">
-				<a class="brand-link" href="index.php">
+		<header class="entete-site">
+			<div class="ligne-marque">
+				<a class="lien-marque" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
 					<div class="theme-switch">
-						<a href="resultats.php?theme=night" class="theme-link">
+						<a href="resultats.php?theme=night" class="lien-theme">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
 						</a>
-						<a href="resultats.php?lang=en" class="theme-link">
+						<a href="resultats.php?lang=en" class="lien-theme">
 							<span>English</span>
 						</a>
 					</div>
 				</div>
 
-			<nav class="main-nav">
+			<nav class="navigation-principale">
 				<a href="recherche.php?region=&amp;department=&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;search_mode=manual">Recherche</a>
 				<a href="resultats.php?region=&amp;department=&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10#resultats" aria-current="page">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-	<main class="page-shell">
+	<main class="page-conteneur">
 			<section class="panel">
-				<p class="eyebrow">Résultats</p>
+				<p class="surtitre">Résultats</p>
 				<h1>Stations pour Gazole</h1>
-					<p class="lead">
+					<p class="accroche">
 						Consultez les stations trouvées puis revenez à la recherche si besoin.					</p>
-										<div class="form-actions">
+										<div class="actions-formulaire">
 						<a class="cta-link" href="recherche.php?search_mode=manual">Recherche manuelle</a>
 					</div>
 					<div class="results-tools">
-					<form action="resultats.php#resultats" method="get" class="results-refine-form search-form search-form-structured">
+					<form action="resultats.php#resultats" method="get" class="formulaire-affinage-resultats formulaire-recherche formulaire-recherche-structure">
 						<input type="hidden" name="region" value="" />
 						<input type="hidden" name="department" value="" />
 						<input type="hidden" name="city" value="" />
-																								<div class="search-section search-plain">
-							<div class="field-card field-card-wide">
-								<span class="field-title">Carburants</span>
-								<span class="field-help">Gazole par défaut si rien n&#039;est coché.</span>
-								<span class="fuel-choice-list">
-																			<label class="fuel-choice">
+																								<div class="section-recherche recherche-simple">
+							<div class="bloc-champ bloc-champ-large">
+								<span class="titre-champ">Carburants</span>
+								<span class="aide-champ">Gazole par défaut si rien n&#039;est coché.</span>
+								<span class="liste-choix-carburants">
+																			<label class="choix-carburant">
 											<input type="checkbox" id="result-fuel-gazole" name="fuel[]" value="Gazole"
 												checked="checked" />
 											<span>Gazole</span>
 										</label>
-																			<label class="fuel-choice">
+																			<label class="choix-carburant">
 											<input type="checkbox" id="result-fuel-sp95" name="fuel[]" value="SP95"
 												 />
 											<span>SP95</span>
 										</label>
-																			<label class="fuel-choice">
+																			<label class="choix-carburant">
 											<input type="checkbox" id="result-fuel-sp98" name="fuel[]" value="SP98"
 												 />
 											<span>SP98</span>
 										</label>
-																			<label class="fuel-choice">
+																			<label class="choix-carburant">
 											<input type="checkbox" id="result-fuel-e10" name="fuel[]" value="E10"
 												 />
 											<span>SP95-E10</span>
 										</label>
-																			<label class="fuel-choice">
+																			<label class="choix-carburant">
 											<input type="checkbox" id="result-fuel-e85" name="fuel[]" value="E85"
 												 />
 											<span>E85</span>
 										</label>
-																			<label class="fuel-choice">
+																			<label class="choix-carburant">
 											<input type="checkbox" id="result-fuel-gplc" name="fuel[]" value="GPLc"
 												 />
 											<span>GPLc</span>
@@ -85,8 +85,8 @@
 																	</span>
 							</div>
 							<div class="field-grid field-grid-main">
-								<div class="field-card">
-									<label class="field-title" for="result-sort-select">Tri</label>
+								<div class="bloc-champ">
+									<label class="titre-champ" for="result-sort-select">Tri</label>
 									<select id="result-sort-select" name="sort">
 										<option value="price" selected="selected">Prix croissant</option>
 										<option value="price_desc" >Prix décroissant</option>
@@ -94,8 +94,8 @@
 										<option value="name" >Nom</option>
 									</select>
 								</div>
-																	<div class="field-card">
-										<label class="field-title" for="result-radius-select">Rayon</label>
+																	<div class="bloc-champ">
+										<label class="titre-champ" for="result-radius-select">Rayon</label>
 										<select id="result-radius-select" name="geo_radius">
 																							<option value="5" >
 													5 km
@@ -114,25 +114,25 @@
 												</option>
 																					</select>
 									</div>
-																<div class="field-card">
-									<label class="field-title" for="result-view-select">Vue</label>
+																<div class="bloc-champ">
+									<label class="titre-champ" for="result-view-select">Vue</label>
 									<select id="result-view-select" name="view">
 										<option value="summary" selected="selected">Synthèse</option>
 										<option value="detailed" >Détaillée</option>
 									</select>
 								</div>
 							</div>
-							<div class="form-actions action-buttons">
+							<div class="actions-formulaire action-buttons">
 								<button type="submit">Appliquer</button>
 							</div>
 						</div>
 					</form>
-					<div class="form-actions results-detail-toggle">
-						<details class="search-details">
-							<summary class="detail-toggle">Détail</summary>
-							<div class="search-details-box">
+					<div class="actions-formulaire details-resultats">
+						<details class="details-recherche">
+							<summary class="bouton-detail">Détail</summary>
+							<div class="boite-details-recherche">
 								<h2>Recherche actuelle</h2>
-								<ul class="plain-list">
+								<ul class="liste-simple">
 									<li>Mode : Ville</li>
 									<li>Carburants choisis : Gazole</li>
 									<li>Tri choisi : Prix croissant</li>
@@ -149,16 +149,16 @@
 					</div>
 			</section>
 
-		<section class="results-panel" id="resultats">
+		<section class="panneau-resultats" id="resultats">
 			<h2>Résultats</h2>
-				<p class="small-note">
+				<p class="note-discrete">
 					Aucune recherche lancée.										</p>
-									<p class="empty-state">
+									<p class="message-vide">
 						Aucune recherche lancée.					</p>
 							</section>
 	</main>
 
-<footer class="site-footer">
+<footer class="pied-site">
 	<div class="footer-nav-block">
 		<div class="footer-links footer-links-main">
 			<a href="index.php">Accueil</a>
