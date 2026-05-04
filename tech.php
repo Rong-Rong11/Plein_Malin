@@ -126,6 +126,58 @@ require __DIR__ . "/includes/header.php";
 		</section>
 
 		<section class="info-block tech-feature">
+			<h2>Comparer geolocalisation IP et GPS</h2>
+			<p>On compare ici une position trouvee avec l'IP et une position trouvee avec le GPS.</p>
+			<div class="trend-table-wrap">
+				<table class="trend-table">
+					<thead>
+						<tr>
+							<th>Critere</th>
+							<th>IP</th>
+							<th>GPS</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Fonctionnement</td>
+							<td>On envoie l'adresse IP a une API</td>
+							<td>Le navigateur donne la position de l'appareil</td>
+						</tr>
+						<tr>
+							<td>Precision</td>
+							<td>Approximative</td>
+							<td>Plus precise</td>
+						</tr>
+						<tr>
+							<td>Autorisation</td>
+							<td>Pas de demande GPS</td>
+							<td>Le navigateur demande l'autorisation</td>
+						</tr>
+						<tr>
+							<td>Exemple de code</td>
+							<td>Appel de type <code>...ip-address-lookup.php?key=...&amp;input=IP</code></td>
+							<td><code>navigator.geolocation.getCurrentPosition()</code></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>Resultat IP</h3>
+			<p><strong>Adresse IP :</strong> <?= texte_securise($donneesGeo['ip']) ?></p>
+			<p><strong>Ville :</strong> <?= texte_securise($donneesGeo['city'] !== "" ? $donneesGeo['city'] : "Non trouvee") ?></p>
+			<p><strong>Region :</strong> <?= texte_securise($donneesGeo['region'] !== "" ? $donneesGeo['region'] : "Non trouvee") ?></p>
+			<p><strong>Latitude :</strong> <?= texte_securise($donneesGeo['latitude'] !== 0.0 ? (string) $donneesGeo['latitude'] : "Non trouvee") ?></p>
+			<p><strong>Longitude :</strong> <?= texte_securise($donneesGeo['longitude'] !== 0.0 ? (string) $donneesGeo['longitude'] : "Non trouvee") ?></p>
+
+			<h3>Resultat GPS</h3>
+			<p><button type="button" class="primary-btn" onclick="recupererPositionGps()">Afficher ma position GPS</button></p>
+			<p id="gps-etat"><strong>Etat :</strong> En attente</p>
+			<p id="gps-latitude"><strong>Latitude :</strong> Non calculee</p>
+			<p id="gps-longitude"><strong>Longitude :</strong> Non calculee</p>
+			<p id="gps-precision"><strong>Precision :</strong> Non calculee</p>
+		</section>
+
+		<section class="info-block tech-feature">
 			<h2>Flux carburants cote serveur</h2>
 			<p>
 				Les stations-service sont recherchees depuis l'API JSON officielle du
@@ -161,5 +213,32 @@ require __DIR__ . "/includes/header.php";
 		</section>
 	</section>
 </main>
+
+<script>
+function recupererPositionGps() {
+	if (!navigator.geolocation) {
+		document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> GPS indisponible";
+		return;
+	}
+
+	document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Recherche en cours...";
+
+	navigator.geolocation.getCurrentPosition(
+		function (position) {
+			var latitude = position.coords.latitude;
+			var longitude = position.coords.longitude;
+			var precision = position.coords.accuracy;
+
+			document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Position trouvee";
+			document.getElementById("gps-latitude").innerHTML = "<strong>Latitude :</strong> " + latitude;
+			document.getElementById("gps-longitude").innerHTML = "<strong>Longitude :</strong> " + longitude;
+			document.getElementById("gps-precision").innerHTML = "<strong>Precision :</strong> " + precision + " metres";
+		},
+		function () {
+			document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Autorisation refusee ou position indisponible";
+		}
+	);
+}
+</script>
 
 <?php require __DIR__ . "/includes/footer.php"; ?>
