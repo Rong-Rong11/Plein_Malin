@@ -32,23 +32,23 @@ enregistrer_visite_page();
 	<body class="theme-<?= texte_securise($theme) ?>">
 		<div id="top"></div>
 
-		<header class="entete-site">
-			<div class="ligne-marque">
-				<a class="lien-marque" href="index.php">
+		<header class="site-header">
+			<div class="brand-row">
+				<a class="brand-link" href="index.php">
 					<img class="logo" src="image/<?= $theme === "night" ? "logoblanc.svg" : "logonoir.svg" ?>" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
-					<div class="selecteur-theme">
-						<a href="<?= texte_securise(lien_bascule_theme($theme)) ?>" class="lien-theme">
+					<div class="theme-switch">
+						<a href="<?= texte_securise(lien_bascule_theme($theme)) ?>" class="theme-link">
 							<img src="image/theme-<?= $theme === "night" ? "day" : "night" ?>.svg" alt="" width="24" height="24" decoding="async" />
 							<span><?= texte_securise("Mode") ?> <?= texte_securise(nom_theme($theme === "night" ? "day" : "night")) ?></span>
 						</a>
-						<a href="<?= texte_securise(lien_bascule_langue($langue)) ?>" class="lien-theme">
+						<a href="<?= texte_securise(lien_bascule_langue($langue)) ?>" class="theme-link">
 							<span><?= texte_securise(libelle_bascule_langue($langue)) ?></span>
 						</a>
 					</div>
 				</div>
 
-			<nav class="navigation-principale">
+			<nav class="main-nav">
 				<a href="<?= texte_securise($lienRechercheNavigation) ?>"<?= $pageActive === "recherche" ? ' aria-current="page"' : "" ?>><?= texte_securise("Recherche") ?></a>
 				<a href="<?= texte_securise($lienResultatsNavigation) ?>"<?= $pageActive === "resultats" ? ' aria-current="page"' : "" ?>><?= texte_securise("Résultats") ?></a>
 				<a href="stats.php"<?= $pageActive === "stats" ? ' aria-current="page"' : "" ?>><?= texte_securise("Statistiques") ?></a>

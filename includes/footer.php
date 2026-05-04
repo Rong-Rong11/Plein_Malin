@@ -9,12 +9,12 @@
  */
 $textePiedPage = $textePiedPage ?? "Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | Projet Web 2025-2026";
 ?>
-<footer class="pied-site">
-	<div class="bloc-nav-pied">
-		<div class="liens-pied liens-pied-principaux">
+<footer class="site-footer">
+	<div class="footer-nav-block">
+		<div class="footer-links footer-links-main">
 			<a href="index.php"><?= texte_securise("Accueil") ?></a>
 		</div>
-		<div class="liens-pied liens-pied-infos">
+		<div class="footer-links footer-links-info">
 			<a href="a-propos.php"><?= texte_securise("À propos") ?></a>
 			<a href="aide.php"><?= texte_securise("Aide") ?></a>
 			<a href="sources.php"><?= texte_securise("Sources des données") ?></a>
@@ -25,7 +25,7 @@ $textePiedPage = $textePiedPage ?? "Enzo Phung | Fatma-Zahra Baarir | CY Cergy P
 	</div>
 	<p><?= texte_securise($textePiedPage) ?></p>
 </footer>
-<a href="#top" class="retour-haut">
+<a href="#top" class="back-top">
 	<img src="image/back_top_small.png" alt="<?= texte_securise("Retour en haut") ?>" width="64" height="64"
 		loading="lazy" decoding="async" />
 </a>
