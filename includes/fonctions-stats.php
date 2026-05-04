@@ -129,7 +129,7 @@ function preparer_archive_prix_annuelle(string $fichierZip, string $adresseUrl):
 		],
 	]);
 
-	$contenu = @file_get_contents($adresseUrl, false, $contexte);
+	$contenu = file_get_contents($adresseUrl, false, $contexte);
 
 	if ($contenu === false || $contenu === "") {
 		return false;

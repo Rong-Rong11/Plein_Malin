@@ -122,6 +122,7 @@ function traductions_recherche(): array
 		"Choisir d'abord une région" => "Choose a region first",
 		"Choisir un département" => "Choose a department",
 		"Choisissez un département." => "Choose a department.",
+		"Afficher les villes" => "Show cities",
 		"Ville" => "City",
 		"La liste dépend du département choisi." => "The list depends on the selected department.",
 		"Choisir d'abord un département" => "Choose a department first",

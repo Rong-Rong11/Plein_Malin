@@ -255,8 +255,7 @@ require __DIR__ . "/includes/header.php";
 						<div class="bloc-champ">
 							<label class="field-title" for="department-select"><?= texte_securise("Département") ?></label>
 							<span class="field-help"><?= texte_securise("Choisissez un département.") ?></span>
-							<select id="department-select" name="department" onchange="this.form.action='recherche.php#form-end'; this.form.submit();"
-								<?= $region === "" ? 'disabled="disabled"' : "" ?>>
+							<select id="department-select" name="department" <?= $region === "" ? 'disabled="disabled"' : "" ?>>
 								<option value=""><?= texte_securise($region === "" ? "Choisir d'abord une région" : "Choisir un département") ?></option>
 								<?php foreach ($departements as $unDepartement) { ?>
 									<option value="<?= texte_securise($unDepartement["department_code"]) ?>"
@@ -266,6 +265,10 @@ require __DIR__ . "/includes/header.php";
 									</option>
 								<?php } ?>
 							</select>
+							<button type="submit" formaction="recherche.php#form-end" class="secondary-btn"
+								<?= $region === "" ? 'disabled="disabled"' : "" ?>>
+								<?= texte_securise("Afficher les villes") ?>
+							</button>
 						</div>
 
 						<div class="bloc-champ">
