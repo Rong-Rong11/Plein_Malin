@@ -107,8 +107,8 @@ require __DIR__ . "/includes/header.php";
 					</div>
 				</div>
 				<div class="visuel-accueil">
-					<img class="image-banniere-accueil image-accueil-jour" src="image/image-accueil(light).png" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="888" height="898" decoding="async" fetchpriority="high" />
-					<img class="image-banniere-accueil image-accueil-nuit" src="image/image-accueil(dark).png" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="1604" height="1616" decoding="async" fetchpriority="high" />
+					<img class="image-banniere-accueil image-accueil-jour" src="image/image-accueil(light).webp" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="898" height="908" decoding="async" fetchpriority="high" />
+					<img class="image-banniere-accueil image-accueil-nuit" src="image/image-accueil(dark).webp" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="910" height="908" decoding="async" fetchpriority="high" />
 				</div>
 			</div>
 

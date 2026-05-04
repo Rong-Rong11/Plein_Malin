@@ -232,7 +232,7 @@ require __DIR__ . "/includes/header.php";
 						</div>
 					<?php } ?>
 					<div class="defilement-carte">
-						<img src="image/<?= $theme === "night" ? "map(dark).jpg" : "map(light).jpg" ?>" alt="<?= texte_securise("Carte des régions") ?>"
+						<img src="image/<?= $theme === "night" ? "map(dark).webp" : "map(light).webp" ?>" alt="<?= texte_securise("Carte des régions") ?>"
 							usemap="#regions-map" class="image-carte" width="<?= texte_securise((string) $largeurCarte) ?>" height="<?= texte_securise((string) $hauteurCarte) ?>" decoding="async" fetchpriority="high" />
 					</div>
 					<map name="regions-map">
@@ -254,7 +254,7 @@ require __DIR__ . "/includes/header.php";
 						<div class="bloc-champ">
 							<label class="titre-champ" for="department-select"><?= texte_securise("Département") ?></label>
 							<span class="aide-champ"><?= texte_securise("Choisissez un département.") ?></span>
-							<select id="department-select" name="department" onchange="this.form.action='recherche.php#form-end'; this.form.submit();"
+							<select id="department-select" name="department"
 								<?= $region === "" ? 'disabled="disabled"' : "" ?>>
 								<option value=""><?= texte_securise($region === "" ? "Choisir d'abord une région" : "Choisir un département") ?></option>
 								<?php foreach ($departements as $unDepartement) { ?>
@@ -279,6 +279,9 @@ require __DIR__ . "/includes/header.php";
 								<?php } ?>
 							</select>
 						</div>
+					</div>
+					<div class="actions-formulaire">
+						<button type="submit" formaction="recherche.php#form-end" class="bouton-secondaire"><?= texte_securise("Mettre à jour la liste des villes") ?></button>
 					</div>
 
 				</div>
