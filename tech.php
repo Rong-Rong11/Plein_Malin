@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * @file
  * @brief Page technique de demonstration des formats exploites.
@@ -31,12 +32,12 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Page technique conservee pou
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page-shell tech-page info-page">
+<main class="page tech-page info-page">
 	<section class="panel tech-hero">
-		<h1><?= texte_securise("Page tech") ?></h1>
+		<h1>Page tech</h1>
 		<p class="lead">
-			<?= texte_securise("Cette page reste accessible depuis le footer pour montrer l'avancement initial") ?>
-			<?= texte_securise("et la logique technique reutilisee dans Plein Malin.") ?>
+			Cette page reste accessible depuis le footer pour montrer l'avancement initial
+			et la logique technique reutilisee dans Plein Malin.
 		</p>
 		<section class="info-block tech-summary">
 			<h2><?= texte_securise("Synthese technique du projet") ?></h2>
@@ -59,7 +60,7 @@ require __DIR__ . "/includes/header.php";
 		<section class="info-block tech-feature">
 			<h2><?= texte_securise("API Ghibli") ?></h2>
 			<?php if ($film === null) { ?>
-				<p class="empty-state"><?= texte_securise("API Ghibli indisponible pour le moment.") ?></p>
+				<p class="message-vide">API Ghibli indisponible pour le moment.</p>
 			<?php } else { ?>
 				<h3 class="tech-subtitle">
 					<?= texte_securise((string) $film['title']) ?>
@@ -199,8 +200,8 @@ require __DIR__ . "/includes/header.php";
 		<section class="info-block tech-feature">
 			<h2>Flux carburants cote serveur</h2>
 			<p>
-				<?= texte_securise("Les stations-service sont recherchees depuis l'API JSON officielle du") ?>
-				<?= texte_securise("gouvernement avec un filtre sur le departement et la ville.") ?>
+				Les stations-service sont recherchees depuis l'API JSON officielle du
+				gouvernement avec un filtre sur le departement et la ville.
 			</p>
 			<ul class="plain-list">
 				<li><?= texte_securise("Requete HTTP cote serveur en PHP") ?></li>

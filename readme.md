@@ -17,7 +17,7 @@ Le site propose aussi une page de resultats, des statistiques de consultation, d
 
 ## URL du site
 
-- URL publique du site : a completer apres mise en ligne
+- URL publique du site : non disponible (site non encore mis en ligne)
 - URL locale de developpement : `http://localhost/Plein_Malin/`
 - Page d'accueil : `index.php`
 
@@ -75,7 +75,6 @@ Les principales constantes sont definies dans `includes/fonctions-config.php` :
 - Fichiers CSV locaux pour les regions, departements et villes
 - API officielle des prix des carburants
 - Geolocalisation approximative par adresse IP
-- En developpement local, les adresses `127.0.0.1` et `::1` ne declenchent pas d'appel externe de geolocalisation
 - Archive annuelle XML officielle pour les tendances de prix
 - Fichiers CSV locaux pour les consultations et les visites
 - Cache local pour limiter les appels aux services externes

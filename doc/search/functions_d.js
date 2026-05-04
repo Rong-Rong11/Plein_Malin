@@ -1,7 +1,7 @@
 var searchData=
 [
   ['texte_5fcarburants_5fselectionnes_0',['texte_carburants_selectionnes',['../group__recherche.html#ga9d23f643f7b803304784a68a5814cada',1,'fonctions-recherche.php']]],
-  ['texte_5fsecurise_1',['texte_securise',['../group__securite.html#ga2c6f7c63c34379a746a4ac69c9c3278b',1,'fonctions-securite.php']]],
+  ['texte_5fsecurise_1',['texte_securise',['../fonctions-securite_8php.html#a2c6f7c63c34379a746a4ac69c9c3278b',1,'fonctions-securite.php']]],
   ['top_5fclassement_5fstatistique_2',['top_classement_statistique',['../fonctions-stats_8php.html#a8912613f5cb758b98e3210a4b038a1e6',1,'fonctions-stats.php']]],
   ['traductions_5faccueil_3',['traductions_accueil',['../fonctions-traductions_8php.html#ab63a4e2ed91be1c91983ff57ad6a7a49',1,'fonctions-traductions.php']]],
   ['traductions_5fcommunes_4',['traductions_communes',['../fonctions-traductions_8php.html#ac6dc69184609d3e4c948a80be94222cc',1,'fonctions-traductions.php']]],

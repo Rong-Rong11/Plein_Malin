@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * @file
  * @brief Page de confidentialite et de donnees conservees.
@@ -20,7 +21,7 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Confidentialité.";
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page-shell info-page">
+<main class="page info-page">
 	<section class="panel">
 		<p class="eyebrow"><?= texte_securise("Confidentialité") ?></p>
 		<h1><?= texte_securise("Confidentialité") ?></h1>
@@ -30,7 +31,7 @@ require __DIR__ . "/includes/header.php";
 		</p>
 		<section class="info-block">
 			<h2><?= texte_securise("Cookies utilisés") ?></h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li><code>theme</code> : <?= texte_securise("mémorise le choix du mode jour ou nuit.") ?></li>
 			<li><code>lang</code> : <?= texte_securise("mémorise la langue d'affichage.") ?></li>
 			<li><code>last_visited_city</code> : <?= texte_securise("mémorise la dernière ville consultée.") ?></li>
@@ -40,7 +41,7 @@ require __DIR__ . "/includes/header.php";
 
 		<section class="info-block">
 			<h2><?= texte_securise("Données stockées côté serveur") ?></h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li><?= texte_securise("Les consultations sont enregistrées dans") ?> <code>storage/consultations.csv</code>.</li>
 			<li><?= texte_securise("Les visites de pages sont enregistrées dans") ?> <code>storage/page_visits.csv</code>.</li>
 			<li><?= texte_securise("Chaque ligne contient un horodatage pour permettre les statistiques.") ?></li>
