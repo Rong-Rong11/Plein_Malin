@@ -250,60 +250,111 @@ function villes_par_departement(string $codeDepartement): array
 	return $cacheDepartements[$codeDepartement];
 }
 /**
- * Lit le fichier XML local utilise pour la demonstration technique.
+ * Transforme un noeud XML de point de vente en tableau affiche par la page tech.
  *
- * @return array<int,array> Stations lues dans data/sample_fuel_prices.xml.
- *
- * @ingroup donnees
+ * @param SimpleXMLElement $pointVente Noeud XML <pdv>.
+ * @return array Station normalisee pour l'affichage.
  */
-function lire_stations_xml_demo(): array
+function transformer_point_vente_xml_demo(SimpleXMLElement $pointVente): array
 {
-	$fichier = PM_DATA_DIR . "/sample_fuel_prices.xml";
+	$prix = [];
+	$services = [];
 
-	if (!file_exists($fichier)) {
+	foreach ($pointVente->prix as $prixXml) {
+		$prix[] = [
+			"nom" => (string) ($prixXml["nom"] ?? ""),
+			"valeur" => (string) ($prixXml["valeur"] ?? ""),
+			"maj" => (string) ($prixXml["maj"] ?? ""),
+		];
+	}
+
+	$servicesXml = [];
+
+	if (isset($pointVente->services->service)) {
+		$servicesXml = $pointVente->services->service;
+	}
+
+	foreach ($servicesXml as $serviceXml) {
+		$services[] = (string) $serviceXml;
+	}
+
+	return [
+		"id" => (string) ($pointVente["id"] ?? ""),
+		"cp" => (string) ($pointVente["cp"] ?? ""),
+		"adresse" => (string) $pointVente->adresse,
+		"ville" => (string) $pointVente->ville,
+		"enseigne" => (string) $pointVente->enseigne,
+		"prix" => $prix,
+		"services" => $services,
+	];
+}
+/**
+ * Lit quelques stations dans le XML contenu dans l'archive officielle.
+ *
+ * @param string $fichierZip Chemin de l'archive officielle en cache.
+ * @param string $nomXml Nom du fichier XML dans l'archive.
+ * @param int $limite Nombre maximum de stations a retourner.
+ * @return array<int,array> Stations extraites du flux XML officiel.
+ */
+function lire_stations_depuis_archive_xml_demo(string $fichierZip, string $nomXml, int $limite): array
+{
+	if ($nomXml === "" || !class_exists("XMLReader")) {
 		return [];
 	}
 
-	$xml = simplexml_load_file($fichier);
+	$lecteur = new XMLReader();
+	$cheminZip = "zip://" . $fichierZip . "#" . $nomXml;
 
-	if ($xml === false) {
+	if (!$lecteur->open($cheminZip)) {
 		return [];
 	}
 
 	$stations = [];
 
-	foreach ($xml->pdv as $pointVente) {
-		$prix = [];
-		$services = [];
-
-		foreach ($pointVente->prix as $prixXml) {
-			$prix[] = [
-				"nom" => (string) ($prixXml["nom"] ?? ""),
-				"valeur" => (string) ($prixXml["valeur"] ?? ""),
-				"maj" => (string) ($prixXml["maj"] ?? ""),
-			];
+	while ($lecteur->read()) {
+		if ($lecteur->nodeType !== XMLReader::ELEMENT || $lecteur->name !== "pdv") {
+			continue;
 		}
 
-		$servicesXml = [];
+		$contenuPdv = $lecteur->readOuterXML();
+		$pointVente = simplexml_load_string($contenuPdv);
 
-		if (isset($pointVente->services->service)) {
-			$servicesXml = $pointVente->services->service;
+		if ($pointVente !== false) {
+			$stations[] = transformer_point_vente_xml_demo($pointVente);
 		}
 
-		foreach ($servicesXml as $serviceXml) {
-			$services[] = (string) $serviceXml;
+		if (count($stations) >= $limite) {
+			break;
 		}
-
-		$stations[] = [
-			"id" => (string) ($pointVente["id"] ?? ""),
-			"cp" => (string) ($pointVente["cp"] ?? ""),
-			"adresse" => (string) $pointVente->adresse,
-			"ville" => (string) $pointVente->ville,
-			"enseigne" => (string) $pointVente->enseigne,
-			"prix" => $prix,
-			"services" => $services,
-		];
 	}
 
+	$lecteur->close();
 	return $stations;
+}
+/**
+ * Lit le flux XML officiel des prix carburants utilise pour la demonstration technique.
+ *
+ * L'archive distante est conservee dans le dossier cache uniquement pour eviter
+ * de retelcharger le flux officiel a chaque affichage de la page tech.
+ *
+ * @return array<int,array> Stations extraites de l'archive XML officielle.
+ *
+ * @ingroup donnees
+ */
+function lire_stations_xml_demo(): array
+{
+	if (!function_exists("preparer_archive_prix_annuelle") || !function_exists("trouver_xml_dans_archive")) {
+		return [];
+	}
+
+	$annee = (int) date("Y");
+	$sourceUrl = "https://donnees.roulez-eco.fr/opendata/annee/" . $annee;
+	$fichierZip = PM_CACHE_DIR . "/fuel_history_" . $annee . ".zip";
+
+	if (!preparer_archive_prix_annuelle($fichierZip, $sourceUrl)) {
+		return [];
+	}
+
+	$nomXml = trouver_xml_dans_archive($fichierZip);
+	return lire_stations_depuis_archive_xml_demo($fichierZip, $nomXml, 5);
 }

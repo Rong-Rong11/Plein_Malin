@@ -475,20 +475,10 @@ function recuperer_geolocalisation(): array
 {
 	$ip = recuperer_ip_visiteur();
 
-	if (est_ip_locale($ip)) {
-		return [
-			"source" => "adresse locale",
-			"ip" => $ip,
-			"city" => "",
-			"region" => "",
-			"latitude" => 0.0,
-			"longitude" => 0.0,
-		];
-	}
-
-	$nomCache = nom_cache_depuis_texte("geo_", $ip);
-
-	$contenu = lire_api_avec_cache("https://ipapi.co/" . rawurlencode($ip) . "/json/", $nomCache);
+	$contenu = lire_api_avec_cache(
+		"https://ipapi.co/" . rawurlencode($ip) . "/json/",
+		construire_cle_cache("geo", $ip)
+	);
 
 	if ($contenu !== null) {
 		$json = json_decode($contenu, true);
@@ -596,10 +586,22 @@ function est_arrondissement_municipal(array $ville): bool
 	}
 
 	$codesMarseille = [
-		"13201", "13202", "13203", "13204",
-		"13205", "13206", "13207", "13208",
-		"13209", "13210", "13211", "13212",
-		"13213", "13214", "13215", "13216",
+		"13201",
+		"13202",
+		"13203",
+		"13204",
+		"13205",
+		"13206",
+		"13207",
+		"13208",
+		"13209",
+		"13210",
+		"13211",
+		"13212",
+		"13213",
+		"13214",
+		"13215",
+		"13216",
 	];
 
 	if (in_array($codeVilleApi, $codesMarseille, true) && str_starts_with($nomVille, "Marseille ")) {
@@ -862,10 +864,30 @@ function lire_stations_api(?array $ville, bool $modeDepartement = false, ?array 
 		return [];
 	}
 
-	if ($ville === null) {
-		$villeInfos = [];
+	$villeReference = $ville;
+	$departement = (string) ($villeReference["department_code"] ?? "");
+	$nomVille = trim((string) ($villeReference["city_name"] ?? ""));
+	$codePostal = trim((string) ($villeReference["postal_code"] ?? ""));
+	$filtres = [];
+
+	if ($origine !== null) {
+		$latitude = arrondir_coordonnee_cache((float) ($origine["latitude"] ?? 0));
+		$longitude = arrondir_coordonnee_cache((float) ($origine["longitude"] ?? 0));
+		$rayonKm = normaliser_rayon_geo($rayonKm);
+
+		$filtres[] = "within_distance(geom, geom'POINT(" . $longitude . " " . $latitude . ")', " . $rayonKm . " km)";
 	} else {
-		$villeInfos = $ville;
+		if ($departement !== "") {
+			$filtres[] = 'code_departement="' . addslashes($departement) . '"';
+		}
+
+		if (!$modeDepartement && $nomVille !== "") {
+			if ($codePostal !== "" && est_arrondissement_municipal($villeReference)) {
+				$filtres[] = 'code_postal="' . addslashes($codePostal) . '"';
+			} else {
+				$filtres[] = 'ville="' . addslashes($nomVille) . '"';
+			}
+		}
 	}
 
 	if (isset($villeInfos["department_code"])) {
@@ -884,7 +906,7 @@ function lire_stations_api(?array $ville, bool $modeDepartement = false, ?array 
 	$adresseUrl = construire_url_api_stations($clauseWhere);
 	$nomCache = nom_cache_depuis_texte("fuel_search_", $adresseUrl);
 
-	$contenu = lire_api_avec_cache($adresseUrl, $nomCache);
+	$contenu = lire_api_avec_cache($adresseUrl, construire_cle_cache("fuel_search", $adresseUrl));
 
 	if ($contenu === null) {
 		return null;
