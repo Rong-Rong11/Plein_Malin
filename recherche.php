@@ -122,40 +122,40 @@ require __DIR__ . "/includes/header.php";
 ?>
 <main class="page-shell">
 	<section class="panel" id="carte">
-		<p class="eyebrow">Recherche principale</p>
-		<h1>Rechercher une station</h1>
+		<p class="eyebrow"><?= texte_securise("Recherche principale") ?></p>
+		<h1><?= texte_securise("Rechercher une station") ?></h1>
 		<?php if ($modeRecherche === "geo") { ?>
 			<p class="lead">
-				Utilisez votre position approximative pour lancer une recherche rapide,
-				sans passer par la carte ni le choix manuel de ville.
+				<?= texte_securise("Utilisez votre position approximative pour lancer une recherche rapide,") ?>
+				<?= texte_securise("sans passer par la carte ni le choix manuel de ville.") ?>
 			</p>
 		<?php } else { ?>
 			<p class="lead">
-				Choisissez votre région, puis précisez le département et la ville dans le formulaire.
+				<?= texte_securise("Choisissez votre région, puis précisez le département et la ville dans le formulaire.") ?>
 			</p>
 		<?php } ?>
 		<div class="search-mode-switch">
 			<form action="recherche.php#recherche" method="get" class="mode-switch-form">
 				<input type="hidden" name="search_mode" value="manual" />
-				<button type="submit" class="mode-pill<?= $modeRecherche === "manual" ? " is-active" : "" ?>">Recherche manuelle</button>
+				<button type="submit" class="mode-pill<?= $modeRecherche === "manual" ? " is-active" : "" ?>"><?= texte_securise("Recherche manuelle") ?></button>
 			</form>
 			<form action="recherche.php#recherche" method="get" class="mode-switch-form">
 				<input type="hidden" name="search_mode" value="geo" />
-				<button type="submit" class="mode-pill<?= $modeRecherche === "geo" ? " is-active" : "" ?>">Autour de moi</button>
+				<button type="submit" class="mode-pill<?= $modeRecherche === "geo" ? " is-active" : "" ?>"><?= texte_securise("Autour de moi") ?></button>
 			</form>
 		</div>
 	</section>
 
 	<section class="panel" id="recherche">
-		<h2>Formulaire</h2>
+		<h2><?= texte_securise("Formulaire") ?></h2>
 		<?php if ($modeRecherche === "geo") { ?>
 			<form action="resultats.php#resultats" method="get" class="search-form search-form-structured">
 				<input type="hidden" name="use_geo" value="1" />
 				<div class="search-section search-plain">
-					<p class="section-label">Recherche autour de moi</p>
+					<p class="section-label"><?= texte_securise("Recherche autour de moi") ?></p>
 					<div class="field-grid field-grid-secondary">
 						<fieldset class="field-card field-card-soft field-card-wide">
-							<legend class="field-title">Carburants</legend>
+							<legend class="field-title"><?= texte_securise("Carburants") ?></legend>
 							<span class="fuel-choice-list">
 								<?php foreach ($libellesCarburants as $codeCarburant => $nomCarburant) { ?>
 									<label class="fuel-choice">
@@ -168,32 +168,32 @@ require __DIR__ . "/includes/header.php";
 						</fieldset>
 
 						<div class="field-card field-card-soft">
-							<label class="field-title" for="geo-sort-select">Tri</label>
+							<label class="field-title" for="geo-sort-select"><?= texte_securise("Tri") ?></label>
 							<select id="geo-sort-select" name="sort">
-								<option value="price" <?= $tri === "price" ? 'selected="selected"' : "" ?>>Prix croissant</option>
-								<option value="price_desc" <?= $tri === "price_desc" ? 'selected="selected"' : "" ?>>Prix décroissant</option>
-								<option value="distance" <?= $tri === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
-								<option value="name" <?= $tri === "name" ? 'selected="selected"' : "" ?>>Nom</option>
+								<option value="price" <?= $tri === "price" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix croissant") ?></option>
+								<option value="price_desc" <?= $tri === "price_desc" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix décroissant") ?></option>
+								<option value="distance" <?= $tri === "distance" ? 'selected="selected"' : "" ?>><?= texte_securise("Distance") ?></option>
+								<option value="name" <?= $tri === "name" ? 'selected="selected"' : "" ?>><?= texte_securise("Nom") ?></option>
 							</select>
 						</div>
 
 						<div class="field-card field-card-soft">
-							<label class="field-title" for="geo-view-select">Vue</label>
+							<label class="field-title" for="geo-view-select"><?= texte_securise("Vue") ?></label>
 							<select id="geo-view-select" name="view">
-								<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
-								<option value="detailed" <?= $vue === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
+								<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>><?= texte_securise("Synthèse") ?></option>
+								<option value="detailed" <?= $vue === "detailed" ? 'selected="selected"' : "" ?>><?= texte_securise("Détaillée") ?></option>
 							</select>
 						</div>
 					</div>
 
 					<div class="action-panel">
 						<div class="action-copy">
-							<p class="context-title">Lancer la recherche</p>
-							<p class="small-note">La position utilisée reste approximative car elle vient de l'adresse IP.</p>
+							<p class="context-title"><?= texte_securise("Lancer la recherche") ?></p>
+							<p class="small-note"><?= texte_securise("La position utilisée reste approximative car elle vient de l'adresse IP.") ?></p>
 						</div>
 						<div class="form-actions action-buttons">
 							<div class="inline-filter">
-								<label for="geo-radius-select">Rayon</label>
+								<label for="geo-radius-select"><?= texte_securise("Rayon") ?></label>
 								<select id="geo-radius-select" name="geo_radius">
 									<?php foreach (rayons_geo_disponibles() as $rayon) { ?>
 										<option value="<?= texte_securise((string) $rayon) ?>" <?= $rayonGeo === $rayon ? 'selected="selected"' : "" ?>>
@@ -202,8 +202,8 @@ require __DIR__ . "/includes/header.php";
 									<?php } ?>
 								</select>
 							</div>
-							<button type="submit">Rechercher autour de moi</button>
-							<a href="recherche.php?search_mode=geo&amp;reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
+							<button type="submit"><?= texte_securise("Rechercher autour de moi") ?></button>
+							<a href="recherche.php?search_mode=geo&amp;reset=1#recherche" class="secondary-btn reset-link"><?= texte_securise("Réinitialiser") ?></a>
 						</div>
 					</div>
 				</div>
@@ -214,25 +214,25 @@ require __DIR__ . "/includes/header.php";
 				<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
 
 				<div class="search-section search-context">
-					<p class="section-label">1. Région et localisation</p>
+					<p class="section-label">1. <?= texte_securise("Région") ?></p>
 					<?php if ($infosRegion !== null) { ?>
 						<div class="context-card">
 							<div>
-								<p class="context-title">Région déjà choisie</p>
+								<p class="context-title"><?= texte_securise("Région déjà choisie") ?></p>
 								<div class="region-badge"><?= texte_securise($infosRegion["region_name"]) ?></div>
 							</div>
-							<span class="context-link">Choisissez une autre région directement sur la carte ci-dessous.</span>
+							<span class="context-link"><?= texte_securise("Choisissez une autre région directement sur la carte ci-dessous.") ?></span>
 						</div>
 					<?php } else { ?>
 						<div class="context-card">
 							<div>
-								<p class="context-title">Aucune région sélectionnée</p>
-								<p class="small-note">Commencez par cliquer sur la carte ci-dessous.</p>
+								<p class="context-title"><?= texte_securise("Aucune région sélectionnée") ?></p>
+								<p class="small-note"><?= texte_securise("Commencez par cliquer sur la carte ci-dessous.") ?></p>
 							</div>
 						</div>
 					<?php } ?>
 					<div class="map-scroll">
-						<img src="image/<?= $theme === "night" ? "map(dark).jpg" : "map(light).jpg" ?>" alt="Carte interactive des régions de France"
+						<img src="image/<?= $theme === "night" ? "map(dark).jpg" : "map(light).jpg" ?>" alt="<?= texte_securise("Carte des régions") ?>"
 							usemap="#regions-map" class="map-image" width="<?= texte_securise((string) $largeurCarte) ?>" height="<?= texte_securise((string) $hauteurCarte) ?>" decoding="async" fetchpriority="high" />
 					</div>
 					<map name="regions-map">
@@ -252,11 +252,11 @@ require __DIR__ . "/includes/header.php";
 					</map>
 					<div class="field-grid field-grid-main">
 						<div class="field-card">
-							<label class="field-title" for="department-select">Département</label>
-							<span class="field-help">Choisissez un département.</span>
+							<label class="field-title" for="department-select"><?= texte_securise("Département") ?></label>
+							<span class="field-help"><?= texte_securise("Choisissez un département.") ?></span>
 							<select id="department-select" name="department" onchange="this.form.action='recherche.php#form-end'; this.form.submit();"
 								<?= $region === "" ? 'disabled="disabled"' : "" ?>>
-								<option value=""><?= $region === "" ? "Choisir d'abord une région" : "Choisir un département" ?></option>
+								<option value=""><?= texte_securise($region === "" ? "Choisir d'abord une région" : "Choisir un département") ?></option>
 								<?php foreach ($departements as $unDepartement) { ?>
 									<option value="<?= texte_securise($unDepartement["department_code"]) ?>"
 										<?= $departement === $unDepartement["department_code"] ? 'selected="selected"' : "" ?>>
@@ -268,10 +268,10 @@ require __DIR__ . "/includes/header.php";
 						</div>
 
 						<div class="field-card">
-							<label class="field-title" for="city-select">Ville</label>
-							<span class="field-help">Choisissez une ville.</span>
+							<label class="field-title" for="city-select"><?= texte_securise("Ville") ?></label>
+							<span class="field-help"><?= texte_securise("Choisissez une ville.") ?></span>
 							<select id="city-select" name="city" <?= $departement === "" ? 'disabled="disabled"' : "" ?>>
-								<option value=""><?= $departement === "" ? "Choisir d'abord un département" : "Choisir une ville" ?></option>
+								<option value=""><?= texte_securise($departement === "" ? "Choisir d'abord un département" : "Choisir une ville") ?></option>
 								<?php foreach ($villes as $uneVille) { ?>
 									<option value="<?= texte_securise($uneVille["city_code"]) ?>" <?= $ville === $uneVille["city_code"] ? 'selected="selected"' : "" ?>>
 										<?= texte_securise($uneVille["city_name"]) ?> (<?= texte_securise($uneVille["postal_code"]) ?>)
@@ -284,10 +284,10 @@ require __DIR__ . "/includes/header.php";
 				</div>
 
 				<div class="search-section search-plain">
-					<p class="section-label">2. Préférences et actions</p>
+					<p class="section-label">2. <?= texte_securise("Préférences et actions") ?></p>
 						<div class="field-grid field-grid-secondary">
 							<fieldset class="field-card field-card-soft field-card-wide">
-								<legend class="field-title">Carburants</legend>
+								<legend class="field-title"><?= texte_securise("Carburants") ?></legend>
 								<span class="fuel-choice-list">
 									<?php foreach ($libellesCarburants as $codeCarburant => $nomCarburant) { ?>
 										<label class="fuel-choice">
@@ -300,31 +300,31 @@ require __DIR__ . "/includes/header.php";
 							</fieldset>
 
 							<div class="field-card field-card-soft">
-								<label class="field-title" for="sort-select">Tri</label>
+								<label class="field-title" for="sort-select"><?= texte_securise("Tri") ?></label>
 								<select id="sort-select" name="sort">
-									<option value="price" <?= $tri === "price" ? 'selected="selected"' : "" ?>>Prix croissant</option>
-									<option value="price_desc" <?= $tri === "price_desc" ? 'selected="selected"' : "" ?>>Prix décroissant</option>
-									<option value="distance" <?= $tri === "distance" ? 'selected="selected"' : "" ?>>Distance</option>
-									<option value="name" <?= $tri === "name" ? 'selected="selected"' : "" ?>>Nom</option>
+									<option value="price" <?= $tri === "price" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix croissant") ?></option>
+									<option value="price_desc" <?= $tri === "price_desc" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix décroissant") ?></option>
+									<option value="distance" <?= $tri === "distance" ? 'selected="selected"' : "" ?>><?= texte_securise("Distance") ?></option>
+									<option value="name" <?= $tri === "name" ? 'selected="selected"' : "" ?>><?= texte_securise("Nom") ?></option>
 								</select>
 							</div>
 
 							<div class="field-card field-card-soft">
-								<label class="field-title" for="view-select">Vue</label>
+								<label class="field-title" for="view-select"><?= texte_securise("Vue") ?></label>
 								<select id="view-select" name="view">
-									<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>>Synthèse</option>
-									<option value="detailed" <?= $vue === "detailed" ? 'selected="selected"' : "" ?>>Détaillée</option>
+									<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>><?= texte_securise("Synthèse") ?></option>
+									<option value="detailed" <?= $vue === "detailed" ? 'selected="selected"' : "" ?>><?= texte_securise("Détaillée") ?></option>
 								</select>
 							</div>
 
 							<div class="field-card field-card-soft">
-								<span class="field-title" id="department-mode-title">Mode département</span>
-								<span class="field-help">Rechercher dans tout le département.</span>
+								<span class="field-title" id="department-mode-title"><?= texte_securise("Mode département") ?></span>
+								<span class="field-help"><?= texte_securise("Rechercher dans tout le département.") ?></span>
 								<span class="fuel-choice">
 									<input type="checkbox" id="department-mode" name="department_mode" value="1" aria-labelledby="department-mode-title"
 										<?= $modeDepartement ? 'checked="checked"' : "" ?>
 										<?= $departement === "" ? 'disabled="disabled"' : "" ?> />
-									<label for="department-mode">Tout le département</label>
+									<label for="department-mode"><?= texte_securise("Tout le département") ?></label>
 								</span>
 							</div>
 						</div>
@@ -332,7 +332,7 @@ require __DIR__ . "/includes/header.php";
 						<div class="action-panel" id="form-end">
 						<div class="form-actions action-buttons">
 							<div class="inline-filter">
-								<label for="manual-radius-select">Rayon</label>
+								<label for="manual-radius-select"><?= texte_securise("Rayon") ?></label>
 								<select id="manual-radius-select" name="geo_radius">
 									<?php foreach (rayons_geo_disponibles() as $rayon) { ?>
 										<option value="<?= texte_securise((string) $rayon) ?>" <?= $rayonGeo === $rayon ? 'selected="selected"' : "" ?>>
@@ -341,8 +341,8 @@ require __DIR__ . "/includes/header.php";
 									<?php } ?>
 								</select>
 							</div>
-							<button type="submit" formaction="resultats.php#resultats">Rechercher</button>
-							<a href="recherche.php?search_mode=manual&amp;reset=1#recherche" class="secondary-btn reset-link">Réinitialiser</a>
+							<button type="submit" formaction="resultats.php#resultats"><?= texte_securise("Rechercher") ?></button>
+							<a href="recherche.php?search_mode=manual&amp;reset=1#recherche" class="secondary-btn reset-link"><?= texte_securise("Réinitialiser") ?></a>
 						</div>
 						</div>
 				</div>

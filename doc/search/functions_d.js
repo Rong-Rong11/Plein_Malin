@@ -1,5 +1,26 @@
 var searchData=
 [
-  ['ville_5fexiste_5fdans_5fdepartement_0',['ville_existe_dans_departement',['../fonctions-donnees_8php.html#a8bb852ec55a6a405acada79e5011b591',1,'fonctions-donnees.php']]],
-  ['villes_5fpar_5fdepartement_1',['villes_par_departement',['../group__donnees.html#ga3eb870b5c8b768730abec0c9bfaf1ae3',1,'fonctions-donnees.php']]]
+  ['texte_5fcarburants_5fselectionnes_0',['texte_carburants_selectionnes',['../group__recherche.html#ga9d23f643f7b803304784a68a5814cada',1,'fonctions-recherche.php']]],
+  ['texte_5fsecurise_1',['texte_securise',['../group__securite.html#ga2c6f7c63c34379a746a4ac69c9c3278b',1,'fonctions-securite.php']]],
+  ['top_5fclassement_5fstatistique_2',['top_classement_statistique',['../fonctions-stats_8php.html#a8912613f5cb758b98e3210a4b038a1e6',1,'fonctions-stats.php']]],
+  ['traductions_5faccueil_3',['traductions_accueil',['../fonctions-traductions_8php.html#ab63a4e2ed91be1c91983ff57ad6a7a49',1,'fonctions-traductions.php']]],
+  ['traductions_5fcommunes_4',['traductions_communes',['../fonctions-traductions_8php.html#ac6dc69184609d3e4c948a80be94222cc',1,'fonctions-traductions.php']]],
+  ['traductions_5finterface_5',['traductions_interface',['../fonctions-traductions_8php.html#ae757ea7bfdc976880c1cc9e844cd15a9',1,'fonctions-traductions.php']]],
+  ['traductions_5fpages_5finfo_6',['traductions_pages_info',['../fonctions-traductions_8php.html#a717ccc21871a392a989decfe78c021c0',1,'fonctions-traductions.php']]],
+  ['traductions_5frecherche_7',['traductions_recherche',['../fonctions-traductions_8php.html#a52c34537ff6c6c8a0352850033cf1a7a',1,'fonctions-traductions.php']]],
+  ['traductions_5fresultats_8',['traductions_resultats',['../fonctions-traductions_8php.html#a32f3a1b23d5bf5fd6b2d898138a6723b',1,'fonctions-traductions.php']]],
+  ['traductions_5fstatistiques_9',['traductions_statistiques',['../fonctions-traductions_8php.html#af687d388e96233d7b1cb0d45d50dad50',1,'fonctions-traductions.php']]],
+  ['traductions_5ftechnique_10',['traductions_technique',['../fonctions-traductions_8php.html#a170ccff76886835e4095132f7f48707d',1,'fonctions-traductions.php']]],
+  ['traduire_5finterface_11',['traduire_interface',['../fonctions-traductions_8php.html#adf6d4191928c62c4632122bec5221d35',1,'fonctions-traductions.php']]],
+  ['traduire_5ftexte_12',['traduire_texte',['../fonctions-traductions_8php.html#ace945cd3ee74a149b9479dcd607d3592',1,'fonctions-traductions.php']]],
+  ['transformer_5fligne_5fapi_5fen_5fstation_13',['transformer_ligne_api_en_station',['../fonctions-recherche_8php.html#a5272d0c284225863fa490257dd379a5a',1,'fonctions-recherche.php']]],
+  ['trier_5fclassement_5fstatistique_14',['trier_classement_statistique',['../fonctions-stats_8php.html#a337da31accca97a2d46aea9facbc92b2',1,'fonctions-stats.php']]],
+  ['trier_5fmois_5fagreges_15',['trier_mois_agreges',['../fonctions-stats_8php.html#a2e35f29195181eb23e6c983d70add9aa',1,'fonctions-stats.php']]],
+  ['trier_5fresultats_5fstations_16',['trier_resultats_stations',['../fonctions-recherche_8php.html#abee47ed4ca51761143f73b1f847bfef0',1,'fonctions-recherche.php']]],
+  ['trouver_5fdepartement_17',['trouver_departement',['../group__donnees.html#ga3b9bd8bb861a8fa42c514f0207354290',1,'fonctions-donnees.php']]],
+  ['trouver_5fprix_5fprincipal_5fstation_18',['trouver_prix_principal_station',['../fonctions-recherche_8php.html#afd79331c9522489b387c80e7ebe38547',1,'fonctions-recherche.php']]],
+  ['trouver_5fregion_19',['trouver_region',['../group__donnees.html#gaa78144d470a9514c43a7cb294127c115',1,'fonctions-donnees.php']]],
+  ['trouver_5fville_20',['trouver_ville',['../group__donnees.html#ga6d98e07b5ac9bc64c1ca1bcacd52b37c',1,'fonctions-donnees.php']]],
+  ['trouver_5fville_5fplus_5fproche_21',['trouver_ville_plus_proche',['../group__recherche.html#ga34922b09838f86a3c0d56d2c0fb706d7',1,'fonctions-recherche.php']]],
+  ['trouver_5fxml_5fdans_5farchive_22',['trouver_xml_dans_archive',['../fonctions-stats_8php.html#a2648e0c0bc2abb4aad3aa429426a07ec',1,'fonctions-stats.php']]]
 ];

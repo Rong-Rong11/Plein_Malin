@@ -1,5 +1,6 @@
 var fonctions_donnees_8php =
 [
+    [ "comparer_departements_par_nom", "fonctions-donnees_8php.html#a1e8ba83defe74acc245a9454b765dba9", null ],
     [ "departement_existe_dans_region", "fonctions-donnees_8php.html#ae619f867dd8f251c7df6fc54100ab9ae", null ],
     [ "departements_par_region", "group__donnees.html#ga0ff4394b1152d5d2447982b29138ef6d", null ],
     [ "lire_csv_assoc", "group__donnees.html#ga653cc9ab48c69db961c3dafe6e9f6552", null ],

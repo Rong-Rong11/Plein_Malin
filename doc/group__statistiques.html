@@ -98,9 +98,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ga67c411fdd1c00eee6b60b50b02bb6c0f" id="r_ga67c411fdd1c00eee6b60b50b02bb6c0f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga67c411fdd1c00eee6b60b50b02bb6c0f">calculer_tendances_prix_annuelles</a> (int $annee, array $carburants)</td></tr>
 <tr class="memitem:gac802d15265a7990f630322ce7b74a842" id="r_gac802d15265a7990f630322ce7b74a842"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gac802d15265a7990f630322ce7b74a842">lire_tendances_prix_officielles</a> (?int $annee=null, ?array $carburants=null)</td></tr>
 <tr class="memitem:ga7695a5870df73db841e2b20f55baa8fc" id="r_ga7695a5870df73db841e2b20f55baa8fc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga7695a5870df73db841e2b20f55baa8fc">formater_mois_tendance</a> (string $mois)</td></tr>
-<tr class="memitem:gad62aadb86cccba03cb41f9f66b6712da" id="r_gad62aadb86cccba03cb41f9f66b6712da"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gad62aadb86cccba03cb41f9f66b6712da">points_graphique_tendance</a> (array $moisDonnees, int $largeur=420, int $hauteur=170)</td></tr>
-<tr class="memitem:gaa5325e8cb2f4af7308339270b56390fe" id="r_gaa5325e8cb2f4af7308339270b56390fe"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gaa5325e8cb2f4af7308339270b56390fe">graduations_prix_tendance</a> (array $moisDonnees, int $largeur=420, int $hauteur=170, int $nombre=4)</td></tr>
-<tr class="memitem:gaae7823debdb6caf5d9c5345d9ae63d46" id="r_gaae7823debdb6caf5d9c5345d9ae63d46"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gaae7823debdb6caf5d9c5345d9ae63d46">graduations_mois_tendance</a> (array $moisDonnees, int $largeur=420)</td></tr>
 <tr class="memitem:ga4bb5e92f5b7611482f99ca78f9e5647a" id="r_ga4bb5e92f5b7611482f99ca78f9e5647a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga4bb5e92f5b7611482f99ca78f9e5647a">enregistrer_consultation</a> (array $infos)</td></tr>
 <tr class="memitem:ga89d91551844fe377317f527620eae87a" id="r_ga89d91551844fe377317f527620eae87a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga89d91551844fe377317f527620eae87a">enregistrer_visite_page</a> ()</td></tr>
 <tr class="memitem:ga5b42211615afbdf17d0a0f52232108c0" id="r_ga5b42211615afbdf17d0a0f52232108c0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ga5b42211615afbdf17d0a0f52232108c0">calculer_statistiques</a> ()</td></tr>
@@ -226,78 +223,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaae7823debdb6caf5d9c5345d9ae63d46" name="gaae7823debdb6caf5d9c5345d9ae63d46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaae7823debdb6caf5d9c5345d9ae63d46">&#9670;&#160;</a></span>graduations_mois_tendance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">graduations_mois_tendance </td>
-          <td>(</td>
-          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$moisDonnees</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$largeur</em></span><span class="paramdefsep"> = </span><span class="paramdefval">420</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Calcule les positions des libelles de mois d'un graphique SVG.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramtype">array</td><td class="paramname">$moisDonnees</td><td>Donnees mensuelles. </td></tr>
-    <tr><td class="paramtype">int</td><td class="paramname">$largeur</td><td>Largeur du SVG. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>array&lt;int,array&lt;string,float|string&gt;&gt; Graduations de mois. </dd></dl>
-
-</div>
-</div>
-<a id="gaa5325e8cb2f4af7308339270b56390fe" name="gaa5325e8cb2f4af7308339270b56390fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa5325e8cb2f4af7308339270b56390fe">&#9670;&#160;</a></span>graduations_prix_tendance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">graduations_prix_tendance </td>
-          <td>(</td>
-          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$moisDonnees</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$largeur</em></span><span class="paramdefsep"> = </span><span class="paramdefval">420</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$hauteur</em></span><span class="paramdefsep"> = </span><span class="paramdefval">170</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$nombre</em></span><span class="paramdefsep"> = </span><span class="paramdefval">4</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Calcule les lignes horizontales et libelles de prix d'un graphique SVG.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramtype">array</td><td class="paramname">$moisDonnees</td><td>Donnees mensuelles. </td></tr>
-    <tr><td class="paramtype">int</td><td class="paramname">$largeur</td><td>Largeur du SVG. </td></tr>
-    <tr><td class="paramtype">int</td><td class="paramname">$hauteur</td><td>Hauteur du SVG. </td></tr>
-    <tr><td class="paramtype">int</td><td class="paramname">$nombre</td><td>Nombre d'intervalles. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>array&lt;int,array&lt;string,float|int&gt;&gt; Graduations de prix. </dd></dl>
-
-</div>
-</div>
 <a id="gac802d15265a7990f630322ce7b74a842" name="gac802d15265a7990f630322ce7b74a842"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gac802d15265a7990f630322ce7b74a842">&#9670;&#160;</a></span>lire_tendances_prix_officielles()</h2>
 
@@ -325,42 +250,6 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array Donnees de tendance pretes pour la page statistiques, avec reference_averages pour l'annee precedente. </dd></dl>
-
-</div>
-</div>
-<a id="gad62aadb86cccba03cb41f9f66b6712da" name="gad62aadb86cccba03cb41f9f66b6712da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad62aadb86cccba03cb41f9f66b6712da">&#9670;&#160;</a></span>points_graphique_tendance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">points_graphique_tendance </td>
-          <td>(</td>
-          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$moisDonnees</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$largeur</em></span><span class="paramdefsep"> = </span><span class="paramdefval">420</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$hauteur</em></span><span class="paramdefsep"> = </span><span class="paramdefval">170</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Transforme une serie mensuelle en points SVG pour une courbe.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramtype">array</td><td class="paramname">$moisDonnees</td><td>Donnees mensuelles avec average_price. </td></tr>
-    <tr><td class="paramtype">int</td><td class="paramname">$largeur</td><td>Largeur du SVG. </td></tr>
-    <tr><td class="paramtype">int</td><td class="paramname">$hauteur</td><td>Hauteur du SVG. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>string Points de polyline SVG. </dd></dl>
 
 </div>
 </div>

@@ -15,9 +15,12 @@ var searchData=
   ['pm_5fmax_5fstations_5fdisplayed_12',['PM_MAX_STATIONS_DISPLAYED',['../fonctions-config_8php.html#aebe516d22e8c5318aa2c91accaf7fc6b',1,'fonctions-config.php']]],
   ['pm_5fstorage_5fdir_13',['PM_STORAGE_DIR',['../fonctions-config_8php.html#a29161461f828c73fb5a823296bd0b240',1,'fonctions-config.php']]],
   ['pm_5ftrend_5ffuels_14',['PM_TREND_FUELS',['../fonctions-config_8php.html#a00d82bf1796771e41caa2170238c1b14',1,'fonctions-config.php']]],
-  ['points_5fgraphique_5ftendance_15',['points_graphique_tendance',['../group__statistiques.html#gad62aadb86cccba03cb41f9f66b6712da',1,'fonctions-stats.php']]],
-  ['preferences_20utilisateur_16',['Preferences utilisateur',['../group__preferences.html',1,'']]],
+  ['preferences_20utilisateur_15',['Preferences utilisateur',['../group__preferences.html',1,'']]],
+  ['preparer_5farchive_5fprix_5fannuelle_16',['preparer_archive_prix_annuelle',['../fonctions-stats_8php.html#adafbb2348b876227c6b7edf0da77d8ab',1,'fonctions-stats.php']]],
   ['preparer_5fdossiers_5fet_5ffichiers_17',['preparer_dossiers_et_fichiers',['../group__securite.html#gab8a41da228f6cdaa48a48ae09171ccf0',1,'fonctions-securite.php']]],
-  ['principales_18',['Fonctionnalites principales',['../index.html#fonctionnalites',1,'']]],
-  ['projet_20plein_20malin_19',['Documentation du projet Plein Malin',['../index.html',1,'']]]
+  ['preparer_5fresultats_5fstations_18',['preparer_resultats_stations',['../fonctions-recherche_8php.html#ada7271cac761f01870c8dd654556d379',1,'fonctions-recherche.php']]],
+  ['preparer_5fstation_5fresultat_19',['preparer_station_resultat',['../fonctions-recherche_8php.html#a633b5c07e1ee233ff65725d89f7697dd',1,'fonctions-recherche.php']]],
+  ['principales_20',['Fonctionnalites principales',['../index.html#fonctionnalites',1,'']]],
+  ['prix_5fcarburants_5fselectionnes_5fstation_21',['prix_carburants_selectionnes_station',['../fonctions-recherche_8php.html#a0b57ef2f030fc6b9a604633033e39ca1',1,'fonctions-recherche.php']]],
+  ['projet_20plein_20malin_22',['Documentation du projet Plein Malin',['../index.html',1,'']]]
 ];

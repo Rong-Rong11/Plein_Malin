@@ -55,24 +55,24 @@ function lire_csv_assoc(string $fichier): array
 		return $lignes;
 	}
 
-	$poignee = fopen($fichier, "r");
-	if ($poignee === false) {
+	$fichierOuvert = fopen($fichier, "r");
+	if ($fichierOuvert === false) {
 		return $lignes;
 	}
 
-	$entetes = fgetcsv($poignee, 0, ",", "\"", "\\");
+	$entetes = fgetcsv($fichierOuvert, 0, ",", "\"", "\\");
 	if (!is_array($entetes)) {
-		fclose($poignee);
+		fclose($fichierOuvert);
 		return $lignes;
 	}
 
-	while (($valeurs = fgetcsv($poignee, 0, ",", "\"", "\\")) !== false) {
+	while (($valeurs = fgetcsv($fichierOuvert, 0, ",", "\"", "\\")) !== false) {
 		if (count($valeurs) === count($entetes)) {
 			$lignes[] = array_combine($entetes, $valeurs);
 		}
 	}
 
-	fclose($poignee);
+	fclose($fichierOuvert);
 	return $lignes;
 }
 /**
@@ -194,19 +194,31 @@ function trouver_ville(string $code): ?array
  */
 function departements_par_region(string $codeRegion): array
 {
+	$departements = lire_departements();
 	$resultat = [];
 
-	foreach (lire_departements() as $departement) {
-		if ($codeRegion === "" || $departement["region_code"] === $codeRegion) {
+	foreach ($departements as $departement) {
+		$codeRegionDepartement = $departement["region_code"];
+
+		if ($codeRegion === "" || $codeRegionDepartement === $codeRegion) {
 			$resultat[] = $departement;
 		}
 	}
 
-	usort($resultat, static function (array $a, array $b): int {
-		return strcmp($a["department_name"], $b["department_name"]);
-	});
+	usort($resultat, "comparer_departements_par_nom");
 
 	return $resultat;
+}
+/**
+ * Compare deux departements par leur nom pour les trier.
+ *
+ * @param array $departementA Premier departement a comparer.
+ * @param array $departementB Deuxieme departement a comparer.
+ * @return int Resultat de comparaison alphabetique.
+ */
+function comparer_departements_par_nom(array $departementA, array $departementB): int
+{
+	return strcmp($departementA["department_name"], $departementB["department_name"]);
 }
 /**
  * Retourne les villes d'un departement.
@@ -271,7 +283,13 @@ function lire_stations_xml_demo(): array
 			];
 		}
 
-		foreach ($pointVente->services->service ?? [] as $serviceXml) {
+		$servicesXml = [];
+
+		if (isset($pointVente->services->service)) {
+			$servicesXml = $pointVente->services->service;
+		}
+
+		foreach ($servicesXml as $serviceXml) {
 			$services[] = (string) $serviceXml;
 		}
 

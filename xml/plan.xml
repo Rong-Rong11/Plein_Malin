@@ -38,25 +38,22 @@
 		<p class="eyebrow">Navigation</p>
 		<h1>Plan du site</h1>
 		<p class="lead">
-			Retrouvez ici les pages principales du site et les pages d'information du projet.
-		</p>
+			Retrouvez ici les pages principales du site et les pages d&#039;information du projet.		</p>
 	</section>
 
 	<section class="panel">
 		<h2>Schéma de navigation</h2>
 		<p class="small-note">
-			Le schéma se lit de haut en bas : commencez par l'accueil, puis suivez la colonne de gauche
-			pour effectuer une recherche. La colonne de droite regroupe les pages d'explication du projet.
-		</p>
+			Le schéma se lit de haut en bas : commencez par l&#039;accueil, puis suivez la colonne de gauche			pour effectuer une recherche. La colonne de droite regroupe les pages d&#039;explication du projet.		</p>
 		<div class="sitemap-legend">
-			<span><strong>Trait orange</strong> : parcours principal de l'utilisateur</span>
-			<span><strong>Trait gris</strong> : pages d'information</span>
+			<span><strong>Trait orange</strong> : parcours principal de l&#039;utilisateur</span>
+			<span><strong>Trait gris</strong> : pages d&#039;information</span>
 		</div>
 		<div class="sitemap-diagram">
 			<a class="sitemap-node sitemap-home" href="index.php">
 				<small>Départ</small>
 				<strong>Accueil</strong>
-				<span>Page d'entrée du site</span>
+				<span>Page d&#039;entrée du site</span>
 			</a>
 
 			<div class="sitemap-branches">
@@ -82,7 +79,7 @@
 				</div>
 
 				<div class="sitemap-group">
-					<h3>Pages d'explication</h3>
+					<h3>Pages d&#039;explication</h3>
 					<div class="sitemap-line sitemap-line-info">
 						<a class="sitemap-node" href="a-propos.php">
 							<strong>À propos</strong>
@@ -94,7 +91,7 @@
 						</a>
 						<a class="sitemap-node" href="sources.php">
 							<strong>Sources des données</strong>
-							<span>Voir d'où viennent les données CSV, JSON, XML et API</span>
+							<span>Voir d&#039;où viennent les données CSV, JSON, XML et API</span>
 						</a>
 						<a class="sitemap-node" href="confidentialite.php">
 							<strong>Confidentialité</strong>
@@ -128,7 +125,8 @@
 	<p>Enzo Phung | Fatma-Zahra Baarir | Plan du site.</p>
 </footer>
 <a href="#top" class="back-top">
-	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64"
+		loading="lazy" decoding="async" />
 </a>
 </body>
 

@@ -24,5 +24,5 @@ var recherche_8php =
     [ "$villes", "recherche_8php.html#afdefc0303846ad7cedbfd9acb7184a7a", null ],
     [ "$vue", "recherche_8php.html#acd403f21721a7b74fca1454b14fa1bd3", null ],
     [ "else", "recherche_8php.html#a85294e932522d059bb4924df413e4c94", null ],
-    [ "if", "recherche_8php.html#a540ef01325aa58ca224472e29825d493", null ]
+    [ "foreach", "recherche_8php.html#a9b1f124835a02ccde3d32ae397ff69b2", null ]
 ];

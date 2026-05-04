@@ -41,20 +41,17 @@
 			<div class="home-hero-content">
 				<div class="home-hero-text">
 					<p class="lead">
-						Plein Malin aide à comparer rapidement les prix du carburant en France.
-						Le site propose une recherche manuelle par région, département et ville,
-						mais aussi une recherche autour de votre position approximative.
-					</p>
+						Plein Malin aide à comparer rapidement les prix du carburant en France.						Le site propose une recherche manuelle par région, département et ville,						mais aussi une recherche autour de votre position approximative.					</p>
 					<p class="small-note">
-						L'objectif est de garder une interface simple : choisir un périmètre,
-						sélectionner un ou plusieurs carburants, puis consulter des résultats
-						lisibles sans surcharge inutile.
-					</p>
+						L&#039;objectif est de garder une interface simple : choisir un périmètre,						sélectionner un ou plusieurs carburants, puis consulter des résultats						lisibles sans surcharge inutile.					</p>
 					<div class="form-actions">
 						<a class="cta-link" href="recherche.php?search_mode=manual">Rechercher une station</a>
 					</div>
 				</div>
-				<img class="home-hero-image" src="image/image-accueil.png" alt="Illustration de recherche de carburant Plein Malin" width="520" height="360" decoding="async" fetchpriority="high" />
+				<div class="home-hero-visual">
+					<img class="home-hero-image home-hero-image-light" src="image/image-accueil(light).png" alt="Illustration de recherche de carburant Plein Malin" width="888" height="898" decoding="async" fetchpriority="high" />
+					<img class="home-hero-image home-hero-image-dark" src="image/image-accueil(dark).png" alt="Illustration de recherche de carburant Plein Malin" width="1604" height="1616" decoding="async" fetchpriority="high" />
+				</div>
 			</div>
 
 					</div>
@@ -63,46 +60,29 @@
 	<section class="panel home-intro">
 		<h2>Comment fonctionne le site</h2>
 		<p>
-			La recherche principale suit un parcours guidé : vous choisissez d'abord
-			une région, puis un département, puis une ville. Ce fonctionnement permet
-			d'encadrer la recherche et de garder une navigation compréhensible.
-		</p>
+			La recherche principale suit un parcours guidé : vous choisissez d&#039;abord			une région, puis un département, puis une ville. Ce fonctionnement permet			d&#039;encadrer la recherche et de garder une navigation compréhensible.		</p>
 		<p>
 			Si vous voulez aller plus vite, le mode <strong>Autour de moi</strong>
-			utilise une estimation de position basée sur l'adresse IP pour proposer
-			des stations proches dans un rayon choisi.
-		</p>
+			utilise une estimation de position basée sur l&#039;adresse IP pour proposer			des stations proches dans un rayon choisi.		</p>
 		<p>
-			Les résultats affichent les stations trouvées, les prix disponibles pour
-			les carburants sélectionnés et un accès direct à une carte quand les
-			coordonnées sont connues.
-		</p>
+			Les résultats affichent les stations trouvées, les prix disponibles pour			les carburants sélectionnés et un accès direct à une carte quand les			coordonnées sont connues.		</p>
 
 		<h2>Informations utiles</h2>
 		<div class="home-columns">
 			<article>
-				<img class="home-feature-icon" src="image/icone-carte.png" alt="" width="42" height="42" loading="lazy" decoding="async" />
 				<h3>Recherche guidée</h3>
 				<p>
-					La recherche suit l'ordre région, département puis ville pour rester
-					simple et éviter les choix incohérents.
-				</p>
+					La recherche suit l&#039;ordre région, département puis ville pour rester					simple et éviter les choix incohérents.				</p>
 			</article>
 			<article>
-				<img class="home-feature-icon" src="image/icone-resultat.png" alt="" width="42" height="42" loading="lazy" decoding="async" />
 				<h3>Résultats lisibles</h3>
 				<p>
-					Chaque station affiche son adresse, ses prix et les informations
-					utiles pour comparer rapidement plusieurs points de vente.
-				</p>
+					Chaque station affiche son adresse, ses prix et les informations					utiles pour comparer rapidement plusieurs points de vente.				</p>
 			</article>
 			<article>
-				<img class="home-feature-icon" src="image/icone-statistique.png" alt="" width="42" height="42" loading="lazy" decoding="async" />
 				<h3>Statistiques</h3>
 				<p>
-					Une page dédiée résume les recherches effectuées, les visites et les
-					tendances de prix observées dans les données disponibles.
-				</p>
+					Une page dédiée résume les recherches effectuées, les visites et les					tendances de prix observées dans les données disponibles.				</p>
 			</article>
 		</div>
 	</section>
@@ -125,7 +105,8 @@
 	<p>Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | Projet Web 2025-2026</p>
 </footer>
 <a href="#top" class="back-top">
-	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64"
+		loading="lazy" decoding="async" />
 </a>
 </body>
 

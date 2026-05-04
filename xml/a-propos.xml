@@ -38,9 +38,7 @@
 		<p class="eyebrow">À propos</p>
 		<h1>À propos de Plein Malin</h1>
 		<p class="lead">
-			Plein Malin est un site réalisé dans le cadre du projet de développement web.
-			Il permet de rechercher des stations-service en France et de comparer les prix des carburants.
-		</p>
+			Plein Malin est un site réalisé dans le cadre du projet de développement web.			Il permet de rechercher des stations-service en France et de comparer les prix des carburants.		</p>
 		<section class="info-block">
 			<h2>Objectif du site</h2>
 		<ul class="plain-list">
@@ -54,7 +52,7 @@
 		<section class="info-block">
 			<h2>Fonctionnalités principales</h2>
 		<ul class="plain-list">
-			<li>Recherche par ville, par département ou autour d'une position estimée.</li>
+			<li>Recherche par ville, par département ou autour d&#039;une position estimée.</li>
 			<li>Choix de plusieurs carburants.</li>
 			<li>Mode jour/nuit mémorisé avec un cookie.</li>
 			<li>Affichage en français ou en anglais.</li>
@@ -66,7 +64,7 @@
 			<h2>Sobriété numérique</h2>
 		<ul class="plain-list">
 			<li>Les images de la carte et du bouton retour en haut sont compressées pour réduire le poids des pages.</li>
-			<li>Les réponses des API sont mises en cache côté serveur afin d'éviter des requêtes répétées.</li>
+			<li>Les réponses des API sont mises en cache côté serveur afin d&#039;éviter des requêtes répétées.</li>
 			<li>La page de résultats affiche uniquement les premières stations utiles pour limiter la quantité de contenu chargé.</li>
 			<li>Le site utilise très peu de JavaScript et privilégie des fichiers simples comme CSV, JSON et XML.</li>
 		</ul>
@@ -91,7 +89,8 @@
 	<p>Enzo Phung | Fatma-Zahra Baarir | À propos du projet Plein Malin.</p>
 </footer>
 <a href="#top" class="back-top">
-	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64" loading="lazy" decoding="async" />
+	<img src="image/back_top_small.png" alt="Retour en haut" width="64" height="64"
+		loading="lazy" decoding="async" />
 </a>
 </body>
 

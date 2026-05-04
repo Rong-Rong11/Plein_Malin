@@ -2,7 +2,19 @@ var searchData=
 [
   ['calculer_5fdistance_5fkm_0',['calculer_distance_km',['../group__recherche.html#ga261d766390636b99bb7ea3bbc070fb5f',1,'fonctions-recherche.php']]],
   ['calculer_5fstatistiques_1',['calculer_statistiques',['../group__statistiques.html#ga5b42211615afbdf17d0a0f52232108c0',1,'fonctions-stats.php']]],
-  ['calculer_5ftendances_5fprix_5fannuelles_2',['calculer_tendances_prix_annuelles',['../group__statistiques.html#ga67c411fdd1c00eee6b60b50b02bb6c0f',1,'fonctions-stats.php']]],
-  ['chemin_5fcookie_3',['chemin_cookie',['../group__securite.html#ga8c2e2f26fd239dfc595214220c54fcae',1,'fonctions-securite.php']]],
-  ['coordonnees_5fcarte_4',['coordonnees_carte',['../recherche_8php.html#aa2de2891e07f410f522067fa78e70c67',1,'recherche.php']]]
+  ['calculer_5ftendances_5fdepuis_5fagregats_2',['calculer_tendances_depuis_agregats',['../fonctions-stats_8php.html#acf8badcd4560215b8c200fa5eda377de',1,'fonctions-stats.php']]],
+  ['calculer_5ftendances_5fprix_5fannuelles_3',['calculer_tendances_prix_annuelles',['../group__statistiques.html#ga67c411fdd1c00eee6b60b50b02bb6c0f',1,'fonctions-stats.php']]],
+  ['chemin_5fcookie_4',['chemin_cookie',['../group__securite.html#ga8c2e2f26fd239dfc595214220c54fcae',1,'fonctions-securite.php']]],
+  ['choisir_5fannee_5ftendances_5',['choisir_annee_tendances',['../fonctions-stats_8php.html#a2631ac1dd59af627c05e240e96d9703e',1,'fonctions-stats.php']]],
+  ['choisir_5fcarburants_5ftendances_6',['choisir_carburants_tendances',['../fonctions-stats_8php.html#a3c59b4f7f92d845a20ac5d5c06d42450',1,'fonctions-stats.php']]],
+  ['cle_5fcache_5fcarburants_5ftendances_7',['cle_cache_carburants_tendances',['../fonctions-stats_8php.html#a4ab772622487fa7c48a89df7ba77b638',1,'fonctions-stats.php']]],
+  ['comparer_5fdepartements_5fpar_5fnom_8',['comparer_departements_par_nom',['../fonctions-donnees_8php.html#a1e8ba83defe74acc245a9454b765dba9',1,'fonctions-donnees.php']]],
+  ['comparer_5fnombres_5frecherche_9',['comparer_nombres_recherche',['../fonctions-recherche_8php.html#a9aedfab438e5294fbf16043d0b55adb0',1,'fonctions-recherche.php']]],
+  ['comparer_5fstations_5frecherche_10',['comparer_stations_recherche',['../fonctions-recherche_8php.html#a0acf379aedfa8d6b01c5bdeb76ee63f3',1,'fonctions-recherche.php']]],
+  ['completer_5fdonnees_5fcache_5ftendances_11',['completer_donnees_cache_tendances',['../fonctions-stats_8php.html#a72aca68f039176e2c9af1fa368b0b331',1,'fonctions-stats.php']]],
+  ['construire_5fclause_5fwhere_12',['construire_clause_where',['../fonctions-recherche_8php.html#af1948e5393c697c5cedab391de875172',1,'fonctions-recherche.php']]],
+  ['construire_5ffiltres_5fstations_13',['construire_filtres_stations',['../fonctions-recherche_8php.html#aef869145ceea237aa675b6c4a6dabdf5',1,'fonctions-recherche.php']]],
+  ['construire_5furl_5fapi_5fstations_14',['construire_url_api_stations',['../fonctions-recherche_8php.html#aba5d85e447ecaa8a4322f98e99cd3238',1,'fonctions-recherche.php']]],
+  ['coordonnees_5fcarte_15',['coordonnees_carte',['../recherche_8php.html#aa2de2891e07f410f522067fa78e70c67',1,'recherche.php']]],
+  ['coordonnees_5freference_5frecherche_16',['coordonnees_reference_recherche',['../fonctions-recherche_8php.html#a87f591e2d95a82a1023318351e63f8cd',1,'fonctions-recherche.php']]]
 ];

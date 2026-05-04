@@ -8,5 +8,6 @@ var fonctions_traductions_8php =
     [ "traductions_resultats", "fonctions-traductions_8php.html#a32f3a1b23d5bf5fd6b2d898138a6723b", null ],
     [ "traductions_statistiques", "fonctions-traductions_8php.html#af687d388e96233d7b1cb0d45d50dad50", null ],
     [ "traductions_technique", "fonctions-traductions_8php.html#a170ccff76886835e4095132f7f48707d", null ],
-    [ "traduire_interface", "fonctions-traductions_8php.html#adf6d4191928c62c4632122bec5221d35", null ]
+    [ "traduire_interface", "fonctions-traductions_8php.html#adf6d4191928c62c4632122bec5221d35", null ],
+    [ "traduire_texte", "fonctions-traductions_8php.html#ace945cd3ee74a149b9479dcd607d3592", null ]
 ];

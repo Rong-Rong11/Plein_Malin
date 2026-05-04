@@ -5,8 +5,7 @@
  *
  * En-tete commun du site.
  *
- * Ce fichier initialise le theme, la langue, les liens de navigation memorises
- * et demarre le tampon de sortie utilise pour la traduction anglaise.
+ * Ce fichier initialise le theme, la langue et les liens de navigation memorises.
  */
 $titrePage = $titrePage ?? "Plein Malin";
 $descriptionPage = $descriptionPage ?? "Site Plein Malin";
@@ -16,9 +15,6 @@ $langue = gerer_langue();
 $lienRechercheNavigation = lien_recherche_memorisee();
 $lienResultatsNavigation = lien_resultats_memorises();
 enregistrer_visite_page();
-ob_start(static function (string $contenuHtml) use ($langue): string {
-	return traduire_interface($contenuHtml, $langue);
-});
 ?>
 <!DOCTYPE html>
 	<html lang="<?= texte_securise($langue) ?>">
@@ -41,7 +37,7 @@ ob_start(static function (string $contenuHtml) use ($langue): string {
 					<div class="theme-switch">
 						<a href="<?= texte_securise(lien_bascule_theme($theme)) ?>" class="theme-link">
 							<img src="image/theme-<?= $theme === "night" ? "day" : "night" ?>.svg" alt="" width="24" height="24" decoding="async" />
-							<span>Mode <?= texte_securise(nom_theme($theme === "night" ? "day" : "night")) ?></span>
+							<span><?= texte_securise("Mode") ?> <?= texte_securise(nom_theme($theme === "night" ? "day" : "night")) ?></span>
 						</a>
 						<a href="<?= texte_securise(lien_bascule_langue($langue)) ?>" class="theme-link">
 							<span><?= texte_securise(libelle_bascule_langue($langue)) ?></span>
@@ -50,8 +46,8 @@ ob_start(static function (string $contenuHtml) use ($langue): string {
 				</div>
 
 			<nav class="main-nav">
-				<a href="<?= texte_securise($lienRechercheNavigation) ?>"<?= $pageActive === "recherche" ? ' aria-current="page"' : "" ?>>Recherche</a>
-				<a href="<?= texte_securise($lienResultatsNavigation) ?>"<?= $pageActive === "resultats" ? ' aria-current="page"' : "" ?>>Résultats</a>
-				<a href="stats.php"<?= $pageActive === "stats" ? ' aria-current="page"' : "" ?>>Statistiques</a>
+				<a href="<?= texte_securise($lienRechercheNavigation) ?>"<?= $pageActive === "recherche" ? ' aria-current="page"' : "" ?>><?= texte_securise("Recherche") ?></a>
+				<a href="<?= texte_securise($lienResultatsNavigation) ?>"<?= $pageActive === "resultats" ? ' aria-current="page"' : "" ?>><?= texte_securise("Résultats") ?></a>
+				<a href="stats.php"<?= $pageActive === "stats" ? ' aria-current="page"' : "" ?>><?= texte_securise("Statistiques") ?></a>
 			</nav>
 		</header>

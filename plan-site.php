@@ -24,74 +24,74 @@ require __DIR__ . "/includes/header.php";
 ?>
 <main class="page-shell">
 	<section class="panel">
-		<p class="eyebrow">Navigation</p>
-		<h1>Plan du site</h1>
+		<p class="eyebrow"><?= texte_securise("Navigation") ?></p>
+		<h1><?= texte_securise("Plan du site") ?></h1>
 		<p class="lead">
-			Retrouvez ici les pages principales du site et les pages d'information du projet.
+			<?= texte_securise("Retrouvez ici les pages principales du site et les pages d'information du projet.") ?>
 		</p>
 	</section>
 
 	<section class="panel">
-		<h2>Schéma de navigation</h2>
+		<h2><?= texte_securise("Schéma de navigation") ?></h2>
 		<p class="small-note">
-			Le schéma se lit de haut en bas : commencez par l'accueil, puis suivez la colonne de gauche
-			pour effectuer une recherche. La colonne de droite regroupe les pages d'explication du projet.
+			<?= texte_securise("Le schéma se lit de haut en bas : commencez par l'accueil, puis suivez la colonne de gauche") ?>
+			<?= texte_securise("pour effectuer une recherche. La colonne de droite regroupe les pages d'explication du projet.") ?>
 		</p>
 		<div class="sitemap-legend">
-			<span><strong>Trait orange</strong> : parcours principal de l'utilisateur</span>
-			<span><strong>Trait gris</strong> : pages d'information</span>
+			<span><strong><?= texte_securise("Trait orange") ?></strong> : <?= texte_securise("parcours principal de l'utilisateur") ?></span>
+			<span><strong><?= texte_securise("Trait gris") ?></strong> : <?= texte_securise("pages d'information") ?></span>
 		</div>
 		<div class="sitemap-diagram">
 			<a class="sitemap-node sitemap-home" href="index.php">
-				<small>Départ</small>
-				<strong>Accueil</strong>
-				<span>Page d'entrée du site</span>
+				<small><?= texte_securise("Départ") ?></small>
+				<strong><?= texte_securise("Accueil") ?></strong>
+				<span><?= texte_securise("Page d'entrée du site") ?></span>
 			</a>
 
 			<div class="sitemap-branches">
 				<div class="sitemap-group sitemap-main-path">
-					<h3>Parcours principal : chercher une station</h3>
+					<h3><?= texte_securise("Parcours principal : chercher une station") ?></h3>
 					<div class="sitemap-line">
 						<a class="sitemap-node" href="<?= texte_securise($lienRecherche) ?>">
-							<small>Étape 1</small>
-							<strong>Recherche</strong>
-							<span>Choisir une région, un département, une ville et un carburant</span>
+							<small><?= texte_securise("Étape 1") ?></small>
+							<strong><?= texte_securise("Recherche") ?></strong>
+							<span><?= texte_securise("Choisir une région, un département, une ville et un carburant") ?></span>
 						</a>
 						<a class="sitemap-node" href="<?= texte_securise($lienResultats) ?>">
-							<small>Étape 2</small>
-							<strong>Résultats</strong>
-							<span>Comparer les stations, les prix et les liens de carte</span>
+							<small><?= texte_securise("Étape 2") ?></small>
+							<strong><?= texte_securise("Résultats") ?></strong>
+							<span><?= texte_securise("Comparer les stations, les prix et les liens de carte") ?></span>
 						</a>
 						<a class="sitemap-node" href="stats.php">
-							<small>Étape 3</small>
-							<strong>Statistiques</strong>
-							<span>Voir les recherches, visites et tendances de prix</span>
+							<small><?= texte_securise("Étape 3") ?></small>
+							<strong><?= texte_securise("Statistiques") ?></strong>
+							<span><?= texte_securise("Voir les recherches, visites et tendances de prix") ?></span>
 						</a>
 					</div>
 				</div>
 
 				<div class="sitemap-group">
-					<h3>Pages d'explication</h3>
+					<h3><?= texte_securise("Pages d'explication") ?></h3>
 					<div class="sitemap-line sitemap-line-info">
 						<a class="sitemap-node" href="a-propos.php">
-							<strong>À propos</strong>
-							<span>Comprendre le but du site</span>
+							<strong><?= texte_securise("À propos") ?></strong>
+							<span><?= texte_securise("Comprendre le but du site") ?></span>
 						</a>
 						<a class="sitemap-node" href="aide.php">
-							<strong>Aide</strong>
-							<span>Apprendre à utiliser la recherche et les résultats</span>
+							<strong><?= texte_securise("Aide") ?></strong>
+							<span><?= texte_securise("Apprendre à utiliser la recherche et les résultats") ?></span>
 						</a>
 						<a class="sitemap-node" href="sources.php">
-							<strong>Sources des données</strong>
-							<span>Voir d'où viennent les données CSV, JSON, XML et API</span>
+							<strong><?= texte_securise("Sources des données") ?></strong>
+							<span><?= texte_securise("Voir d'où viennent les données CSV, JSON, XML et API") ?></span>
 						</a>
 						<a class="sitemap-node" href="confidentialite.php">
-							<strong>Confidentialité</strong>
-							<span>Comprendre les cookies et le stockage serveur</span>
+							<strong><?= texte_securise("Confidentialité") ?></strong>
+							<span><?= texte_securise("Comprendre les cookies et le stockage serveur") ?></span>
 						</a>
 						<a class="sitemap-node" href="tech.php">
-							<strong>Page technique</strong>
-							<span>Afficher la démonstration technique des flux</span>
+							<strong><?= texte_securise("Page technique") ?></strong>
+							<span><?= texte_securise("Afficher la démonstration technique des flux") ?></span>
 						</a>
 					</div>
 				</div>

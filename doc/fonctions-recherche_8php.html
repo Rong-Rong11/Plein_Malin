@@ -112,19 +112,68 @@ Functions</h2></td></tr>
 <tr class="memitem:ga9af7f3720aa1401f5ffaacd97f3d495a" id="r_ga9af7f3720aa1401f5ffaacd97f3d495a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__recherche.html#ga9af7f3720aa1401f5ffaacd97f3d495a">station_a_une_pompe_a_air</a> (array $services)</td></tr>
 <tr class="memitem:a1fc5387637b943f07db5bdae87701369" id="r_a1fc5387637b943f07db5bdae87701369"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1fc5387637b943f07db5bdae87701369">lire_cache_api</a> (string $fichierCache)</td></tr>
 <tr class="memitem:ga72bf9e3624890850c803b326849db5a7" id="r_ga72bf9e3624890850c803b326849db5a7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__recherche.html#ga72bf9e3624890850c803b326849db5a7">lire_api_avec_cache</a> (string $adresseUrl, string $nomCache)</td></tr>
+<tr class="memitem:a16eeaaa18c712481253ca7331785627d" id="r_a16eeaaa18c712481253ca7331785627d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a16eeaaa18c712481253ca7331785627d">nom_cache_depuis_texte</a> (string $prefixe, string $texte)</td></tr>
 <tr class="memitem:gad977d93dda1c7cab398ddd386a16c1c7" id="r_gad977d93dda1c7cab398ddd386a16c1c7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__recherche.html#gad977d93dda1c7cab398ddd386a16c1c7">recuperer_ip_visiteur</a> ()</td></tr>
+<tr class="memitem:a0de33ab9b64cdffaf0bf66b52bcd70dc" id="r_a0de33ab9b64cdffaf0bf66b52bcd70dc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0de33ab9b64cdffaf0bf66b52bcd70dc">est_ip_locale</a> (string $ip)</td></tr>
 <tr class="memitem:gaa7b38ef75972b9003c6e64a0c9fa1672" id="r_gaa7b38ef75972b9003c6e64a0c9fa1672"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__recherche.html#gaa7b38ef75972b9003c6e64a0c9fa1672">recuperer_geolocalisation</a> ()</td></tr>
 <tr class="memitem:ga261d766390636b99bb7ea3bbc070fb5f" id="r_ga261d766390636b99bb7ea3bbc070fb5f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__recherche.html#ga261d766390636b99bb7ea3bbc070fb5f">calculer_distance_km</a> (float $latitude1, float $longitude1, float $latitude2, float $longitude2)</td></tr>
 <tr class="memitem:ga34922b09838f86a3c0d56d2c0fb706d7" id="r_ga34922b09838f86a3c0d56d2c0fb706d7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__recherche.html#ga34922b09838f86a3c0d56d2c0fb706d7">trouver_ville_plus_proche</a> (float $latitude, float $longitude)</td></tr>
 <tr class="memitem:a22a378cd905875f7e9ab0e971124905e" id="r_a22a378cd905875f7e9ab0e971124905e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a22a378cd905875f7e9ab0e971124905e">arrondir_coordonnee_cache</a> (float $valeur)</td></tr>
 <tr class="memitem:ac3e1a326d68301a1e32d4a9f048ebf1f" id="r_ac3e1a326d68301a1e32d4a9f048ebf1f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac3e1a326d68301a1e32d4a9f048ebf1f">est_arrondissement_municipal</a> (array $ville)</td></tr>
+<tr class="memitem:aef869145ceea237aa675b6c4a6dabdf5" id="r_aef869145ceea237aa675b6c4a6dabdf5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aef869145ceea237aa675b6c4a6dabdf5">construire_filtres_stations</a> (array $villeInfos, bool $modeDepartement, ?array $origine, int $rayonKm)</td></tr>
+<tr class="memitem:af1948e5393c697c5cedab391de875172" id="r_af1948e5393c697c5cedab391de875172"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af1948e5393c697c5cedab391de875172">construire_clause_where</a> (array $filtres)</td></tr>
+<tr class="memitem:aba5d85e447ecaa8a4322f98e99cd3238" id="r_aba5d85e447ecaa8a4322f98e99cd3238"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aba5d85e447ecaa8a4322f98e99cd3238">construire_url_api_stations</a> (string $clauseWhere)</td></tr>
+<tr class="memitem:a21fe5c064606637cd68394b61567d314" id="r_a21fe5c064606637cd68394b61567d314"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a21fe5c064606637cd68394b61567d314">extraire_prix_station_api</a> (array $ligne)</td></tr>
+<tr class="memitem:a78ed38e68a8b78ec87cdaf7bae241297" id="r_a78ed38e68a8b78ec87cdaf7bae241297"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a78ed38e68a8b78ec87cdaf7bae241297">extraire_coordonnees_station_api</a> (array $ligne)</td></tr>
+<tr class="memitem:ad013331a5d550bad466bd0bcac2b65b0" id="r_ad013331a5d550bad466bd0bcac2b65b0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad013331a5d550bad466bd0bcac2b65b0">ajouter_service_station_api</a> (array $services, $service)</td></tr>
+<tr class="memitem:a59c59d30a58933a648e98fe3ef8770d1" id="r_a59c59d30a58933a648e98fe3ef8770d1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a59c59d30a58933a648e98fe3ef8770d1">extraire_services_station_api</a> (array $ligne)</td></tr>
+<tr class="memitem:aa6337210732ac4c17e35b33c6d9f63cc" id="r_aa6337210732ac4c17e35b33c6d9f63cc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa6337210732ac4c17e35b33c6d9f63cc">nom_station_api</a> (array $ligne)</td></tr>
+<tr class="memitem:a5272d0c284225863fa490257dd379a5a" id="r_a5272d0c284225863fa490257dd379a5a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5272d0c284225863fa490257dd379a5a">transformer_ligne_api_en_station</a> (array $ligne, string $departement)</td></tr>
 <tr class="memitem:ga62103a9e732074e3d407867ec9cc8e8f" id="r_ga62103a9e732074e3d407867ec9cc8e8f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__recherche.html#ga62103a9e732074e3d407867ec9cc8e8f">lire_stations_api</a> (?array $ville, bool $modeDepartement=false, ?array $origine=null, int $rayonKm=<a class="el" href="fonctions-config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>)</td></tr>
+<tr class="memitem:a87f591e2d95a82a1023318351e63f8cd" id="r_a87f591e2d95a82a1023318351e63f8cd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a87f591e2d95a82a1023318351e63f8cd">coordonnees_reference_recherche</a> (?array $ville, ?array $origine)</td></tr>
+<tr class="memitem:a0b57ef2f030fc6b9a604633033e39ca1" id="r_a0b57ef2f030fc6b9a604633033e39ca1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0b57ef2f030fc6b9a604633033e39ca1">prix_carburants_selectionnes_station</a> (array $station, array $typesCarburants)</td></tr>
+<tr class="memitem:afd79331c9522489b387c80e7ebe38547" id="r_afd79331c9522489b387c80e7ebe38547"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afd79331c9522489b387c80e7ebe38547">trouver_prix_principal_station</a> (array $prixSelectionnes)</td></tr>
+<tr class="memitem:a9aedfab438e5294fbf16043d0b55adb0" id="r_a9aedfab438e5294fbf16043d0b55adb0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9aedfab438e5294fbf16043d0b55adb0">comparer_nombres_recherche</a> (float $valeurA, float $valeurB)</td></tr>
+<tr class="memitem:a0acf379aedfa8d6b01c5bdeb76ee63f3" id="r_a0acf379aedfa8d6b01c5bdeb76ee63f3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0acf379aedfa8d6b01c5bdeb76ee63f3">comparer_stations_recherche</a> (array $stationA, array $stationB, string $tri)</td></tr>
+<tr class="memitem:a633b5c07e1ee233ff65725d89f7697dd" id="r_a633b5c07e1ee233ff65725d89f7697dd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a633b5c07e1ee233ff65725d89f7697dd">preparer_station_resultat</a> (array $station, array $typesCarburants, float $referenceLatitude, float $referenceLongitude)</td></tr>
+<tr class="memitem:abee47ed4ca51761143f73b1f847bfef0" id="r_abee47ed4ca51761143f73b1f847bfef0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abee47ed4ca51761143f73b1f847bfef0">trier_resultats_stations</a> (array $stations, string $tri)</td></tr>
+<tr class="memitem:ada7271cac761f01870c8dd654556d379" id="r_ada7271cac761f01870c8dd654556d379"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ada7271cac761f01870c8dd654556d379">preparer_resultats_stations</a> (array $stationsDisponibles, ?array $ville, array $typesCarburants, string $tri, ?array $origine)</td></tr>
 <tr class="memitem:af8fef76ab3d7b6a04e16babdea6b0e45" id="r_af8fef76ab3d7b6a04e16babdea6b0e45"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af8fef76ab3d7b6a04e16babdea6b0e45">rechercher_stations</a> (?array $ville, array $typesCarburants, string $tri, bool $modeDepartement=false, ?array $origine=null, int $rayonKm=<a class="el" href="fonctions-config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>)</td></tr>
 <tr class="memitem:ga00a233060442fddd2a122e0a93676afd" id="r_ga00a233060442fddd2a122e0a93676afd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__recherche.html#ga00a233060442fddd2a122e0a93676afd">rechercher_stations_avec_statut</a> (?array $ville, array $typesCarburants, string $tri, bool $modeDepartement=false, ?array $origine=null, int $rayonKm=<a class="el" href="fonctions-config_8php.html#ae1e1fdb9ebbc6e5579ffb70aa586901f">PM_DEFAULT_RADIUS</a>)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Recherche de stations, geolocalisation et appels API carburants. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="ad013331a5d550bad466bd0bcac2b65b0" name="ad013331a5d550bad466bd0bcac2b65b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad013331a5d550bad466bd0bcac2b65b0">&#9670;&#160;</a></span>ajouter_service_station_api()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ajouter_service_station_api </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$services</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>$service</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ajoute un service non vide dans la liste.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$services</td><td>Liste de services en cours. </td></tr>
+    <tr><td class="paramtype">mixed</td><td class="paramname">$service</td><td>Service brut. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Liste mise a jour. </dd></dl>
+
+</div>
+</div>
 <a id="a22a378cd905875f7e9ab0e971124905e" name="a22a378cd905875f7e9ab0e971124905e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22a378cd905875f7e9ab0e971124905e">&#9670;&#160;</a></span>arrondir_coordonnee_cache()</h2>
 
@@ -147,6 +196,194 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>float Coordonne arrondie. </dd></dl>
+
+</div>
+</div>
+<a id="a9aedfab438e5294fbf16043d0b55adb0" name="a9aedfab438e5294fbf16043d0b55adb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aedfab438e5294fbf16043d0b55adb0">&#9670;&#160;</a></span>comparer_nombres_recherche()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">comparer_nombres_recherche </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>$valeurA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>$valeurB</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compare deux nombres pour un tri.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">float</td><td class="paramname">$valeurA</td><td>Premiere valeur. </td></tr>
+    <tr><td class="paramtype">float</td><td class="paramname">$valeurB</td><td>Deuxieme valeur. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int -1 si A avant B, 1 si B avant A, 0 si egalite. </dd></dl>
+
+</div>
+</div>
+<a id="a0acf379aedfa8d6b01c5bdeb76ee63f3" name="a0acf379aedfa8d6b01c5bdeb76ee63f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0acf379aedfa8d6b01c5bdeb76ee63f3">&#9670;&#160;</a></span>comparer_stations_recherche()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">comparer_stations_recherche </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$stationA</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$stationB</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$tri</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Compare deux stations selon le tri demande.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$stationA</td><td>Premiere station. </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$stationB</td><td>Deuxieme station. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname"><a class="el" href="recherche_8php.html#a2cb0c11e1311e9cac869cce6a7194474">$tri</a></td><td>Mode de tri. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int Resultat de comparaison. </dd></dl>
+
+</div>
+</div>
+<a id="af1948e5393c697c5cedab391de875172" name="af1948e5393c697c5cedab391de875172"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1948e5393c697c5cedab391de875172">&#9670;&#160;</a></span>construire_clause_where()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">construire_clause_where </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$filtres</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Assemble les filtres avec AND pour la requete API.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string[]</td><td class="paramname">$filtres</td><td>Filtres API. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Clause where complete. </dd></dl>
+
+</div>
+</div>
+<a id="aef869145ceea237aa675b6c4a6dabdf5" name="aef869145ceea237aa675b6c4a6dabdf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef869145ceea237aa675b6c4a6dabdf5">&#9670;&#160;</a></span>construire_filtres_stations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">construire_filtres_stations </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$villeInfos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>$modeDepartement</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$origine</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$rayonKm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Prepare les filtres utilises dans la requete API des stations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$villeInfos</td><td>Ville ou departement de reference. </td></tr>
+    <tr><td class="paramtype">bool</td><td class="paramname"><a class="el" href="recherche_8php.html#abcc3f99c180ace32cf2d1bc1cb0818a5">$modeDepartement</a></td><td>True pour chercher dans tout le departement. </td></tr>
+    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname">$origine</td><td>Position de reference pour la recherche autour de moi. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$rayonKm</td><td>Rayon de recherche en kilometres. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string[] Filtres a assembler dans la clause where. </dd></dl>
+
+</div>
+</div>
+<a id="aba5d85e447ecaa8a4322f98e99cd3238" name="aba5d85e447ecaa8a4322f98e99cd3238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba5d85e447ecaa8a4322f98e99cd3238">&#9670;&#160;</a></span>construire_url_api_stations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">construire_url_api_stations </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$clauseWhere</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Construit l'URL de l'API officielle a partir de la clause where.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$clauseWhere</td><td>Filtres assembles. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string URL API complete. </dd></dl>
+
+</div>
+</div>
+<a id="a87f591e2d95a82a1023318351e63f8cd" name="a87f591e2d95a82a1023318351e63f8cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87f591e2d95a82a1023318351e63f8cd">&#9670;&#160;</a></span>coordonnees_reference_recherche()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">coordonnees_reference_recherche </td>
+          <td>(</td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$ville</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$origine</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Determine les coordonnees de reference pour calculer les distances.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname"><a class="el" href="recherche_8php.html#acc3746cfaca53a8d6942c6252b17d14f">$ville</a></td><td>Ville de reference. </td></tr>
+    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname">$origine</td><td>Position GPS de reference. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Coordonnees latitude/longitude. </dd></dl>
 
 </div>
 </div>
@@ -173,6 +410,106 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool True si la ville correspond a un arrondissement municipal. </dd></dl>
+
+</div>
+</div>
+<a id="a0de33ab9b64cdffaf0bf66b52bcd70dc" name="a0de33ab9b64cdffaf0bf66b52bcd70dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0de33ab9b64cdffaf0bf66b52bcd70dc">&#9670;&#160;</a></span>est_ip_locale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">est_ip_locale </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$ip</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Indique si l'adresse IP correspond a une machine locale.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$ip</td><td>Adresse IP detectee. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool True si l'adresse est locale. </dd></dl>
+
+</div>
+</div>
+<a id="a78ed38e68a8b78ec87cdaf7bae241297" name="a78ed38e68a8b78ec87cdaf7bae241297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ed38e68a8b78ec87cdaf7bae241297">&#9670;&#160;</a></span>extraire_coordonnees_station_api()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">extraire_coordonnees_station_api </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$ligne</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Extrait les coordonnees GPS d'une ligne API.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$ligne</td><td>Ligne issue de l'API. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Coordonnees latitude/longitude. </dd></dl>
+
+</div>
+</div>
+<a id="a21fe5c064606637cd68394b61567d314" name="a21fe5c064606637cd68394b61567d314"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21fe5c064606637cd68394b61567d314">&#9670;&#160;</a></span>extraire_prix_station_api()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">extraire_prix_station_api </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$ligne</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Extrait les prix carburants d'une ligne API.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$ligne</td><td>Ligne issue de l'API. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Prix disponibles par carburant. </dd></dl>
+
+</div>
+</div>
+<a id="a59c59d30a58933a648e98fe3ef8770d1" name="a59c59d30a58933a648e98fe3ef8770d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59c59d30a58933a648e98fe3ef8770d1">&#9670;&#160;</a></span>extraire_services_station_api()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">extraire_services_station_api </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$ligne</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Extrait les services d'une ligne API.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$ligne</td><td>Ligne issue de l'API. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string[] Services sans doublons. </dd></dl>
 
 </div>
 </div>
@@ -323,6 +660,61 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a16eeaaa18c712481253ca7331785627d" name="a16eeaaa18c712481253ca7331785627d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16eeaaa18c712481253ca7331785627d">&#9670;&#160;</a></span>nom_cache_depuis_texte()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">nom_cache_depuis_texte </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$prefixe</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$texte</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fabrique un nom de cache lisible a partir d'un texte.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$prefixe</td><td>Debut du nom de cache. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$texte</td><td>Texte a transformer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Nom utilisable pour un fichier de cache. </dd></dl>
+
+</div>
+</div>
+<a id="aa6337210732ac4c17e35b33c6d9f63cc" name="aa6337210732ac4c17e35b33c6d9f63cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6337210732ac4c17e35b33c6d9f63cc">&#9670;&#160;</a></span>nom_station_api()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">nom_station_api </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$ligne</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Choisit le nom a afficher pour une station.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$ligne</td><td>Ligne issue de l'API. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>string Nom de station. </dd></dl>
+
+</div>
+</div>
 <a id="ae5b96955321c9be18c191e6a50774607" name="ae5b96955321c9be18c191e6a50774607"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5b96955321c9be18c191e6a50774607">&#9670;&#160;</a></span>normaliser_rayon_geo()</h2>
 
@@ -345,6 +737,126 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int Rayon valide, rayon par defaut sinon. </dd></dl>
+
+</div>
+</div>
+<a id="ada7271cac761f01870c8dd654556d379" name="ada7271cac761f01870c8dd654556d379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada7271cac761f01870c8dd654556d379">&#9670;&#160;</a></span>preparer_resultats_stations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">preparer_resultats_stations </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$stationsDisponibles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$ville</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$typesCarburants</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$tri</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$origine</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Filtre, enrichit et trie les stations disponibles.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$stationsDisponibles</td><td>Stations issues de l'API. </td></tr>
+    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname"><a class="el" href="recherche_8php.html#acc3746cfaca53a8d6942c6252b17d14f">$ville</a></td><td>Ville ou departement de reference. </td></tr>
+    <tr><td class="paramtype">string[]</td><td class="paramname">$typesCarburants</td><td>Carburants selectionnes. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname"><a class="el" href="recherche_8php.html#a2cb0c11e1311e9cac869cce6a7194474">$tri</a></td><td>Mode de tri. </td></tr>
+    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname">$origine</td><td>Position de reference pour la geolocalisation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array&lt;int,array&gt; Stations pretes pour l'affichage. </dd></dl>
+
+</div>
+</div>
+<a id="a633b5c07e1ee233ff65725d89f7697dd" name="a633b5c07e1ee233ff65725d89f7697dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a633b5c07e1ee233ff65725d89f7697dd">&#9670;&#160;</a></span>preparer_station_resultat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">preparer_station_resultat </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$station</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$typesCarburants</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>$referenceLatitude</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>$referenceLongitude</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ajoute les infos de resultat a une station.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$station</td><td>Station issue de l'API. </td></tr>
+    <tr><td class="paramtype">string[]</td><td class="paramname">$typesCarburants</td><td>Carburants selectionnes. </td></tr>
+    <tr><td class="paramtype">float</td><td class="paramname">$referenceLatitude</td><td>Latitude de reference. </td></tr>
+    <tr><td class="paramtype">float</td><td class="paramname">$referenceLongitude</td><td>Longitude de reference. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array|null Station enrichie, ou null si aucun prix ne correspond. </dd></dl>
+
+</div>
+</div>
+<a id="a0b57ef2f030fc6b9a604633033e39ca1" name="a0b57ef2f030fc6b9a604633033e39ca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b57ef2f030fc6b9a604633033e39ca1">&#9670;&#160;</a></span>prix_carburants_selectionnes_station()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">prix_carburants_selectionnes_station </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$station</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$typesCarburants</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Garde les prix disponibles pour les carburants selectionnes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$station</td><td>Station a analyser. </td></tr>
+    <tr><td class="paramtype">string[]</td><td class="paramname">$typesCarburants</td><td>Carburants selectionnes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Prix trouves par carburant. </dd></dl>
 
 </div>
 </div>
@@ -418,6 +930,91 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>array&lt;int,array&gt; Stations filtrees et enrichies avec distance/prix principal. </dd></dl>
+
+</div>
+</div>
+<a id="a5272d0c284225863fa490257dd379a5a" name="a5272d0c284225863fa490257dd379a5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5272d0c284225863fa490257dd379a5a">&#9670;&#160;</a></span>transformer_ligne_api_en_station()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">transformer_ligne_api_en_station </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$ligne</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$departement</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transforme une ligne API en station utilisable par l'interface.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$ligne</td><td>Ligne issue de l'API. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname"><a class="el" href="recherche_8php.html#acd5cf407c0f2ac72cb7c517b314e2d8f">$departement</a></td><td>Departement de secours. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Station normalisee. </dd></dl>
+
+</div>
+</div>
+<a id="abee47ed4ca51761143f73b1f847bfef0" name="abee47ed4ca51761143f73b1f847bfef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abee47ed4ca51761143f73b1f847bfef0">&#9670;&#160;</a></span>trier_resultats_stations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">trier_resultats_stations </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$stations</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$tri</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trie les stations preparees selon le mode choisi.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname"><a class="el" href="resultats_8php.html#aafb708292b6c5af6f8ab5c05afac3b96">$stations</a></td><td>Stations a trier. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname"><a class="el" href="recherche_8php.html#a2cb0c11e1311e9cac869cce6a7194474">$tri</a></td><td>Mode de tri. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Stations triees. </dd></dl>
+
+</div>
+</div>
+<a id="afd79331c9522489b387c80e7ebe38547" name="afd79331c9522489b387c80e7ebe38547"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd79331c9522489b387c80e7ebe38547">&#9670;&#160;</a></span>trouver_prix_principal_station()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">trouver_prix_principal_station </td>
+          <td>(</td>
+          <td class="paramtype">array</td>          <td class="paramname"><span class="paramname"><em>$prixSelectionnes</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trouve le carburant le moins cher parmi les prix selectionnes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array</td><td class="paramname">$prixSelectionnes</td><td>Prix par carburant. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Prix principal et carburant principal. </dd></dl>
 
 </div>
 </div>
