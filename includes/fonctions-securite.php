@@ -13,14 +13,15 @@
  *
  * @ingroup securite
  */
+require_once __DIR__ . "/fonctions-traductions.php";
+
 function texte_securise(string $texte): string
 {
-	if (function_exists("traduire_texte")) {
-		$texte = traduire_texte($texte);
-	}
+	$texte = traduire_texte($texte);
 
 	return htmlspecialchars($texte, ENT_QUOTES, "UTF-8");
 }
+
 /**
  * Cree les dossiers et fichiers de stockage attendus par l'application.
  *
