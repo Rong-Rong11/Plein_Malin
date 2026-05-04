@@ -23,7 +23,9 @@ var fonctions_stats_8php =
     [ "reponse_tendances_indisponibles", "fonctions-stats_8php.html#ad99f50d065348a96c787224168fa9c4f", null ],
     [ "reponse_tendances_vide", "fonctions-stats_8php.html#ade3798acc77705cc6fe6c3958afa0128", null ],
     [ "top_classement_statistique", "fonctions-stats_8php.html#a8912613f5cb758b98e3210a4b038a1e6", null ],
+    [ "trier_classement_decroissant", "group__statistiques.html#ga5929d86e952a4708a469491b47b00947", null ],
     [ "trier_classement_statistique", "fonctions-stats_8php.html#a337da31accca97a2d46aea9facbc92b2", null ],
     [ "trier_mois_agreges", "fonctions-stats_8php.html#a2e35f29195181eb23e6c983d70add9aa", null ],
+    [ "trier_tableau_par_cle", "fonctions-stats_8php.html#a04de8fdd867ff03c4a6a24a77d93d5d5", null ],
     [ "trouver_xml_dans_archive", "fonctions-stats_8php.html#a2648e0c0bc2abb4aad3aa429426a07ec", null ]
 ];

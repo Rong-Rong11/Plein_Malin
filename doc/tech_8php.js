@@ -7,6 +7,7 @@ var tech_8php =
     [ "$film", "tech_8php.html#a697f20bb465adeab6a51e03978fda04c", null ],
     [ "$json", "tech_8php.html#acedd13b51401130848ce18f4d5c52605", null ],
     [ "$pageActive", "tech_8php.html#a009519ce23e46383b691b834acc018e3", null ],
+    [ "$sourceXmlCarburants", "tech_8php.html#a05de59fb714469f4d3ef283fd36e387d", null ],
     [ "$stationsXml", "tech_8php.html#a38a3fa0c8a2593274b44c8ff7d4cea4a", null ],
     [ "$statistiques", "tech_8php.html#a35692cc68b0a12ae7e9b2abc6d49a29e", null ],
     [ "$textePiedPage", "tech_8php.html#a12369e1a05a673479d1b6b13e1fe3c73", null ],

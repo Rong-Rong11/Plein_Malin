@@ -10,7 +10,6 @@ var fonctions_recherche_8php =
     [ "construire_url_api_stations", "fonctions-recherche_8php.html#aba5d85e447ecaa8a4322f98e99cd3238", null ],
     [ "coordonnees_reference_recherche", "fonctions-recherche_8php.html#a87f591e2d95a82a1023318351e63f8cd", null ],
     [ "est_arrondissement_municipal", "fonctions-recherche_8php.html#ac3e1a326d68301a1e32d4a9f048ebf1f", null ],
-    [ "est_ip_locale", "fonctions-recherche_8php.html#a0de33ab9b64cdffaf0bf66b52bcd70dc", null ],
     [ "extraire_coordonnees_station_api", "fonctions-recherche_8php.html#a78ed38e68a8b78ec87cdaf7bae241297", null ],
     [ "extraire_prix_station_api", "fonctions-recherche_8php.html#a21fe5c064606637cd68394b61567d314", null ],
     [ "extraire_services_station_api", "fonctions-recherche_8php.html#a59c59d30a58933a648e98fe3ef8770d1", null ],

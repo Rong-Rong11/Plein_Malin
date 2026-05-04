@@ -110,6 +110,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ga0ff4394b1152d5d2447982b29138ef6d" id="r_ga0ff4394b1152d5d2447982b29138ef6d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__donnees.html#ga0ff4394b1152d5d2447982b29138ef6d">departements_par_region</a> (string $codeRegion)</td></tr>
 <tr class="memitem:a1e8ba83defe74acc245a9454b765dba9" id="r_a1e8ba83defe74acc245a9454b765dba9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1e8ba83defe74acc245a9454b765dba9">comparer_departements_par_nom</a> (array $departementA, array $departementB)</td></tr>
 <tr class="memitem:ga3eb870b5c8b768730abec0c9bfaf1ae3" id="r_ga3eb870b5c8b768730abec0c9bfaf1ae3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__donnees.html#ga3eb870b5c8b768730abec0c9bfaf1ae3">villes_par_departement</a> (string $codeDepartement)</td></tr>
+<tr class="memitem:a9d79ccc04fb7c0031f642de9c4dc1c8c" id="r_a9d79ccc04fb7c0031f642de9c4dc1c8c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9d79ccc04fb7c0031f642de9c4dc1c8c">transformer_point_vente_xml_demo</a> (SimpleXMLElement $pointVente)</td></tr>
+<tr class="memitem:a11930a77b43bec2a48439b0494207537" id="r_a11930a77b43bec2a48439b0494207537"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a11930a77b43bec2a48439b0494207537">lire_stations_depuis_archive_xml_demo</a> (string $fichierZip, string $nomXml, int $limite)</td></tr>
 <tr class="memitem:gae805df52e7ff1c3a432b792f86ecc0a2" id="r_gae805df52e7ff1c3a432b792f86ecc0a2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="group__donnees.html#gae805df52e7ff1c3a432b792f86ecc0a2">lire_stations_xml_demo</a> ()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -172,6 +174,67 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool True si le departement est trouve dans la region. </dd></dl>
+
+</div>
+</div>
+<a id="a11930a77b43bec2a48439b0494207537" name="a11930a77b43bec2a48439b0494207537"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11930a77b43bec2a48439b0494207537">&#9670;&#160;</a></span>lire_stations_depuis_archive_xml_demo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lire_stations_depuis_archive_xml_demo </td>
+          <td>(</td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$fichierZip</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string</td>          <td class="paramname"><span class="paramname"><em>$nomXml</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$limite</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Lit quelques stations dans le XML contenu dans l'archive officielle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$fichierZip</td><td>Chemin de l'archive officielle en cache. </td></tr>
+    <tr><td class="paramtype">string</td><td class="paramname">$nomXml</td><td>Nom du fichier XML dans l'archive. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$limite</td><td>Nombre maximum de stations a retourner. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array&lt;int,array&gt; Stations extraites du flux XML officiel. </dd></dl>
+
+</div>
+</div>
+<a id="a9d79ccc04fb7c0031f642de9c4dc1c8c" name="a9d79ccc04fb7c0031f642de9c4dc1c8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d79ccc04fb7c0031f642de9c4dc1c8c">&#9670;&#160;</a></span>transformer_point_vente_xml_demo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">transformer_point_vente_xml_demo </td>
+          <td>(</td>
+          <td class="paramtype">SimpleXMLElement</td>          <td class="paramname"><span class="paramname"><em>$pointVente</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transforme un noeud XML de point de vente en tableau affiche par la page tech.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">SimpleXMLElement</td><td class="paramname">$pointVente</td><td>Noeud XML &lt;pdv&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array Station normalisee pour l'affichage. </dd></dl>
 
 </div>
 </div>

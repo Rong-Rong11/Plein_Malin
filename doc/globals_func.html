@@ -113,6 +113,7 @@ $(function(){initNavTree('globals_func.html','',''); });
 <li>comparer_stations_recherche()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#a0acf379aedfa8d6b01c5bdeb76ee63f3">fonctions-recherche.php</a></li>
 <li>completer_donnees_cache_tendances()&#160;:&#160;<a class="el" href="fonctions-stats_8php.html#a72aca68f039176e2c9af1fa368b0b331">fonctions-stats.php</a></li>
 <li>construire_clause_where()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#af1948e5393c697c5cedab391de875172">fonctions-recherche.php</a></li>
+<li>construire_cle_cache()&#160;:&#160;<a class="el" href="group__securite.html#gaca381f3df1e1d4159cb2f3304308a859">fonctions-securite.php</a></li>
 <li>construire_filtres_stations()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#aef869145ceea237aa675b6c4a6dabdf5">fonctions-recherche.php</a></li>
 <li>construire_url_api_stations()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#aba5d85e447ecaa8a4322f98e99cd3238">fonctions-recherche.php</a></li>
 <li>coordonnees_carte()&#160;:&#160;<a class="el" href="recherche_8php.html#aa2de2891e07f410f522067fa78e70c67">recherche.php</a></li>
@@ -136,7 +137,6 @@ $(function(){initNavTree('globals_func.html','',''); });
 <li>enregistrer_parametres_derniere_recherche()&#160;:&#160;<a class="el" href="group__preferences.html#ga109221ac1ad09ea95bb35daae49702e1">fonctions-preferences.php</a></li>
 <li>enregistrer_visite_page()&#160;:&#160;<a class="el" href="group__statistiques.html#ga89d91551844fe377317f527620eae87a">fonctions-stats.php</a></li>
 <li>est_arrondissement_municipal()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#ac3e1a326d68301a1e32d4a9f048ebf1f">fonctions-recherche.php</a></li>
-<li>est_ip_locale()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#a0de33ab9b64cdffaf0bf66b52bcd70dc">fonctions-recherche.php</a></li>
 <li>extraire_coordonnees_station_api()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#a78ed38e68a8b78ec87cdaf7bae241297">fonctions-recherche.php</a></li>
 <li>extraire_prix_station_api()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#a21fe5c064606637cd68394b61567d314">fonctions-recherche.php</a></li>
 <li>extraire_services_station_api()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#a59c59d30a58933a648e98fe3ef8770d1">fonctions-recherche.php</a></li>
@@ -144,6 +144,7 @@ $(function(){initNavTree('globals_func.html','',''); });
 
 
 <h3 class="doxsection"><a id="index_f" name="index_f"></a>- f -</h3><ul>
+<li>fermer_tampon_sortie_si_actif()&#160;:&#160;<a class="el" href="group__securite.html#ga66ec5b04cf6181eaac09d096090d9e2b">fonctions-securite.php</a></li>
 <li>formater_date_heure()&#160;:&#160;<a class="el" href="fonctions-format_8php.html#aca0271ba759d3307cb477bd824525960">fonctions-format.php</a></li>
 <li>formater_mois_tendance()&#160;:&#160;<a class="el" href="group__statistiques.html#ga7695a5870df73db841e2b20f55baa8fc">fonctions-stats.php</a></li>
 <li>formater_prix()&#160;:&#160;<a class="el" href="fonctions-format_8php.html#abd228aa966fdecf27ec4dc61beb3a30c">fonctions-format.php</a></li>
@@ -180,6 +181,7 @@ $(function(){initNavTree('globals_func.html','',''); });
 <li>lire_parametres_derniere_recherche()&#160;:&#160;<a class="el" href="group__preferences.html#ga263ea981be84ac8aed05ed657f3f4306">fonctions-preferences.php</a></li>
 <li>lire_regions()&#160;:&#160;<a class="el" href="group__donnees.html#ga6cd5e52a5935ef723f8d5c5901fbbced">fonctions-donnees.php</a></li>
 <li>lire_stations_api()&#160;:&#160;<a class="el" href="group__recherche.html#ga62103a9e732074e3d407867ec9cc8e8f">fonctions-recherche.php</a></li>
+<li>lire_stations_depuis_archive_xml_demo()&#160;:&#160;<a class="el" href="fonctions-donnees_8php.html#a11930a77b43bec2a48439b0494207537">fonctions-donnees.php</a></li>
 <li>lire_stations_xml_demo()&#160;:&#160;<a class="el" href="group__donnees.html#gae805df52e7ff1c3a432b792f86ecc0a2">fonctions-donnees.php</a></li>
 <li>lire_tendances_prix_officielles()&#160;:&#160;<a class="el" href="group__statistiques.html#gac802d15265a7990f630322ce7b74a842">fonctions-stats.php</a></li>
 <li>lire_villes()&#160;:&#160;<a class="el" href="group__donnees.html#ga633521b1ff61bbdeb67739f3ea5e174f">fonctions-donnees.php</a></li>
@@ -246,9 +248,12 @@ $(function(){initNavTree('globals_func.html','',''); });
 <li>traduire_interface()&#160;:&#160;<a class="el" href="fonctions-traductions_8php.html#adf6d4191928c62c4632122bec5221d35">fonctions-traductions.php</a></li>
 <li>traduire_texte()&#160;:&#160;<a class="el" href="fonctions-traductions_8php.html#ace945cd3ee74a149b9479dcd607d3592">fonctions-traductions.php</a></li>
 <li>transformer_ligne_api_en_station()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#a5272d0c284225863fa490257dd379a5a">fonctions-recherche.php</a></li>
+<li>transformer_point_vente_xml_demo()&#160;:&#160;<a class="el" href="fonctions-donnees_8php.html#a9d79ccc04fb7c0031f642de9c4dc1c8c">fonctions-donnees.php</a></li>
+<li>trier_classement_decroissant()&#160;:&#160;<a class="el" href="group__statistiques.html#ga5929d86e952a4708a469491b47b00947">fonctions-stats.php</a></li>
 <li>trier_classement_statistique()&#160;:&#160;<a class="el" href="fonctions-stats_8php.html#a337da31accca97a2d46aea9facbc92b2">fonctions-stats.php</a></li>
 <li>trier_mois_agreges()&#160;:&#160;<a class="el" href="fonctions-stats_8php.html#a2e35f29195181eb23e6c983d70add9aa">fonctions-stats.php</a></li>
 <li>trier_resultats_stations()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#abee47ed4ca51761143f73b1f847bfef0">fonctions-recherche.php</a></li>
+<li>trier_tableau_par_cle()&#160;:&#160;<a class="el" href="fonctions-stats_8php.html#a04de8fdd867ff03c4a6a24a77d93d5d5">fonctions-stats.php</a></li>
 <li>trouver_departement()&#160;:&#160;<a class="el" href="group__donnees.html#ga3b9bd8bb861a8fa42c514f0207354290">fonctions-donnees.php</a></li>
 <li>trouver_prix_principal_station()&#160;:&#160;<a class="el" href="fonctions-recherche_8php.html#afd79331c9522489b387c80e7ebe38547">fonctions-recherche.php</a></li>
 <li>trouver_region()&#160;:&#160;<a class="el" href="group__donnees.html#gaa78144d470a9514c43a7cb294127c115">fonctions-donnees.php</a></li>

@@ -102,6 +102,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a538ff06fd3096da20d0529afe7220c6a" id="r_a538ff06fd3096da20d0529afe7220c6a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a538ff06fd3096da20d0529afe7220c6a">$donneesGeo</a> = <a class="el" href="group__recherche.html#gaa7b38ef75972b9003c6e64a0c9fa1672">recuperer_geolocalisation</a>()</td></tr>
 <tr class="memitem:a35692cc68b0a12ae7e9b2abc6d49a29e" id="r_a35692cc68b0a12ae7e9b2abc6d49a29e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a35692cc68b0a12ae7e9b2abc6d49a29e">$statistiques</a> = <a class="el" href="group__statistiques.html#ga5b42211615afbdf17d0a0f52232108c0">calculer_statistiques</a>()</td></tr>
 <tr class="memitem:a38a3fa0c8a2593274b44c8ff7d4cea4a" id="r_a38a3fa0c8a2593274b44c8ff7d4cea4a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a38a3fa0c8a2593274b44c8ff7d4cea4a">$stationsXml</a> = <a class="el" href="group__donnees.html#gae805df52e7ff1c3a432b792f86ecc0a2">lire_stations_xml_demo</a>()</td></tr>
+<tr class="memitem:a05de59fb714469f4d3ef283fd36e387d" id="r_a05de59fb714469f4d3ef283fd36e387d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a05de59fb714469f4d3ef283fd36e387d">$sourceXmlCarburants</a> = &quot;https://donnees.roulez-eco.fr/opendata/annee/&quot; . date(&quot;Y&quot;)</td></tr>
 <tr class="memitem:a2a672f7e3ffa1be084c755b5be0b9829" id="r_a2a672f7e3ffa1be084c755b5be0b9829"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2a672f7e3ffa1be084c755b5be0b9829">$adresseUrl</a> = &quot;https://ghibliapi.vercel.app/films&quot;</td></tr>
 <tr class="memitem:acedd13b51401130848ce18f4d5c52605" id="r_acedd13b51401130848ce18f4d5c52605"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acedd13b51401130848ce18f4d5c52605">$json</a> = @file_get_contents($adresseUrl)</td></tr>
 <tr class="memitem:a09265cb0e0a963168f34a74bfdd08161" id="r_a09265cb0e0a963168f34a74bfdd08161"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a09265cb0e0a963168f34a74bfdd08161">$donnees</a> = $json !== false ? json_decode($json, true) : []</td></tr>
@@ -110,7 +111,7 @@ Variables</h2></td></tr>
 <tr class="memitem:ae4c651f001e6834dbeeafcef6b1a38ba" id="r_ae4c651f001e6834dbeeafcef6b1a38ba"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae4c651f001e6834dbeeafcef6b1a38ba">$descriptionPage</a> = &quot;Page technique conservee pour la validation de la partie 1 du projet.&quot;</td></tr>
 <tr class="memitem:a009519ce23e46383b691b834acc018e3" id="r_a009519ce23e46383b691b834acc018e3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a009519ce23e46383b691b834acc018e3">$pageActive</a> = &quot;tech&quot;</td></tr>
 <tr class="memitem:a12369e1a05a673479d1b6b13e1fe3c73" id="r_a12369e1a05a673479d1b6b13e1fe3c73"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a12369e1a05a673479d1b6b13e1fe3c73">$textePiedPage</a> = &quot;Enzo Phung | Fatma-Zahra Baarir | Page technique conservee pour validation.&quot;</td></tr>
-<tr class="memitem:a0cea68bc69f913ab8c42001822382b74" id="r_a0cea68bc69f913ab8c42001822382b74"><td class="memItemLeft"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($film===null) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $stationsXml===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0cea68bc69f913ab8c42001822382b74">foreach</a> (array_slice( $stationsXml, 0, 5) as $station) = <a class="el" href="fonctions-securite_8php.html#a2c6f7c63c34379a746a4ac69c9c3278b">texte_securise</a>((string) count($statistiques['top_cities']))</td></tr>
+<tr class="memitem:a0cea68bc69f913ab8c42001822382b74" id="r_a0cea68bc69f913ab8c42001822382b74"><td class="memItemLeft"><a class="el" href="index_8php.html#a0561a0f3c1c646c71d700840d83dc99d">if</a>($film===null) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> <a class="el" href="index_8php.html#a0561a0f3c1c646c71d700840d83dc99d">if</a>( $stationsXml===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0cea68bc69f913ab8c42001822382b74">foreach</a> (array_slice( $stationsXml, 0, 5) as $station) = <a class="el" href="fonctions-securite_8php.html#a2c6f7c63c34379a746a4ac69c9c3278b">texte_securise</a>((string) count($statistiques['top_cities']))</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Page technique de demonstration des formats exploites. </p>
@@ -215,6 +216,20 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a05de59fb714469f4d3ef283fd36e387d" name="a05de59fb714469f4d3ef283fd36e387d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05de59fb714469f4d3ef283fd36e387d">&#9670;&#160;</a></span>$sourceXmlCarburants</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">$sourceXmlCarburants = &quot;https://donnees.roulez-eco.fr/opendata/annee/&quot; . date(&quot;Y&quot;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a38a3fa0c8a2593274b44c8ff7d4cea4a" name="a38a3fa0c8a2593274b44c8ff7d4cea4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a38a3fa0c8a2593274b44c8ff7d4cea4a">&#9670;&#160;</a></span>$stationsXml</h2>
 
@@ -292,7 +307,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>( $film===null) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> <a class="el" href="index_8php.html#a344f4c1ec774d79afe23af98a10a6421">if</a>($stationsXml===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach(array_slice($stationsXml, 0, 5) as $station) </td>
+          <td class="memname"><a class="el" href="index_8php.html#a0561a0f3c1c646c71d700840d83dc99d">if</a>( $film===null) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> <a class="el" href="index_8php.html#a0561a0f3c1c646c71d700840d83dc99d">if</a>($stationsXml===[]) <a class="el" href="recherche_8php.html#a85294e932522d059bb4924df413e4c94">else</a> foreach(array_slice($stationsXml, 0, 5) as $station) </td>
           <td>(</td>
           <td class="paramtype">array_slice($stationsXml, 0, 5) as</td>          <td class="paramname"><span class="paramname"><em>$station</em></span></td><td>)</td>
           <td> = <a class="el" href="fonctions-securite_8php.html#a2c6f7c63c34379a746a4ac69c9c3278b">texte_securise</a>((string) count($statistiques['top_cities']))</td>
