@@ -261,10 +261,21 @@ function transformer_point_vente_xml_demo(SimpleXMLElement $pointVente): array
 	$services = [];
 
 	foreach ($pointVente->prix as $prixXml) {
-		$prix[] = [
+		$nomCarburant = (string) ($prixXml["nom"] ?? "");
+		$dateMaj = (string) ($prixXml["maj"] ?? "");
+
+		if ($nomCarburant === "") {
+			continue;
+		}
+
+		if (isset($prix[$nomCarburant]) && strcmp($dateMaj, $prix[$nomCarburant]["maj"]) <= 0) {
+			continue;
+		}
+
+		$prix[$nomCarburant] = [
 			"nom" => (string) ($prixXml["nom"] ?? ""),
 			"valeur" => (string) ($prixXml["valeur"] ?? ""),
-			"maj" => (string) ($prixXml["maj"] ?? ""),
+			"maj" => $dateMaj,
 		];
 	}
 
@@ -284,7 +295,7 @@ function transformer_point_vente_xml_demo(SimpleXMLElement $pointVente): array
 		"adresse" => (string) $pointVente->adresse,
 		"ville" => (string) $pointVente->ville,
 		"enseigne" => (string) $pointVente->enseigne,
-		"prix" => $prix,
+		"prix" => array_values($prix),
 		"services" => $services,
 	];
 }

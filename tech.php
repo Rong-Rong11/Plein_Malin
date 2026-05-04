@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 /**
  * @file
  * @brief Page technique de demonstration des formats exploites.
@@ -34,10 +33,10 @@ require __DIR__ . "/includes/header.php";
 ?>
 <main class="page tech-page info-page">
 	<section class="panel tech-hero">
-		<h1>Page tech</h1>
+		<h1><?= texte_securise("Page tech") ?></h1>
 		<p class="lead">
-			Cette page reste accessible depuis le footer pour montrer l'avancement initial
-			et la logique technique reutilisee dans Plein Malin.
+			<?= texte_securise("Cette page reste accessible depuis le footer pour montrer l'avancement initial") ?>
+			<?= texte_securise("et la logique technique reutilisee dans Plein Malin.") ?>
 		</p>
 		<section class="info-block tech-summary">
 			<h2><?= texte_securise("Synthese technique du projet") ?></h2>
@@ -45,12 +44,14 @@ require __DIR__ . "/includes/header.php";
 				<li><strong>JSON</strong> :
 					<?= texte_securise("geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.") ?>
 				</li>
-				<li><strong>XML</strong> :
-					<?= texte_securise("lecture de l'archive annuelle officielle des prix carburants.") ?></li>
+				<li><strong>XML</strong> : <?= texte_securise("lecture de") ?> <code>data/sample_fuel_prices.xml</code>
+					<?= texte_securise("et archive annuelle officielle pour les tendances de prix.") ?></li>
 				<li><strong>CSV</strong> :
-					<?= texte_securise("regions, departements, villes, consultations et visites de pages.") ?></li>
+					<?= texte_securise("regions, departements, villes, consultations et visites de pages.") ?>
+				</li>
 				<li><strong>Cookies</strong> :
-					<?= texte_securise("theme jour/nuit, langue, derniere recherche et derniere ville consultee.") ?></li>
+					<?= texte_securise("theme jour/nuit, langue, derniere recherche et derniere ville consultee.") ?>
+				</li>
 				<li><strong>Statistiques</strong> :
 					<?= texte_securise("tops des villes, departements, regions, carburants, modes de recherche et tendances de prix.") ?>
 				</li>
@@ -60,7 +61,7 @@ require __DIR__ . "/includes/header.php";
 		<section class="info-block tech-feature">
 			<h2><?= texte_securise("API Ghibli") ?></h2>
 			<?php if ($film === null) { ?>
-				<p class="message-vide">API Ghibli indisponible pour le moment.</p>
+				<p class="empty-state"><?= texte_securise("API Ghibli indisponible pour le moment.") ?></p>
 			<?php } else { ?>
 				<h3 class="tech-subtitle">
 					<?= texte_securise((string) $film['title']) ?>
@@ -96,6 +97,7 @@ require __DIR__ . "/includes/header.php";
 				<a href="<?= texte_securise($sourceXmlCarburants) ?>">
 					<?= texte_securise("donnees.roulez-eco.fr") ?>
 				</a>.
+				<?= texte_securise("La page affiche le dernier prix trouve par carburant pour chaque station.") ?>
 			</p>
 			<?php if ($stationsXml === []) { ?>
 				<p class="empty-state"><?= texte_securise("Aucune donnee XML disponible.") ?></p>
@@ -109,7 +111,7 @@ require __DIR__ . "/includes/header.php";
 							<?php if ($station["prix"] !== []) { ?>
 								:
 								<?php foreach ($station["prix"] as $indicePrix => $prix) { ?>
-									<?= $indicePrix > 0 ? ", " : "" ?>				<?= texte_securise($prix["nom"]) ?>
+									<?= $indicePrix > 0 ? ", " : "" ?> 				<?= texte_securise($prix["nom"]) ?>
 									<?= texte_securise($prix["valeur"]) ?> EUR/L
 								<?php } ?>
 							<?php } ?>
@@ -125,9 +127,11 @@ require __DIR__ . "/includes/header.php";
 			<ul class="plain-list">
 				<li><?= texte_securise("IP detectee") ?>: <?= texte_securise($donneesGeo['ip']) ?></li>
 				<li><?= texte_securise("Ville retournee") ?>:
-					<?= texte_securise($donneesGeo['city'] !== "" ? $donneesGeo['city'] : "Non trouvee") ?></li>
+					<?= texte_securise($donneesGeo['city'] !== "" ? $donneesGeo['city'] : "Non trouvee") ?>
+				</li>
 				<li><?= texte_securise("Region retournee") ?>:
-					<?= texte_securise($donneesGeo['region'] !== "" ? $donneesGeo['region'] : "Non trouvee") ?></li>
+					<?= texte_securise($donneesGeo['region'] !== "" ? $donneesGeo['region'] : "Non trouvee") ?>
+				</li>
 				<li>Latitude:
 					<?= texte_securise($donneesGeo['latitude'] !== 0.0 ? (string) $donneesGeo['latitude'] : "Non trouvee") ?>
 				</li>
@@ -139,69 +143,10 @@ require __DIR__ . "/includes/header.php";
 		</section>
 
 		<section class="info-block tech-feature">
-			<h2>Comparer geolocalisation IP et GPS</h2>
-			<p>On compare ici une position trouvee avec l'IP et une position trouvee avec le GPS.</p>
-			<div class="trend-table-wrap">
-				<table class="trend-table">
-					<thead>
-						<tr>
-							<th>Critere</th>
-							<th>IP</th>
-							<th>GPS</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Fonctionnement</td>
-							<td>On envoie l'adresse IP a une API</td>
-							<td>Le navigateur donne la position de l'appareil</td>
-						</tr>
-						<tr>
-							<td>Precision</td>
-							<td>Approximative</td>
-							<td>Plus precise</td>
-						</tr>
-						<tr>
-							<td>Autorisation</td>
-							<td>Pas de demande GPS</td>
-							<td>Le navigateur demande l'autorisation</td>
-						</tr>
-						<tr>
-							<td>Exemple de code</td>
-							<td>Appel de type <code>...ip-address-lookup.php?key=...&amp;input=IP</code></td>
-							<td><code>navigator.geolocation.getCurrentPosition()</code></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-
-			<h3>Resultat IP</h3>
-			<p><strong>Adresse IP :</strong> <?= texte_securise($donneesGeo['ip']) ?></p>
-			<p><strong>Ville :</strong>
-				<?= texte_securise($donneesGeo['city'] !== "" ? $donneesGeo['city'] : "Non trouvee") ?></p>
-			<p><strong>Region :</strong>
-				<?= texte_securise($donneesGeo['region'] !== "" ? $donneesGeo['region'] : "Non trouvee") ?></p>
-			<p><strong>Latitude :</strong>
-				<?= texte_securise($donneesGeo['latitude'] !== 0.0 ? (string) $donneesGeo['latitude'] : "Non trouvee") ?>
-			</p>
-			<p><strong>Longitude :</strong>
-				<?= texte_securise($donneesGeo['longitude'] !== 0.0 ? (string) $donneesGeo['longitude'] : "Non trouvee") ?>
-			</p>
-
-			<h3>Resultat GPS</h3>
-			<p><button type="button" class="primary-btn" onclick="recupererPositionGps()">Afficher ma position GPS</button>
-			</p>
-			<p id="gps-etat"><strong>Etat :</strong> En attente</p>
-			<p id="gps-latitude"><strong>Latitude :</strong> Non calculee</p>
-			<p id="gps-longitude"><strong>Longitude :</strong> Non calculee</p>
-			<p id="gps-precision"><strong>Precision :</strong> Non calculee</p>
-		</section>
-
-		<section class="info-block tech-feature">
-			<h2>Flux carburants cote serveur</h2>
+			<h2><?= texte_securise("Flux carburants cote serveur") ?></h2>
 			<p>
-				Les stations-service sont recherchees depuis l'API JSON officielle du
-				gouvernement avec un filtre sur le departement et la ville.
+				<?= texte_securise("Les stations-service sont recherchees depuis l'API JSON officielle du") ?>
+				<?= texte_securise("gouvernement avec un filtre sur le departement et la ville.") ?>
 			</p>
 			<ul class="plain-list">
 				<li><?= texte_securise("Requete HTTP cote serveur en PHP") ?></li>
@@ -227,43 +172,20 @@ require __DIR__ . "/includes/header.php";
 			<h2><?= texte_securise("Etat des statistiques") ?></h2>
 			<ul class="plain-list">
 				<li><?= texte_securise("Consultations enregistrees") ?>:
-					<?= texte_securise((string) $statistiques['consultation_count']) ?></li>
+					<?= texte_securise((string) $statistiques['consultation_count']) ?>
+				</li>
 				<li><?= texte_securise("Visites de pages") ?>:
-					<?= texte_securise((string) $statistiques['page_visit_count']) ?></li>
+					<?= texte_securise((string) $statistiques['page_visit_count']) ?>
+				</li>
 				<li><?= texte_securise("Visiteurs approx.") ?>:
-					<?= texte_securise((string) $statistiques['page_visitor_count']) ?></li>
+					<?= texte_securise((string) $statistiques['page_visitor_count']) ?>
+				</li>
 				<li><?= texte_securise("Nombre de villes dans le top") ?>:
-					<?= texte_securise((string) count($statistiques['top_cities'])) ?></li>
+					<?= texte_securise((string) count($statistiques['top_cities'])) ?>
+				</li>
 			</ul>
 		</section>
 	</section>
 </main>
-
-<script>
-	function recupererPositionGps() {
-		if (!navigator.geolocation) {
-			document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> GPS indisponible";
-			return;
-		}
-
-		document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Recherche en cours...";
-
-		navigator.geolocation.getCurrentPosition(
-			function (position) {
-				var latitude = position.coords.latitude;
-				var longitude = position.coords.longitude;
-				var precision = position.coords.accuracy;
-
-				document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Position trouvee";
-				document.getElementById("gps-latitude").innerHTML = "<strong>Latitude :</strong> " + latitude;
-				document.getElementById("gps-longitude").innerHTML = "<strong>Longitude :</strong> " + longitude;
-				document.getElementById("gps-precision").innerHTML = "<strong>Precision :</strong> " + precision + " metres";
-			},
-			function () {
-				document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Autorisation refusee ou position indisponible";
-			}
-		);
-	}
-</script>
 
 <?php require __DIR__ . "/includes/footer.php"; ?>

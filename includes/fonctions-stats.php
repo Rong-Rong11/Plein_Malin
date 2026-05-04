@@ -14,6 +14,22 @@ declare(strict_types=1);
  * @param int $annee Annee demandee.
  * @return array Reponse vide standardisee.
  */
+function reponse_tendances_vide(string $source, string $sourceUrl, int $annee): array
+{
+	return [
+		"source" => $source,
+		"source_url" => $sourceUrl,
+		"year" => $annee,
+		"fuels" => [],
+		"annual_averages" => [],
+	];
+}
+/**
+ * Trie un tableau associatif par cle.
+ *
+ * @param array $valeurs Tableau a trier.
+ * @return array Tableau trie par cle.
+ */
 function trier_tableau_par_cle(array $valeurs): array
 {
 	$clesTriees = [];
@@ -528,9 +544,9 @@ function reponse_tendances_indisponibles(array $resultatCourant, int $annee): ar
  */
 function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants = null): array
 {
-	$annee = $annee ?? (int) date("Y");
-	$carburants = $carburants ?? PM_TREND_FUELS;
-	$cleCarburants = construire_cle_cache("fuel_trends", implode("|", $carburants));
+	$annee = choisir_annee_tendances($annee);
+	$carburants = choisir_carburants_tendances($carburants);
+	$cleCarburants = cle_cache_carburants_tendances($carburants);
 	$fichierCacheResultats = PM_CACHE_DIR . "/fuel_trends_" . $annee . "_" . $cleCarburants . ".json";
 
 	$donneesCache = lire_cache_tendances_prix($fichierCacheResultats, $annee);

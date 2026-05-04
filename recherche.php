@@ -190,7 +190,7 @@ require __DIR__ . "/includes/header.php";
 					<div class="bloc-actions">
 						<div class="texte-actions">
 							<p class="titre-contexte"><?= texte_securise("Lancer la recherche") ?></p>
-							<p class="small-note"><?= texte_securise("La position utilisée reste approximative car elle vient de l'adresse IP.") ?></p>
+							<p class="small-note"><?= texte_securise("La position utilisée est estimée à partir de l'adresse IP et sert seulement à chercher les stations proches.") ?></p>
 						</div>
 						<div class="form-actions action-buttons">
 							<div class="inline-filter">

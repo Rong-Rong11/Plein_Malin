@@ -42,7 +42,7 @@ require __DIR__ . "/includes/header.php";
 		<section class="info-block">
 			<h2><?= texte_securise("Autour de moi") ?></h2>
 		<p class="small-note">
-			<?= texte_securise("Le bouton Autour de moi utilise une position estimée à partir de l'adresse IP.") ?>
+			<?= texte_securise("Le bouton Autour de moi utilise une position estimée à partir de l'adresse IP pour chercher les stations proches.") ?>
 			<?= texte_securise("Cette localisation est pratique pour une recherche rapide, mais elle reste approximative.") ?>
 		</p>
 		</section>
@@ -60,7 +60,7 @@ require __DIR__ . "/includes/header.php";
 		<section class="info-block">
 			<h2><?= texte_securise("Questions fréquentes") ?></h2>
 		<h3><?= texte_securise("Pourquoi la position est approximative ?") ?></h3>
-		<p class="small-note"><?= texte_securise("La position vient de l'adresse IP. Elle peut pointer vers une ville proche plutôt que vers l'adresse exacte.") ?></p>
+		<p class="small-note"><?= texte_securise("La position estimée à partir de l'adresse IP peut pointer vers une zone proche plutôt que vers l'adresse exacte.") ?></p>
 
 		<h3><?= texte_securise("Pourquoi certains carburants n'apparaissent pas ?") ?></h3>
 		<p class="small-note"><?= texte_securise("Une station ne propose pas toujours tous les carburants, ou l'API ne fournit pas toujours un prix à jour pour chaque carburant.") ?></p>

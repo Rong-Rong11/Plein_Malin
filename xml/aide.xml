@@ -6,17 +6,17 @@
 		<title>Aide - Plein Malin</title>
 		<meta name="description" content="Mode d&#039;emploi et questions fréquentes du site Plein Malin." />
 		<link rel="stylesheet" href="style.css" />
-			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+				<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
 		<header class="site-header">
-			<div class="brand-row">
+			<div class="ligne-entete">
 				<a class="brand-link" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
-					<div class="theme-switch">
+					<div class="options-entete">
 						<a href="aide.php?theme=night" class="theme-link">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
@@ -27,13 +27,13 @@
 					</div>
 				</div>
 
-			<nav class="main-nav">
+			<nav class="menu">
 				<a href="recherche.php?search_mode=manual">Recherche</a>
 				<a href="resultats.php">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-<main class="page-shell info-page">
+<main class="page info-page">
 	<section class="panel">
 		<p class="eyebrow">Aide</p>
 		<h1>Mode d&#039;emploi</h1>
@@ -41,7 +41,7 @@
 			Cette page explique rapidement comment utiliser Plein Malin et comment lire les résultats affichés.		</p>
 		<section class="info-block">
 			<h2>Faire une recherche</h2>
-		<ol class="plain-list">
+		<ol class="liste-simple">
 			<li>Cliquez sur une région dans la carte interactive.</li>
 			<li>Choisissez un département dans la liste.</li>
 			<li>Choisissez une ville ou cochez le mode tout le département.</li>
@@ -53,12 +53,12 @@
 		<section class="info-block">
 			<h2>Autour de moi</h2>
 		<p class="small-note">
-			Le bouton Autour de moi utilise une position estimée à partir de l&#039;adresse IP.			Cette localisation est pratique pour une recherche rapide, mais elle reste approximative.		</p>
+			Le bouton Autour de moi utilise une position approximative pour chercher les stations proches.			Cette localisation est pratique pour une recherche rapide, mais elle reste approximative.		</p>
 		</section>
 
 		<section class="info-block">
 			<h2>Lire les résultats</h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li>Le prix moyen résume les prix trouvés pour la recherche actuelle.</li>
 			<li>Le meilleur prix permet d&#039;aller directement à la station correspondante.</li>
 			<li>Chaque station affiche son adresse, sa distance et les prix des carburants sélectionnés.</li>
@@ -69,7 +69,7 @@
 		<section class="info-block">
 			<h2>Questions fréquentes</h2>
 		<h3>Pourquoi la position est approximative ?</h3>
-		<p class="small-note">La position vient de l&#039;adresse IP. Elle peut pointer vers une ville proche plutôt que vers l&#039;adresse exacte.</p>
+		<p class="small-note">La position utilisée peut pointer vers une zone proche plutôt que vers l&#039;adresse exacte.</p>
 
 		<h3>Pourquoi certains carburants n&#039;apparaissent pas ?</h3>
 		<p class="small-note">Une station ne propose pas toujours tous les carburants, ou l&#039;API ne fournit pas toujours un prix à jour pour chaque carburant.</p>

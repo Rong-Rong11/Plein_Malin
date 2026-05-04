@@ -435,9 +435,9 @@ function nom_cache_depuis_texte(string $prefixe, string $texte): string
 	return $nom . "_" . $longueurTexte . "_" . $somme;
 }
 /**
- * Recupere l'adresse IP du visiteur en tenant compte d'un eventuel proxy.
+ * Recupere l'adresse IP publique du visiteur en tenant compte d'un eventuel proxy.
  *
- * @return string Adresse IP detectee ou localhost par defaut.
+ * @return string Adresse IP detectee, ou chaine vide si elle n'est pas disponible.
  *
  * @ingroup recherche
  */
@@ -452,20 +452,10 @@ function recuperer_ip_visiteur(): string
 		return $_SERVER["REMOTE_ADDR"];
 	}
 
-	return "127.0.0.1";
+	return "";
 }
 /**
- * Indique si l'adresse IP correspond a une machine locale.
- *
- * @param string $ip Adresse IP detectee.
- * @return bool True si l'adresse est locale.
- */
-function est_ip_locale(string $ip): bool
-{
-	return $ip === "127.0.0.1" || $ip === "::1" || $ip === "localhost";
-}
-/**
- * Recupere une position approximative a partir de l'adresse IP.
+ * Recupere une position approximative a partir de l'adresse IP publique.
  *
  * @return array Donnees de geolocalisation : source, IP, ville, region, latitude et longitude.
  *
@@ -475,21 +465,35 @@ function recuperer_geolocalisation(): array
 {
 	$ip = recuperer_ip_visiteur();
 
+	$ipPublique = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
+	if ($ipPublique === false) {
+		return [
+			"source" => "adresse non publique",
+			"ip" => $ip,
+			"city" => "",
+			"region" => "",
+			"latitude" => 0.0,
+			"longitude" => 0.0,
+		];
+	}
+
 	$contenu = lire_api_avec_cache(
-		"https://ipapi.co/" . rawurlencode($ip) . "/json/",
-		construire_cle_cache("geo", $ip)
+		"https://ipinfo.io/" . rawurlencode($ip) . "/geo",
+		nom_cache_depuis_texte("geo_ipinfo_", $ip)
 	);
 
 	if ($contenu !== null) {
 		$json = json_decode($contenu, true);
-		if (is_array($json) && isset($json["latitude"], $json["longitude"])) {
+		$coordonnees = is_array($json) ? explode(",", (string) ($json["loc"] ?? "")) : [];
+
+		if (is_array($json) && count($coordonnees) === 2) {
 			return [
-				"source" => "api json",
+				"source" => "ipinfo.io json",
 				"ip" => $ip,
 				"city" => (string) ($json["city"] ?? ""),
 				"region" => (string) ($json["region"] ?? ""),
-				"latitude" => (float) $json["latitude"],
-				"longitude" => (float) $json["longitude"],
+				"latitude" => (float) trim($coordonnees[0]),
+				"longitude" => (float) trim($coordonnees[1]),
 			];
 		}
 	}
@@ -864,30 +868,10 @@ function lire_stations_api(?array $ville, bool $modeDepartement = false, ?array 
 		return [];
 	}
 
-	$villeReference = $ville;
-	$departement = (string) ($villeReference["department_code"] ?? "");
-	$nomVille = trim((string) ($villeReference["city_name"] ?? ""));
-	$codePostal = trim((string) ($villeReference["postal_code"] ?? ""));
-	$filtres = [];
-
-	if ($origine !== null) {
-		$latitude = arrondir_coordonnee_cache((float) ($origine["latitude"] ?? 0));
-		$longitude = arrondir_coordonnee_cache((float) ($origine["longitude"] ?? 0));
-		$rayonKm = normaliser_rayon_geo($rayonKm);
-
-		$filtres[] = "within_distance(geom, geom'POINT(" . $longitude . " " . $latitude . ")', " . $rayonKm . " km)";
+	if ($ville === null) {
+		$villeInfos = [];
 	} else {
-		if ($departement !== "") {
-			$filtres[] = 'code_departement="' . addslashes($departement) . '"';
-		}
-
-		if (!$modeDepartement && $nomVille !== "") {
-			if ($codePostal !== "" && est_arrondissement_municipal($villeReference)) {
-				$filtres[] = 'code_postal="' . addslashes($codePostal) . '"';
-			} else {
-				$filtres[] = 'ville="' . addslashes($nomVille) . '"';
-			}
-		}
+		$villeInfos = $ville;
 	}
 
 	if (isset($villeInfos["department_code"])) {
@@ -906,7 +890,7 @@ function lire_stations_api(?array $ville, bool $modeDepartement = false, ?array 
 	$adresseUrl = construire_url_api_stations($clauseWhere);
 	$nomCache = nom_cache_depuis_texte("fuel_search_", $adresseUrl);
 
-	$contenu = lire_api_avec_cache($adresseUrl, construire_cle_cache("fuel_search", $adresseUrl));
+	$contenu = lire_api_avec_cache($adresseUrl, $nomCache);
 
 	if ($contenu === null) {
 		return null;

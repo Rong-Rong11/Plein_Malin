@@ -6,17 +6,17 @@
 		<title>Plein Malin</title>
 		<meta name="description" content="Comparer les prix des carburants et trouver une station en France." />
 		<link rel="stylesheet" href="style.css" />
-			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+				<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
 		<header class="site-header">
-			<div class="brand-row">
+			<div class="ligne-entete">
 				<a class="brand-link" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
-					<div class="theme-switch">
+					<div class="options-entete">
 						<a href="index.php?theme=night" class="theme-link">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
@@ -27,13 +27,13 @@
 					</div>
 				</div>
 
-			<nav class="main-nav">
+			<nav class="menu">
 				<a href="recherche.php?search_mode=manual">Recherche</a>
 				<a href="resultats.php">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-<main class="page-shell home-page">
+<main class="page home-page">
 	<section class="hero home-hero">
 		<div class="hero-copy">
 			<p class="eyebrow">Prix des carburants</p>

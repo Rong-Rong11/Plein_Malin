@@ -37,6 +37,7 @@ $apiCarburantsErreur = false;
 $choixRechercheIncomplet = !$utiliserGeo && !$modeDepartement && $departement !== "" && $ville === "";
 $libelleDepartement = $departement;
 $modeRayonManuel = false;
+$positionGeoValide = false;
 
 // Reconstitution du contexte geographique a partir des parametres recus.
 if ($departement !== "") {
@@ -48,10 +49,11 @@ if ($departement !== "") {
 	}
 }
 
-// Le mode geolocalise utilise l'IP ; les autres modes utilisent les CSV locaux.
+// Le mode geolocalise utilise une position estimee ; les autres modes utilisent les CSV locaux.
 if ($utiliserGeo) {
 	$geolocalisation = recuperer_geolocalisation();
-	if ((float) ($geolocalisation["latitude"] ?? 0) !== 0.0 || (float) ($geolocalisation["longitude"] ?? 0) !== 0.0) {
+	$positionGeoValide = (float) ($geolocalisation["latitude"] ?? 0) !== 0.0 || (float) ($geolocalisation["longitude"] ?? 0) !== 0.0;
+	if ($positionGeoValide) {
 		$villeCourante = trouver_ville_plus_proche((float) $geolocalisation["latitude"], (float) $geolocalisation["longitude"]);
 	}
 } elseif ($modeDepartement && $departement !== "") {
@@ -81,13 +83,15 @@ if (!$utiliserGeo && !$modeDepartement && $villeCourante !== null) {
 	$modeRayonManuel = true;
 }
 
-if ($villeCourante !== null) {
-	$departement = $villeCourante["department_code"];
-	$infosDepartement = trouver_departement($departement);
-	$region = $infosDepartement["region_code"] ?? $region;
-	$infosRegion = trouver_region($region);
+if ($villeCourante !== null || ($utiliserGeo && $positionGeoValide)) {
+	if ($villeCourante !== null) {
+		$departement = $villeCourante["department_code"];
+		$infosDepartement = trouver_departement($departement);
+		$region = $infosDepartement["region_code"] ?? $region;
+		$infosRegion = trouver_region($region);
+	}
 
-	if (!$modeDepartement && $villeCourante["city_code"] !== "") {
+	if ($villeCourante !== null && !$modeDepartement && $villeCourante["city_code"] !== "") {
 		enregistrer_derniere_ville($villeCourante["city_code"]);
 	} elseif ($modeDepartement && $departement !== "") {
 		enregistrer_derniere_recherche("departement", $departement);
@@ -100,7 +104,7 @@ if ($villeCourante !== null) {
 		enregistrer_consultation([
 			"region" => $infosRegion["region_name"] ?? "",
 			"department" => $infosDepartement["department_name"] ?? "",
-			"city" => $modeDepartement ? "Département " . ($infosDepartement["department_name"] ?? $departement) : $villeCourante["city_name"],
+			"city" => $modeDepartement ? "Département " . ($infosDepartement["department_name"] ?? $departement) : ($villeCourante["city_name"] ?? "Position géolocalisée"),
 			"mode" => mode_recherche($utiliserGeo, $modeDepartement),
 			"view" => $vue,
 			"fuel" => texte_carburants_selectionnes($carburantsSelectionnes),
@@ -112,7 +116,7 @@ if ($villeCourante !== null) {
 $message = message_resultats($villeCourante, $utiliserGeo, $modeDepartement, $stations);
 if ($apiCarburantsErreur) {
 	$message = "L'API officielle des carburants ne répond pas pour le moment.";
-} elseif ($utiliserGeo && $villeCourante !== null) {
+} elseif ($utiliserGeo && $positionGeoValide) {
 	$message = "Recherche autour de votre position approximative dans un rayon de " . $rayonGeo . " km.";
 } elseif ($modeRayonManuel && $villeCourante !== null) {
 	$message = "Recherche autour de " . $villeCourante["city_name"] . " dans un rayon de " . $rayonGeo . " km.";
@@ -219,8 +223,10 @@ require __DIR__ . "/includes/header.php";
 							<?php } elseif ($geolocalisation !== null && trim((string) ($geolocalisation["city"] ?? "")) !== "") { ?>
 								<?= texte_securise("Vous êtes approximativement à") ?> <strong><?= texte_securise((string) $geolocalisation["city"]) ?></strong>,
 								<?= texte_securise("d'après une position estimée à partir de l'adresse IP.") ?>
+							<?php } elseif ($positionGeoValide) { ?>
+								<?= texte_securise("Recherche autour de la position estimée à partir de l'adresse IP.") ?>
 							<?php } else { ?>
-								<?= texte_securise("Position estimée à partir de l'adresse IP.") ?>
+								<?= texte_securise("Position estimée indisponible pour le moment.") ?>
 							<?php } ?>
 						</p>
 					<?php } ?>
@@ -315,8 +321,8 @@ require __DIR__ . "/includes/header.php";
 										<li><?= texte_securise("Rayon géolocalisé") ?> : <?= texte_securise((string) $rayonGeo) ?> km</li>
 										<li>Latitude : <?= texte_securise((string) $geolocalisation["latitude"]) ?></li>
 										<li>Longitude : <?= texte_securise((string) $geolocalisation["longitude"]) ?></li>
-										<li><?= texte_securise("Ville retournée par l'IP") ?> : <?= texte_securise($geolocalisation["city"]) ?></li>
-										<li><?= texte_securise("Région retournée par l'IP") ?> : <?= texte_securise($geolocalisation["region"]) ?></li>
+										<li><?= texte_securise("Ville estimée par IP") ?> : <?= texte_securise($geolocalisation["city"] !== "" ? $geolocalisation["city"] : "Non définie") ?></li>
+										<li><?= texte_securise("Région estimée par IP") ?> : <?= texte_securise($geolocalisation["region"] !== "" ? $geolocalisation["region"] : "Non définie") ?></li>
 										<li><?= texte_securise("Source de localisation") ?> : <?= texte_securise($geolocalisation["source"]) ?></li>
 									<?php } elseif ($modeRayonManuel) { ?>
 										<li><?= texte_securise("Rayon") ?> : <?= texte_securise((string) $rayonGeo) ?> km</li>

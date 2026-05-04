@@ -51,7 +51,7 @@ require __DIR__ . "/includes/header.php";
 		<section class="info-block">
 			<h2><?= texte_securise("Géolocalisation") ?></h2>
 		<p class="small-note">
-			<?= texte_securise("La recherche autour de moi utilise une position estimée à partir de l'adresse IP.") ?>
+			<?= texte_securise("La recherche autour de moi utilise une position estimée à partir de l'adresse IP pour chercher les stations proches.") ?>
 			<?= texte_securise("Cette position est approximative et peut être différente de la position réelle de l'utilisateur.") ?>
 		</p>
 		</section>

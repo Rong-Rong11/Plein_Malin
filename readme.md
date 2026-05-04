@@ -18,7 +18,7 @@ Le site propose aussi une page de resultats, des statistiques de consultation, d
 ## URL du site
 
 - URL publique du site : non disponible (site non encore mis en ligne)
-- URL locale de developpement : `http://localhost/Plein_Malin/`
+- URL de developpement : lancer le projet avec le serveur PHP integre
 - Page d'accueil : `index.php`
 
 ## Pages principales
@@ -142,10 +142,10 @@ xmllint --noout xml/*.xml
 Pour verifier une page PHP, il faut d'abord la servir avec PHP, ouvrir la page dans le navigateur, puis utiliser le code source genere. Exemple avec le serveur local :
 
 ```bash
-php -S 127.0.0.1:8080
+php -S adresse:port
 ```
 
-Puis ouvrir `http://127.0.0.1:8080/index.php`, afficher le code source genere dans le navigateur, l'enregistrer dans `xml/index.xml`, puis lancer :
+Puis ouvrir la page `index.php` depuis l'adresse affichee par le serveur PHP, afficher le code source genere dans le navigateur, l'enregistrer dans `xml/index.xml`, puis lancer :
 
 ```bash
 xmllint --noout xml/index.xml
@@ -174,11 +174,11 @@ doxygen Doxyfile
 Lancer un serveur PHP local :
 
 ```bash
-php -S 127.0.0.1:8080
+php -S adresse:port
 ```
 
 Puis ouvrir :
 
 ```text
-http://127.0.0.1:8080/index.php
+index.php depuis l'adresse affichee par le serveur PHP
 ```

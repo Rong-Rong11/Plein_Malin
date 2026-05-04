@@ -6,17 +6,17 @@
 		<title>Résultats - Plein Malin</title>
 		<meta name="description" content="Résultats des stations-service et des prix." />
 		<link rel="stylesheet" href="style.css" />
-			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+				<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
 		<header class="site-header">
-			<div class="brand-row">
+			<div class="ligne-entete">
 				<a class="brand-link" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
-					<div class="theme-switch">
+					<div class="options-entete">
 						<a href="resultats.php?theme=night" class="theme-link">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
@@ -27,13 +27,13 @@
 					</div>
 				</div>
 
-			<nav class="main-nav">
+			<nav class="menu">
 				<a href="recherche.php?region=&amp;department=&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10&amp;search_mode=manual">Recherche</a>
 				<a href="resultats.php?region=&amp;department=&amp;city=&amp;fuel%5B0%5D=Gazole&amp;view=summary&amp;sort=price&amp;geo_radius=10#resultats" aria-current="page">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-	<main class="page-shell">
+	<main class="page">
 			<section class="panel">
 				<p class="eyebrow">Résultats</p>
 				<h1>Stations pour Gazole</h1>
@@ -42,13 +42,13 @@
 										<div class="form-actions">
 						<a class="cta-link" href="recherche.php?search_mode=manual">Recherche manuelle</a>
 					</div>
-					<div class="results-tools">
-					<form action="resultats.php#resultats" method="get" class="results-refine-form search-form search-form-structured">
+					<div class="outils-resultats">
+					<form action="resultats.php#resultats" method="get" class="formulaire-resultats search-form formulaire-structure">
 						<input type="hidden" name="region" value="" />
 						<input type="hidden" name="department" value="" />
 						<input type="hidden" name="city" value="" />
-																								<div class="search-section search-plain">
-							<div class="field-card field-card-wide">
+																								<div class="bloc-recherche recherche-simple">
+							<div class="bloc-champ champ-large">
 								<span class="field-title">Carburants</span>
 								<span class="field-help">Gazole par défaut si rien n&#039;est coché.</span>
 								<span class="fuel-choice-list">
@@ -84,8 +84,8 @@
 										</label>
 																	</span>
 							</div>
-							<div class="field-grid field-grid-main">
-								<div class="field-card">
+							<div class="grille-champs grille-principale">
+								<div class="bloc-champ">
 									<label class="field-title" for="result-sort-select">Tri</label>
 									<select id="result-sort-select" name="sort">
 										<option value="price" selected="selected">Prix croissant</option>
@@ -94,7 +94,7 @@
 										<option value="name" >Nom</option>
 									</select>
 								</div>
-																	<div class="field-card">
+																	<div class="bloc-champ">
 										<label class="field-title" for="result-radius-select">Rayon</label>
 										<select id="result-radius-select" name="geo_radius">
 																							<option value="5" >
@@ -114,7 +114,7 @@
 												</option>
 																					</select>
 									</div>
-																<div class="field-card">
+																<div class="bloc-champ">
 									<label class="field-title" for="result-view-select">Vue</label>
 									<select id="result-view-select" name="view">
 										<option value="summary" selected="selected">Synthèse</option>
@@ -132,7 +132,7 @@
 							<summary class="detail-toggle">Détail</summary>
 							<div class="search-details-box">
 								<h2>Recherche actuelle</h2>
-								<ul class="plain-list">
+								<ul class="liste-simple">
 									<li>Mode : Ville</li>
 									<li>Carburants choisis : Gazole</li>
 									<li>Tri choisi : Prix croissant</li>
@@ -153,7 +153,7 @@
 			<h2>Résultats</h2>
 				<p class="small-note">
 					Aucune recherche lancée.										</p>
-									<p class="empty-state">
+									<p class="message-vide">
 						Aucune recherche lancée.					</p>
 							</section>
 	</main>

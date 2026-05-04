@@ -39,7 +39,7 @@ require __DIR__ . "/includes/header.php";
 			<h2><?= texte_securise("Données dynamiques") ?></h2>
 		<ul class="liste-simple">
 			<li><?= texte_securise("Prix des carburants : API officielle des prix des carburants, interrogée côté serveur en PHP.") ?></li>
-			<li><?= texte_securise("Géolocalisation : position estimée à partir de l'adresse IP de l'utilisateur.") ?></li>
+			<li><?= texte_securise("Géolocalisation : position estimée à partir de l'adresse IP pour rechercher les stations proches.") ?></li>
 			<li><?= texte_securise("Tendances : archive annuelle XML officielle de") ?> <code>donnees.roulez-eco.fr</code>.</li>
 		</ul>
 		</section>
