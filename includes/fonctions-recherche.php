@@ -363,7 +363,7 @@ function lire_api_avec_cache(string $adresseUrl, string $nomCache): ?string
 	}
 
 	$contenuApi = "";
-	$fichierDistant = @fopen($adresseUrl, "r");
+	$fichierDistant = fopen($adresseUrl, "r");
 
 	if ($fichierDistant !== false) {
 		while (!feof($fichierDistant)) {
