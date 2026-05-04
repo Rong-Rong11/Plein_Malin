@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * @file
  * @brief Page d'aide et de questions frequentes.
@@ -20,7 +21,7 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Aide et mode d'emploi.";
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page-shell info-page">
+<main class="page info-page">
 	<section class="panel">
 		<p class="eyebrow"><?= texte_securise("Aide") ?></p>
 		<h1><?= texte_securise("Mode d'emploi") ?></h1>
@@ -29,7 +30,7 @@ require __DIR__ . "/includes/header.php";
 		</p>
 		<section class="info-block">
 			<h2><?= texte_securise("Faire une recherche") ?></h2>
-		<ol class="plain-list">
+		<ol class="liste-simple">
 			<li><?= texte_securise("Cliquez sur une région dans la carte interactive.") ?></li>
 			<li><?= texte_securise("Choisissez un département dans la liste.") ?></li>
 			<li><?= texte_securise("Choisissez une ville ou cochez le mode tout le département.") ?></li>
@@ -48,7 +49,7 @@ require __DIR__ . "/includes/header.php";
 
 		<section class="info-block">
 			<h2><?= texte_securise("Lire les résultats") ?></h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li><?= texte_securise("Le prix moyen résume les prix trouvés pour la recherche actuelle.") ?></li>
 			<li><?= texte_securise("Le meilleur prix permet d'aller directement à la station correspondante.") ?></li>
 			<li><?= texte_securise("Chaque station affiche son adresse, sa distance et les prix des carburants sélectionnés.") ?></li>

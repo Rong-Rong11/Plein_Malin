@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 /**
  * @file
  * @brief Page d'affichage et de filtrage des resultats.
@@ -203,7 +204,7 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | 
 
 require __DIR__ . "/includes/header.php";
 ?>
-	<main class="page-shell">
+	<main class="page">
 			<section class="panel">
 				<p class="eyebrow"><?= texte_securise("Résultats") ?></p>
 				<h1><?= texte_securise("Stations pour") ?> <?= texte_securise($libelleCarburantsSelectionnes) ?></h1>
@@ -226,8 +227,8 @@ require __DIR__ . "/includes/header.php";
 					<div class="form-actions">
 						<a class="cta-link" href="recherche.php?search_mode=manual"><?= texte_securise("Recherche manuelle") ?></a>
 					</div>
-					<div class="results-tools">
-					<form action="resultats.php#resultats" method="get" class="results-refine-form search-form search-form-structured">
+					<div class="outils-resultats">
+					<form action="resultats.php#resultats" method="get" class="formulaire-resultats search-form formulaire-structure">
 						<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
 						<input type="hidden" name="department" value="<?= texte_securise($departement) ?>" />
 						<input type="hidden" name="city" value="<?= texte_securise($ville) ?>" />
@@ -240,8 +241,8 @@ require __DIR__ . "/includes/header.php";
 						<?php if ($utiliserGeo) { ?>
 							<input type="hidden" name="use_geo" value="1" />
 						<?php } ?>
-						<div class="search-section search-plain">
-							<div class="field-card field-card-wide">
+						<div class="bloc-recherche recherche-simple">
+							<div class="bloc-champ champ-large">
 								<span class="field-title"><?= texte_securise("Carburants") ?></span>
 								<span class="field-help"><?= texte_securise("Gazole par défaut si rien n'est coché.") ?></span>
 								<span class="fuel-choice-list">
@@ -254,8 +255,8 @@ require __DIR__ . "/includes/header.php";
 									<?php } ?>
 								</span>
 							</div>
-							<div class="field-grid field-grid-main">
-								<div class="field-card">
+							<div class="grille-champs grille-principale">
+								<div class="bloc-champ">
 									<label class="field-title" for="result-sort-select"><?= texte_securise("Tri") ?></label>
 									<select id="result-sort-select" name="sort">
 										<option value="price" <?= $tri === "price" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix croissant") ?></option>
@@ -265,7 +266,7 @@ require __DIR__ . "/includes/header.php";
 									</select>
 								</div>
 								<?php if (!$modeDepartement) { ?>
-									<div class="field-card">
+									<div class="bloc-champ">
 										<label class="field-title" for="result-radius-select"><?= texte_securise("Rayon") ?></label>
 										<select id="result-radius-select" name="geo_radius">
 											<?php foreach (rayons_geo_disponibles() as $rayon) { ?>
@@ -276,7 +277,7 @@ require __DIR__ . "/includes/header.php";
 										</select>
 									</div>
 								<?php } ?>
-								<div class="field-card">
+								<div class="bloc-champ">
 									<label class="field-title" for="result-view-select"><?= texte_securise("Vue") ?></label>
 									<select id="result-view-select" name="view">
 										<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>><?= texte_securise("Synthèse") ?></option>
@@ -294,7 +295,7 @@ require __DIR__ . "/includes/header.php";
 							<summary class="detail-toggle"><?= texte_securise("Détail") ?></summary>
 							<div class="search-details-box">
 								<h2><?= texte_securise("Recherche actuelle") ?></h2>
-								<ul class="plain-list">
+								<ul class="liste-simple">
 									<li><?= texte_securise("Mode") ?> : <?= texte_securise($libelleModeRecherche) ?></li>
 									<li><?= texte_securise("Carburants choisis") ?> : <?= texte_securise($libelleCarburantsSelectionnes) ?></li>
 									<li><?= texte_securise("Tri choisi") ?> : <?= texte_securise($libelleTri) ?></li>
@@ -336,13 +337,13 @@ require __DIR__ . "/includes/header.php";
 					<?php } ?>
 					</p>
 				<?php if ($villeCourante === null) { ?>
-					<p class="empty-state">
+					<p class="message-vide">
 						<?= texte_securise($choixRechercheIncomplet ? "Choisissez une ville dans le département " . $libelleDepartement . " ou activez la recherche dans tout le département." : "Aucune recherche lancée.") ?>
 					</p>
 				<?php } elseif ($apiCarburantsErreur) { ?>
-				<p class="empty-state"><?= texte_securise("Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard.") ?></p>
+				<p class="message-vide"><?= texte_securise("Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard.") ?></p>
 				<?php } elseif ($stations === []) { ?>
-				<p class="empty-state">
+				<p class="message-vide">
 					<?= texte_securise("Aucune station trouvée avec ces critères.") ?>
 					<?php if ($modeRayonManuel) { ?>
 						<?= texte_securise("Vous pouvez aussi augmenter le rayon de recherche.") ?>
