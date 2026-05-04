@@ -80,15 +80,13 @@ function trier_classement_decroissant(array $valeurs): array
 }
 
 /**
- * Lit l'archive XML officielle d'une annee et calcule les moyennes mensuelles.
+ * Prepare l'archive officielle en cache.
  *
- * @param int $annee Annee a analyser.
- * @param string[] $carburants Carburants a agreger.
- * @return array Donnees mensuelles et moyenne annuelle pour chaque carburant.
- *
- * @ingroup statistiques
+ * @param string $fichierZip Chemin local du fichier ZIP.
+ * @param string $adresseUrl Adresse officielle a telecharger.
+ * @return bool True si l'archive est disponible localement.
  */
-function calculer_tendances_prix_annuelles(int $annee, array $carburants): array
+function preparer_archive_prix_annuelle(string $fichierZip, string $adresseUrl): bool
 {
 	$dureeCache = PM_FUEL_TRENDS_CACHE_DURATION;
 	$archiveExiste = file_exists($fichierZip);
