@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 /**
  * @file
  * @brief Formulaire de recherche des stations.
@@ -121,7 +120,7 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | 
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page">
+<main class="page-shell">
 	<section class="panel" id="carte">
 		<p class="eyebrow"><?= texte_securise("Recherche principale") ?></p>
 		<h1><?= texte_securise("Rechercher une station") ?></h1>
@@ -135,14 +134,14 @@ require __DIR__ . "/includes/header.php";
 				<?= texte_securise("Choisissez votre région, puis précisez le département et la ville dans le formulaire.") ?>
 			</p>
 		<?php } ?>
-		<div class="choix-mode">
-			<form action="recherche.php#recherche" method="get" class="formulaire-mode">
+		<div class="search-mode-switch">
+			<form action="recherche.php#recherche" method="get" class="mode-switch-form">
 				<input type="hidden" name="search_mode" value="manual" />
-				<button type="submit" class="bouton-mode<?= $modeRecherche === "manual" ? " is-active" : "" ?>"><?= texte_securise("Recherche manuelle") ?></button>
+				<button type="submit" class="mode-pill<?= $modeRecherche === "manual" ? " is-active" : "" ?>"><?= texte_securise("Recherche manuelle") ?></button>
 			</form>
-			<form action="recherche.php#recherche" method="get" class="formulaire-mode">
+			<form action="recherche.php#recherche" method="get" class="mode-switch-form">
 				<input type="hidden" name="search_mode" value="geo" />
-				<button type="submit" class="bouton-mode<?= $modeRecherche === "geo" ? " is-active" : "" ?>"><?= texte_securise("Autour de moi") ?></button>
+				<button type="submit" class="mode-pill<?= $modeRecherche === "geo" ? " is-active" : "" ?>"><?= texte_securise("Autour de moi") ?></button>
 			</form>
 		</div>
 	</section>
@@ -150,12 +149,12 @@ require __DIR__ . "/includes/header.php";
 	<section class="panel" id="recherche">
 		<h2><?= texte_securise("Formulaire") ?></h2>
 		<?php if ($modeRecherche === "geo") { ?>
-			<form action="resultats.php#resultats" method="get" class="search-form formulaire-structure">
+			<form action="resultats.php#resultats" method="get" class="search-form search-form-structured">
 				<input type="hidden" name="use_geo" value="1" />
-				<div class="bloc-recherche recherche-simple">
+				<div class="search-section search-plain">
 					<p class="section-label"><?= texte_securise("Recherche autour de moi") ?></p>
-					<div class="grille-champs grille-secondaire">
-						<fieldset class="bloc-champ champ-simple champ-large">
+					<div class="field-grid field-grid-secondary">
+						<fieldset class="field-card field-card-soft field-card-wide">
 							<legend class="field-title"><?= texte_securise("Carburants") ?></legend>
 							<span class="fuel-choice-list">
 								<?php foreach ($libellesCarburants as $codeCarburant => $nomCarburant) { ?>
@@ -168,7 +167,7 @@ require __DIR__ . "/includes/header.php";
 							</span>
 						</fieldset>
 
-						<div class="bloc-champ champ-simple">
+						<div class="field-card field-card-soft">
 							<label class="field-title" for="geo-sort-select"><?= texte_securise("Tri") ?></label>
 							<select id="geo-sort-select" name="sort">
 								<option value="price" <?= $tri === "price" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix croissant") ?></option>
@@ -178,7 +177,7 @@ require __DIR__ . "/includes/header.php";
 							</select>
 						</div>
 
-						<div class="bloc-champ champ-simple">
+						<div class="field-card field-card-soft">
 							<label class="field-title" for="geo-view-select"><?= texte_securise("Vue") ?></label>
 							<select id="geo-view-select" name="view">
 								<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>><?= texte_securise("Synthèse") ?></option>
@@ -187,10 +186,10 @@ require __DIR__ . "/includes/header.php";
 						</div>
 					</div>
 
-					<div class="bloc-actions">
-						<div class="texte-actions">
-							<p class="titre-contexte"><?= texte_securise("Lancer la recherche") ?></p>
-							<p class="small-note"><?= texte_securise("La position utilisée est estimée à partir de l'adresse IP et sert seulement à chercher les stations proches.") ?></p>
+					<div class="action-panel">
+						<div class="action-copy">
+							<p class="context-title"><?= texte_securise("Lancer la recherche") ?></p>
+							<p class="small-note"><?= texte_securise("La position utilisée reste approximative car elle vient de l'adresse IP.") ?></p>
 						</div>
 						<div class="form-actions action-buttons">
 							<div class="inline-filter">
@@ -210,24 +209,24 @@ require __DIR__ . "/includes/header.php";
 				</div>
 			</form>
 		<?php } else { ?>
-			<form action="recherche.php#recherche" method="get" class="search-form formulaire-structure">
+			<form action="recherche.php#recherche" method="get" class="search-form search-form-structured">
 				<input type="hidden" name="search_mode" value="manual" />
 				<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
 
-				<div class="bloc-recherche recherche-contexte">
+				<div class="search-section search-context">
 					<p class="section-label">1. <?= texte_securise("Région") ?></p>
 					<?php if ($infosRegion !== null) { ?>
-						<div class="bloc-contexte">
+						<div class="context-card">
 							<div>
-								<p class="titre-contexte"><?= texte_securise("Région déjà choisie") ?></p>
+								<p class="context-title"><?= texte_securise("Région déjà choisie") ?></p>
 								<div class="region-badge"><?= texte_securise($infosRegion["region_name"]) ?></div>
 							</div>
-							<span class="lien-contexte"><?= texte_securise("Choisissez une autre région directement sur la carte ci-dessous.") ?></span>
+							<span class="context-link"><?= texte_securise("Choisissez une autre région directement sur la carte ci-dessous.") ?></span>
 						</div>
 					<?php } else { ?>
-						<div class="bloc-contexte">
+						<div class="context-card">
 							<div>
-								<p class="titre-contexte"><?= texte_securise("Aucune région sélectionnée") ?></p>
+								<p class="context-title"><?= texte_securise("Aucune région sélectionnée") ?></p>
 								<p class="small-note"><?= texte_securise("Commencez par cliquer sur la carte ci-dessous.") ?></p>
 							</div>
 						</div>
@@ -251,11 +250,12 @@ require __DIR__ . "/includes/header.php";
 						<area shape="rect" coords="<?= coordonnees_carte("989,781,1183,880", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=93#recherche" alt="Provence-Alpes-Cote d'Azur" title="Provence-Alpes-Cote d'Azur" />
 						<area shape="rect" coords="<?= coordonnees_carte("1277,898,1384,955", $largeurCarteOriginale, $hauteurCarteOriginale, $largeurCarte, $hauteurCarte) ?>" href="recherche.php?search_mode=manual&amp;region=94#recherche" alt="Corse" title="Corse" />
 					</map>
-					<div class="grille-champs grille-principale">
-						<div class="bloc-champ">
+					<div class="field-grid field-grid-main">
+						<div class="field-card">
 							<label class="field-title" for="department-select"><?= texte_securise("Département") ?></label>
 							<span class="field-help"><?= texte_securise("Choisissez un département.") ?></span>
-							<select id="department-select" name="department" <?= $region === "" ? 'disabled="disabled"' : "" ?>>
+							<select id="department-select" name="department" onchange="this.form.action='recherche.php#form-end'; this.form.submit();"
+								<?= $region === "" ? 'disabled="disabled"' : "" ?>>
 								<option value=""><?= texte_securise($region === "" ? "Choisir d'abord une région" : "Choisir un département") ?></option>
 								<?php foreach ($departements as $unDepartement) { ?>
 									<option value="<?= texte_securise($unDepartement["department_code"]) ?>"
@@ -265,13 +265,9 @@ require __DIR__ . "/includes/header.php";
 									</option>
 								<?php } ?>
 							</select>
-							<button type="submit" formaction="recherche.php#form-end" class="secondary-btn"
-								<?= $region === "" ? 'disabled="disabled"' : "" ?>>
-								<?= texte_securise("Afficher les villes") ?>
-							</button>
 						</div>
 
-						<div class="bloc-champ">
+						<div class="field-card">
 							<label class="field-title" for="city-select"><?= texte_securise("Ville") ?></label>
 							<span class="field-help"><?= texte_securise("Choisissez une ville.") ?></span>
 							<select id="city-select" name="city" <?= $departement === "" ? 'disabled="disabled"' : "" ?>>
@@ -287,10 +283,10 @@ require __DIR__ . "/includes/header.php";
 
 				</div>
 
-				<div class="bloc-recherche recherche-simple">
+				<div class="search-section search-plain">
 					<p class="section-label">2. <?= texte_securise("Préférences et actions") ?></p>
-						<div class="grille-champs grille-secondaire">
-							<fieldset class="bloc-champ champ-simple champ-large">
+						<div class="field-grid field-grid-secondary">
+							<fieldset class="field-card field-card-soft field-card-wide">
 								<legend class="field-title"><?= texte_securise("Carburants") ?></legend>
 								<span class="fuel-choice-list">
 									<?php foreach ($libellesCarburants as $codeCarburant => $nomCarburant) { ?>
@@ -303,7 +299,7 @@ require __DIR__ . "/includes/header.php";
 								</span>
 							</fieldset>
 
-							<div class="bloc-champ champ-simple">
+							<div class="field-card field-card-soft">
 								<label class="field-title" for="sort-select"><?= texte_securise("Tri") ?></label>
 								<select id="sort-select" name="sort">
 									<option value="price" <?= $tri === "price" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix croissant") ?></option>
@@ -313,7 +309,7 @@ require __DIR__ . "/includes/header.php";
 								</select>
 							</div>
 
-							<div class="bloc-champ champ-simple">
+							<div class="field-card field-card-soft">
 								<label class="field-title" for="view-select"><?= texte_securise("Vue") ?></label>
 								<select id="view-select" name="view">
 									<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>><?= texte_securise("Synthèse") ?></option>
@@ -321,7 +317,7 @@ require __DIR__ . "/includes/header.php";
 								</select>
 							</div>
 
-							<div class="bloc-champ champ-simple">
+							<div class="field-card field-card-soft">
 								<span class="field-title" id="department-mode-title"><?= texte_securise("Mode département") ?></span>
 								<span class="field-help"><?= texte_securise("Rechercher dans tout le département.") ?></span>
 								<span class="fuel-choice">
@@ -333,7 +329,7 @@ require __DIR__ . "/includes/header.php";
 							</div>
 						</div>
 
-						<div class="bloc-actions" id="form-end">
+						<div class="action-panel" id="form-end">
 						<div class="form-actions action-buttons">
 							<div class="inline-filter">
 								<label for="manual-radius-select"><?= texte_securise("Rayon") ?></label>

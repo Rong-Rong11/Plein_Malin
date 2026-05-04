@@ -18,9 +18,8 @@ var searchData=
   ['lire_5fparametres_5fderniere_5frecherche_15',['lire_parametres_derniere_recherche',['../group__preferences.html#ga263ea981be84ac8aed05ed657f3f4306',1,'fonctions-preferences.php']]],
   ['lire_5fregions_16',['lire_regions',['../group__donnees.html#ga6cd5e52a5935ef723f8d5c5901fbbced',1,'fonctions-donnees.php']]],
   ['lire_5fstations_5fapi_17',['lire_stations_api',['../group__recherche.html#ga62103a9e732074e3d407867ec9cc8e8f',1,'fonctions-recherche.php']]],
-  ['lire_5fstations_5fdepuis_5farchive_5fxml_5fdemo_18',['lire_stations_depuis_archive_xml_demo',['../fonctions-donnees_8php.html#a11930a77b43bec2a48439b0494207537',1,'fonctions-donnees.php']]],
-  ['lire_5fstations_5fxml_5fdemo_19',['lire_stations_xml_demo',['../group__donnees.html#gae805df52e7ff1c3a432b792f86ecc0a2',1,'fonctions-donnees.php']]],
-  ['lire_5ftendances_5fprix_5fofficielles_20',['lire_tendances_prix_officielles',['../group__statistiques.html#gac802d15265a7990f630322ce7b74a842',1,'fonctions-stats.php']]],
-  ['lire_5fvilles_21',['lire_villes',['../group__donnees.html#ga633521b1ff61bbdeb67739f3ea5e174f',1,'fonctions-donnees.php']]],
-  ['liste_5fcarburants_22',['liste_carburants',['../group__recherche.html#gaff94149a115e515c90b8397b97edbbf7',1,'fonctions-recherche.php']]]
+  ['lire_5fstations_5fxml_5fdemo_18',['lire_stations_xml_demo',['../group__donnees.html#gae805df52e7ff1c3a432b792f86ecc0a2',1,'fonctions-donnees.php']]],
+  ['lire_5ftendances_5fprix_5fofficielles_19',['lire_tendances_prix_officielles',['../group__statistiques.html#gac802d15265a7990f630322ce7b74a842',1,'fonctions-stats.php']]],
+  ['lire_5fvilles_20',['lire_villes',['../group__donnees.html#ga633521b1ff61bbdeb67739f3ea5e174f',1,'fonctions-donnees.php']]],
+  ['liste_5fcarburants_21',['liste_carburants',['../group__recherche.html#gaff94149a115e515c90b8397b97edbbf7',1,'fonctions-recherche.php']]]
 ];

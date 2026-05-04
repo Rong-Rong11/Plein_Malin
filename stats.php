@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 /**
  * @file
  * @brief Page des statistiques de consultation et de prix.
@@ -28,7 +27,7 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Statistiques générées à 
 
 require __DIR__ . "/includes/header.php";
 ?>
-	<main class="page">
+	<main class="page-shell">
 		<section class="panel">
 			<p class="eyebrow"><?= texte_securise("Rubrique statistiques") ?></p>
 			<h1><?= texte_securise("Consultations Plein Malin") ?></h1>
@@ -59,10 +58,10 @@ require __DIR__ . "/includes/header.php";
 		<section class="panel">
 			<h2><?= texte_securise("Graphiques des consultations") ?></h2>
 			<div class="stats-grid">
-				<article class="carte-stats">
+				<article class="stats-card">
 					<h3><?= texte_securise("Top des villes consultées") ?></h3>
 					<?php if ($statistiques['top_cities'] === []) { ?>
-						<p class="message-vide"><?= texte_securise("Aucune consultation enregistrée pour le moment.") ?></p>
+						<p class="empty-state"><?= texte_securise("Aucune consultation enregistrée pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_cities'] as $ville => $nombre) { ?>
@@ -78,10 +77,10 @@ require __DIR__ . "/includes/header.php";
 					<?php } ?>
 				</article>
 
-				<article class="carte-stats">
+				<article class="stats-card">
 					<h3><?= texte_securise("Top des départements consultés") ?></h3>
 					<?php if ($statistiques['top_departments'] === []) { ?>
-						<p class="message-vide"><?= texte_securise("Aucun département enregistré pour le moment.") ?></p>
+						<p class="empty-state"><?= texte_securise("Aucun département enregistré pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_departments'] as $departement => $nombre) { ?>
@@ -97,10 +96,10 @@ require __DIR__ . "/includes/header.php";
 					<?php } ?>
 				</article>
 
-				<article class="carte-stats">
+				<article class="stats-card">
 					<h3><?= texte_securise("Top des régions consultées") ?></h3>
 					<?php if ($statistiques['top_regions'] === []) { ?>
-						<p class="message-vide"><?= texte_securise("Aucune région enregistrée pour le moment.") ?></p>
+						<p class="empty-state"><?= texte_securise("Aucune région enregistrée pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_regions'] as $region => $nombre) { ?>
@@ -116,10 +115,10 @@ require __DIR__ . "/includes/header.php";
 					<?php } ?>
 				</article>
 
-				<article class="carte-stats">
+				<article class="stats-card">
 					<h3><?= texte_securise("Carburants les plus recherchés") ?></h3>
 					<?php if ($statistiques['top_fuels'] === []) { ?>
-						<p class="message-vide"><?= texte_securise("Aucun carburant enregistré pour le moment.") ?></p>
+						<p class="empty-state"><?= texte_securise("Aucun carburant enregistré pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_fuels'] as $carburant => $nombre) { ?>
@@ -135,10 +134,10 @@ require __DIR__ . "/includes/header.php";
 					<?php } ?>
 				</article>
 
-				<article class="carte-stats carte-stats-wide">
+				<article class="stats-card stats-card-wide">
 					<h3><?= texte_securise("Recherches par mode") ?></h3>
 					<?php if ($statistiques['top_modes'] === []) { ?>
-						<p class="message-vide"><?= texte_securise("Aucun mode de recherche enregistré pour le moment.") ?></p>
+						<p class="empty-state"><?= texte_securise("Aucun mode de recherche enregistré pour le moment.") ?></p>
 					<?php } else { ?>
 						<div class="bar-chart">
 							<?php foreach ($statistiques['top_modes'] as $mode => $nombre) { ?>
@@ -174,14 +173,14 @@ require __DIR__ . "/includes/header.php";
 					</p>
 
 					<?php if (($tendancesCarburants["fuels"] ?? []) === []) { ?>
-					<p class="message-vide"><?= texte_securise("Tendances indisponibles pour le moment.") ?></p>
+					<p class="empty-state"><?= texte_securise("Tendances indisponibles pour le moment.") ?></p>
 				<?php } else { ?>
 					<div class="trend-grid">
 						<?php foreach ($tendancesCarburants["fuels"] as $nomCarburant => $moisDonnees) { ?>
-							<article class="bloc-tendance">
+							<article class="trend-group">
 								<h3><?= texte_securise($nomCarburant) ?></h3>
 								<?php if ($moisDonnees === []) { ?>
-								<p class="message-vide"><?= texte_securise("Aucune donnée disponible.") ?></p>
+								<p class="empty-state"><?= texte_securise("Aucune donnée disponible.") ?></p>
 								<?php } else { ?>
 									<?php $moyenneReference = $tendancesCarburants["reference_averages"][$nomCarburant] ?? null; ?>
 									<p class="small-note"><?= texte_securise("Tableau mensuel des prix") ?></p>

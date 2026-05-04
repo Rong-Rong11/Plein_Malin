@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 /**
  * @file
@@ -250,122 +249,60 @@ function villes_par_departement(string $codeDepartement): array
 	return $cacheDepartements[$codeDepartement];
 }
 /**
- * Transforme un noeud XML de point de vente en tableau affiche par la page tech.
+ * Lit le fichier XML local utilise pour la demonstration technique.
  *
- * @param SimpleXMLElement $pointVente Noeud XML <pdv>.
- * @return array Station normalisee pour l'affichage.
- */
-function transformer_point_vente_xml_demo(SimpleXMLElement $pointVente): array
-{
-	$prix = [];
-	$services = [];
-
-	foreach ($pointVente->prix as $prixXml) {
-		$nomCarburant = (string) ($prixXml["nom"] ?? "");
-		$dateMaj = (string) ($prixXml["maj"] ?? "");
-
-		if ($nomCarburant === "") {
-			continue;
-		}
-
-		if (isset($prix[$nomCarburant]) && strcmp($dateMaj, $prix[$nomCarburant]["maj"]) <= 0) {
-			continue;
-		}
-
-		$prix[$nomCarburant] = [
-			"nom" => (string) ($prixXml["nom"] ?? ""),
-			"valeur" => (string) ($prixXml["valeur"] ?? ""),
-			"maj" => $dateMaj,
-		];
-	}
-
-	$servicesXml = [];
-
-	if (isset($pointVente->services->service)) {
-		$servicesXml = $pointVente->services->service;
-	}
-
-	foreach ($servicesXml as $serviceXml) {
-		$services[] = (string) $serviceXml;
-	}
-
-	return [
-		"id" => (string) ($pointVente["id"] ?? ""),
-		"cp" => (string) ($pointVente["cp"] ?? ""),
-		"adresse" => (string) $pointVente->adresse,
-		"ville" => (string) $pointVente->ville,
-		"enseigne" => (string) $pointVente->enseigne,
-		"prix" => array_values($prix),
-		"services" => $services,
-	];
-}
-/**
- * Lit quelques stations dans le XML contenu dans l'archive officielle.
- *
- * @param string $fichierZip Chemin de l'archive officielle en cache.
- * @param string $nomXml Nom du fichier XML dans l'archive.
- * @param int $limite Nombre maximum de stations a retourner.
- * @return array<int,array> Stations extraites du flux XML officiel.
- */
-function lire_stations_depuis_archive_xml_demo(string $fichierZip, string $nomXml, int $limite): array
-{
-	if ($nomXml === "" || !class_exists("XMLReader")) {
-		return [];
-	}
-
-	$lecteur = new XMLReader();
-	$cheminZip = "zip://" . $fichierZip . "#" . $nomXml;
-
-	if (!$lecteur->open($cheminZip)) {
-		return [];
-	}
-
-	$stations = [];
-
-	while ($lecteur->read()) {
-		if ($lecteur->nodeType !== XMLReader::ELEMENT || $lecteur->name !== "pdv") {
-			continue;
-		}
-
-		$contenuPdv = $lecteur->readOuterXML();
-		$pointVente = simplexml_load_string($contenuPdv);
-
-		if ($pointVente !== false) {
-			$stations[] = transformer_point_vente_xml_demo($pointVente);
-		}
-
-		if (count($stations) >= $limite) {
-			break;
-		}
-	}
-
-	$lecteur->close();
-	return $stations;
-}
-/**
- * Lit le flux XML officiel des prix carburants utilise pour la demonstration technique.
- *
- * L'archive distante est conservee dans le dossier cache uniquement pour eviter
- * de retelcharger le flux officiel a chaque affichage de la page tech.
- *
- * @return array<int,array> Stations extraites de l'archive XML officielle.
+ * @return array<int,array> Stations lues dans data/sample_fuel_prices.xml.
  *
  * @ingroup donnees
  */
 function lire_stations_xml_demo(): array
 {
-	if (!function_exists("preparer_archive_prix_annuelle") || !function_exists("trouver_xml_dans_archive")) {
+	$fichier = PM_DATA_DIR . "/sample_fuel_prices.xml";
+
+	if (!file_exists($fichier)) {
 		return [];
 	}
 
-	$annee = (int) date("Y");
-	$sourceUrl = "https://donnees.roulez-eco.fr/opendata/annee/" . $annee;
-	$fichierZip = PM_CACHE_DIR . "/fuel_history_" . $annee . ".zip";
+	$xml = simplexml_load_file($fichier);
 
-	if (!preparer_archive_prix_annuelle($fichierZip, $sourceUrl)) {
+	if ($xml === false) {
 		return [];
 	}
 
-	$nomXml = trouver_xml_dans_archive($fichierZip);
-	return lire_stations_depuis_archive_xml_demo($fichierZip, $nomXml, 5);
+	$stations = [];
+
+	foreach ($xml->pdv as $pointVente) {
+		$prix = [];
+		$services = [];
+
+		foreach ($pointVente->prix as $prixXml) {
+			$prix[] = [
+				"nom" => (string) ($prixXml["nom"] ?? ""),
+				"valeur" => (string) ($prixXml["valeur"] ?? ""),
+				"maj" => (string) ($prixXml["maj"] ?? ""),
+			];
+		}
+
+		$servicesXml = [];
+
+		if (isset($pointVente->services->service)) {
+			$servicesXml = $pointVente->services->service;
+		}
+
+		foreach ($servicesXml as $serviceXml) {
+			$services[] = (string) $serviceXml;
+		}
+
+		$stations[] = [
+			"id" => (string) ($pointVente["id"] ?? ""),
+			"cp" => (string) ($pointVente["cp"] ?? ""),
+			"adresse" => (string) $pointVente->adresse,
+			"ville" => (string) $pointVente->ville,
+			"enseigne" => (string) $pointVente->enseigne,
+			"prix" => $prix,
+			"services" => $services,
+		];
+	}
+
+	return $stations;
 }

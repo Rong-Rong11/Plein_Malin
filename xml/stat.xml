@@ -6,17 +6,17 @@
 		<title>Statistiques - Plein Malin</title>
 		<meta name="description" content="Page statistiques de Plein Malin." />
 		<link rel="stylesheet" href="style.css" />
-				<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
 		<header class="site-header">
-			<div class="ligne-entete">
+			<div class="brand-row">
 				<a class="brand-link" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
-					<div class="options-entete">
+					<div class="theme-switch">
 						<a href="stats.php?theme=night" class="theme-link">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
@@ -27,13 +27,13 @@
 					</div>
 				</div>
 
-			<nav class="menu">
+			<nav class="main-nav">
 				<a href="recherche.php?search_mode=manual">Recherche</a>
 				<a href="resultats.php">Résultats</a>
 				<a href="stats.php" aria-current="page">Statistiques</a>
 			</nav>
 		</header>
-	<main class="page">
+	<main class="page-shell">
 		<section class="panel">
 			<p class="eyebrow">Rubrique statistiques</p>
 			<h1>Consultations Plein Malin</h1>
@@ -47,11 +47,11 @@
 						<span>recherches</span>
 					</div>
 					<div class="stat-chip">
-						<strong>306</strong>
+						<strong>274</strong>
 						<span>visites de pages</span>
 					</div>
 					<div class="stat-chip">
-						<strong>4</strong>
+						<strong>3</strong>
 						<span>visiteurs approx.</span>
 					</div>
 				</div>
@@ -60,7 +60,7 @@
 		<section class="panel">
 			<h2>Graphiques des consultations</h2>
 			<div class="stats-grid">
-				<article class="carte-stats">
+				<article class="stats-card">
 					<h3>Top des villes consultées</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
@@ -73,7 +73,7 @@
 													</div>
 									</article>
 
-				<article class="carte-stats">
+				<article class="stats-card">
 					<h3>Top des départements consultés</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
@@ -93,7 +93,7 @@
 													</div>
 									</article>
 
-				<article class="carte-stats">
+				<article class="stats-card">
 					<h3>Top des régions consultées</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
@@ -106,7 +106,7 @@
 													</div>
 									</article>
 
-				<article class="carte-stats">
+				<article class="stats-card">
 					<h3>Carburants les plus recherchés</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
@@ -119,7 +119,7 @@
 													</div>
 									</article>
 
-				<article class="carte-stats carte-stats-wide">
+				<article class="stats-card stats-card-wide">
 					<h3>Recherches par mode</h3>
 											<div class="bar-chart">
 															<div class="bar-row">
@@ -155,7 +155,7 @@
 													- dernière mise à jour du cache le 03/05/2026 20:01											</p>
 
 										<div class="trend-grid">
-													<article class="bloc-tendance">
+													<article class="trend-group">
 								<h3>Gazole</h3>
 																										<p class="small-note">Tableau mensuel des prix</p>
 									<div class="trend-table-wrap">
@@ -207,7 +207,7 @@
 											Moyenne annuelle de référence 2025											de l&#039;archive complète : 1,648 EUR/L
 										</p>
 																								</article>
-													<article class="bloc-tendance">
+													<article class="trend-group">
 								<h3>SP95</h3>
 																										<p class="small-note">Tableau mensuel des prix</p>
 									<div class="trend-table-wrap">
@@ -259,7 +259,7 @@
 											Moyenne annuelle de référence 2025											de l&#039;archive complète : 1,727 EUR/L
 										</p>
 																								</article>
-													<article class="bloc-tendance">
+													<article class="trend-group">
 								<h3>SP98</h3>
 																										<p class="small-note">Tableau mensuel des prix</p>
 									<div class="trend-table-wrap">
@@ -311,7 +311,7 @@
 											Moyenne annuelle de référence 2025											de l&#039;archive complète : 1,817 EUR/L
 										</p>
 																								</article>
-													<article class="bloc-tendance">
+													<article class="trend-group">
 								<h3>E10</h3>
 																										<p class="small-note">Tableau mensuel des prix</p>
 									<div class="trend-table-wrap">

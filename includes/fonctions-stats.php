@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 /**
  * @file
@@ -24,78 +23,6 @@ function reponse_tendances_vide(string $source, string $sourceUrl, int $annee): 
 		"annual_averages" => [],
 	];
 }
-/**
- * Trie un tableau associatif par cle.
- *
- * @param array $valeurs Tableau a trier.
- * @return array Tableau trie par cle.
- */
-function trier_tableau_par_cle(array $valeurs): array
-{
-	$clesTriees = [];
-
-	foreach ($valeurs as $cle => $_valeur) {
-		$position = count($clesTriees);
-
-		while ($position > 0 && strcmp((string) $clesTriees[$position - 1], (string) $cle) > 0) {
-			$clesTriees[$position] = $clesTriees[$position - 1];
-			$position--;
-		}
-
-		$clesTriees[$position] = $cle;
-	}
-
-	$resultat = [];
-	foreach ($clesTriees as $cle) {
-		$resultat[$cle] = $valeurs[$cle];
-	}
-
-	return $resultat;
-}
-
-/**
- * Trie un classement associatif par valeur decroissante puis par cle.
- *
- * @param array<string,int> $valeurs Classement a trier.
- * @return array<string,int> Classement trie.
- *
- * @ingroup statistiques
- */
-function trier_classement_decroissant(array $valeurs): array
-{
-	$entreesTriees = [];
-
-	foreach ($valeurs as $cle => $valeur) {
-		$entree = [
-			"key" => (string) $cle,
-			"value" => (int) $valeur,
-		];
-		$position = count($entreesTriees);
-
-		while ($position > 0) {
-			$precedente = $entreesTriees[$position - 1];
-			$doitMonter = $entree["value"] > $precedente["value"];
-			$egalite = $entree["value"] === $precedente["value"];
-
-			if (!$doitMonter && !($egalite && strcmp($entree["key"], $precedente["key"]) < 0)) {
-				break;
-			}
-
-			$entreesTriees[$position] = $precedente;
-			$position--;
-		}
-
-		$entreesTriees[$position] = $entree;
-	}
-
-	$resultat = [];
-	foreach ($entreesTriees as $entreeTriee) {
-		$resultat[$entreeTriee["key"]] = $entreeTriee["value"];
-	}
-
-	return $resultat;
-}
-
 /**
  * Prepare l'archive officielle en cache.
  *
@@ -129,7 +56,7 @@ function preparer_archive_prix_annuelle(string $fichierZip, string $adresseUrl):
 		],
 	]);
 
-	$contenu = file_get_contents($adresseUrl, false, $contexte);
+	$contenu = @file_get_contents($adresseUrl, false, $contexte);
 
 	if ($contenu === false || $contenu === "") {
 		return false;
@@ -288,7 +215,6 @@ function calculer_tendances_depuis_agregats(array $agregats): array
 	$moyennesAnnuelles = [];
 
 	foreach ($agregats as $carburant => $moisAgreges) {
-		$moisAgreges = trier_tableau_par_cle($moisAgreges);
 		$tendances[$carburant] = [];
 		$sommeAnnuelle = 0.0;
 		$nombreAnnuel = 0;
@@ -862,11 +788,7 @@ function calculer_statistiques(): array
 		}
 	}
 
-	$classementVilles = trier_classement_decroissant($classementVilles);
-	$classementDepartements = trier_classement_decroissant($classementDepartements);
-	$classementRegions = trier_classement_decroissant($classementRegions);
-	$classementCarburants = trier_classement_decroissant($classementCarburants);
-	$classementModes = trier_classement_decroissant($classementModes);
+	$classementModes = trier_classement_statistique($classementModes);
 
 	return [
 		"top_cities" => top_classement_statistique($classementVilles, 8),

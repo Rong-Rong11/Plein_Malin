@@ -6,17 +6,17 @@
 		<title>À propos - Plein Malin</title>
 		<meta name="description" content="Présentation du projet Plein Malin." />
 		<link rel="stylesheet" href="style.css" />
-				<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
 		<header class="site-header">
-			<div class="ligne-entete">
+			<div class="brand-row">
 				<a class="brand-link" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
-					<div class="options-entete">
+					<div class="theme-switch">
 						<a href="a-propos.php?theme=night" class="theme-link">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
@@ -27,13 +27,13 @@
 					</div>
 				</div>
 
-			<nav class="menu">
+			<nav class="main-nav">
 				<a href="recherche.php?search_mode=manual">Recherche</a>
 				<a href="resultats.php">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-<main class="page info-page">
+<main class="page-shell info-page">
 	<section class="panel">
 		<p class="eyebrow">À propos</p>
 		<h1>À propos de Plein Malin</h1>
@@ -41,7 +41,7 @@
 			Plein Malin est un site réalisé dans le cadre du projet de développement web.			Il permet de rechercher des stations-service en France et de comparer les prix des carburants.		</p>
 		<section class="info-block">
 			<h2>Objectif du site</h2>
-		<ul class="liste-simple">
+		<ul class="plain-list">
 			<li>Choisir une région depuis une carte interactive.</li>
 			<li>Sélectionner un département et une ville.</li>
 			<li>Afficher les stations disponibles et les prix des carburants.</li>
@@ -51,7 +51,7 @@
 
 		<section class="info-block">
 			<h2>Fonctionnalités principales</h2>
-		<ul class="liste-simple">
+		<ul class="plain-list">
 			<li>Recherche par ville, par département ou autour d&#039;une position estimée.</li>
 			<li>Choix de plusieurs carburants.</li>
 			<li>Mode jour/nuit mémorisé avec un cookie.</li>
@@ -62,7 +62,7 @@
 
 		<section class="info-block">
 			<h2>Sobriété numérique</h2>
-		<ul class="liste-simple">
+		<ul class="plain-list">
 			<li>Les images de la carte et du bouton retour en haut sont compressées pour réduire le poids des pages.</li>
 			<li>Les réponses des API sont mises en cache côté serveur afin d&#039;éviter des requêtes répétées.</li>
 			<li>La page de résultats affiche uniquement les premières stations utiles pour limiter la quantité de contenu chargé.</li>

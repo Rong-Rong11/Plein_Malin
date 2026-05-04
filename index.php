@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 /**
  * @file
  * @brief Page d'accueil du site Plein Malin.
@@ -86,7 +85,7 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | 
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page home-page">
+<main class="page-shell home-page">
 	<section class="hero home-hero">
 		<div class="hero-copy">
 			<p class="eyebrow"><?= texte_securise("Prix des carburants") ?></p>

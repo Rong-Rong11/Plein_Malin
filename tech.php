@@ -16,7 +16,6 @@ $theme = gerer_theme();
 $donneesGeo = recuperer_geolocalisation();
 $statistiques = calculer_statistiques();
 $stationsXml = lire_stations_xml_demo();
-$sourceXmlCarburants = "https://donnees.roulez-eco.fr/opendata/annee/" . date("Y");
 
 // Appel de demonstration JSON conserve pour montrer l'exploitation d'une API.
 $adresseUrl = "https://ghibliapi.vercel.app/films";
@@ -31,7 +30,7 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Page technique conservee pou
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page tech-page info-page">
+<main class="page-shell tech-page info-page">
 	<section class="panel tech-hero">
 		<h1><?= texte_securise("Page tech") ?></h1>
 		<p class="lead">
@@ -41,25 +40,16 @@ require __DIR__ . "/includes/header.php";
 		<section class="info-block tech-summary">
 			<h2><?= texte_securise("Synthese technique du projet") ?></h2>
 			<ul class="plain-list">
-				<li><strong>JSON</strong> :
-					<?= texte_securise("geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.") ?>
-				</li>
-				<li><strong>XML</strong> : <?= texte_securise("lecture de") ?> <code>data/sample_fuel_prices.xml</code>
-					<?= texte_securise("et archive annuelle officielle pour les tendances de prix.") ?></li>
-				<li><strong>CSV</strong> :
-					<?= texte_securise("regions, departements, villes, consultations et visites de pages.") ?>
-				</li>
-				<li><strong>Cookies</strong> :
-					<?= texte_securise("theme jour/nuit, langue, derniere recherche et derniere ville consultee.") ?>
-				</li>
-				<li><strong>Statistiques</strong> :
-					<?= texte_securise("tops des villes, departements, regions, carburants, modes de recherche et tendances de prix.") ?>
-				</li>
+				<li><strong>JSON</strong> : <?= texte_securise("geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.") ?></li>
+				<li><strong>XML</strong> : <?= texte_securise("lecture de") ?> <code>data/sample_fuel_prices.xml</code> <?= texte_securise("et archive annuelle officielle pour les tendances de prix.") ?></li>
+				<li><strong>CSV</strong> : <?= texte_securise("regions, departements, villes, consultations et visites de pages.") ?></li>
+				<li><strong>Cookies</strong> : <?= texte_securise("theme jour/nuit, langue, derniere recherche et derniere ville consultee.") ?></li>
+				<li><strong>Statistiques</strong> : <?= texte_securise("tops des villes, departements, regions, carburants, modes de recherche et tendances de prix.") ?></li>
 			</ul>
 		</section>
 
 		<section class="info-block tech-feature">
-			<h2><?= texte_securise("API Ghibli") ?></h2>
+				<h2><?= texte_securise("API Ghibli") ?></h2>
 			<?php if ($film === null) { ?>
 				<p class="empty-state"><?= texte_securise("API Ghibli indisponible pour le moment.") ?></p>
 			<?php } else { ?>
@@ -77,13 +67,20 @@ require __DIR__ . "/includes/header.php";
 				</p>
 				<div class="tech-media">
 					<figure class="tech-figure">
-						<img src="<?= texte_securise((string) $film['image']) ?>" width="200"
-							alt="<?= texte_securise("Affiche du film") ?> <?= texte_securise((string) $film['title']) ?>" />
+						<img
+							src="<?= texte_securise((string) $film['image']) ?>"
+							width="200"
+							alt="<?= texte_securise("Affiche du film") ?> <?= texte_securise((string) $film['title']) ?>"
+						/>
 						<figcaption><?= texte_securise("Affiche du film") ?></figcaption>
 					</figure>
 					<figure class="tech-figure tech-figure-wide">
-						<img class="tech-banner" src="<?= texte_securise((string) $film['movie_banner']) ?>" width="400"
-							alt="<?= texte_securise("Bannière du film") ?> <?= texte_securise((string) $film['title']) ?>" />
+						<img
+							class="tech-banner"
+							src="<?= texte_securise((string) $film['movie_banner']) ?>"
+							width="400"
+							alt="<?= texte_securise("Bannière du film") ?> <?= texte_securise((string) $film['title']) ?>"
+						/>
 						<figcaption><?= texte_securise("Bannière du film") ?></figcaption>
 					</figure>
 				</div>
@@ -91,53 +88,39 @@ require __DIR__ . "/includes/header.php";
 		</section>
 
 		<section class="info-block tech-feature">
-			<h2><?= texte_securise("Flux XML carburants") ?></h2>
-			<p>
-				<?= texte_securise("Lecture cote serveur du flux XML officiel depuis") ?>
-				<a href="<?= texte_securise($sourceXmlCarburants) ?>">
-					<?= texte_securise("donnees.roulez-eco.fr") ?>
-				</a>.
-				<?= texte_securise("La page affiche le dernier prix trouve par carburant pour chaque station.") ?>
-			</p>
-			<?php if ($stationsXml === []) { ?>
-				<p class="empty-state"><?= texte_securise("Aucune donnee XML disponible.") ?></p>
-			<?php } else { ?>
-				<ul class="plain-list">
-					<?php foreach (array_slice($stationsXml, 0, 5) as $station) { ?>
-						<li>
-							<strong><?= texte_securise($station["enseigne"]) ?></strong>
-							- <?= texte_securise($station["ville"]) ?>
-							(<?= texte_securise($station["cp"]) ?>)
-							<?php if ($station["prix"] !== []) { ?>
-								:
-								<?php foreach ($station["prix"] as $indicePrix => $prix) { ?>
-									<?= $indicePrix > 0 ? ", " : "" ?> 				<?= texte_securise($prix["nom"]) ?>
-									<?= texte_securise($prix["valeur"]) ?> EUR/L
+				<h2><?= texte_securise("Flux XML carburants") ?></h2>
+				<p><?= texte_securise("Lecture de") ?> <code>data/sample_fuel_prices.xml</code> <?= texte_securise("avec") ?> <code>simplexml_load_file()</code>.</p>
+				<?php if ($stationsXml === []) { ?>
+					<p class="empty-state"><?= texte_securise("Aucune donnee XML disponible.") ?></p>
+				<?php } else { ?>
+					<ul class="plain-list">
+						<?php foreach (array_slice($stationsXml, 0, 5) as $station) { ?>
+							<li>
+								<strong><?= texte_securise($station["enseigne"]) ?></strong>
+								- <?= texte_securise($station["ville"]) ?>
+								(<?= texte_securise($station["cp"]) ?>)
+								<?php if ($station["prix"] !== []) { ?>
+									:
+									<?php foreach ($station["prix"] as $indicePrix => $prix) { ?>
+										<?= $indicePrix > 0 ? ", " : "" ?><?= texte_securise($prix["nom"]) ?>
+										<?= texte_securise($prix["valeur"]) ?> EUR/L
+									<?php } ?>
 								<?php } ?>
-							<?php } ?>
-						</li>
-					<?php } ?>
-				</ul>
-			<?php } ?>
+							</li>
+						<?php } ?>
+					</ul>
+				<?php } ?>
 		</section>
 
 		<section class="info-block tech-feature">
-			<h2><?= texte_securise("Flux JSON cote serveur") ?></h2>
+				<h2><?= texte_securise("Flux JSON cote serveur") ?></h2>
 			<p><?= texte_securise("Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.") ?></p>
 			<ul class="plain-list">
 				<li><?= texte_securise("IP detectee") ?>: <?= texte_securise($donneesGeo['ip']) ?></li>
-				<li><?= texte_securise("Ville retournee") ?>:
-					<?= texte_securise($donneesGeo['city'] !== "" ? $donneesGeo['city'] : "Non trouvee") ?>
-				</li>
-				<li><?= texte_securise("Region retournee") ?>:
-					<?= texte_securise($donneesGeo['region'] !== "" ? $donneesGeo['region'] : "Non trouvee") ?>
-				</li>
-				<li>Latitude:
-					<?= texte_securise($donneesGeo['latitude'] !== 0.0 ? (string) $donneesGeo['latitude'] : "Non trouvee") ?>
-				</li>
-				<li>Longitude:
-					<?= texte_securise($donneesGeo['longitude'] !== 0.0 ? (string) $donneesGeo['longitude'] : "Non trouvee") ?>
-				</li>
+				<li><?= texte_securise("Ville retournee") ?>: <?= texte_securise($donneesGeo['city'] !== "" ? $donneesGeo['city'] : "Non trouvee") ?></li>
+				<li><?= texte_securise("Region retournee") ?>: <?= texte_securise($donneesGeo['region'] !== "" ? $donneesGeo['region'] : "Non trouvee") ?></li>
+				<li>Latitude: <?= texte_securise($donneesGeo['latitude'] !== 0.0 ? (string) $donneesGeo['latitude'] : "Non trouvee") ?></li>
+				<li>Longitude: <?= texte_securise($donneesGeo['longitude'] !== 0.0 ? (string) $donneesGeo['longitude'] : "Non trouvee") ?></li>
 				<li><?= texte_securise("Source utilisee") ?>: <?= texte_securise($donneesGeo['source']) ?></li>
 			</ul>
 		</section>
@@ -151,8 +134,7 @@ require __DIR__ . "/includes/header.php";
 			<ul class="plain-list">
 				<li><?= texte_securise("Requete HTTP cote serveur en PHP") ?></li>
 				<li><?= texte_securise("Reponse JSON transformee en tableaux PHP") ?></li>
-				<li><?= texte_securise("Reutilisation dans la page resultats pour les prix, distances et liens de carte") ?>
-				</li>
+				<li><?= texte_securise("Reutilisation dans la page resultats pour les prix, distances et liens de carte") ?></li>
 			</ul>
 		</section>
 
@@ -161,29 +143,21 @@ require __DIR__ . "/includes/header.php";
 			<ul class="plain-list">
 				<li><?= texte_securise("CSV serveur: historique des consultations") ?></li>
 				<li>Cookie <code>last_visited_city</code>: <?= texte_securise("derniere ville") ?></li>
-				<li>Cookie <code>last_search_params</code>: <?= texte_securise("derniere recherche complete") ?></li>
-				<li>Cookie <code>theme</code>: <?= texte_securise("jour ou nuit") ?></li>
-				<li>Cookie <code>lang</code>: <?= texte_securise("langue d'affichage") ?></li>
-				<li><?= texte_securise("Cache JSON: reponses externes et fallback sur cache expire") ?></li>
-			</ul>
+					<li>Cookie <code>last_search_params</code>: <?= texte_securise("derniere recherche complete") ?></li>
+					<li>Cookie <code>theme</code>: <?= texte_securise("jour ou nuit") ?></li>
+					<li>Cookie <code>lang</code>: <?= texte_securise("langue d'affichage") ?></li>
+					<li><?= texte_securise("Cache JSON: reponses externes et fallback sur cache expire") ?></li>
+				</ul>
 		</section>
 
 		<section class="info-block tech-feature">
 			<h2><?= texte_securise("Etat des statistiques") ?></h2>
 			<ul class="plain-list">
-				<li><?= texte_securise("Consultations enregistrees") ?>:
-					<?= texte_securise((string) $statistiques['consultation_count']) ?>
-				</li>
-				<li><?= texte_securise("Visites de pages") ?>:
-					<?= texte_securise((string) $statistiques['page_visit_count']) ?>
-				</li>
-				<li><?= texte_securise("Visiteurs approx.") ?>:
-					<?= texte_securise((string) $statistiques['page_visitor_count']) ?>
-				</li>
-				<li><?= texte_securise("Nombre de villes dans le top") ?>:
-					<?= texte_securise((string) count($statistiques['top_cities'])) ?>
-				</li>
-			</ul>
+					<li><?= texte_securise("Consultations enregistrees") ?>: <?= texte_securise((string) $statistiques['consultation_count']) ?></li>
+					<li><?= texte_securise("Visites de pages") ?>: <?= texte_securise((string) $statistiques['page_visit_count']) ?></li>
+					<li><?= texte_securise("Visiteurs approx.") ?>: <?= texte_securise((string) $statistiques['page_visitor_count']) ?></li>
+					<li><?= texte_securise("Nombre de villes dans le top") ?>: <?= texte_securise((string) count($statistiques['top_cities'])) ?></li>
+				</ul>
 		</section>
 	</section>
 </main>

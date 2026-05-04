@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 /**
  * @file
  * @brief Page de presentation du projet.
@@ -20,7 +19,7 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | À propos du projet Plein Ma
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page info-page">
+<main class="page-shell info-page">
 	<section class="panel">
 		<p class="eyebrow"><?= texte_securise("À propos") ?></p>
 		<h1><?= texte_securise("À propos de Plein Malin") ?></h1>
@@ -30,7 +29,7 @@ require __DIR__ . "/includes/header.php";
 		</p>
 		<section class="info-block">
 			<h2><?= texte_securise("Objectif du site") ?></h2>
-		<ul class="liste-simple">
+		<ul class="plain-list">
 			<li><?= texte_securise("Choisir une région depuis une carte interactive.") ?></li>
 			<li><?= texte_securise("Sélectionner un département et une ville.") ?></li>
 			<li><?= texte_securise("Afficher les stations disponibles et les prix des carburants.") ?></li>
@@ -40,7 +39,7 @@ require __DIR__ . "/includes/header.php";
 
 		<section class="info-block">
 			<h2><?= texte_securise("Fonctionnalités principales") ?></h2>
-		<ul class="liste-simple">
+		<ul class="plain-list">
 			<li><?= texte_securise("Recherche par ville, par département ou autour d'une position estimée.") ?></li>
 			<li><?= texte_securise("Choix de plusieurs carburants.") ?></li>
 			<li><?= texte_securise("Mode jour/nuit mémorisé avec un cookie.") ?></li>
@@ -51,7 +50,7 @@ require __DIR__ . "/includes/header.php";
 
 		<section class="info-block">
 			<h2><?= texte_securise("Sobriété numérique") ?></h2>
-		<ul class="liste-simple">
+		<ul class="plain-list">
 			<li><?= texte_securise("Les images de la carte et du bouton retour en haut sont compressées pour réduire le poids des pages.") ?></li>
 			<li><?= texte_securise("Les réponses des API sont mises en cache côté serveur afin d'éviter des requêtes répétées.") ?></li>
 			<li><?= texte_securise("La page de résultats affiche uniquement les premières stations utiles pour limiter la quantité de contenu chargé.") ?></li>

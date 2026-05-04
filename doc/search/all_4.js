@@ -10,9 +10,10 @@ var searchData=
   ['enregistrer_5fparametres_5fderniere_5frecherche_7',['enregistrer_parametres_derniere_recherche',['../group__preferences.html#ga109221ac1ad09ea95bb35daae49702e1',1,'fonctions-preferences.php']]],
   ['enregistrer_5fvisite_5fpage_8',['enregistrer_visite_page',['../group__statistiques.html#ga89d91551844fe377317f527620eae87a',1,'fonctions-stats.php']]],
   ['est_5farrondissement_5fmunicipal_9',['est_arrondissement_municipal',['../fonctions-recherche_8php.html#ac3e1a326d68301a1e32d4a9f048ebf1f',1,'fonctions-recherche.php']]],
-  ['et_20graphiques_10',['Statistiques et graphiques',['../group__statistiques.html',1,'']]],
-  ['et_20initialisation_11',['Securite et initialisation',['../group__securite.html',1,'']]],
-  ['extraire_5fcoordonnees_5fstation_5fapi_12',['extraire_coordonnees_station_api',['../fonctions-recherche_8php.html#a78ed38e68a8b78ec87cdaf7bae241297',1,'fonctions-recherche.php']]],
-  ['extraire_5fprix_5fstation_5fapi_13',['extraire_prix_station_api',['../fonctions-recherche_8php.html#a21fe5c064606637cd68394b61567d314',1,'fonctions-recherche.php']]],
-  ['extraire_5fservices_5fstation_5fapi_14',['extraire_services_station_api',['../fonctions-recherche_8php.html#a59c59d30a58933a648e98fe3ef8770d1',1,'fonctions-recherche.php']]]
+  ['est_5fip_5flocale_10',['est_ip_locale',['../fonctions-recherche_8php.html#a0de33ab9b64cdffaf0bf66b52bcd70dc',1,'fonctions-recherche.php']]],
+  ['et_20graphiques_11',['Statistiques et graphiques',['../group__statistiques.html',1,'']]],
+  ['et_20initialisation_12',['Securite et initialisation',['../group__securite.html',1,'']]],
+  ['extraire_5fcoordonnees_5fstation_5fapi_13',['extraire_coordonnees_station_api',['../fonctions-recherche_8php.html#a78ed38e68a8b78ec87cdaf7bae241297',1,'fonctions-recherche.php']]],
+  ['extraire_5fprix_5fstation_5fapi_14',['extraire_prix_station_api',['../fonctions-recherche_8php.html#a21fe5c064606637cd68394b61567d314',1,'fonctions-recherche.php']]],
+  ['extraire_5fservices_5fstation_5fapi_15',['extraire_services_station_api',['../fonctions-recherche_8php.html#a59c59d30a58933a648e98fe3ef8770d1',1,'fonctions-recherche.php']]]
 ];

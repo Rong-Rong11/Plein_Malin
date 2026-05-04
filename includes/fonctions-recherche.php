@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 /**
  * @file
@@ -363,7 +362,7 @@ function lire_api_avec_cache(string $adresseUrl, string $nomCache): ?string
 	}
 
 	$contenuApi = "";
-	$fichierDistant = fopen($adresseUrl, "r");
+	$fichierDistant = @fopen($adresseUrl, "r");
 
 	if ($fichierDistant !== false) {
 		while (!feof($fichierDistant)) {
@@ -435,9 +434,9 @@ function nom_cache_depuis_texte(string $prefixe, string $texte): string
 	return $nom . "_" . $longueurTexte . "_" . $somme;
 }
 /**
- * Recupere l'adresse IP publique du visiteur en tenant compte d'un eventuel proxy.
+ * Recupere l'adresse IP du visiteur en tenant compte d'un eventuel proxy.
  *
- * @return string Adresse IP detectee, ou chaine vide si elle n'est pas disponible.
+ * @return string Adresse IP detectee ou localhost par defaut.
  *
  * @ingroup recherche
  */
@@ -452,10 +451,20 @@ function recuperer_ip_visiteur(): string
 		return $_SERVER["REMOTE_ADDR"];
 	}
 
-	return "";
+	return "127.0.0.1";
 }
 /**
- * Recupere une position approximative a partir de l'adresse IP publique.
+ * Indique si l'adresse IP correspond a une machine locale.
+ *
+ * @param string $ip Adresse IP detectee.
+ * @return bool True si l'adresse est locale.
+ */
+function est_ip_locale(string $ip): bool
+{
+	return $ip === "127.0.0.1" || $ip === "::1" || $ip === "localhost";
+}
+/**
+ * Recupere une position approximative a partir de l'adresse IP.
  *
  * @return array Donnees de geolocalisation : source, IP, ville, region, latitude et longitude.
  *
@@ -465,10 +474,9 @@ function recuperer_geolocalisation(): array
 {
 	$ip = recuperer_ip_visiteur();
 
-	$ipPublique = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
-	if ($ipPublique === false) {
+	if (est_ip_locale($ip)) {
 		return [
-			"source" => "adresse non publique",
+			"source" => "adresse locale",
 			"ip" => $ip,
 			"city" => "",
 			"region" => "",
@@ -477,23 +485,20 @@ function recuperer_geolocalisation(): array
 		];
 	}
 
-	$contenu = lire_api_avec_cache(
-		"https://ipinfo.io/" . rawurlencode($ip) . "/geo",
-		nom_cache_depuis_texte("geo_ipinfo_", $ip)
-	);
+	$nomCache = nom_cache_depuis_texte("geo_", $ip);
+
+	$contenu = lire_api_avec_cache("https://ipapi.co/" . rawurlencode($ip) . "/json/", $nomCache);
 
 	if ($contenu !== null) {
 		$json = json_decode($contenu, true);
-		$coordonnees = is_array($json) ? explode(",", (string) ($json["loc"] ?? "")) : [];
-
-		if (is_array($json) && count($coordonnees) === 2) {
+		if (is_array($json) && isset($json["latitude"], $json["longitude"])) {
 			return [
-				"source" => "ipinfo.io json",
+				"source" => "api json",
 				"ip" => $ip,
 				"city" => (string) ($json["city"] ?? ""),
 				"region" => (string) ($json["region"] ?? ""),
-				"latitude" => (float) trim($coordonnees[0]),
-				"longitude" => (float) trim($coordonnees[1]),
+				"latitude" => (float) $json["latitude"],
+				"longitude" => (float) $json["longitude"],
 			];
 		}
 	}
@@ -590,22 +595,10 @@ function est_arrondissement_municipal(array $ville): bool
 	}
 
 	$codesMarseille = [
-		"13201",
-		"13202",
-		"13203",
-		"13204",
-		"13205",
-		"13206",
-		"13207",
-		"13208",
-		"13209",
-		"13210",
-		"13211",
-		"13212",
-		"13213",
-		"13214",
-		"13215",
-		"13216",
+		"13201", "13202", "13203", "13204",
+		"13205", "13206", "13207", "13208",
+		"13209", "13210", "13211", "13212",
+		"13213", "13214", "13215", "13216",
 	];
 
 	if (in_array($codeVilleApi, $codesMarseille, true) && str_starts_with($nomVille, "Marseille ")) {

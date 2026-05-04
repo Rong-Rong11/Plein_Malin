@@ -6,17 +6,17 @@
 		<title>Page tech - Plein Malin</title>
 		<meta name="description" content="Page technique conservee pour la validation de la partie 1 du projet." />
 		<link rel="stylesheet" href="style.css" />
-				<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
 		<header class="site-header">
-			<div class="ligne-entete">
+			<div class="brand-row">
 				<a class="brand-link" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
-					<div class="options-entete">
+					<div class="theme-switch">
 						<a href="tech.php?theme=night" class="theme-link">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
@@ -27,13 +27,13 @@
 					</div>
 				</div>
 
-			<nav class="menu">
+			<nav class="main-nav">
 				<a href="recherche.php?search_mode=manual">Recherche</a>
 				<a href="resultats.php">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-<main class="page tech-page info-page">
+<main class="page-shell tech-page info-page">
 	<section class="panel tech-hero">
 		<h1>Page tech</h1>
 		<p class="lead">
@@ -41,102 +41,61 @@
 		<section class="info-block tech-summary">
 			<h2>Synthese technique du projet</h2>
 			<ul class="plain-list">
-				<li><strong>JSON</strong> :
-					geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.				</li>
-				<li><strong>XML</strong> : lecture de <code>data/sample_fuel_prices.xml</code>
-					et archive annuelle officielle pour les tendances de prix.</li>
-				<li><strong>CSV</strong> :
-					regions, departements, villes, consultations et visites de pages.				</li>
-				<li><strong>Cookies</strong> :
-					theme jour/nuit, langue, derniere recherche et derniere ville consultee.				</li>
-				<li><strong>Statistiques</strong> :
-					tops des villes, departements, regions, carburants, modes de recherche et tendances de prix.				</li>
+				<li><strong>JSON</strong> : geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.</li>
+				<li><strong>XML</strong> : lecture de <code>data/sample_fuel_prices.xml</code> et archive annuelle officielle pour les tendances de prix.</li>
+				<li><strong>CSV</strong> : regions, departements, villes, consultations et visites de pages.</li>
+				<li><strong>Cookies</strong> : theme jour/nuit, langue, derniere recherche et derniere ville consultee.</li>
+				<li><strong>Statistiques</strong> : tops des villes, departements, regions, carburants, modes de recherche et tendances de prix.</li>
 			</ul>
 		</section>
 
 		<section class="info-block tech-feature">
-			<h2>API Ghibli</h2>
+				<h2>API Ghibli</h2>
 							<h3 class="tech-subtitle">
-					Only Yesterday				</h3>
+					Earwig and the Witch				</h3>
 				<h3 class="tech-original-title" lang="ja">
-					おもひでぽろぽろ				</h3>
+					アーヤと魔女				</h3>
 				<p class="meta-line">
-					1991				</p>
+					2021				</p>
 				<p class="tech-copy" lang="en">
-					It’s 1982, and Taeko is 27 years old, unmarried, and has lived her whole life in Tokyo. She decides to visit her family in the countryside, and as the train travels through the night, memories flood back of her younger years: the first immature stirrings of romance, the onset of puberty, and the frustrations of math and boys. At the station she is met by young farmer Toshio, and the encounters with him begin to reconnect her to forgotten longings. In lyrical switches between the present and the past, Taeko contemplates the arc of her life, and wonders if she has been true to the dreams of her childhood self.				</p>
+					An orphan girl, Earwig, is adopted by a witch and comes home to a spooky house filled with mystery and magic.				</p>
 				<div class="tech-media">
 					<figure class="tech-figure">
-						<img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/xjJU6rwzLX7Jk8HFQfVW6H5guMC.jpg" width="200"
-							alt="Affiche du film Only Yesterday" />
+						<img
+							src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sJhFtY3eHuvvACaPpxpzdCLQqpQ.jpg"
+							width="200"
+							alt="Affiche du film Earwig and the Witch"
+						/>
 						<figcaption>Affiche du film</figcaption>
 					</figure>
 					<figure class="tech-figure tech-figure-wide">
-						<img class="tech-banner" src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/isCrlWWI4JrdLKAUAwFb5cjAsH4.jpg" width="400"
-							alt="Bannière du film Only Yesterday" />
+						<img
+							class="tech-banner"
+							src="https://www.themoviedb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg"
+							width="400"
+							alt="Bannière du film Earwig and the Witch"
+						/>
 						<figcaption>Bannière du film</figcaption>
 					</figure>
 				</div>
 					</section>
 
 		<section class="info-block tech-feature">
-			<h2>Flux XML carburants</h2>
-			<p>
-				Lecture cote serveur du flux XML officiel depuis				<a href="https://donnees.roulez-eco.fr/opendata/annee/2026">
-					donnees.roulez-eco.fr				</a>.
-				La page affiche le dernier prix trouve par carburant pour chaque station.			</p>
-							<ul class="plain-list">
-											<li>
-							<strong></strong>
-							- SAINT-DENIS-LèS-BOURG							(01000)
-															:
-																	 				Gazole									2.178 EUR/L
-																	,  				SP95									2.071 EUR/L
-																	,  				E85									0.818 EUR/L
-																	,  				E10									2.026 EUR/L
-																	,  				SP98									2.159 EUR/L
-																					</li>
-											<li>
-							<strong></strong>
-							- BOURG-EN-BRESSE							(01000)
-															:
-																	 				Gazole									2.173 EUR/L
-																	,  				SP95									2.091 EUR/L
-																	,  				SP98									2.132 EUR/L
-																					</li>
-											<li>
-							<strong></strong>
-							- Bourg-en-Bresse							(01000)
-															:
-																	 				Gazole									2.09 EUR/L
-																	,  				SP95									1.99 EUR/L
-																	,  				GPLc									1.17 EUR/L
-																	,  				E10									1.99 EUR/L
-																					</li>
-											<li>
-							<strong></strong>
-							- SAINT-DENIS-LèS-BOURG							(01000)
-													</li>
-											<li>
-							<strong></strong>
-							- BOURG-EN-BRESSE							(01000)
-													</li>
-									</ul>
-					</section>
+				<h2>Flux XML carburants</h2>
+				<p>Lecture de <code>data/sample_fuel_prices.xml</code> avec <code>simplexml_load_file()</code>.</p>
+									<p class="empty-state">Aucune donnee XML disponible.</p>
+						</section>
 
 		<section class="info-block tech-feature">
-			<h2>Flux JSON cote serveur</h2>
+				<h2>Flux JSON cote serveur</h2>
 			<p>Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.</p>
 			<ul class="plain-list">
 				<li>IP detectee: 127.0.0.1</li>
-				<li>Ville retournee:
-					Non trouvee				</li>
-				<li>Region retournee:
-					Non trouvee				</li>
-				<li>Latitude:
-					Non trouvee				</li>
-				<li>Longitude:
-					Non trouvee				</li>
-				<li>Source utilisee: adresse non publique</li>
+				<li>Ville retournee: Non trouvee</li>
+				<li>Region retournee: Non trouvee</li>
+				<li>Latitude: Non trouvee</li>
+				<li>Longitude: Non trouvee</li>
+				<li>Source utilisee: adresse locale</li>
 			</ul>
 		</section>
 
@@ -147,7 +106,7 @@
 			<ul class="plain-list">
 				<li>Requete HTTP cote serveur en PHP</li>
 				<li>Reponse JSON transformee en tableaux PHP</li>
-				<li>Reutilisation dans la page resultats pour les prix, distances et liens de carte				</li>
+				<li>Reutilisation dans la page resultats pour les prix, distances et liens de carte</li>
 			</ul>
 		</section>
 
@@ -156,25 +115,21 @@
 			<ul class="plain-list">
 				<li>CSV serveur: historique des consultations</li>
 				<li>Cookie <code>last_visited_city</code>: derniere ville</li>
-				<li>Cookie <code>last_search_params</code>: derniere recherche complete</li>
-				<li>Cookie <code>theme</code>: jour ou nuit</li>
-				<li>Cookie <code>lang</code>: langue d&#039;affichage</li>
-				<li>Cache JSON: reponses externes et fallback sur cache expire</li>
-			</ul>
+					<li>Cookie <code>last_search_params</code>: derniere recherche complete</li>
+					<li>Cookie <code>theme</code>: jour ou nuit</li>
+					<li>Cookie <code>lang</code>: langue d&#039;affichage</li>
+					<li>Cache JSON: reponses externes et fallback sur cache expire</li>
+				</ul>
 		</section>
 
 		<section class="info-block tech-feature">
 			<h2>Etat des statistiques</h2>
 			<ul class="plain-list">
-				<li>Consultations enregistrees:
-					13				</li>
-				<li>Visites de pages:
-					314				</li>
-				<li>Visiteurs approx.:
-					4				</li>
-				<li>Nombre de villes dans le top:
-					1				</li>
-			</ul>
+					<li>Consultations enregistrees: 13</li>
+					<li>Visites de pages: 282</li>
+					<li>Visiteurs approx.: 4</li>
+					<li>Nombre de villes dans le top: 1</li>
+				</ul>
 		</section>
 	</section>
 </main>

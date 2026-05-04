@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 /**
  * @file
  * @brief En-tete HTML commun.
@@ -25,20 +24,17 @@ enregistrer_visite_page();
 		<title><?= texte_securise($titrePage) ?></title>
 		<meta name="description" content="<?= texte_securise($descriptionPage) ?>" />
 		<link rel="stylesheet" href="style.css" />
-		<?php if ($theme === "night") { ?>
-			<link rel="stylesheet" href="style-alt.css" />
-		<?php } ?>
-		<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-<?= texte_securise($theme) ?>">
 		<div id="top"></div>
 
 		<header class="site-header">
-			<div class="ligne-entete">
+			<div class="brand-row">
 				<a class="brand-link" href="index.php">
 					<img class="logo" src="image/<?= $theme === "night" ? "logoblanc.svg" : "logonoir.svg" ?>" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
-					<div class="options-entete">
+					<div class="theme-switch">
 						<a href="<?= texte_securise(lien_bascule_theme($theme)) ?>" class="theme-link">
 							<img src="image/theme-<?= $theme === "night" ? "day" : "night" ?>.svg" alt="" width="24" height="24" decoding="async" />
 							<span><?= texte_securise("Mode") ?> <?= texte_securise(nom_theme($theme === "night" ? "day" : "night")) ?></span>
@@ -49,7 +45,7 @@ enregistrer_visite_page();
 					</div>
 				</div>
 
-			<nav class="menu">
+			<nav class="main-nav">
 				<a href="<?= texte_securise($lienRechercheNavigation) ?>"<?= $pageActive === "recherche" ? ' aria-current="page"' : "" ?>><?= texte_securise("Recherche") ?></a>
 				<a href="<?= texte_securise($lienResultatsNavigation) ?>"<?= $pageActive === "resultats" ? ' aria-current="page"' : "" ?>><?= texte_securise("Résultats") ?></a>
 				<a href="stats.php"<?= $pageActive === "stats" ? ' aria-current="page"' : "" ?>><?= texte_securise("Statistiques") ?></a>

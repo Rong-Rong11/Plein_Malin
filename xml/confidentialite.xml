@@ -6,17 +6,17 @@
 		<title>Confidentialité - Plein Malin</title>
 		<meta name="description" content="Informations sur les cookies et les données conservées par Plein Malin." />
 		<link rel="stylesheet" href="style.css" />
-				<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
+			<link rel="icon" href="image/favicon.svg" type="image/svg+xml" />
 	</head>
 	<body class="theme-day">
 		<div id="top"></div>
 
 		<header class="site-header">
-			<div class="ligne-entete">
+			<div class="brand-row">
 				<a class="brand-link" href="index.php">
 					<img class="logo" src="image/logonoir.svg" alt="Logo Plein Malin" width="360" height="110" decoding="async" fetchpriority="high" />
 				</a>
-					<div class="options-entete">
+					<div class="theme-switch">
 						<a href="confidentialite.php?theme=night" class="theme-link">
 							<img src="image/theme-night.svg" alt="" width="24" height="24" decoding="async" />
 							<span>Mode nuit</span>
@@ -27,13 +27,13 @@
 					</div>
 				</div>
 
-			<nav class="menu">
+			<nav class="main-nav">
 				<a href="recherche.php?search_mode=manual">Recherche</a>
 				<a href="resultats.php">Résultats</a>
 				<a href="stats.php">Statistiques</a>
 			</nav>
 		</header>
-<main class="page info-page">
+<main class="page-shell info-page">
 	<section class="panel">
 		<p class="eyebrow">Confidentialité</p>
 		<h1>Confidentialité</h1>
@@ -41,7 +41,7 @@
 			Le site utilise quelques mécanismes de mémorisation pour améliorer l&#039;expérience utilisateur			et produire les statistiques demandées dans le projet.		</p>
 		<section class="info-block">
 			<h2>Cookies utilisés</h2>
-		<ul class="liste-simple">
+		<ul class="plain-list">
 			<li><code>theme</code> : mémorise le choix du mode jour ou nuit.</li>
 			<li><code>lang</code> : mémorise la langue d&#039;affichage.</li>
 			<li><code>last_visited_city</code> : mémorise la dernière ville consultée.</li>
@@ -51,7 +51,7 @@
 
 		<section class="info-block">
 			<h2>Données stockées côté serveur</h2>
-		<ul class="liste-simple">
+		<ul class="plain-list">
 			<li>Les consultations sont enregistrées dans <code>storage/consultations.csv</code>.</li>
 			<li>Les visites de pages sont enregistrées dans <code>storage/page_visits.csv</code>.</li>
 			<li>Chaque ligne contient un horodatage pour permettre les statistiques.</li>
@@ -61,7 +61,7 @@
 		<section class="info-block">
 			<h2>Géolocalisation</h2>
 		<p class="small-note">
-			La recherche autour de moi utilise une position approximative pour chercher les stations proches.			Cette position est approximative et peut être différente de la position réelle de l&#039;utilisateur.		</p>
+			La recherche autour de moi utilise une position estimée à partir de l&#039;adresse IP.			Cette position est approximative et peut être différente de la position réelle de l&#039;utilisateur.		</p>
 		</section>
 	</section>
 </main>

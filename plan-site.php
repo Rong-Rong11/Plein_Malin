@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 /**
  * @file
  * @brief Plan du site.
@@ -23,7 +22,7 @@ $lienResultats = lien_resultats_memorises();
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page">
+<main class="page-shell">
 	<section class="panel">
 		<p class="eyebrow"><?= texte_securise("Navigation") ?></p>
 		<h1><?= texte_securise("Plan du site") ?></h1>

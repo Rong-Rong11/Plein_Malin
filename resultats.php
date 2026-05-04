@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 /**
  * @file
  * @brief Page d'affichage et de filtrage des resultats.
@@ -37,7 +36,6 @@ $apiCarburantsErreur = false;
 $choixRechercheIncomplet = !$utiliserGeo && !$modeDepartement && $departement !== "" && $ville === "";
 $libelleDepartement = $departement;
 $modeRayonManuel = false;
-$positionGeoValide = false;
 
 // Reconstitution du contexte geographique a partir des parametres recus.
 if ($departement !== "") {
@@ -49,11 +47,10 @@ if ($departement !== "") {
 	}
 }
 
-// Le mode geolocalise utilise une position estimee ; les autres modes utilisent les CSV locaux.
+// Le mode geolocalise utilise l'IP ; les autres modes utilisent les CSV locaux.
 if ($utiliserGeo) {
 	$geolocalisation = recuperer_geolocalisation();
-	$positionGeoValide = (float) ($geolocalisation["latitude"] ?? 0) !== 0.0 || (float) ($geolocalisation["longitude"] ?? 0) !== 0.0;
-	if ($positionGeoValide) {
+	if ((float) ($geolocalisation["latitude"] ?? 0) !== 0.0 || (float) ($geolocalisation["longitude"] ?? 0) !== 0.0) {
 		$villeCourante = trouver_ville_plus_proche((float) $geolocalisation["latitude"], (float) $geolocalisation["longitude"]);
 	}
 } elseif ($modeDepartement && $departement !== "") {
@@ -83,15 +80,13 @@ if (!$utiliserGeo && !$modeDepartement && $villeCourante !== null) {
 	$modeRayonManuel = true;
 }
 
-if ($villeCourante !== null || ($utiliserGeo && $positionGeoValide)) {
-	if ($villeCourante !== null) {
-		$departement = $villeCourante["department_code"];
-		$infosDepartement = trouver_departement($departement);
-		$region = $infosDepartement["region_code"] ?? $region;
-		$infosRegion = trouver_region($region);
-	}
+if ($villeCourante !== null) {
+	$departement = $villeCourante["department_code"];
+	$infosDepartement = trouver_departement($departement);
+	$region = $infosDepartement["region_code"] ?? $region;
+	$infosRegion = trouver_region($region);
 
-	if ($villeCourante !== null && !$modeDepartement && $villeCourante["city_code"] !== "") {
+	if (!$modeDepartement && $villeCourante["city_code"] !== "") {
 		enregistrer_derniere_ville($villeCourante["city_code"]);
 	} elseif ($modeDepartement && $departement !== "") {
 		enregistrer_derniere_recherche("departement", $departement);
@@ -104,7 +99,7 @@ if ($villeCourante !== null || ($utiliserGeo && $positionGeoValide)) {
 		enregistrer_consultation([
 			"region" => $infosRegion["region_name"] ?? "",
 			"department" => $infosDepartement["department_name"] ?? "",
-			"city" => $modeDepartement ? "Département " . ($infosDepartement["department_name"] ?? $departement) : ($villeCourante["city_name"] ?? "Position géolocalisée"),
+			"city" => $modeDepartement ? "Département " . ($infosDepartement["department_name"] ?? $departement) : $villeCourante["city_name"],
 			"mode" => mode_recherche($utiliserGeo, $modeDepartement),
 			"view" => $vue,
 			"fuel" => texte_carburants_selectionnes($carburantsSelectionnes),
@@ -116,7 +111,7 @@ if ($villeCourante !== null || ($utiliserGeo && $positionGeoValide)) {
 $message = message_resultats($villeCourante, $utiliserGeo, $modeDepartement, $stations);
 if ($apiCarburantsErreur) {
 	$message = "L'API officielle des carburants ne répond pas pour le moment.";
-} elseif ($utiliserGeo && $positionGeoValide) {
+} elseif ($utiliserGeo && $villeCourante !== null) {
 	$message = "Recherche autour de votre position approximative dans un rayon de " . $rayonGeo . " km.";
 } elseif ($modeRayonManuel && $villeCourante !== null) {
 	$message = "Recherche autour de " . $villeCourante["city_name"] . " dans un rayon de " . $rayonGeo . " km.";
@@ -208,7 +203,7 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | 
 
 require __DIR__ . "/includes/header.php";
 ?>
-	<main class="page">
+	<main class="page-shell">
 			<section class="panel">
 				<p class="eyebrow"><?= texte_securise("Résultats") ?></p>
 				<h1><?= texte_securise("Stations pour") ?> <?= texte_securise($libelleCarburantsSelectionnes) ?></h1>
@@ -223,18 +218,16 @@ require __DIR__ . "/includes/header.php";
 							<?php } elseif ($geolocalisation !== null && trim((string) ($geolocalisation["city"] ?? "")) !== "") { ?>
 								<?= texte_securise("Vous êtes approximativement à") ?> <strong><?= texte_securise((string) $geolocalisation["city"]) ?></strong>,
 								<?= texte_securise("d'après une position estimée à partir de l'adresse IP.") ?>
-							<?php } elseif ($positionGeoValide) { ?>
-								<?= texte_securise("Recherche autour de la position estimée à partir de l'adresse IP.") ?>
 							<?php } else { ?>
-								<?= texte_securise("Position estimée indisponible pour le moment.") ?>
+								<?= texte_securise("Position estimée à partir de l'adresse IP.") ?>
 							<?php } ?>
 						</p>
 					<?php } ?>
 					<div class="form-actions">
 						<a class="cta-link" href="recherche.php?search_mode=manual"><?= texte_securise("Recherche manuelle") ?></a>
 					</div>
-					<div class="outils-resultats">
-					<form action="resultats.php#resultats" method="get" class="formulaire-resultats search-form formulaire-structure">
+					<div class="results-tools">
+					<form action="resultats.php#resultats" method="get" class="results-refine-form search-form search-form-structured">
 						<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
 						<input type="hidden" name="department" value="<?= texte_securise($departement) ?>" />
 						<input type="hidden" name="city" value="<?= texte_securise($ville) ?>" />
@@ -247,8 +240,8 @@ require __DIR__ . "/includes/header.php";
 						<?php if ($utiliserGeo) { ?>
 							<input type="hidden" name="use_geo" value="1" />
 						<?php } ?>
-						<div class="bloc-recherche recherche-simple">
-							<div class="bloc-champ champ-large">
+						<div class="search-section search-plain">
+							<div class="field-card field-card-wide">
 								<span class="field-title"><?= texte_securise("Carburants") ?></span>
 								<span class="field-help"><?= texte_securise("Gazole par défaut si rien n'est coché.") ?></span>
 								<span class="fuel-choice-list">
@@ -261,8 +254,8 @@ require __DIR__ . "/includes/header.php";
 									<?php } ?>
 								</span>
 							</div>
-							<div class="grille-champs grille-principale">
-								<div class="bloc-champ">
+							<div class="field-grid field-grid-main">
+								<div class="field-card">
 									<label class="field-title" for="result-sort-select"><?= texte_securise("Tri") ?></label>
 									<select id="result-sort-select" name="sort">
 										<option value="price" <?= $tri === "price" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix croissant") ?></option>
@@ -272,7 +265,7 @@ require __DIR__ . "/includes/header.php";
 									</select>
 								</div>
 								<?php if (!$modeDepartement) { ?>
-									<div class="bloc-champ">
+									<div class="field-card">
 										<label class="field-title" for="result-radius-select"><?= texte_securise("Rayon") ?></label>
 										<select id="result-radius-select" name="geo_radius">
 											<?php foreach (rayons_geo_disponibles() as $rayon) { ?>
@@ -283,7 +276,7 @@ require __DIR__ . "/includes/header.php";
 										</select>
 									</div>
 								<?php } ?>
-								<div class="bloc-champ">
+								<div class="field-card">
 									<label class="field-title" for="result-view-select"><?= texte_securise("Vue") ?></label>
 									<select id="result-view-select" name="view">
 										<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>><?= texte_securise("Synthèse") ?></option>
@@ -301,7 +294,7 @@ require __DIR__ . "/includes/header.php";
 							<summary class="detail-toggle"><?= texte_securise("Détail") ?></summary>
 							<div class="search-details-box">
 								<h2><?= texte_securise("Recherche actuelle") ?></h2>
-								<ul class="liste-simple">
+								<ul class="plain-list">
 									<li><?= texte_securise("Mode") ?> : <?= texte_securise($libelleModeRecherche) ?></li>
 									<li><?= texte_securise("Carburants choisis") ?> : <?= texte_securise($libelleCarburantsSelectionnes) ?></li>
 									<li><?= texte_securise("Tri choisi") ?> : <?= texte_securise($libelleTri) ?></li>
@@ -321,8 +314,8 @@ require __DIR__ . "/includes/header.php";
 										<li><?= texte_securise("Rayon géolocalisé") ?> : <?= texte_securise((string) $rayonGeo) ?> km</li>
 										<li>Latitude : <?= texte_securise((string) $geolocalisation["latitude"]) ?></li>
 										<li>Longitude : <?= texte_securise((string) $geolocalisation["longitude"]) ?></li>
-										<li><?= texte_securise("Ville estimée par IP") ?> : <?= texte_securise($geolocalisation["city"] !== "" ? $geolocalisation["city"] : "Non définie") ?></li>
-										<li><?= texte_securise("Région estimée par IP") ?> : <?= texte_securise($geolocalisation["region"] !== "" ? $geolocalisation["region"] : "Non définie") ?></li>
+										<li><?= texte_securise("Ville retournée par l'IP") ?> : <?= texte_securise($geolocalisation["city"]) ?></li>
+										<li><?= texte_securise("Région retournée par l'IP") ?> : <?= texte_securise($geolocalisation["region"]) ?></li>
 										<li><?= texte_securise("Source de localisation") ?> : <?= texte_securise($geolocalisation["source"]) ?></li>
 									<?php } elseif ($modeRayonManuel) { ?>
 										<li><?= texte_securise("Rayon") ?> : <?= texte_securise((string) $rayonGeo) ?> km</li>
@@ -343,13 +336,13 @@ require __DIR__ . "/includes/header.php";
 					<?php } ?>
 					</p>
 				<?php if ($villeCourante === null) { ?>
-					<p class="message-vide">
+					<p class="empty-state">
 						<?= texte_securise($choixRechercheIncomplet ? "Choisissez une ville dans le département " . $libelleDepartement . " ou activez la recherche dans tout le département." : "Aucune recherche lancée.") ?>
 					</p>
 				<?php } elseif ($apiCarburantsErreur) { ?>
-				<p class="message-vide"><?= texte_securise("Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard.") ?></p>
+				<p class="empty-state"><?= texte_securise("Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard.") ?></p>
 				<?php } elseif ($stations === []) { ?>
-				<p class="message-vide">
+				<p class="empty-state">
 					<?= texte_securise("Aucune station trouvée avec ces critères.") ?>
 					<?php if ($modeRayonManuel) { ?>
 						<?= texte_securise("Vous pouvez aussi augmenter le rayon de recherche.") ?>
