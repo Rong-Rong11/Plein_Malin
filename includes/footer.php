@@ -26,7 +26,7 @@ $textePiedPage = $textePiedPage ?? "Enzo Phung | Fatma-Zahra Baarir | CY Cergy P
 	<p><?= texte_securise($textePiedPage) ?></p>
 </footer>
 <a href="#top" class="retour-haut">
-	<img src="image/back_top_small.png" alt="<?= texte_securise("Retour en haut") ?>" width="64" height="64"
+	<img src="image/back_top.png" alt="<?= texte_securise("Retour en haut") ?>" width="64" height="64"
 		loading="lazy" decoding="async" />
 </a>
 </body>
