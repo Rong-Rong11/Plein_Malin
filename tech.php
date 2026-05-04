@@ -14,6 +14,51 @@ require __DIR__ . '/includes/functions.php';
 preparer_dossiers_et_fichiers();
 $theme = gerer_theme();
 $donneesGeo = recuperer_geolocalisation();
+$demanderApiAvecCle = isset($_GET["api_cle"]);
+$donneesGeoAvecCle = false;
+$ipAvecCleAffichee = "";
+$latitudeAvecCle = "Non trouvee";
+$longitudeAvecCle = "Non trouvee";
+
+if ($demanderApiAvecCle) {
+	$ipAvecCle = "";
+	if (isset($_SERVER["REMOTE_ADDR"])) {
+		$ipAvecCle = $_SERVER["REMOTE_ADDR"];
+	}
+
+	if ($ipAvecCle === "127.0.0.1" || $ipAvecCle === "::1" || $ipAvecCle === "") {
+		$ipAvecCle = "193.54.115.192";
+	}
+	$ipAvecCleAffichee = $ipAvecCle;
+
+	$cleApiGeo = "8cd4f65797dd4cb507a7b98e27153175";
+	$urlApiAvecCle = "https://api.whatismyip.com/ip-address-lookup.php?key=" . $cleApiGeo . "&input=" . $ipAvecCle . "&output=xml";
+
+	$xmlGeoAvecCle = @file_get_contents($urlApiAvecCle);
+	if ($xmlGeoAvecCle !== false) {
+		$donneesGeoAvecCle = @simplexml_load_string($xmlGeoAvecCle);
+		if ($donneesGeoAvecCle !== false) {
+			$latitudeAvecCle = (string) ($donneesGeoAvecCle->server_data->latitude ?? "");
+			$longitudeAvecCle = (string) ($donneesGeoAvecCle->server_data->longitude ?? "");
+
+			if ($latitudeAvecCle === "") {
+				$latitudeAvecCle = (string) ($donneesGeoAvecCle->server_data->lat ?? "");
+			}
+
+			if ($longitudeAvecCle === "") {
+				$longitudeAvecCle = (string) ($donneesGeoAvecCle->server_data->lon ?? "");
+			}
+
+			if ($latitudeAvecCle === "") {
+				$latitudeAvecCle = "Non trouvee";
+			}
+
+			if ($longitudeAvecCle === "") {
+				$longitudeAvecCle = "Non trouvee";
+			}
+		}
+	}
+}
 $statistiques = calculer_statistiques();
 $stationsXml = lire_stations_xml_demo();
 
@@ -112,9 +157,21 @@ require __DIR__ . "/includes/header.php";
 				<?php } ?>
 		</section>
 
-		<section class="info-block tech-feature">
-				<h2><?= texte_securise("Flux JSON cote serveur") ?></h2>
-			<p><?= texte_securise("Geolocalisation IP approx. obtenue en PHP avec cache fichier JSON.") ?></p>
+		<section class="info-block tech-feature" id="geo-ip">
+			<h2><?= texte_securise("Geolocalisation IP") ?></h2>
+			<p>
+				<?= texte_securise("Le projet actuel geolocalise l'utilisateur a partir de son adresse IP avec l'API") ?>
+				<code>ipapi.co</code>.
+				<?= texte_securise("Cette API est appelee cote serveur en PHP et la reponse revient au format JSON.") ?>
+			</p>
+			<p>
+				<?= texte_securise("Dans une ancienne version, une autre API etait utilisee avec une cle. Avec ce type d'API, il vaut mieux declencher l'appel avec un bouton pour eviter d'utiliser la cle automatiquement a chaque chargement de page.") ?>
+			</p>
+
+			<h3><?= texte_securise("Ce que l'API sans cle affiche") ?></h3>
+			<p>
+				<?= texte_securise("L'API actuelle retourne ici l'adresse IP detectee, la ville, la region et des coordonnees approximatives.") ?>
+			</p>
 			<ul class="plain-list">
 				<li><?= texte_securise("IP detectee") ?>: <?= texte_securise($donneesGeo['ip']) ?></li>
 				<li><?= texte_securise("Ville retournee") ?>: <?= texte_securise($donneesGeo['city'] !== "" ? $donneesGeo['city'] : "Non trouvee") ?></li>
@@ -123,6 +180,32 @@ require __DIR__ . "/includes/header.php";
 				<li>Longitude: <?= texte_securise($donneesGeo['longitude'] !== 0.0 ? (string) $donneesGeo['longitude'] : "Non trouvee") ?></li>
 				<li><?= texte_securise("Source utilisee") ?>: <?= texte_securise($donneesGeo['source']) ?></li>
 			</ul>
+
+			<h3><?= texte_securise("Exemple avec l'ancienne API a cle") ?></h3>
+			<p>
+				<?= texte_securise("Le bouton ci-dessous sert a montrer qu'une API avec cle ne doit pas forcement etre lancee automatiquement. Ici, l'appel ne se fait qu'au clic.") ?>
+			</p>
+			<form action="tech.php#api-cle" method="get">
+				<p><button type="submit" name="api_cle" value="1" class="primary-btn"><?= texte_securise("Utiliser l'API avec cle") ?></button></p>
+			</form>
+			<div id="api-cle">
+				<?php if ($demanderApiAvecCle) { ?>
+					<?php if ($donneesGeoAvecCle !== false) { ?>
+						<ul class="plain-list">
+							<li><?= texte_securise("IP detectee") ?>: <?= texte_securise($ipAvecCleAffichee) ?></li>
+							<li><?= texte_securise("Ville retournee") ?>: <?= texte_securise((string) ($donneesGeoAvecCle->server_data->city ?? "Non trouvee")) ?></li>
+							<li><?= texte_securise("Region retournee") ?>: <?= texte_securise((string) ($donneesGeoAvecCle->server_data->region ?? "Non trouvee")) ?></li>
+							<li><?= texte_securise("Pays retourne") ?>: <?= texte_securise((string) ($donneesGeoAvecCle->server_data->country ?? "Non trouve")) ?></li>
+							<li>Latitude: <?= texte_securise($latitudeAvecCle) ?></li>
+							<li>Longitude: <?= texte_securise($longitudeAvecCle) ?></li>
+						</ul>
+					<?php } else { ?>
+						<p><?= texte_securise("Impossible de recuperer les donnees de l'API avec cle.") ?></p>
+					<?php } ?>
+				<?php } else { ?>
+					<p><?= texte_securise("L'API avec cle n'est pas lancee automatiquement. Il faut cliquer sur le bouton.") ?></p>
+				<?php } ?>
+			</div>
 		</section>
 
 		<section class="info-block tech-feature">
@@ -161,32 +244,5 @@ require __DIR__ . "/includes/header.php";
 		</section>
 	</section>
 </main>
-
-<script>
-function recupererPositionGps() {
-	if (!navigator.geolocation) {
-		document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> GPS indisponible";
-		return;
-	}
-
-	document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Recherche en cours...";
-
-	navigator.geolocation.getCurrentPosition(
-		function (position) {
-			var latitude = position.coords.latitude;
-			var longitude = position.coords.longitude;
-			var precision = position.coords.accuracy;
-
-			document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Position trouvee";
-			document.getElementById("gps-latitude").innerHTML = "<strong>Latitude :</strong> " + latitude;
-			document.getElementById("gps-longitude").innerHTML = "<strong>Longitude :</strong> " + longitude;
-			document.getElementById("gps-precision").innerHTML = "<strong>Precision :</strong> " + precision + " metres";
-		},
-		function () {
-			document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Autorisation refusee ou position indisponible";
-		}
-	);
-}
-</script>
 
 <?php require __DIR__ . "/includes/footer.php"; ?>
