@@ -13,24 +13,82 @@
  * @param int $annee Annee demandee.
  * @return array Reponse vide standardisee.
  */
-function reponse_tendances_vide(string $source, string $sourceUrl, int $annee): array
+function trier_tableau_par_cle(array $valeurs): array
 {
-	return [
-		"source" => $source,
-		"source_url" => $sourceUrl,
-		"year" => $annee,
-		"fuels" => [],
-		"annual_averages" => [],
-	];
+	$clesTriees = [];
+
+	foreach ($valeurs as $cle => $_valeur) {
+		$position = count($clesTriees);
+
+		while ($position > 0 && strcmp((string) $clesTriees[$position - 1], (string) $cle) > 0) {
+			$clesTriees[$position] = $clesTriees[$position - 1];
+			$position--;
+		}
+
+		$clesTriees[$position] = $cle;
+	}
+
+	$resultat = [];
+	foreach ($clesTriees as $cle) {
+		$resultat[$cle] = $valeurs[$cle];
+	}
+
+	return $resultat;
 }
+
 /**
- * Prepare l'archive officielle en cache.
+ * Trie un classement associatif par valeur decroissante puis par cle.
  *
- * @param string $fichierZip Chemin local du fichier ZIP.
- * @param string $adresseUrl Adresse officielle a telecharger.
- * @return bool True si l'archive est disponible localement.
+ * @param array<string,int> $valeurs Classement a trier.
+ * @return array<string,int> Classement trie.
+ *
+ * @ingroup statistiques
  */
-function preparer_archive_prix_annuelle(string $fichierZip, string $adresseUrl): bool
+function trier_classement_decroissant(array $valeurs): array
+{
+	$entreesTriees = [];
+
+	foreach ($valeurs as $cle => $valeur) {
+		$entree = [
+			"key" => (string) $cle,
+			"value" => (int) $valeur,
+		];
+		$position = count($entreesTriees);
+
+		while ($position > 0) {
+			$precedente = $entreesTriees[$position - 1];
+			$doitMonter = $entree["value"] > $precedente["value"];
+			$egalite = $entree["value"] === $precedente["value"];
+
+			if (!$doitMonter && !($egalite && strcmp($entree["key"], $precedente["key"]) < 0)) {
+				break;
+			}
+
+			$entreesTriees[$position] = $precedente;
+			$position--;
+		}
+
+		$entreesTriees[$position] = $entree;
+	}
+
+	$resultat = [];
+	foreach ($entreesTriees as $entreeTriee) {
+		$resultat[$entreeTriee["key"]] = $entreeTriee["value"];
+	}
+
+	return $resultat;
+}
+
+/**
+ * Lit l'archive XML officielle d'une annee et calcule les moyennes mensuelles.
+ *
+ * @param int $annee Annee a analyser.
+ * @param string[] $carburants Carburants a agreger.
+ * @return array Donnees mensuelles et moyenne annuelle pour chaque carburant.
+ *
+ * @ingroup statistiques
+ */
+function calculer_tendances_prix_annuelles(int $annee, array $carburants): array
 {
 	$dureeCache = PM_FUEL_TRENDS_CACHE_DURATION;
 	$archiveExiste = file_exists($fichierZip);
@@ -215,6 +273,7 @@ function calculer_tendances_depuis_agregats(array $agregats): array
 	$moyennesAnnuelles = [];
 
 	foreach ($agregats as $carburant => $moisAgreges) {
+		$moisAgreges = trier_tableau_par_cle($moisAgreges);
 		$tendances[$carburant] = [];
 		$sommeAnnuelle = 0.0;
 		$nombreAnnuel = 0;
@@ -470,9 +529,9 @@ function reponse_tendances_indisponibles(array $resultatCourant, int $annee): ar
  */
 function lire_tendances_prix_officielles(?int $annee = null, ?array $carburants = null): array
 {
-	$annee = choisir_annee_tendances($annee);
-	$carburants = choisir_carburants_tendances($carburants);
-	$cleCarburants = cle_cache_carburants_tendances($carburants);
+	$annee = $annee ?? (int) date("Y");
+	$carburants = $carburants ?? PM_TREND_FUELS;
+	$cleCarburants = construire_cle_cache("fuel_trends", implode("|", $carburants));
 	$fichierCacheResultats = PM_CACHE_DIR . "/fuel_trends_" . $annee . "_" . $cleCarburants . ".json";
 
 	$donneesCache = lire_cache_tendances_prix($fichierCacheResultats, $annee);
@@ -788,7 +847,11 @@ function calculer_statistiques(): array
 		}
 	}
 
-	$classementModes = trier_classement_statistique($classementModes);
+	$classementVilles = trier_classement_decroissant($classementVilles);
+	$classementDepartements = trier_classement_decroissant($classementDepartements);
+	$classementRegions = trier_classement_decroissant($classementRegions);
+	$classementCarburants = trier_classement_decroissant($classementCarburants);
+	$classementModes = trier_classement_decroissant($classementModes);
 
 	return [
 		"top_cities" => top_classement_statistique($classementVilles, 8),
