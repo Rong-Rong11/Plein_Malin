@@ -971,10 +971,6 @@ button {
 	list-style: none;
 }
 
-.resume-detail-station::-webkit-details-marker {
-	display: none;
-}
-
 .contenu-details-station {
 	margin-top: 12px;
 }
