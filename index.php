@@ -85,52 +85,52 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | 
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page-shell home-page">
-	<section class="hero home-hero">
-		<div class="hero-copy">
-			<p class="eyebrow"><?= texte_securise("Prix des carburants") ?></p>
+<main class="page-conteneur page-accueil">
+	<section class="banniere banniere-accueil">
+		<div class="contenu-banniere">
+			<p class="surtitre"><?= texte_securise("Prix des carburants") ?></p>
 			<h1><?= texte_securise("Trouvez une station plus facilement") ?></h1>
-			<div class="home-hero-content">
-				<div class="home-hero-text">
-					<p class="lead">
+			<div class="contenu-banniere-accueil">
+				<div class="texte-banniere-accueil">
+					<p class="accroche">
 						<?= texte_securise("Plein Malin aide à comparer rapidement les prix du carburant en France.") ?>
 						<?= texte_securise("Le site propose une recherche manuelle par région, département et ville,") ?>
 						<?= texte_securise("mais aussi une recherche autour de votre position approximative.") ?>
 					</p>
-					<p class="small-note">
+					<p class="note-discrete">
 						<?= texte_securise("L'objectif est de garder une interface simple : choisir un périmètre,") ?>
 						<?= texte_securise("sélectionner un ou plusieurs carburants, puis consulter des résultats") ?>
 						<?= texte_securise("lisibles sans surcharge inutile.") ?>
 					</p>
-					<div class="form-actions">
-						<a class="cta-link" href="recherche.php?search_mode=manual"><?= texte_securise("Rechercher une station") ?></a>
+					<div class="actions-formulaire">
+						<a class="lien-action" href="recherche.php?search_mode=manual"><?= texte_securise("Rechercher une station") ?></a>
 					</div>
 				</div>
-				<div class="home-hero-visual">
-					<img class="home-hero-image home-hero-image-light" src="image/image-accueil(light).png" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="888" height="898" decoding="async" fetchpriority="high" />
-					<img class="home-hero-image home-hero-image-dark" src="image/image-accueil(dark).png" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="1604" height="1616" decoding="async" fetchpriority="high" />
+				<div class="visuel-accueil">
+					<img class="image-banniere-accueil image-accueil-jour" src="image/image-accueil(light).png" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="888" height="898" decoding="async" fetchpriority="high" />
+					<img class="image-banniere-accueil image-accueil-nuit" src="image/image-accueil(dark).png" alt="<?= texte_securise("Illustration de recherche de carburant Plein Malin") ?>" width="1604" height="1616" decoding="async" fetchpriority="high" />
 				</div>
 			</div>
 
 			<?php if ($typeDerniereRecherche !== "") { ?>
-				<div class="home-last-search-inline">
+				<div class="derniere-recherche-accueil">
 					<h2><?= texte_securise("Dernière recherche") ?></h2>
 					<p>
 						<?= texte_securise($typeDerniereRecherche) ?> :
 						<strong><?= texte_securise($libelleDerniereRecherche) ?></strong>
 					</p>
 					<?php if ($dateDerniereRecherche !== "") { ?>
-						<p class="small-note"><?= texte_securise("Dernière recherche le") ?> <?= texte_securise($dateDerniereRecherche) ?></p>
+						<p class="note-discrete"><?= texte_securise("Dernière recherche le") ?> <?= texte_securise($dateDerniereRecherche) ?></p>
 					<?php } ?>
-					<div class="form-actions">
-						<a class="cta-link" href="<?= texte_securise($lienDerniereRecherche) ?>"><?= texte_securise("Reprendre cette recherche") ?></a>
+					<div class="actions-formulaire">
+						<a class="lien-action" href="<?= texte_securise($lienDerniereRecherche) ?>"><?= texte_securise("Reprendre cette recherche") ?></a>
 					</div>
 				</div>
 			<?php } ?>
 		</div>
 	</section>
 
-	<section class="panel home-intro">
+	<section class="panneau intro-accueil">
 		<h2><?= texte_securise("Comment fonctionne le site") ?></h2>
 		<p>
 			<?= texte_securise("La recherche principale suit un parcours guidé : vous choisissez d'abord") ?>
@@ -149,7 +149,7 @@ require __DIR__ . "/includes/header.php";
 		</p>
 
 		<h2><?= texte_securise("Informations utiles") ?></h2>
-		<div class="home-columns">
+		<div class="colonnes-accueil">
 			<article>
 				<h3><?= texte_securise("Recherche guidée") ?></h3>
 				<p>

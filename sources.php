@@ -19,33 +19,33 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | Sources des données.";
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page-shell info-page">
-	<section class="panel">
-		<p class="eyebrow"><?= texte_securise("Données") ?></p>
+<main class="page-conteneur page-info">
+	<section class="panneau">
+		<p class="surtitre"><?= texte_securise("Données") ?></p>
 		<h1><?= texte_securise("Sources des données") ?></h1>
-		<p class="lead">
+		<p class="accroche">
 			<?= texte_securise("Cette page résume les sources et fichiers utilisés par le site pour répondre aux consignes du projet.") ?>
 		</p>
-		<section class="info-block">
+		<section class="bloc-info">
 			<h2><?= texte_securise("Données statiques") ?></h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li><?= texte_securise("Régions, départements et villes : fichiers CSV locaux placés dans le dossier") ?> <code>data</code>.</li>
 			<li><?= texte_securise("Ces fichiers servent à alimenter les listes de sélection du formulaire de recherche.") ?></li>
 		</ul>
 		</section>
 
-		<section class="info-block">
+		<section class="bloc-info">
 			<h2><?= texte_securise("Données dynamiques") ?></h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li><?= texte_securise("Prix des carburants : API officielle des prix des carburants, interrogée côté serveur en PHP.") ?></li>
 			<li><?= texte_securise("Géolocalisation : position estimée à partir de l'adresse IP de l'utilisateur.") ?></li>
 			<li><?= texte_securise("Tendances : archive annuelle XML officielle de") ?> <code>donnees.roulez-eco.fr</code>.</li>
 		</ul>
 		</section>
 
-		<section class="info-block">
+		<section class="bloc-info">
 			<h2><?= texte_securise("Limites des données") ?></h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li><?= texte_securise("Les prix affichés dépendent de la dernière mise à jour disponible dans l'API officielle.") ?></li>
 			<li><?= texte_securise("Si l'API officielle ne répond pas, le site affiche un message d'erreur au lieu d'annoncer simplement zéro station.") ?></li>
 			<li><?= texte_securise("La géolocalisation par adresse IP est approximative : elle peut indiquer une ville proche, pas une adresse exacte.") ?></li>
@@ -54,9 +54,9 @@ require __DIR__ . "/includes/header.php";
 		</ul>
 		</section>
 
-		<section class="info-block">
+		<section class="bloc-info">
 			<h2><?= texte_securise("Formats exploités") ?></h2>
-		<ul class="plain-list">
+		<ul class="liste-simple">
 			<li><strong>CSV</strong> : <?= texte_securise("données locales et historique des consultations.") ?></li>
 			<li><strong>JSON</strong> : <?= texte_securise("réponses de l'API carburants et cache serveur.") ?></li>
 			<li><strong>XML</strong> : <?= texte_securise("lecture d'un fichier de démonstration et archive annuelle des tendances.") ?></li>

@@ -22,47 +22,47 @@ $lienResultats = lien_resultats_memorises();
 
 require __DIR__ . "/includes/header.php";
 ?>
-<main class="page-shell">
-	<section class="panel">
-		<p class="eyebrow"><?= texte_securise("Navigation") ?></p>
+<main class="page-conteneur">
+	<section class="panneau">
+		<p class="surtitre"><?= texte_securise("Navigation") ?></p>
 		<h1><?= texte_securise("Plan du site") ?></h1>
-		<p class="lead">
+		<p class="accroche">
 			<?= texte_securise("Retrouvez ici les pages principales du site et les pages d'information du projet.") ?>
 		</p>
 	</section>
 
-	<section class="panel">
+	<section class="panneau">
 		<h2><?= texte_securise("Schéma de navigation") ?></h2>
-		<p class="small-note">
+		<p class="note-discrete">
 			<?= texte_securise("Le schéma se lit de haut en bas : commencez par l'accueil, puis suivez la colonne de gauche") ?>
 			<?= texte_securise("pour effectuer une recherche. La colonne de droite regroupe les pages d'explication du projet.") ?>
 		</p>
-		<div class="sitemap-legend">
+		<div class="legende-plan">
 			<span><strong><?= texte_securise("Trait orange") ?></strong> : <?= texte_securise("parcours principal de l'utilisateur") ?></span>
 			<span><strong><?= texte_securise("Trait gris") ?></strong> : <?= texte_securise("pages d'information") ?></span>
 		</div>
-		<div class="sitemap-diagram">
-			<a class="sitemap-node sitemap-home" href="index.php">
+		<div class="schema-plan">
+			<a class="noeud-plan accueil-plan" href="index.php">
 				<small><?= texte_securise("Départ") ?></small>
 				<strong><?= texte_securise("Accueil") ?></strong>
 				<span><?= texte_securise("Page d'entrée du site") ?></span>
 			</a>
 
-			<div class="sitemap-branches">
-				<div class="sitemap-group sitemap-main-path">
+			<div class="branches-plan">
+				<div class="groupe-plan parcours-principal-plan">
 					<h3><?= texte_securise("Parcours principal : chercher une station") ?></h3>
-					<div class="sitemap-line">
-						<a class="sitemap-node" href="<?= texte_securise($lienRecherche) ?>">
+					<div class="ligne-plan">
+						<a class="noeud-plan" href="<?= texte_securise($lienRecherche) ?>">
 							<small><?= texte_securise("Étape 1") ?></small>
 							<strong><?= texte_securise("Recherche") ?></strong>
 							<span><?= texte_securise("Choisir une région, un département, une ville et un carburant") ?></span>
 						</a>
-						<a class="sitemap-node" href="<?= texte_securise($lienResultats) ?>">
+						<a class="noeud-plan" href="<?= texte_securise($lienResultats) ?>">
 							<small><?= texte_securise("Étape 2") ?></small>
 							<strong><?= texte_securise("Résultats") ?></strong>
 							<span><?= texte_securise("Comparer les stations, les prix et les liens de carte") ?></span>
 						</a>
-						<a class="sitemap-node" href="stats.php">
+						<a class="noeud-plan" href="stats.php">
 							<small><?= texte_securise("Étape 3") ?></small>
 							<strong><?= texte_securise("Statistiques") ?></strong>
 							<span><?= texte_securise("Voir les recherches, visites et tendances de prix") ?></span>
@@ -70,26 +70,26 @@ require __DIR__ . "/includes/header.php";
 					</div>
 				</div>
 
-				<div class="sitemap-group">
+				<div class="groupe-plan">
 					<h3><?= texte_securise("Pages d'explication") ?></h3>
-					<div class="sitemap-line sitemap-line-info">
-						<a class="sitemap-node" href="a-propos.php">
+					<div class="ligne-plan ligne-info-plan">
+						<a class="noeud-plan" href="a-propos.php">
 							<strong><?= texte_securise("À propos") ?></strong>
 							<span><?= texte_securise("Comprendre le but du site") ?></span>
 						</a>
-						<a class="sitemap-node" href="aide.php">
+						<a class="noeud-plan" href="aide.php">
 							<strong><?= texte_securise("Aide") ?></strong>
 							<span><?= texte_securise("Apprendre à utiliser la recherche et les résultats") ?></span>
 						</a>
-						<a class="sitemap-node" href="sources.php">
+						<a class="noeud-plan" href="sources.php">
 							<strong><?= texte_securise("Sources des données") ?></strong>
 							<span><?= texte_securise("Voir d'où viennent les données CSV, JSON, XML et API") ?></span>
 						</a>
-						<a class="sitemap-node" href="confidentialite.php">
+						<a class="noeud-plan" href="confidentialite.php">
 							<strong><?= texte_securise("Confidentialité") ?></strong>
 							<span><?= texte_securise("Comprendre les cookies et le stockage serveur") ?></span>
 						</a>
-						<a class="sitemap-node" href="tech.php">
+						<a class="noeud-plan" href="tech.php">
 							<strong><?= texte_securise("Page technique") ?></strong>
 							<span><?= texte_securise("Afficher la démonstration technique des flux") ?></span>
 						</a>

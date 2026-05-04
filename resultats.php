@@ -203,15 +203,15 @@ $textePiedPage = "Enzo Phung | Fatma-Zahra Baarir | CY Cergy Paris Universite | 
 
 require __DIR__ . "/includes/header.php";
 ?>
-	<main class="page-shell">
-			<section class="panel">
-				<p class="eyebrow"><?= texte_securise("Résultats") ?></p>
+	<main class="page-conteneur">
+			<section class="panneau">
+				<p class="surtitre"><?= texte_securise("Résultats") ?></p>
 				<h1><?= texte_securise("Stations pour") ?> <?= texte_securise($libelleCarburantsSelectionnes) ?></h1>
-					<p class="lead">
+					<p class="accroche">
 						<?= texte_securise("Consultez les stations trouvées puis revenez à la recherche si besoin.") ?>
 					</p>
 					<?php if ($utiliserGeo) { ?>
-						<p class="lead">
+						<p class="accroche">
 							<?php if ($villeCourante !== null) { ?>
 								<?= texte_securise("Vous êtes approximativement à") ?> <strong><?= texte_securise($villeCourante["city_name"]) ?></strong>,
 								<?= texte_securise("d'après une position estimée à partir de l'adresse IP.") ?>
@@ -223,11 +223,11 @@ require __DIR__ . "/includes/header.php";
 							<?php } ?>
 						</p>
 					<?php } ?>
-					<div class="form-actions">
-						<a class="cta-link" href="recherche.php?search_mode=manual"><?= texte_securise("Recherche manuelle") ?></a>
+					<div class="actions-formulaire">
+						<a class="lien-action" href="recherche.php?search_mode=manual"><?= texte_securise("Recherche manuelle") ?></a>
 					</div>
-					<div class="results-tools">
-					<form action="resultats.php#resultats" method="get" class="results-refine-form search-form search-form-structured">
+					<div class="outils-resultats">
+					<form action="resultats.php#resultats" method="get" class="formulaire-affinage-resultats formulaire-recherche formulaire-recherche-structure">
 						<input type="hidden" name="region" value="<?= texte_securise($region) ?>" />
 						<input type="hidden" name="department" value="<?= texte_securise($departement) ?>" />
 						<input type="hidden" name="city" value="<?= texte_securise($ville) ?>" />
@@ -240,13 +240,13 @@ require __DIR__ . "/includes/header.php";
 						<?php if ($utiliserGeo) { ?>
 							<input type="hidden" name="use_geo" value="1" />
 						<?php } ?>
-						<div class="search-section search-plain">
-							<div class="field-card field-card-wide">
-								<span class="field-title"><?= texte_securise("Carburants") ?></span>
-								<span class="field-help"><?= texte_securise("Gazole par défaut si rien n'est coché.") ?></span>
-								<span class="fuel-choice-list">
+						<div class="section-recherche recherche-simple">
+							<div class="bloc-champ bloc-champ-large">
+								<span class="titre-champ"><?= texte_securise("Carburants") ?></span>
+								<span class="aide-champ"><?= texte_securise("Gazole par défaut si rien n'est coché.") ?></span>
+								<span class="liste-choix-carburants">
 									<?php foreach (liste_carburants() as $codeCarburant => $nomCarburant) { ?>
-										<label class="fuel-choice">
+										<label class="choix-carburant">
 											<input type="checkbox" id="result-fuel-<?= texte_securise(strtolower($codeCarburant)) ?>" name="fuel[]" value="<?= texte_securise($codeCarburant) ?>"
 												<?= in_array($codeCarburant, $carburantsSelectionnes, true) ? 'checked="checked"' : "" ?> />
 											<span><?= texte_securise($nomCarburant) ?></span>
@@ -254,9 +254,9 @@ require __DIR__ . "/includes/header.php";
 									<?php } ?>
 								</span>
 							</div>
-							<div class="field-grid field-grid-main">
-								<div class="field-card">
-									<label class="field-title" for="result-sort-select"><?= texte_securise("Tri") ?></label>
+							<div class="grille-champs grille-champs-principale">
+								<div class="bloc-champ">
+									<label class="titre-champ" for="result-sort-select"><?= texte_securise("Tri") ?></label>
 									<select id="result-sort-select" name="sort">
 										<option value="price" <?= $tri === "price" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix croissant") ?></option>
 										<option value="price_desc" <?= $tri === "price_desc" ? 'selected="selected"' : "" ?>><?= texte_securise("Prix décroissant") ?></option>
@@ -265,8 +265,8 @@ require __DIR__ . "/includes/header.php";
 									</select>
 								</div>
 								<?php if (!$modeDepartement) { ?>
-									<div class="field-card">
-										<label class="field-title" for="result-radius-select"><?= texte_securise("Rayon") ?></label>
+									<div class="bloc-champ">
+										<label class="titre-champ" for="result-radius-select"><?= texte_securise("Rayon") ?></label>
 										<select id="result-radius-select" name="geo_radius">
 											<?php foreach (rayons_geo_disponibles() as $rayon) { ?>
 												<option value="<?= texte_securise((string) $rayon) ?>" <?= $rayonGeo === $rayon ? 'selected="selected"' : "" ?>>
@@ -276,25 +276,25 @@ require __DIR__ . "/includes/header.php";
 										</select>
 									</div>
 								<?php } ?>
-								<div class="field-card">
-									<label class="field-title" for="result-view-select"><?= texte_securise("Vue") ?></label>
+								<div class="bloc-champ">
+									<label class="titre-champ" for="result-view-select"><?= texte_securise("Vue") ?></label>
 									<select id="result-view-select" name="view">
 										<option value="summary" <?= $vue === "summary" ? 'selected="selected"' : "" ?>><?= texte_securise("Synthèse") ?></option>
 										<option value="detailed" <?= $vue === "detailed" ? 'selected="selected"' : "" ?>><?= texte_securise("Détaillée") ?></option>
 									</select>
 								</div>
 							</div>
-							<div class="form-actions action-buttons">
+							<div class="actions-formulaire boutons-action">
 								<button type="submit"><?= texte_securise("Appliquer") ?></button>
 							</div>
 						</div>
 					</form>
-					<div class="form-actions results-detail-toggle">
-						<details class="search-details">
-							<summary class="detail-toggle"><?= texte_securise("Détail") ?></summary>
-							<div class="search-details-box">
+					<div class="actions-formulaire details-resultats">
+						<details class="details-recherche">
+							<summary class="bouton-detail"><?= texte_securise("Détail") ?></summary>
+							<div class="boite-details-recherche">
 								<h2><?= texte_securise("Recherche actuelle") ?></h2>
-								<ul class="plain-list">
+								<ul class="liste-simple">
 									<li><?= texte_securise("Mode") ?> : <?= texte_securise($libelleModeRecherche) ?></li>
 									<li><?= texte_securise("Carburants choisis") ?> : <?= texte_securise($libelleCarburantsSelectionnes) ?></li>
 									<li><?= texte_securise("Tri choisi") ?> : <?= texte_securise($libelleTri) ?></li>
@@ -327,48 +327,48 @@ require __DIR__ . "/includes/header.php";
 					</div>
 			</section>
 
-		<section class="results-panel" id="resultats">
+		<section class="panneau-resultats" id="resultats">
 			<h2><?= texte_securise("Résultats") ?></h2>
-				<p class="small-note">
+				<p class="note-discrete">
 					<?= texte_securise($message) ?>
 					<?php if ($villeCourante !== null && !$utiliserGeo && !$modeRayonManuel) { ?>
 						<strong><?= texte_securise($libelleCibleRecherche) ?></strong>
 					<?php } ?>
 					</p>
 				<?php if ($villeCourante === null) { ?>
-					<p class="empty-state">
+					<p class="message-vide">
 						<?= texte_securise($choixRechercheIncomplet ? "Choisissez une ville dans le département " . $libelleDepartement . " ou activez la recherche dans tout le département." : "Aucune recherche lancée.") ?>
 					</p>
 				<?php } elseif ($apiCarburantsErreur) { ?>
-				<p class="empty-state"><?= texte_securise("Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard.") ?></p>
+				<p class="message-vide"><?= texte_securise("Impossible d'afficher les stations : l'API officielle des carburants ne répond pas. Réessayez plus tard.") ?></p>
 				<?php } elseif ($stations === []) { ?>
-				<p class="empty-state">
+				<p class="message-vide">
 					<?= texte_securise("Aucune station trouvée avec ces critères.") ?>
 					<?php if ($modeRayonManuel) { ?>
 						<?= texte_securise("Vous pouvez aussi augmenter le rayon de recherche.") ?>
 					<?php } ?>
 				</p>
 				<?php } else { ?>
-					<p class="small-note"><?= texte_securise((string) count($stations)) ?> <?= texte_securise("station(s) trouvée(s).") ?></p>
+					<p class="note-discrete"><?= texte_securise((string) count($stations)) ?> <?= texte_securise("station(s) trouvée(s).") ?></p>
 					<?php if ($stationsMasquees > 0) { ?>
-						<p class="small-note">
+						<p class="note-discrete">
 							<?= texte_securise("Pour limiter le poids de la page, seules les") ?> <?= texte_securise((string) count($stationsAffichees)) ?>
 							<?= texte_securise("premières stations sont affichées.") ?> <?= texte_securise("Elles correspondent aux résultats") ?>
 							<?= texte_securise($tri === "price" ? "les moins chers" : "les plus pertinents selon le tri choisi") ?>.
 						</p>
 					<?php } ?>
-					<p class="small-note">
+					<p class="note-discrete">
 						<?= texte_securise("Les prix dépendent de la dernière mise à jour transmise par l'API officielle.") ?>
 						<?= texte_securise("Certaines stations peuvent ne pas proposer tous les carburants sélectionnés.") ?>
 					</p>
 
 					<?php if ($prixMoyenRecherche !== null && $meilleureStation !== null) { ?>
-						<div class="stats-inline result-summary">
-							<div class="stat-chip">
+						<div class="stats-en-ligne resume-resultats">
+							<div class="pastille-stat">
 								<strong><?= texte_securise(formater_prix($prixMoyenRecherche)) ?></strong>
 								<span><?= texte_securise("prix moyen trouvé sur les stations affichées") ?></span>
 							</div>
-							<a class="stat-chip best-price-link" href="#station-<?= texte_securise((string) $meilleureStation["id"]) ?>">
+							<a class="pastille-stat lien-meilleur-prix" href="#station-<?= texte_securise((string) $meilleureStation["id"]) ?>">
 								<strong><?= texte_securise(formater_prix((float) $meilleureStation["main_price"])) ?></strong>
 								<span><?= texte_securise("meilleur prix affiché") ?> - <?= texte_securise($meilleureStation["name"]) ?></span>
 								<small><?= texte_securise("Cliquer pour voir la station") ?></small>
@@ -376,7 +376,7 @@ require __DIR__ . "/includes/header.php";
 						</div>
 					<?php } ?>
 
-					<div class="cards">
+					<div class="cartes">
 						<?php foreach ($stationsAffichees as $station) { ?>
 							<?php
 								$ancreStation = (string) $station["id"];
@@ -401,15 +401,15 @@ require __DIR__ . "/includes/header.php";
 								}
 								$servicesStation = services_station_affichables($station["services"] ?? []);
 								?>
-							<article class="station-card" id="station-<?= texte_securise($ancreStation) ?>">
-							<div class="station-top">
+							<article class="carte-station" id="station-<?= texte_securise($ancreStation) ?>">
+							<div class="haut-station">
 								<div>
 										<h3><?= texte_securise($nomStationAffiche) ?></h3>
 									<p><?= texte_securise($station["address"]) ?>, <?= texte_securise($station["postal_code"]) ?> <?= texte_securise($station["city_name"]) ?></p>
 									</div>
-										<div class="price-box">
+										<div class="bloc-prix">
 											<?php foreach ($prixCarburantsSelectionnes as $prixSelectionne) { ?>
-												<div class="price-line">
+												<div class="ligne-prix">
 													<span><?= texte_securise($prixSelectionne["name"]) ?></span>
 													<strong><?= texte_securise(formater_prix((float) $prixSelectionne["value"])) ?></strong>
 												</div>
@@ -418,10 +418,10 @@ require __DIR__ . "/includes/header.php";
 							</div>
 
 								<?php if ($vue === "summary") { ?>
-									<details class="station-detail-disclosure">
-										<summary class="secondary-btn detail-toggle station-detail-summary"><?= texte_securise("Voir les détails") ?></summary>
-										<div class="station-detail-content">
-											<p class="meta-line">
+									<details class="details-station">
+										<summary class="bouton-secondaire bouton-detail resume-detail-station"><?= texte_securise("Voir les détails") ?></summary>
+										<div class="contenu-details-station">
+											<p class="ligne-meta">
 												<?= texte_securise("Distance :") ?> <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
 												| <?= texte_securise("flux") ?> <?= texte_securise($station["source"]) ?>
 												<?php if (formater_date_heure($station["main_updated_at"] ?? "") !== "") { ?>
@@ -429,22 +429,22 @@ require __DIR__ . "/includes/header.php";
 												<?php } ?>
 											</p>
 
-											<div class="services-block">
-												<p class="services-title"><?= texte_securise("Services disponibles") ?></p>
+											<div class="bloc-services">
+												<p class="titre-services"><?= texte_securise("Services disponibles") ?></p>
 												<?php if ($servicesStation !== []) { ?>
-													<div class="services-list">
+													<div class="liste-services">
 														<?php foreach ($servicesStation as $serviceStation) { ?>
-															<span class="badge service-badge"><?= texte_securise($serviceStation) ?></span>
+															<span class="badge badge-service"><?= texte_securise($serviceStation) ?></span>
 														<?php } ?>
 													</div>
 												<?php } else { ?>
-													<p class="small-note"><?= texte_securise("Aucun service indique.") ?></p>
+													<p class="note-discrete"><?= texte_securise("Aucun service indique.") ?></p>
 												<?php } ?>
 											</div>
 										</div>
 									</details>
 								<?php } else { ?>
-									<p class="meta-line">
+									<p class="ligne-meta">
 										<?= texte_securise("Distance :") ?> <?= texte_securise(number_format($station["distance"], 1, ",", " ")) ?> km
 										| <?= texte_securise("flux") ?> <?= texte_securise($station["source"]) ?>
 										<?php if (formater_date_heure($station["main_updated_at"] ?? "") !== "") { ?>
@@ -452,30 +452,30 @@ require __DIR__ . "/includes/header.php";
 										<?php } ?>
 										</p>
 
-									<div class="services-block">
-										<p class="services-title"><?= texte_securise("Services disponibles") ?></p>
+									<div class="bloc-services">
+										<p class="titre-services"><?= texte_securise("Services disponibles") ?></p>
 										<?php if ($servicesStation !== []) { ?>
-											<div class="services-list">
+											<div class="liste-services">
 												<?php foreach ($servicesStation as $serviceStation) { ?>
-													<span class="badge service-badge"><?= texte_securise($serviceStation) ?></span>
+													<span class="badge badge-service"><?= texte_securise($serviceStation) ?></span>
 												<?php } ?>
 											</div>
 										<?php } else { ?>
-											<p class="small-note"><?= texte_securise("Aucun service indique.") ?></p>
+											<p class="note-discrete"><?= texte_securise("Aucun service indique.") ?></p>
 										<?php } ?>
 									</div>
 								<?php } ?>
 
-								<div class="form-actions station-actions">
+								<div class="actions-formulaire actions-station">
 									<?php if ($lienCarteStation !== "") { ?>
-										<a class="secondary-btn map-link-btn" href="<?= texte_securise($lienCarteStation) ?>" target="_blank" rel="noopener"><?= texte_securise("Voir sur une carte") ?></a>
+										<a class="bouton-secondaire bouton-carte" href="<?= texte_securise($lienCarteStation) ?>" target="_blank" rel="noopener"><?= texte_securise("Voir sur une carte") ?></a>
 									<?php } ?>
 								</div>
 							</article>
 						<?php } ?>
 					</div>
-					<div class="form-actions bottom-actions">
-						<a class="cta-link" href="<?= texte_securise($lienRecherche) ?>"><?= texte_securise("Retour à la recherche") ?></a>
+					<div class="actions-formulaire actions-bas-page">
+						<a class="lien-action" href="<?= texte_securise($lienRecherche) ?>"><?= texte_securise("Retour à la recherche") ?></a>
 					</div>
 				<?php } ?>
 			</section>
