@@ -162,4 +162,31 @@ require __DIR__ . "/includes/header.php";
 	</section>
 </main>
 
+<script>
+function recupererPositionGps() {
+	if (!navigator.geolocation) {
+		document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> GPS indisponible";
+		return;
+	}
+
+	document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Recherche en cours...";
+
+	navigator.geolocation.getCurrentPosition(
+		function (position) {
+			var latitude = position.coords.latitude;
+			var longitude = position.coords.longitude;
+			var precision = position.coords.accuracy;
+
+			document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Position trouvee";
+			document.getElementById("gps-latitude").innerHTML = "<strong>Latitude :</strong> " + latitude;
+			document.getElementById("gps-longitude").innerHTML = "<strong>Longitude :</strong> " + longitude;
+			document.getElementById("gps-precision").innerHTML = "<strong>Precision :</strong> " + precision + " metres";
+		},
+		function () {
+			document.getElementById("gps-etat").innerHTML = "<strong>Etat :</strong> Autorisation refusee ou position indisponible";
+		}
+	);
+}
+</script>
+
 <?php require __DIR__ . "/includes/footer.php"; ?>
