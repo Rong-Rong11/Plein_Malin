@@ -16,6 +16,7 @@ $theme = gerer_theme();
 $donneesGeo = recuperer_geolocalisation();
 $statistiques = calculer_statistiques();
 $stationsXml = lire_stations_xml_demo();
+$sourceXmlCarburants = "https://donnees.roulez-eco.fr/opendata/annee/" . date("Y");
 
 // Appel de demonstration JSON conserve pour montrer l'exploitation d'une API.
 $adresseUrl = "https://ghibliapi.vercel.app/films";
@@ -41,7 +42,7 @@ require __DIR__ . "/includes/header.php";
 			<h2><?= texte_securise("Synthese technique du projet") ?></h2>
 			<ul class="plain-list">
 				<li><strong>JSON</strong> : <?= texte_securise("geolocalisation IP et API officielle des prix carburants, traitees cote serveur en PHP.") ?></li>
-				<li><strong>XML</strong> : <?= texte_securise("lecture de") ?> <code>data/sample_fuel_prices.xml</code> <?= texte_securise("et archive annuelle officielle pour les tendances de prix.") ?></li>
+				<li><strong>XML</strong> : <?= texte_securise("lecture de l'archive annuelle officielle des prix carburants.") ?></li>
 				<li><strong>CSV</strong> : <?= texte_securise("regions, departements, villes, consultations et visites de pages.") ?></li>
 				<li><strong>Cookies</strong> : <?= texte_securise("theme jour/nuit, langue, derniere recherche et derniere ville consultee.") ?></li>
 				<li><strong>Statistiques</strong> : <?= texte_securise("tops des villes, departements, regions, carburants, modes de recherche et tendances de prix.") ?></li>
@@ -89,7 +90,12 @@ require __DIR__ . "/includes/header.php";
 
 		<section class="info-block tech-feature">
 				<h2><?= texte_securise("Flux XML carburants") ?></h2>
-				<p><?= texte_securise("Lecture de") ?> <code>data/sample_fuel_prices.xml</code> <?= texte_securise("avec") ?> <code>simplexml_load_file()</code>.</p>
+				<p>
+					<?= texte_securise("Lecture cote serveur du flux XML officiel depuis") ?>
+					<a href="<?= texte_securise($sourceXmlCarburants) ?>">
+						<?= texte_securise("donnees.roulez-eco.fr") ?>
+					</a>.
+				</p>
 				<?php if ($stationsXml === []) { ?>
 					<p class="empty-state"><?= texte_securise("Aucune donnee XML disponible.") ?></p>
 				<?php } else { ?>
